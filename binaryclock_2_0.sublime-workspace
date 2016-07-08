@@ -1,0 +1,1206 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"rtc_",
+				"rtc_time_ptr"
+			],
+			[
+				"incr",
+				"increment_time"
+			],
+			[
+				"timer",
+				"timer_expired"
+			],
+			[
+				"by",
+				"byte_0"
+			],
+			[
+				"bty",
+				"byte_2"
+			],
+			[
+				"byt",
+				"byte_0"
+			],
+			[
+				"uart_",
+				"uart_command"
+			],
+			[
+				"WAIT",
+				"WAITING_FOR_COMMAND"
+			],
+			[
+				"IDN",
+				"IND_LED1	(ports.h)"
+			],
+			[
+				"IND",
+				"IND_LED0	(ports.h)"
+			],
+			[
+				"color",
+				"color_mask"
+			],
+			[
+				"colo",
+				"color_mask"
+			],
+			[
+				"RTC",
+				"RTC_interrupt"
+			],
+			[
+				"rese",
+				"reset_timer"
+			],
+			[
+				"LED_",
+				"LEDDRV_SDI"
+			],
+			[
+				"LED",
+				"LEDDRV_LE	(ports.h)"
+			],
+			[
+				"col",
+				"column"
+			],
+			[
+				"REC",
+				"RECEIEVE_DELTASIGMA_1"
+			],
+			[
+				"ignor",
+				"ignore_vals"
+			],
+			[
+				"rx_",
+				"rx_data"
+			],
+			[
+				"RECEIVE_",
+				"RECEIEVE_DELTASIGMA"
+			],
+			[
+				"max_",
+				"max_val	statement"
+			],
+			[
+				"fft_1_ne",
+				"fft_1_nextout_posedge"
+			],
+			[
+				"fft_2_x1",
+				"fft_2_x1_Im"
+			],
+			[
+				"fft_2_nex",
+				"fft_2_next"
+			],
+			[
+				"ram_3_wr",
+				"ram_3_write_enable"
+			],
+			[
+				"ram_3_",
+				"ram_3_write_enable"
+			],
+			[
+				"ram_3_write",
+				"ram_3_write_address"
+			],
+			[
+				"temp_",
+				"temp_results	statement"
+			],
+			[
+				"allr",
+				"all_results	statement"
+			],
+			[
+				"temp",
+				"temp_results	statement"
+			],
+			[
+				"all_r",
+				"all_results	statement"
+			],
+			[
+				"x_da",
+				"x_data_dist"
+			],
+			[
+				"FIR_d",
+				"FIR_datain_valid"
+			],
+			[
+				"VCO_",
+				"VCO_LOW"
+			],
+			[
+				"vco_",
+				"vco_state"
+			],
+			[
+				"all",
+				"allow_deltasigma"
+			],
+			[
+				"RESET",
+				"RESET_REGS"
+			],
+			[
+				"delt",
+				"deltasigma_clk"
+			],
+			[
+				"all_",
+				"all_results	statement"
+			],
+			[
+				"si",
+				"signal	module"
+			],
+			[
+				"lin",
+				"linspace	function"
+			],
+			[
+				"y_d",
+				"y_data_arr"
+			],
+			[
+				"x_",
+				"x_data_arr"
+			],
+			[
+				"ma_",
+				"max_val"
+			],
+			[
+				"log",
+				"log10	function"
+			],
+			[
+				"result",
+				"result_log"
+			],
+			[
+				"ram_fft",
+				"ram_fft_mag_dataout"
+			],
+			[
+				"plot_a",
+				"plot_arr	function"
+			],
+			[
+				"plot",
+				"plot_number"
+			],
+			[
+				"plo",
+				"plot_point	function"
+			],
+			[
+				"clea",
+				"clear_points	function"
+			],
+			[
+				"y_da",
+				"y_data1"
+			],
+			[
+				"y_",
+				"y_data2"
+			],
+			[
+				"x_d",
+				"x_data_array"
+			],
+			[
+				"sho",
+				"show_plot	function"
+			],
+			[
+				"plot_",
+				"plot_len"
+			],
+			[
+				"cler",
+				"clear_points	function"
+			],
+			[
+				"py",
+				"pyplot	module"
+			],
+			[
+				"pre",
+				"predistort_posedge"
+			],
+			[
+				"GPIO",
+				"GPIO0_D"
+			],
+			[
+				"de",
+				"deltasigma_1I"
+			],
+			[
+				"dela",
+				"deltasigma_clk_bufferred"
+			],
+			[
+				"FIR",
+				"FIR_datain_valid"
+			],
+			[
+				"det",
+				"deltasigma_2Q"
+			],
+			[
+				"over",
+				"overflow"
+			],
+			[
+				"oup",
+				"output_data"
+			],
+			[
+				"ram_da",
+				"ram_datain_2_Re"
+			],
+			[
+				"if",
+				"ifmain	if __name__ == '__main__'"
+			],
+			[
+				"ram_fir_2I",
+				"ram_fir_2I_writeenable_a"
+			],
+			[
+				"ram_fir_2Q",
+				"ram_fir_2Q_address_a"
+			],
+			[
+				"FFT",
+				"FFT_input_index"
+			],
+			[
+				"ram_fir_1I_d",
+				"ram_fir_1I_data_out_b"
+			],
+			[
+				"FIR_Q2_",
+				"FIR_Q2_dataout"
+			],
+			[
+				"FIR_I2_d",
+				"FIR_I2_dataout"
+			],
+			[
+				"FIR_Q1_",
+				"FIR_Q1_dataout"
+			],
+			[
+				"ram_fir_1I_data",
+				"ram_fir_1I_data_in_a"
+			],
+			[
+				"ram_fir_1I_wir",
+				"ram_fir_1I_writeenable_b"
+			],
+			[
+				"ram_fir_",
+				"ram_fir_1I_writeenable_a"
+			],
+			[
+				"ram_fir_write",
+				"ram_fir_1I_write_enable"
+			],
+			[
+				"out",
+				"output_data"
+			],
+			[
+				"data",
+				"data1"
+			],
+			[
+				"fil",
+				"filename"
+			],
+			[
+				"filen",
+				"filename1"
+			],
+			[
+				"send",
+				"sending"
+			],
+			[
+				"FIR_I1",
+				"FIR_I1_dataout"
+			],
+			[
+				"FIR_dat",
+				"FIR_dataout_I2_valid"
+			],
+			[
+				"FIR_da",
+				"FIR_dataout_Q1_valid"
+			],
+			[
+				"re",
+				"receive_data"
+			],
+			[
+				"FIR_I1_",
+				"FIR_I1_datain"
+			],
+			[
+				"output",
+				"output_index"
+			],
+			[
+				"fir_out",
+				"FIR_out_arr"
+			],
+			[
+				"fft_",
+				"fft_result_deriv"
+			],
+			[
+				"FIR_dataout_",
+				"FIR_dataout_err"
+			],
+			[
+				"FIR_",
+				"FIR_datain_err"
+			],
+			[
+				"Tr",
+				"TRANSMIT_LOWER_BEGIN"
+			],
+			[
+				"TRAN",
+				"TRANSMIT_UPPER_END"
+			],
+			[
+				"tx",
+				"tx_busy"
+			],
+			[
+				"tx_d",
+				"tx_done"
+			],
+			[
+				"tx_",
+				"tx_start"
+			],
+			[
+				"FIR_out",
+				"FIR_out_index"
+			],
+			[
+				"RE",
+				"RECEIEVE_UPPER"
+			],
+			[
+				"rx",
+				"rx_rcvd_posedge"
+			],
+			[
+				"reset",
+				"reset_n"
+			],
+			[
+				"read_",
+				"read_write_cmd"
+			],
+			[
+				"num",
+				"num_of_bytes_sampled"
+			],
+			[
+				"bus",
+				"module_busy"
+			],
+			[
+				"FLASH",
+				"FLASH_DCLK"
+			],
+			[
+				"sample",
+				"num_of_bytes_sampled"
+			],
+			[
+				"addres",
+				"address_sampled"
+			],
+			[
+				"FLASH_",
+				"FLASH_DATA"
+			],
+			[
+				"power",
+				"power_on"
+			],
+			[
+				"INIT_",
+				"INIT_END"
+			],
+			[
+				"EN",
+				"ENHANCED_VOLTATILE_CONFIG"
+			],
+			[
+				"swi",
+				"switch_rw"
+			],
+			[
+				"switc",
+				"switch_rw"
+			],
+			[
+				"CMD_WRITE",
+				"CMD_WRITE_ENHANCED_VOLATILE_CONFIG_REG"
+			],
+			[
+				"init",
+				"initialize_state"
+			],
+			[
+				"read_write",
+				"read_write_internal"
+			],
+			[
+				"DWIDTH_",
+				"DWIDTH_OUT-1"
+			],
+			[
+				"b_",
+				"b_out_bitshift"
+			],
+			[
+				"DWID",
+				"DWIDTH_OUT"
+			],
+			[
+				"DECIM",
+				"DECIMATED_STAGES"
+			],
+			[
+				"tb_",
+				"tb_len"
+			],
+			[
+				"DW",
+				"DWIDTH-1"
+			],
+			[
+				"CLK",
+				"CLKEN"
+			],
+			[
+				"receive",
+				"receive	function"
+			],
+			[
+				"rece",
+				"receive_code	statement"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "firmware/main.c",
+			"settings":
+			{
+				"buffer_size": 5295,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "#define LED0 ",
+			"file": "firmware/hardware.h",
+			"file_size": 0,
+			"file_write_time": 131123403660000000,
+			"settings":
+			{
+				"buffer_size": 13,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 87.0,
+		"last_filter": "Package Control: remove",
+		"selected_items":
+		[
+			[
+				"Package Control: remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"Package Control: remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"Package Control: ins",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: inst",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: disable",
+				"Package Control: Disable Package"
+			],
+			[
+				"Package Control: dis",
+				"Package Control: Disable Package"
+			],
+			[
+				"Package Control:insta",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 521.0
+	},
+	"console":
+	{
+		"height": 139.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": true,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Volumes/Mac Data/Binary Clock 2.0/Source/firmware",
+		"/usr/local/CrossPack-AVR-20131216/avr/include"
+	],
+	"file_history":
+	[
+		"/Volumes/Mac Data/Binary Clock 2.0/Source/firmware/hardware.h",
+		"/Volumes/Mac Data/Binary Clock 2.0/Source/firmware/hardware.c",
+		"/Volumes/Mac Data/Binary Clock 2.0/Source/firmware/RTC.c",
+		"/Volumes/Mac Data/Binary Clock 2.0/Source/firmware/RTC.h",
+		"/Volumes/Mac Data/Binary Clock 2.0/Source/firmware/UART.h",
+		"/Volumes/Mac Data/Binary Clock 2.0/Source Code/main.c",
+		"/Users/tylerholmes/Desktop/BinaryClock.csv",
+		"/Volumes/Mac Data/autopy/README.markdown",
+		"/Volumes/Mac Data/Binary Clock 2.0 Source Code/UART.c",
+		"/Volumes/Mac Data/Binary Clock 2.0 Source Code/main.c",
+		"/Volumes/Mac Data/Binary Clock 2.0 Source Code/LEDs.c",
+		"/Volumes/Mac Data/Binary Clock 2.0 Source Code/ports.h",
+		"/Volumes/Mac Data/Binary Clock 2.0 Source Code/LEDs.h",
+		"/Volumes/Mac Data/Binary Clock 2.0 Source Code/timer.c",
+		"/Volumes/Mac Data/Binary Clock 2.0 Source Code/timer.h",
+		"/Volumes/Mac Data/KiCad Projects/BinaryClock/BC_gerbs_3-6-16/BinaryClock-B.SilkS.gbr",
+		"/Volumes/Mac Data/KiCad Projects/BinaryClock/BinaryClock.xml",
+		"/Users/tylerholmes/Documents/Classes_sorted.txt",
+		"/Users/tylerholmes/Documents/Classes.txt",
+		"/Volumes/Mac Data/USTSeniorDesign2016/ReceiveDeltaSigma_Test/DECA.v",
+		"/Volumes/Mac Data/USTSeniorDesign2016/FFT_1024_itterative/DECA.v",
+		"/Users/tylerholmes/Dropbox/St Thomas Project/Uncontrolled Documents/Python Scripts - Current/4_FFT_FIR_UART_test.py",
+		"/Volumes/Mac Data/USTSeniorDesign2016/UART_test/DECA.v",
+		"/Volumes/Mac Data/USTSeniorDesign2016/FIR_FFT_CatronDevBoard_matlab/DECA.v",
+		"/Users/tylerholmes/Dropbox/St Thomas Project/Uncontrolled Documents/Python Scripts - Current/SD_display.py",
+		"/Volumes/Mac Data/USTSeniorDesign2016/FIR_FFT_CatronDevBoard_twoClks_FFT/DECA.v",
+		"/Users/tylerholmes/Desktop/1001740779_1306290.lic",
+		"/Volumes/Mac Data/USTSeniorDesign2016/FIR_FFT_CatronDevBoard_twoClks/DECA.v",
+		"/Users/tylerholmes/Desktop/total_len.py",
+		"/Volumes/Mac Data/USTSeniorDesign2016/FIR_FFT_CatronDevBoard/DECA.v",
+		"/Volumes/Mac Data/USTSeniorDesign2016/UART_4_FIR_FFT_test/DECA.v",
+		"/Users/tylerholmes/Documents/MyClasses_developedatwork.py",
+		"/Volumes/Mac Data/USTSeniorDesign2016/Modules/timer.v",
+		"/Volumes/Mac Data/USTSeniorDesign2016/predistortion_trigger_test/DECA.v",
+		"/Volumes/Mac Data/USTSeniorDesign2016/Modules/ram.v",
+		"/Volumes/Mac Data/USTSeniorDesign2016/Modules/spi2c.v",
+		"/Users/tylerholmes/Desktop/plot_data.py",
+		"/Volumes/Mac Data/USTSeniorDesign2016/Modules/SpiralFFT/Spiral_1024_itterative_scaled/dft_top.v",
+		"/Users/tylerholmes/Dropbox/St Thomas Project/Uncontrolled Documents/Python Scripts - Current/FFT_Data.txt",
+		"/Users/tylerholmes/Dropbox/St Thomas Project/Uncontrolled Documents/Python Scripts - Current/SerialDebug.txt",
+		"/Volumes/Mac Data/USTSeniorDesign2016/UART_FIR_FFT_test/DECA.v",
+		"/Users/tylerholmes/Dropbox/St Thomas Project/Uncontrolled Documents/Python Scripts - Current/filter_deltasigmadata.py",
+		"/Volumes/Mac Data/USTSeniorDesign2016/Modules/SpiralFFT/Spiral_1024_iterative_radix_2_width_2/dft_top.v",
+		"/Users/tylerholmes/Dropbox/St Thomas Project/Uncontrolled Documents/Python Scripts - Current/PlotFFT.py",
+		"/Volumes/Mac Data/USTSeniorDesign2016/FFT_1024_stream_Altera/DECA.v",
+		"/Users/tylerholmes/Dropbox/St Thomas Project/Uncontrolled Documents/FFT_UART_test.py",
+		"/Volumes/Mac Data/USTSeniorDesign2016/FFT_1024_stream/DECA.v",
+		"/Volumes/Mac Data/USTSeniorDesign2016/FIR_UART_test/DECA.v",
+		"/Users/tylerholmes/Dropbox/St Thomas Project/Uncontrolled Documents/Deca_DeltaSigmaFilter_UARTinout.py",
+		"/Users/tylerholmes/Dropbox/St Thomas Project/Uncontrolled Documents/SerialReceiveTest.py",
+		"/Volumes/Mac Data/USTSeniorDesign2016/Modules/FIRPolyphase/FIRpoly.v",
+		"/Volumes/Mac Data/USTSeniorDesign2016/Modules/qspi_mem.v",
+		"/Users/tylerholmes/Desktop/Pong.v",
+		"/Volumes/Mac Data/USTSeniorDesign2016/Modules/FIRPolyphase/tb_FIRpoly_deltasigma.v",
+		"/Users/tylerholmes/Dropbox/St Thomas Project/Uncontrolled Documents/filter_deltasigmadata.py",
+		"/Volumes/Mac Data/USTSeniorDesign2016/Modules/FIR_sig_altmult_acc.v",
+		"/Volumes/Mac Data/USTSeniorDesign2016/Modules/FIRPolyphase/tb_FIRpoly.v",
+		"/Users/tylerholmes/Desktop/printCoefs.py",
+		"/Volumes/Mac Data/USTSeniorDesign2016/Modules/FIRPolyphase/tb_FIRpoly_25MHz180kHz.v",
+		"/Users/tylerholmes/Dropbox/St Thomas Project/Uncontrolled Documents/square_root_integer.py",
+		"/Volumes/Mac Data/USTSeniorDesign2016/Modules/SpiralFFT/Spiral_1024_streaming/dft_top.v",
+		"/Users/tylerholmes/Dropbox/St Thomas Project/Uncontrolled Documents/testbench_generator.py",
+		"/Volumes/Mac Data/USTSeniorDesign2016/Modules/FIRPolyphase/FIRpoly_block.v",
+		"/Volumes/Mac Data/USTSeniorDesign2016/Modules/FIR Polyphase/FIRpoly_block.v",
+		"/Users/tylerholmes/Dropbox/St Thomas Project/Uncontrolled Documents/coef_gen.py",
+		"/Volumes/Mac Data/USTSeniorDesign2016/Modules/FIR_multiStage.v",
+		"/Volumes/Mac Data/USTSeniorDesign2016/Modules/FIR_block.v",
+		"/Volumes/Mac Data/USTSeniorDesign2016/Modules/FIR Polyphase/tb_FIRpoly.v",
+		"/Volumes/Mac Data/USTSeniorDesign2016/Modules/FIR Polyphase/FIRpoly.v",
+		"/Volumes/Mac Data/USTSeniorDesign2016/Modules/TestBenches/FIR_polyphase_load_sim.tcl",
+		"/Volumes/Mac Data/USTSeniorDesign2016/Modules/TestBenches/tb_FIR_multiStage.v",
+		"/Users/tylerholmes/Desktop/ENGL 121/XP 4-8",
+		"/Users/tylerholmes/Desktop/ENGL 121/XP 4-6",
+		"/Users/tylerholmes/Dropbox/St Thomas Project/Uncontrolled Documents/SerialLoopbackTest.py",
+		"/Volumes/Mac Data/Senior Design/FIR_filter_102stage/FIR_filterDesign/FIR_filterDesign.srcs/sources_1/new/FIR_multiStage.v",
+		"/Volumes/Mac Data/USTSeniorDesign2016/Modules/tb_FIR_multiStage.v",
+		"/Volumes/Mac Data/USTSeniorDesign2016/UART_test/UART_RX.v",
+		"/Volumes/Mac Data/USTSeniorDesign2016/UART_test/UART_TX.v",
+		"/Users/tylerholmes/Desktop/ENGL 121/XP 3-11",
+		"/Users/tylerholmes/Desktop/IEEE Extreme/IEEE State of Mind _ Challenge _ IEEExtreme9.0 _ HackerRank_files/challenge-views-34801b5b57537182c6e22653904f5bad.js",
+		"/Users/tylerholmes/Dropbox/St Thomas Project/Uncontrolled Documents/FIR Filter Verilog Design/create_coeff.py",
+		"/Volumes/Mac Data/Senior Design/SpiralFFT/Spiral_4096_iterative_radix_2_width_2/dft_top_10bit.v",
+		"/Volumes/Mac Data/Senior Design/SpiralFFT/spiralfft_itterative_4096.v",
+		"/Volumes/Mac Data/Raw Delta Sigma CSVs/Output Files - Mods/CSVplotter.py",
+		"/Volumes/Mac Data/Raw Delta Sigma CSVs/Output Files - Mods/fixFilterCoeff.py",
+		"/Volumes/Mac Data/Raw Delta Sigma CSVs/Output Files - Mods/fixmatlab_filter_coeff.txt",
+		"/Volumes/Mac Data/Raw Delta Sigma CSVs/Output Files - Mods/matlab_filter_coeff.txt",
+		"/Volumes/Mac Data/Raw Delta Sigma CSVs/cc_1m_0in_25MHz_i1.txt",
+		"/Volumes/Mac Data/Raw Delta Sigma CSVs/56in_18in_Q1.txt",
+		"/Volumes/USB20FD/deltasigma_26in_10in.txt",
+		"/Users/tylerholmes/Library/Application Support/Sublime Text 3/Packages/Anaconda/Anaconda.sublime-settings",
+		"/Users/tylerholmes/Library/Application Support/Sublime Text 3/Packages/User/Anaconda.sublime-settings",
+		"/Volumes/Mac Data/Raw Delta Sigma CSVs/Output Files - Mods/Fixed CSVs/CSVplotter.py",
+		"/Volumes/Mac Data/Raw Delta Sigma CSVs/Output Files - Mods/Fixed CSVs/section1_fix_CornerCube_16in_zeroDegrees.csv",
+		"/Volumes/Mac Data/Raw Delta Sigma CSVs/Output Files - Mods/Fixed CSVs/section0_fix_CornerCube_16in_zeroDegrees.csv",
+		"/Volumes/Mac Data/Raw Delta Sigma CSVs/Output Files - Mods/Fixed CSVs/CSVsplitter.py",
+		"/Volumes/Mac Data/Raw Delta Sigma CSVs/Output Files - Mods/Fixed CSVs/CSV_run.sh",
+		"/Volumes/Mac Data/Raw Delta Sigma CSVs/Output Files - Mods/Fixed CSVs/CSVparser.py",
+		"/Volumes/Mac Data/Raw Delta Sigma CSVs/Output Files - Mods/Fixed CSVs/output_2.csv",
+		"/Users/tylerholmes/Desktop/ENGL 121/XP 2-15",
+		"/Volumes/Mac Data/Raw Delta Sigma CSVs/Output Files - Mods/Fixed CSVs/fix_CornerCube_1m_zeroDegrees.csv",
+		"/Volumes/Mac Data/Raw Delta Sigma CSVs/Output Files - Mods/CSV_repair.py",
+		"/Volumes/Mac Data/Raw Delta Sigma CSVs/Output Files - Mods/fix_CornerCube_1m_zeroDegrees.csv",
+		"/Volumes/Mac Data/Raw Delta Sigma CSVs/Output Files - Mods/CSVparser.py",
+		"/Volumes/Mac Data/Raw Delta Sigma CSVs/CSVparser.py",
+		"/Volumes/Mac Data/Raw Delta Sigma CSVs/Output Files - Original/CornerCube_1m_zeroDegrees.csv",
+		"/Users/tylerholmes/Dropbox/St Thomas Project/Uncontrolled Documents/Raw Delta Sigma CSVs/Channel_Assignments.txt",
+		"/Volumes/Mac Data/Senior Design/UART_testing/UARTtest_parallel_io/baudclk_gen.v",
+		"/Volumes/Mac Data/Senior Design/UART_testing/UARTtest_parallel_io/baudclk_gen_bb.v",
+		"/Users/tylerholmes/Desktop/ENGL 121/Short Stories/XP_2_12.txt",
+		"/Volumes/Mac Data/Senior Design/SpiralFFT/Spiral_1024_iterative_radix_2_width_2/dft_top.v",
+		"/Volumes/Mac Data/Senior Design/SpiralFFT/Spiral_1024_streaming/SpiralFFT_1024_16b_scalled.v",
+		"/Volumes/Mac Data/Senior Design/SpiralFFT/SpiralFFT_1024_16b_scalled.v",
+		"/Volumes/Mac Data/Senior Design/UARTtest/UART_TX.v",
+		"/Volumes/Mac Data/Senior Design/UARTtest/UART_RX.v",
+		"/Volumes/Mac Data/Senior Design/UARTtest/UART_Loopback.v",
+		"/Users/tylerholmes/Desktop/Senior Design/My Verilog Files/UART_TX.v",
+		"/Users/tylerholmes/Desktop/Senior Design/My Verilog Files/UART_RX.v",
+		"/Users/tylerholmes/Desktop/Senior Design/My Verilog Files/UART_Loopback.v",
+		"/Users/tylerholmes/Desktop/Senior Design/deltasigma_test.py",
+		"/Volumes/Mac Data/FFT.py",
+		"/Users/tylerholmes/Library/Application Support/Sublime Text 3/Packages/Anaconda/README.md",
+		"/Volumes/Mac Data/Python Scripts/ChangeDesktop.py",
+		"/Volumes/Mac Data/AutonomousSnowPlow/NonSkidSteer/NonSkidSteer.ino",
+		"/Volumes/Mac Data/AutonomousSnowPlow/Swashplate_reset_EXP/Swashplate_reset_EXP.ino",
+		"/Users/tylerholmes/Desktop/RS485_section.sch",
+		"/Users/tylerholmes/Desktop/Senior Design/SD_stateMachine.v",
+		"/Users/tylerholmes/Desktop/downsampledmatlab_FFT.py"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"int",
+			"state = ",
+			" = data",
+			".command",
+			"command",
+			"WAITING_",
+			"state",
+			"LEDDRV_OE",
+			".ones",
+			" & 10",
+			".tens",
+			"column",
+			"row",
+			"color = (",
+			"color",
+			"// Case Logic",
+			"int ",
+			"reset_timer();",
+			"bits = 19",
+			"red",
+			"ed",
+			"column == ",
+			"||",
+			"column == ",
+			"_G",
+			"_R",
+			"_R ",
+			" ||",
+			"ROW_",
+			"_R",
+			"#define ",
+			")",
+			"<<",
+			"red",
+			"MIN",
+			"MIN_",
+			"HOUR_",
+			"M_",
+			"H_",
+			"0b0",
+			"_4_",
+			"_8_",
+			"if(timer_expired) {",
+			"case: ",
+			"state = ",
+			"_01",
+			"_10",
+			"S_",
+			"S_10",
+			"Hour_",
+			"M_",
+			"H_",
+			"break;",
+			",",
+			" U   ",
+			"PHYS    ",
+			" U   ",
+			"ENGR    ",
+			"ENGR",
+			" U   ",
+			"    ",
+			"│",
+			"└──",
+			"├──",
+			"├",
+			".txt",
+			"\\",
+			"    ",
+			"* ",
+			"│",
+			"├── ",
+			"TRANSMIT_DATA_BEGIN",
+			" = ",
+			"44",
+			" - 44",
+			"44",
+			" + 44",
+			"plot_len / 8)",
+			"15:0",
+			"_2_",
+			"_1_",
+			"_Re",
+			"fft_1_",
+			"_1_",
+			"fft_1_",
+			"_1_",
+			"fft_1_",
+			"_1_",
+			"fft_y1_Im",
+			"fft_y1_Re",
+			"fft_y0_Im",
+			"fft_y0_Re",
+			"fft_x1_Re",
+			"fft_x1_Im",
+			"fft_x0_Im",
+			"fft_x0_Re",
+			"fft_next",
+			"_2_",
+			"_1_",
+			"_2_",
+			"_1_",
+			"2",
+			"44",
+			" / 2",
+			">= 2",
+			" <= ",
+			" <= 0;",
+			">= 3",
+			"<= ",
+			" = ",
+			"if",
+			"else",
+			" = ",
+			"<= #10",
+			"<=",
+			"high_counter = 0;",
+			"high_counter",
+			"FFT",
+			"256",
+			"result_1",
+			"_filtered",
+			"ax.",
+			"command_received",
+			"tx_data",
+			"averaging_cycles = ",
+			"ram_fft_mag_dataout",
+			"ram_fft_mag_datain",
+			"ram_fft_mag_dataout"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"",
+			"competitions",
+			"players"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "firmware/main.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5295,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								268,
+								268
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										268,
+										269
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										257,
+										258
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content"
+							],
+							"syntax": "Packages/C++/C.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "firmware/hardware.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 13,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								13,
+								13
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content"
+							],
+							"syntax": "Packages/C++/C++.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 25.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 112.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "Packages/User/C.sublime-build",
+	"project": "binaryclock_2_0.sublime-project",
+	"replace":
+	{
+		"height": 46.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 151.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
