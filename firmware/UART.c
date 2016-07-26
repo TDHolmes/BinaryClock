@@ -1,65 +1,51 @@
+#include <stdint.h>
+#include "UART_drvr_2313a.h"
 
-#define CMD_UPDATE_TIME  0x42
-#define CMD_UPDATE_COLOR 0x43
-#define CMD_INVALID      0x00
-
-enum {
-    WAITING_FOR_COMMAND,
-    WAITING_FOR_BYTE_0,
-    WAITING_FOR_BYTE_1,
-    WAITING_FOR_BYTE_2
+void UART_init(void)
+{
+    UART_drvr_init()
 }
 
-struct uart_command {
-    int command;
-    int byte_0;
-    int byte_1;
-    int byte_2;
-} uart_command;
-
-static int uart_state;
-
-void init_uart(void)
+void UART_transmit(uint8_t *data_to_tx_ptr, uint8_t len)
 {
-    uart_state = WAITING_FOR_COMMAND;
-    uart_command = {CMD_INVALID, 0, 0, 0};
-}
-
-void uart_interrupt(void)
-{
-    switch(uart_state) {
-        case WAITING_FOR_COMMAND: {
-            uart_command.command = data;
-            uart_state = WAITING_FOR_BYTE_0
-            break;
-        }
-
-        case WAITING_FOR_BYTE_0: {
-            uart_command.byte_0 = data;
-            uart_state = WAITING_FOR_BYTE_1
-            break;
-        }
-
-        case WAITING_FOR_BYTE_1: {
-            uart_command.byte_1 = data;
-            uart_state = WAITING_FOR_BYTE_2
-            break;
-        }
-
-        case WAITING_FOR_BYTE_2: {
-            uart_command.byte_2 = data;
-            uart_state = WAITING_FOR_COMMAND;
-            // Tell main that we have a valid UART message with data
-            break;
-        }
-
+    uint8_t bytes_left = len;
+    uint8_t *current_data_to_tx_ptr = data_to_tx_ptr;
+    while(bytes_left != 0) {
+        UART_drvr_send_byte(*current_data_to_tx_ptr);
+        current_data_to_tx_ptr += 1;
+        bytes_left -= 1;
     }
 }
 
-void get_uart_command_data(int *command_ptr, int *byte0_ptr, int *byte1_ptr, int *byte2_ptr)
+
+void UART_transmit_byte(uint8_t data_to_tx)
 {
-    *command_ptr = uart_command.command;
-    *byte0_ptr = uart_command.byte_0;
-    *byte1_ptr = uart_command.byte_1;
-    *byte2_ptr = uart_command.byte_2;
+    UART_drvr_send_byte(data_to_tx);
+}
+
+
+void UART_receive(uint8_t *receive_buffer_ptr, uint8_t len)
+{
+    uint8_t bytes_left = len;
+    uint8_t *current_data_to_rx_ptr = receive_buffer_ptr;
+    uint8_t retval;
+    while(bytes_left != 0) {
+        retval = UART_drvr_receive_byte(current_data_to_rx_ptr);
+        if (retval == PASS) {
+            current_data_to_rx_ptr += 1;
+            bytes_left -= 1;
+        }
+    }
+}
+
+
+uint8_t UART_receive_byte(void)
+{
+    uint8_t bytes_left = len;
+    uint8_t *current_data_to_rx_ptr;
+    uint8_t retval = FAIL;
+    while(retval != PASS) {
+        retval = UART_drvr_receive_byte(current_data_to_rx_ptr);
+    }
+    return *current_data_to_rx_ptr;
 }

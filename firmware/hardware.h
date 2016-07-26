@@ -7,3 +7,8 @@ void LED1_set(uint8_t val);
 
 #define ON  1
 #define OFF 0
+
+#define PASS 0
+#define FAIL 1
+
+#define F_OSC 8000000UL
