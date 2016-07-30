@@ -1,3 +1,6 @@
+#ifndef PORTS_H__
+#define PORTS_H__
+
 /****    PORT A    ****/
 #define IND_LED0     PA0
 #define RTC_SQW      PA1
@@ -23,3 +26,4 @@
 #define LEDDRV_LE   PD6
 // No 7th port
 
+#endif /* PORTS_H__ */

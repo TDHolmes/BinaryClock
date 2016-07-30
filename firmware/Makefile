@@ -20,7 +20,12 @@
 DEVICE     = atmega8
 CLOCK      = 8000000
 PROGRAMMER = #-c stk500v2 -P avrdoper
-OBJECTS    = main.o
+SOURCEDIR  = .
+BUILDDIR   = 
+SOURCES   := $(shell find $(SOURCEDIR) -name '*.c')
+#  Get list of object files, with paths
+OBJECTS := $(addprefix $(BUILDDIR),$(SOURCES:%.c=%.o))
+# OBJECTS    = main.o
 FUSES      = -U hfuse:w:0xd9:m -U lfuse:w:0x24:m
 
 # ATMega8 fuse bits used above (fuse bits for other devices are different!):

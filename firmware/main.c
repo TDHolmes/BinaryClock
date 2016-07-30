@@ -14,18 +14,6 @@
 
 // private structure declarations
 
-typedef struct {
-    uint8_t red;
-    uint8_t green;
-    uint8_t blue;
-} led_color_t;
-
-typedef struct {
-    uint8_t hour;
-    uint8_t min;
-    uint8_t sec;
-} rtc_time_t;
-
 // private function declarations
 void set_uart_flag(void);
 void set_timer_expired_flag(void);

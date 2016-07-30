@@ -1,3 +1,6 @@
+#ifndef LEDS_H__
+#define LEDS_H__
+
 #define ROW_8_R    0b000000000001
 #define ROW_8_G    0b000000000010
 #define ROW_8_B    0b000000000100
@@ -18,4 +21,12 @@
 #define COL_S_TENS 0b010000
 #define COL_S_ONES 0b100000
 
+typedef struct {
+    uint8_t red;
+    uint8_t green;
+    uint8_t blue;
+} led_color_t;
+
 void update_LEDs(int row, int column, int red, int green, int blue, int color_bit);
+
+#endif /* LEDS_H__ */
