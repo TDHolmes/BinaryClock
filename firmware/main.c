@@ -10,21 +10,10 @@
 #include "LEDs.h"
 #include "UART.h"
 #include "hardware.h"
+#include "timer.h"
+#include "color.h"
+#include "ports.h"
 #include <stdint.h>
-
-// private structure declarations
-
-typedef struct {
-    uint8_t red;
-    uint8_t green;
-    uint8_t blue;
-} led_color_t;
-
-typedef struct {
-    uint8_t hour;
-    uint8_t min;
-    uint8_t sec;
-} rtc_time_t;
 
 // private function declarations
 void set_uart_flag(void);
@@ -43,22 +32,27 @@ typedef enum {
     MIN_TENS,
     MIN_ONES,
     SEC_TENS,
-    SEC_ONES} state_t;
+    SEC_ONES
+} state_t;
 
 state_t state = WAIT;
 uint8_t uart_command_received = 0; // valid command received flag
 uint8_t timer_expired = 0;         // 15-20ish ms timer timeout flag
 
+
 int main(void)
 {
+    led_color_t colors;
+    led_color_t *colors_ptr;
+    rtc_time_t time;
+    rtc_time_t *time_ptr;
     uint8_t retval = 0;
     uint8_t color_bit = 7;           // index which color bit we're displaying
     uint8_t RTC_interrupt = 0;       // 1 Hz RTC interrupt flag
-    led_color_t colors = {128, 128, 128};  // initialize color struct to white @ 50% brightness
-    rtc_time_t time;
-    rtc_time_t *time_ptr = &time;
+    colors_ptr = &colors;
+    time_ptr = &time;
     // initialize everything
-    retval = init_hardware(&RTC_interrupt, &timer_expired, &colors, &time);
+    retval = init_hardware(&RTC_interrupt, &timer_expired, colors_ptr, time_ptr);
     if(retval != 0) {
         // error!
     } else {
@@ -86,7 +80,7 @@ int main(void)
                     retval = increment_time(time_ptr);  // increment time!!
                     reset_timer();
                     color_bit = 7;
-                    update_LEDs(time.hour / 10, COL_H_TENS, colors.red, colors.green, colors.blue, color_bit);
+                    update_LEDs(time_ptr, colors_ptr);
                     LED0_set(1);
                     LED1_set(0);
                     state = HOUR_TENS;
@@ -97,7 +91,7 @@ int main(void)
             case HOUR_TENS: {
                 if(timer_expired) {
                     reset_timer();
-                    update_LEDs(time.hour % 10, COL_H_ONES, colors.red, colors.green, colors.blue, color_bit);
+                    update_LEDs(time_ptr, colors_ptr);
                     state = HOUR_ONES;
                 }
                 break;
@@ -106,7 +100,7 @@ int main(void)
             case HOUR_ONES: {
                 if(timer_expired) {
                     reset_timer();
-                    update_LEDs(time.min / 10, COL_M_TENS, colors.red, colors.green, colors.blue, color_bit);
+                    update_LEDs(time_ptr, colors_ptr);
                     state = MIN_TENS;
                 }
                 break;
@@ -115,7 +109,7 @@ int main(void)
             case MIN_TENS: {
                 if(timer_expired) {
                     reset_timer();
-                    update_LEDs(time.min % 10, COL_M_ONES, colors.red, colors.green, colors.blue, color_bit);
+                    update_LEDs(time_ptr, colors_ptr);
                     state = MIN_ONES;
                 }
                 break;
@@ -124,7 +118,7 @@ int main(void)
             case MIN_ONES: {
                 if(timer_expired) {
                     reset_timer();
-                    update_LEDs(time.sec / 10, COL_S_TENS, colors.red, colors.green, colors.blue, color_bit);
+                    update_LEDs(time_ptr, colors_ptr);
                     state = SEC_TENS;
                 }
                 break;
@@ -133,7 +127,7 @@ int main(void)
             case SEC_TENS: {
                 if(timer_expired) {
                     reset_timer();
-                    update_LEDs(time.sec % 10, COL_S_ONES, colors.red, colors.green, colors.blue, color_bit);
+                    update_LEDs(time_ptr, colors_ptr);
                     state = SEC_ONES;
                 }
                 break;
@@ -145,7 +139,7 @@ int main(void)
                 } else {
                     color_bit -= 1;
                     reset_timer();
-                    update_LEDs(time.hour / 10, COL_H_TENS, colors.red, colors.green, colors.blue, color_bit);
+                    update_LEDs(time_ptr, colors_ptr);
                     state = HOUR_TENS;
                 }
                 break;

@@ -1,3 +1,10 @@
+#ifndef LEDS_H_
+#define LEDS_H_
+
+#include "timer.h"
+#include "color.h"
+#include <avr/io.h>
+
 #define ROW_8_R    0b000000000001
 #define ROW_8_G    0b000000000010
 #define ROW_8_B    0b000000000100
@@ -18,4 +25,7 @@
 #define COL_S_TENS 0b010000
 #define COL_S_ONES 0b100000
 
-void update_LEDs(int row, int column, int red, int green, int blue, int color_bit);
+
+void update_LEDs(rtc_time_t *t_ptr, led_color_t *c_ptr);
+
+#endif /* LEDS_H_ */

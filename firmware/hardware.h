@@ -1,3 +1,6 @@
+#ifndef HARDWARE_H__
+#define HARDWARE_H__
+
 #include <stdint.h>
 #include <avr/io.h>
 
@@ -12,3 +15,5 @@ void LED1_set(uint8_t val);
 #define FAIL 1
 
 #define F_OSC 8000000UL
+
+#endif /* HARDWARE_H__ */
