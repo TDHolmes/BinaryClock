@@ -1,5 +1,9 @@
-#ifndef LEDS_H__
-#define LEDS_H__
+#ifndef LEDS_H_
+#define LEDS_H_
+
+#include "timer.h"
+#include "color.h"
+#include <avr/io.h>
 
 #define ROW_8_R    0b000000000001
 #define ROW_8_G    0b000000000010
@@ -27,6 +31,6 @@ typedef struct {
     uint8_t blue;
 } led_color_t;
 
-void update_LEDs(int row, int column, int red, int green, int blue, int color_bit);
+void update_LEDs(rtc_time_t *t_ptr, led_color_t *c_ptr);
 
-#endif /* LEDS_H__ */
+#endif /* LEDS_H_ */

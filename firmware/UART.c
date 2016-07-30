@@ -3,7 +3,7 @@
 
 void UART_init(void)
 {
-    UART_drvr_init()
+    UART_drvr_init();
 }
 
 void UART_transmit(uint8_t *data_to_tx_ptr, uint8_t len)
@@ -49,3 +49,11 @@ uint8_t UART_receive_byte(void)
     }
     return *current_data_to_rx_ptr;
 }
+
+
+void UART_reset(void)
+{
+    UART_drvr_flush_buffer();
+    UART_drvr_flush_buffer();
+}
+

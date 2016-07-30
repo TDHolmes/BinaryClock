@@ -17,7 +17,7 @@
 #                   default_serial = "avrdoper"
 # FUSES ........ Parameters for avrdude to flash the fuses appropriately.
 
-DEVICE     = atmega8
+DEVICE     = attiny2313a
 CLOCK      = 8000000
 PROGRAMMER = #-c stk500v2 -P avrdoper
 SOURCEDIR  = .
@@ -28,28 +28,37 @@ OBJECTS := $(addprefix $(BUILDDIR),$(SOURCES:%.c=%.o))
 # OBJECTS    = main.o
 FUSES      = -U hfuse:w:0xd9:m -U lfuse:w:0x24:m
 
-# ATMega8 fuse bits used above (fuse bits for other devices are different!):
-# Example for 8 MHz internal oscillator
-# Fuse high byte:
-# 0xd9 = 1 1 0 1   1 0 0 1 <-- BOOTRST (boot reset vector at 0x0000)
-#        ^ ^ ^ ^   ^ ^ ^------ BOOTSZ0
-#        | | | |   | +-------- BOOTSZ1
-#        | | | |   +---------- EESAVE (set to 0 to preserve EEPROM over chip erase)
-#        | | | +-------------- CKOPT (clock option, depends on oscillator type)
-#        | | +---------------- SPIEN (if set to 1, serial programming is disabled)
-#        | +------------------ WDTON (if set to 0, watchdog is always on)
-#        +-------------------- RSTDISBL (if set to 0, RESET pin is disabled)
-# Fuse low byte:
-# 0x24 = 0 0 1 0   0 1 0 0
-#        ^ ^ \ /   \--+--/
-#        | |  |       +------- CKSEL 3..0 (8M internal RC)
-#        | |  +--------------- SUT 1..0 (slowly rising power)
-#        | +------------------ BODEN (if 0, brown-out detector is enabled)
-#        +-------------------- BODLEVEL (if 0: 4V, if 1: 2.7V)
-#
-# For computing fuse byte values for other devices and options see
-# the fuse bit calculator at http://www.engbedded.com/fusecalc/
-
+# ATtiny2313a Fuses
+# Extended Byte
+# 7 -  (default: )
+# 6 -  (default: )
+# 5 -  (default: )
+# 4 -  (default: )
+# 3 -  (default: )
+# 2 -  (default: )
+# 1 -  (default: )
+# 0 - SELFPRGEN: Enables the SPM function (default: 1 [unprogrammed])
+# 
+# High Byte
+# 7 - DWEN: Enables debugWIRE (default: 1 [unprogrammed])
+# 6 - EESAVE: Preserves EEPROM memory during Chip Erase operation (default: 1 [unprogrammed])
+# 5 - SPIEN: Enables serial programming and downloading of data to device (default: 0 [programmed])
+# 4 - WDTON: Sets watchdog timer permanently on (default: 1 [unprogrammed])
+# 3 - BODLEVEL2: Sets BOD trigger level (default: 1 [unprogrammed])
+# 2 - BODLEVEL1: (default: 1 (unprogrammed))
+# 1 - BODLEVEL0: (default: 1 (unprogrammed))
+# 0 - RSTDISBL: Disables external reset (default: 1 (unprogrammed))
+# 
+# Low Byte
+# 7 - CKDIV8: Divides clock by 8 (default: 0 (programmed))
+# 6 - CKOUT: Outputs system clock on port pin (default: 1 (unprogrammed))
+# 5 - SUT1: Sets system start-up time (default: 1 (unprogrammed))
+# 4 - SUT0: (default: 0 (programmed))
+# 3 - CKSEL3: Selects clock source (default: 0 (programmed))
+# 2 - CKSEL2: (default: 0 (programmed))
+# 1 - CKSEL1: (default: 1 (unprogrammed))
+# 0 - CKSEL0: (default: 0 (programmed))
+# 
 
 # Tune the lines below only if you know what you are doing:
 
