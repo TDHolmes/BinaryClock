@@ -91,7 +91,7 @@ int main(void)
             case HOUR_TENS: {
                 if(timer_expired) {
                     reset_timer();
-                    update_LEDs(time_ptr, colors_ptr);
+                    update_LEDs(time_ptr, colors_ptr, DISP_HOUR_TENS);
                     state = HOUR_ONES;
                 }
                 break;
@@ -100,7 +100,7 @@ int main(void)
             case HOUR_ONES: {
                 if(timer_expired) {
                     reset_timer();
-                    update_LEDs(time_ptr, colors_ptr);
+                    update_LEDs(time_ptr, colors_ptr, DISP_HOUR_ONES);
                     state = MIN_TENS;
                 }
                 break;
@@ -109,7 +109,7 @@ int main(void)
             case MIN_TENS: {
                 if(timer_expired) {
                     reset_timer();
-                    update_LEDs(time_ptr, colors_ptr);
+                    update_LEDs(time_ptr, colors_ptr, DISP_MIN_TENS);
                     state = MIN_ONES;
                 }
                 break;
@@ -118,7 +118,7 @@ int main(void)
             case MIN_ONES: {
                 if(timer_expired) {
                     reset_timer();
-                    update_LEDs(time_ptr, colors_ptr);
+                    update_LEDs(time_ptr, colors_ptr, DISP_MIN_ONES);
                     state = SEC_TENS;
                 }
                 break;
@@ -127,7 +127,7 @@ int main(void)
             case SEC_TENS: {
                 if(timer_expired) {
                     reset_timer();
-                    update_LEDs(time_ptr, colors_ptr);
+                    update_LEDs(time_ptr, colors_ptr, DISP_SEC_TENS);
                     state = SEC_ONES;
                 }
                 break;
@@ -139,7 +139,7 @@ int main(void)
                 } else {
                     color_bit -= 1;
                     reset_timer();
-                    update_LEDs(time_ptr, colors_ptr);
+                    update_LEDs(time_ptr, colors_ptr, DISP_SEC_ONES);
                     state = HOUR_TENS;
                 }
                 break;

@@ -25,11 +25,12 @@
 #define COL_S_TENS 0b010000
 #define COL_S_ONES 0b100000
 
-typedef struct {
-    uint8_t red;
-    uint8_t green;
-    uint8_t blue;
-} led_color_t;
+#define DISP_HOUR_TENS 0
+#define DISP_HOUR_ONES 1
+#define DISP_MIN_TENS  2
+#define DISP_MIN_ONES  3
+#define DISP_SEC_TENS  4
+#define DISP_SEC_ONES  5
 
 void update_LEDs(rtc_time_t *t_ptr, led_color_t *c_ptr);
 
