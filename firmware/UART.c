@@ -51,6 +51,12 @@ uint8_t UART_receive_byte(void)
 }
 
 
+uint8_t UART_receive_has_data(void)
+{
+    return UART_drvr_receive_has_data();
+}
+
+
 void UART_reset(void)
 {
     UART_drvr_flush_buffer();

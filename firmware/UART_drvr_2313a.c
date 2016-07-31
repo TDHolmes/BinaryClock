@@ -71,6 +71,12 @@ void UART_drvr_clear_errors(void)
 }
 
 
+uint8_t UART_drvr_receive_has_data(void)
+{
+    return ring_buff_has_data(UART_rx_buff_ptr);
+}
+
+
 ISR(USART0_RX_vect)
 {
     // Wait for data to be received

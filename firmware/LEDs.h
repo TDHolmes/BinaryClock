@@ -3,6 +3,8 @@
 
 #include "timer.h"
 #include "color.h"
+#include "hardware.h"
+#include <stdint.h>
 #include <avr/io.h>
 
 #define ROW_8_R    0b000000000001
@@ -32,6 +34,13 @@
 #define DISP_SEC_TENS  4
 #define DISP_SEC_ONES  5
 
-void update_LEDs(rtc_time_t *t_ptr, led_color_t *c_ptr);
+#define DISP_UPDATE_FREQ 60
+#define COLS 6
+#define ROWS (COLOR_BITS * 4)
+#define MULTIPLEX_TIMER_CLK_CYCLES (F_OSC / (DISP_UPDATE_FREQ * COLS * COLOR_BITS))
+
+typedef struct {
+    uint8_t missed_multiplex_timer_interrupts;
+} LED_errors_t;
 
 #endif /* LEDS_H_ */

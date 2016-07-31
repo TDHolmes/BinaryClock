@@ -1,6 +1,8 @@
 #ifndef COLOR_H__
 #define COLOR_H__
 
+#define COLOR_BITS 8
+
 typedef struct {
     uint8_t red;
     uint8_t green;
