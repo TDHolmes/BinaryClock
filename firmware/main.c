@@ -7,7 +7,7 @@
 #include <avr/io.h>
 #include "timer.h"
 #include "RTC.h"
-#include "LEDs.h"
+#include "LED.h"
 #include "UART.h"
 #include "hardware.h"
 #include "timer.h"
@@ -62,8 +62,8 @@ int main(void)
                     increment_time(time_ptr, RTC_interrupt_count);
                     RTC_interrupt_count = 0;
                 }
-                if (LEDs_multiplex_timer_count != 0) {
-                    LEDs_run()
+                if (LED_multiplex_timer_count != 0) {
+                    LED_run(LED_multiplex_timer_count);
                 }
                 break;
             }

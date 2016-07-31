@@ -1,7 +1,7 @@
-#include "LEDs.h"
+#include "LED.h"
 #include "timer.h"
 #include "ports.h"
-#include "LEDs_drvr_STP16CPC26.h"
+#include "LED_drvr_STP16CPC26.h"
 #include <stdint.h>
 
 LED_drvr_t LED_admin_struct;
@@ -13,16 +13,16 @@ LED_init()
     LED_drvr_init(LED_admin_struct_ptr);
 }
 
-// update LEDS based on a time structure
+// update LED based on a time structure
 LED_update_time(time_struct)
 {
 
 }
 
 // called cyclicly in while loop
-LED_run(LEDs_multiplex_timer_count)
+LED_run(LED_multiplex_timer_count)
 {
-
+    LED_drvr_run(LED_drvr_t *LED_admin_struct_ptr, LED_multiplex_timer_count);
 }
 
 // returns the accrued errors
@@ -49,21 +49,21 @@ LED_set(uint8_t row, uint8_t col, uint8_t red, uint8_t green, uint8_t blue)
 
 }
 
-// clears all LEDs
+// clears all LED
 LED_clear_all()
 {
 
 }
 
-// sets all LEDs to the given color
+// sets all LED to the given color
 LED_set_all(uint8_t red, uint8_t blue, uint8_t green)
 {
 
 }
 
 
-// // Updates the LEDs
-// void LEDs_update_time(rtc_time_t *t_ptr, led_color_t *c_ptr, uint8_t display_column)
+// // Updates the LED
+// void LED_update_time(rtc_time_t *t_ptr, led_color_t *c_ptr, uint8_t display_column)
 // {
 //     uint8_t bits;
 //     uint32_t color_mask = 0;
@@ -83,15 +83,15 @@ LED_set_all(uint8_t red, uint8_t blue, uint8_t green)
 //     color_mask |= (red_set << 6) | (green_set << 7)  | (blue_set << 8);
 //     color_mask |= (red_set << 9) | (green_set << 10) | (blue_set << 11);
 //     // get the time row and column masks
-//     LEDs_drvr_get_masks(t_ptr, display_column, &row_mask, &col_mask);
+//     LED_drvr_get_masks(t_ptr, display_column, &row_mask, &col_mask);
 
-//     // update the LEDs via whatever driver chip/method we're using
-//     LEDs_update_drvr((row_mask & color_mask), col_mask);
+//     // update the LED via whatever driver chip/method we're using
+//     LED_update_drvr((row_mask & color_mask), col_mask);
 // }
 
 
 
-// LEDs_update_manual(uint32_t row_mask, uint8_t display_column)
+// LED_update_manual(uint32_t row_mask, uint8_t display_column)
 // {
 
 // }

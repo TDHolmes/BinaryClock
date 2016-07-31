@@ -1,5 +1,5 @@
-#ifndef LEDS_H_
-#define LEDS_H_
+#ifndef LED_H_
+#define LED_H_
 
 #include "timer.h"
 #include "color.h"
@@ -43,4 +43,4 @@ typedef struct {
     uint8_t missed_multiplex_timer_interrupts;
 } LED_errors_t;
 
-#endif /* LEDS_H_ */
+#endif /* LED_H_ */

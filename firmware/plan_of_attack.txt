@@ -1,6 +1,6 @@
 Desired functionality:
 
-Updating the LEDs:
+Updating the LED:
     - Automatic in the "background" would be nice
     - Can do either manual (debug) or time based
 
@@ -9,7 +9,7 @@ Timers:
     - interrupt driven timers for timing specific events
 
 Debug:
-    - ability to toggle LEDs and colors via UART commands
+    - ability to toggle LED and colors via UART commands
 
 Communication:
     - Ability to debug while running
@@ -19,42 +19,42 @@ Communication:
 Required behavior to make this happen:
 
 LED functionality:
-    - Able to edit what LEDs are active on command
+    - Able to edit what LED are active on command
     - Relay that information to the lower level driver
 
 LED driver functionality:    
-    - take data from higher level LED functions and output to LEDs
-    - handle the multiplexing of the LEDs via timer interrupt (flag to main?)
+    - take data from higher level LED functions and output to LED
+    - handle the multiplexing of the LED via timer interrupt (flag to main?)
 
 Multiplexing timer:
     - clock speed: 8 MHz (125 ns)
     - for 8 bit color @ ~60 Hz
         - 6 columns to multiplex
         - 6 * 8 * 60 Hz = 2880 Hz (347.222 us)
-        - that gives us ~2,777 instruction cycles to do everything else + updating those LEDs
+        - that gives us ~2,777 instruction cycles to do everything else + updating those LED
     - for 8 bit color @ ~30 Hz
         - 6 columns to multiplex
         - 6 * 8 * 30 Hz = 1440 Hz (694.444 us)
-        - that gives us ~5,554 instruction cycles to do everything else + updating those LEDs
+        - that gives us ~5,554 instruction cycles to do everything else + updating those LED
 
 
 
 //// LED SECTION  /////
 LED functions:
     LED_setup()                      // called initially to setup interrupts
-    LED_update_time(time_struct)     // update LEDS based on a time structure
+    LED_update_time(time_struct)     // update LED based on a time structure
     LED_run()                        // called cyclicly in while loop
     LED_errors_check(LED_error_struct_ptr)  // returns the accrued errors
     LED_errors_reset()               // resets any errors
     LED_clear(row, col)              // clears the LED at the given index
     LED_set(row, col, color_struct)  // sets the LED at the given index to the given color struct
-    LED_clear_all()             // clears all LEDs
-    LED_set_all(color_struct)   // sets all LEDs to the given color
+    LED_clear_all()             // clears all LED
+    LED_set_all(color_struct)   // sets all LED to the given color
 
 LED Driver functions:
     LED_drvr_setup(LED_drvr_struct)  // 
     LED_drvr_run(LED_drvr_struct)    // called cyclically on multiplexing timer interrupt flag
-    LED_drvr_update(LED_drvr_struct) // called when making changes to LEDs that are on
+    LED_drvr_update(LED_drvr_struct) // called when making changes to LED that are on
 
 private LED struct shared by the higher level LED functions down to the driver:
 

@@ -1,5 +1,5 @@
-#include "LEDs_drvr_STP16CPC26.h"
-#include "LEDs.h"
+#include "LED_drvr_STP16CPC26.h"
+#include "LED.h"
 #include "ports.h"
 #include <stdint.h>
 
@@ -27,7 +27,7 @@ void LED_drvr_clear_all(LED_drvr_t * LED_ptr)
 }
 
 
-void LED_drvr_run(LED_drvr_t *LED_ptr, uint8_t LEDs_multiplex_timer_count)
+void LED_drvr_run(LED_drvr_t *LED_ptr, uint8_t LED_multiplex_timer_count)
 {
     uint8_t color_bit = LED_ptr->active_color_bit;
     uint8_t color_mask = (1 << color_bit);
@@ -38,8 +38,8 @@ void LED_drvr_run(LED_drvr_t *LED_ptr, uint8_t LEDs_multiplex_timer_count)
     uint8_t row, color;
 
     // if we missed some multiplex timer counts, increment the errors
-    if (LEDs_multiplex_timer_count != 1) {
-        LED_ptr->LED_errors->missed_multiplex_timer_interrupts += (LEDs_multiplex_timer_count - 1);
+    if (LED_multiplex_timer_count != 1) {
+        LED_ptr->LED_errors->missed_multiplex_timer_interrupts += (LED_multiplex_timer_count - 1);
     }
     // build up the bitstream to be clocked out
     for (row = 0; row < 4; row++) { // rows
@@ -72,7 +72,7 @@ void LED_drvr_run(LED_drvr_t *LED_ptr, uint8_t LEDs_multiplex_timer_count)
         LEDDRV_SDI_SET(0);
         LEDDRV_CLK_SET(1);
     }
-    // Turn off LEDs until everything is set (OE is active low)
+    // Turn off LED until everything is set (OE is active low)
     LEDDRV_OE_SET(1);
     // Latch the LED driver data
     LEDDRV_LE_SET(1);
@@ -83,7 +83,7 @@ void LED_drvr_run(LED_drvr_t *LED_ptr, uint8_t LEDs_multiplex_timer_count)
     LEDDRV_OE_SET(0);
 }
 
-// void LEDs_drvr_update(uint16_t row_mask, uint8_t active_column)
+// void LED_drvr_update(uint16_t row_mask, uint8_t active_column)
 // {
 //     // apply the color & time masks to the active rows
 //     row = color_mask & row_mask;
@@ -98,7 +98,7 @@ void LED_drvr_run(LED_drvr_t *LED_ptr, uint8_t LEDs_multiplex_timer_count)
 //     // Latch the LED driver data
 //     LEDDRV_LE_SET(1);
 //     LEDDRV_LE_SET(0);
-//     // Turn off LEDs until high side is set (active low output enable)
+//     // Turn off LED until high side is set (active low output enable)
 //     LEDDRV_OE_SET(1);
 //     // Enable the anode high side
 //     ANO_PORT = ~((column & 0b00011111) | ((column & 0b00100000) << 1));
@@ -107,7 +107,7 @@ void LED_drvr_run(LED_drvr_t *LED_ptr, uint8_t LEDs_multiplex_timer_count)
 // }
 
 
-// void LEDs_drvr_get_masks(rtc_time_t *t_ptr, uint8_t active_column, uint32_t *row_mask_ptr, uint8_t *col_mask_ptr)
+// void LED_drvr_get_masks(rtc_time_t *t_ptr, uint8_t active_column, uint32_t *row_mask_ptr, uint8_t *col_mask_ptr)
 // {
 //     uint8_t col_mask = 0;
 //     uint16_t row_mask = 0;
@@ -118,7 +118,7 @@ void LED_drvr_run(LED_drvr_t *LED_ptr, uint8_t LEDs_multiplex_timer_count)
 //             // find out if this column is active based on the time
 //             if(t_ptr->hour / 10) {
 //                 col_mask = HOUR_TENS_MASK;
-//                 row_mask = LEDs_drvr_get_row_mask(t_ptr->hour / 10);
+//                 row_mask = LED_drvr_get_row_mask(t_ptr->hour / 10);
 //             } else {
 //                 col_mask = 0;
 //             }
@@ -129,7 +129,7 @@ void LED_drvr_run(LED_drvr_t *LED_ptr, uint8_t LEDs_multiplex_timer_count)
 //             // find out if this column is active based on the time
 //             if(t_ptr->hour % 10) {
 //                 col_mask = HOUR_ONES_MASK;
-//                 row_mask = LEDs_drvr_get_row_mask(t_ptr->hour % 10);
+//                 row_mask = LED_drvr_get_row_mask(t_ptr->hour % 10);
 //             } else {
 //                 col_mask = 0;
 //             }
@@ -140,7 +140,7 @@ void LED_drvr_run(LED_drvr_t *LED_ptr, uint8_t LEDs_multiplex_timer_count)
 //             // find out if this column is active based on the time
 //             if(t_ptr->min / 10) {
 //                 col_mask = MIN_TENS_MASK;
-//                 row_mask = LEDs_drvr_get_row_mask(t_ptr->min / 10);
+//                 row_mask = LED_drvr_get_row_mask(t_ptr->min / 10);
 //             } else {
 //                 col_mask = 0;
 //             }
@@ -151,7 +151,7 @@ void LED_drvr_run(LED_drvr_t *LED_ptr, uint8_t LEDs_multiplex_timer_count)
 //             // find out if this column is active based on the time
 //             if(t_ptr->min % 10) {
 //                 col_mask = MIN_ONES_MASK;
-//                 row_mask = LEDs_drvr_get_row_mask(t_ptr->min % 10);
+//                 row_mask = LED_drvr_get_row_mask(t_ptr->min % 10);
 //             } else {
 //                 col_mask = 0;
 //             }
@@ -162,7 +162,7 @@ void LED_drvr_run(LED_drvr_t *LED_ptr, uint8_t LEDs_multiplex_timer_count)
 //             // find out if this column is active based on the time
 //             if(t_ptr->sec / 10) {
 //                 col_mask = SEC_TENS_MASK;
-//                 row_mask = LEDs_drvr_get_row_mask(t_ptr->sec / 10);
+//                 row_mask = LED_drvr_get_row_mask(t_ptr->sec / 10);
 //             } else {
 //                 col_mask = 0;
 //             }
@@ -173,7 +173,7 @@ void LED_drvr_run(LED_drvr_t *LED_ptr, uint8_t LEDs_multiplex_timer_count)
 //             // find out if this column is active based on the time
 //             if(t_ptr->sec % 10) {
 //                 col_mask = SEC_ONES_MASK;
-//                 row_mask = LEDs_drvr_get_row_mask(t_ptr->sec % 10);
+//                 row_mask = LED_drvr_get_row_mask(t_ptr->sec % 10);
 //             } else {
 //                 col_mask = 0;
 //             }
@@ -188,7 +188,7 @@ void LED_drvr_run(LED_drvr_t *LED_ptr, uint8_t LEDs_multiplex_timer_count)
 //     *col_mask_ptr = col_mask;
 // }
 
-// uint32_t LEDs_drvr_get_row_mask(val) {
+// uint32_t LED_drvr_get_row_mask(val) {
 //     switch(val) {
 //         case 9:
 //             return (uint32_t)ROW_MASK_NINE;
