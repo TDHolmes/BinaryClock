@@ -15,18 +15,20 @@
 #include "ports.h"
 #include <stdint.h>
 
+
 // private function declarations
-void set_uart_flag(void);
-void set_timer_expired_flag(void);
-void clear_timer_expired_flag(void);
-uint8_t increment_time(rtc_time_t *rtc_time_ptr);
-uint8_t init_hardware(uint8_t *RTC_interrupt_ptr, uint8_t *timer_expired_ptr, led_color_t *color_struct_ptr,
-                      rtc_time_t *time_ptr);
+void     set_uart_flag(void);
+void     set_timer_expired_flag(void);
+void     clear_timer_expired_flag(void);
+uint8_t  increment_time(rtc_time_t *rtc_time_ptr);
+uint8_t  init_hardware(uint8_t *RTC_interrupt_ptr, uint8_t *timer_expired_ptr, led_color_t *color_struct_ptr,
+                       rtc_time_t *time_ptr);
 
 // states
 typedef enum {
-    run_time,
-    run_manual
+    RUN_TIME,
+    RUN_MANUAL,
+    RUN_HANDLE_UART
 } state_t;
 
 state_t state = WAIT;
@@ -53,11 +55,11 @@ int main(void)
     while(1) {
         // check if we have UART data to handle
         if (UART_receive_has_data() >= COMMAND_LENGTH) {
-            state = run_handle_UART_comms;
+            state = RUN_HANDLE_UART;
         }
 
         switch(state) {
-            case run_time: {
+            case RUN_TIME: {
                 if (RTC_interrupt_count != 0) {
                     increment_time(time_ptr, RTC_interrupt_count);
                     RTC_interrupt_count = 0;
@@ -68,14 +70,15 @@ int main(void)
                 break;
             }
 
-            case run_manual: {
+            case RUN_MANUAL: {
 
                 break;
             }
 
-            case run_handle_UART_comms: {
+            case RUN_HANDLE_UART: {
                 UART_receive(command_buffer, COMMAND_LENGTH);
                 // procress the received command
+                process_UART_command(command_buffer);
                 break;
             }
 
@@ -83,6 +86,95 @@ int main(void)
 
                 break;
             }
+        }
+    }
+}
+
+
+void process_UART_command(uint8_t *cmd_buffer)
+{
+    switch(cmd_buffer[0]) {
+        case UART_CMD_SET_LED: {
+            if (state != RUN_MANUAL) {
+                UART_transmit_byte(UART_WRONG_STATE);
+                break;
+            }
+            // bytes 1 & 2 is row & column, bytes 3, 4, & 5 is red, green, and blue vals
+            LED_set(cmd_buffer[1], cmd_buffer[2], cmd_buffer[3], cmd_buffer[4], cmd_buffer[5])
+            UART_transmit_byte(UART_VALID_CMD);
+            break;
+        }
+
+        case UART_CMD_CLEAR_LED: {
+            if (state != RUN_MANUAL) {
+                UART_transmit_byte(UART_WRONG_STATE);
+                break;
+            }
+            // bytes 1 & 2 is row & column
+            LED_clear(cmd_buffer[1], cmd_buffer[2]);
+            UART_transmit_byte(UART_VALID_CMD);
+            break;
+        }
+
+        case UART_CMD_CLEAR_ALL_LED: {
+            if (state != RUN_MANUAL) {
+                UART_transmit_byte(UART_WRONG_STATE);
+                break;
+            }
+            // clear all LEDs
+            LED_clear_all();
+            UART_transmit_byte(UART_VALID_CMD);
+            break;
+        }
+
+        case UART_CMD_SET_ALL_LED: {
+            if (state != RUN_MANUAL) {
+                UART_transmit_byte(UART_WRONG_STATE);
+                break;
+            }
+            // Bytes 1, 2, and 3 is red, green and blue values
+            LED_set_all(cmd_buffer[1], cmd_buffer[2], cmd_buffer[3]);
+            UART_transmit_byte(UART_VALID_CMD);
+            break;
+        }
+
+        case UART_CMD_SET_TIME: {
+            if (state != RUN_TIME) {
+                UART_transmit_byte(UART_WRONG_STATE);
+                break;
+            }
+            // Byte 1: Hour, Byte 2: Min, Byte 3: sec
+            RTC_set_time(time_ptr, cmd_buffer[1], cmd_buffer[2], cmd_buffer[3]);
+            UART_transmit_byte(UART_VALID_CMD);
+            break;
+        }
+
+        case UART_CMD_SET_COLOR: {
+            if (state != RUN_TIME) {
+                UART_transmit_byte(UART_WRONG_STATE);
+                break;
+            }
+            // Byte 1: Red, Byte 2: Green, Byte 3: Blue
+            LED_set_color(cmd_buffer[1], cmd_buffer[2], cmd_buffer[3]);
+            UART_transmit_byte(UART_VALID_CMD);
+            break;
+        }
+
+        case UART_CMD_CHANGE_STATE: {
+            if (cmd_buffer[1] == 0) {
+                state = RUN_TIME;
+                LED_update_time(time_ptr);
+            } else if (cmd_buffer[1] == 1) {
+                state = RUN_MANUAL;
+                LED_clear_all();
+            }
+            UART_transmit_byte(UART_VALID_CMD);
+            break;
+        }
+
+        default: {
+            UART_transmit_byte(UART_INVALID_CMD);
+            break;
         }
     }
 }

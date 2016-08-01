@@ -14,19 +14,19 @@ LED_init()
 }
 
 // update LED based on a time structure
-LED_update_time(time_struct)
+LED_update_time(rtc_time_t time_struct)
 {
 
 }
 
 // called cyclicly in while loop
-LED_run(LED_multiplex_timer_count)
+LED_run(uint8_t LED_multiplex_timer_count)
 {
     LED_drvr_run(LED_drvr_t *LED_admin_struct_ptr, LED_multiplex_timer_count);
 }
 
 // returns the accrued errors
-LED_errors_check(LED_error_struct_ptr)
+LED_errors_check(LED_errors_t LED_error_struct_ptr)
 {
 
 }
