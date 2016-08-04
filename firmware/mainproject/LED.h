@@ -43,4 +43,13 @@ typedef struct {
     uint8_t missed_multiplex_timer_interrupts;
 } LED_errors_t;
 
+void LED_init(void);
+void LED_update_time(rtc_time_t *t_ptr);
+void LED_run(uint8_t LED_multiplex_timer_count);
+void LED_clear(uint8_t row, uint8_t col);
+void LED_set(uint8_t row, uint8_t col, uint8_t red, uint8_t green, uint8_t blue);
+void LED_clear_all(void);
+void LED_set_all(uint8_t red, uint8_t blue, uint8_t green);
+void LED_set_color(uint8_t red, uint8_t blue, uint8_t green);
+
 #endif /* LED_H_ */

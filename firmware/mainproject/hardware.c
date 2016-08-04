@@ -5,4 +5,5 @@ uint8_t init_hardware()
 {
 
     __enable_interrupt();
+    return 0;
 }

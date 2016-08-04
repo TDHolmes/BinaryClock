@@ -17,12 +17,12 @@ void UART_drvr_init(void)
     // Set baud rate
     UBRRH = (uint8_t)(UART_PRESCALE >> 8);
     UBRRL = (uint8_t)UART_PRESCALE;
-    // Enable receiving interrupts
-    UCSRB = UCSRB | (1 << RXCIE);
     // Set frame format: 8data, 2stop bit
     UCSRC = (0 << USBS) | (3 << UCSZ0);
     // Enable receiver and transmitter
     UCSRB = (1 << RXEN) | (1 << TXEN);
+    // Enable receiving interrupts
+    UCSRB = UCSRB | (1 << RXCIE);
 }
 
 
