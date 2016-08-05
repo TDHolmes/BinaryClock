@@ -1,5 +1,6 @@
 #include "LED.h"
 #include "timer.h"
+#include "color.h"
 #include "ports.h"
 #include "LED_drvr_STP16CPC26.h"
 #include <stdint.h>

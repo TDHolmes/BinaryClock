@@ -17,16 +17,20 @@
 #                   default_serial = "avrdoper"
 # FUSES ........ Parameters for avrdude to flash the fuses appropriately.
 
-DEVICE     = attiny2313a
+# /build/
+
+DEVICE     = attiny4313
 CLOCK      = 8000000
 PROGRAMMER = #-c stk500v2 -P avrdoper
 SOURCEDIR  = .
 BUILDDIR   = 
-SOURCES   := $(shell find $(SOURCEDIR) -name '*.c')
+SOURCES   := $(notdir $(shell find $(SOURCEDIR) -name '*.c'))
 #  Get list of object files, with paths
 OBJECTS := $(addprefix $(BUILDDIR),$(SOURCES:%.c=%.o))
 # OBJECTS    = main.o
 FUSES      = -U hfuse:w:0xd9:m -U lfuse:w:0x24:m
+$(info $$SOURCES is [${SOURCES}])
+$(info $$OBJECTS is [${OBJECTS}])
 
 # ATtiny2313a Fuses
 # Extended Byte
@@ -63,13 +67,16 @@ FUSES      = -U hfuse:w:0xd9:m -U lfuse:w:0x24:m
 # Tune the lines below only if you know what you are doing:
 
 AVRDUDE = avrdude $(PROGRAMMER) -p $(DEVICE)
-COMPILE = avr-gcc -Wall -Os -DF_CPU=$(CLOCK) -mmcu=$(DEVICE)
+COMPILE = avr-gcc -Wextra -Os -DF_CPU=$(CLOCK) -mmcu=$(DEVICE)
+
+# -Os  // size optimization
 
 # symbolic targets:
 all:	main.hex
 
 .c.o:
 	$(COMPILE) -c $< -o $@
+	$(shell find $(SOURCEDIR) -name '*.o' -exec mv {} $(BUILDDIR) \)
 
 .S.o:
 	$(COMPILE) -x assembler-with-cpp -c $< -o $@

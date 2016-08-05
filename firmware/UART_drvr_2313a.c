@@ -1,7 +1,7 @@
 #include <stdint.h>
-#include "avr/io.h"
+#include <avr/io.h>
+#include <avr/interrupt.h>
 #include "ring_buffer.h"
-#include <stdint.h>
 #include "UART_drvr_2313a.h"
 
 uint8_t UART_rx_buff_arr[UART_RX_BUFF_SIZE];
@@ -77,7 +77,7 @@ uint8_t UART_drvr_receive_has_data(void)
 }
 
 
-void ISR(USART0_RX_vect)
+ISR(USART0_RX_vect)
 {
     // Wait for data to be received
     while (!(UCSRA & (1 << RXC)));

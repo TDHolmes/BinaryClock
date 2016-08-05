@@ -1,9 +1,10 @@
 #include "hardware.h"
 #include <avr/io.h>
+#include <avr/interrupt.h>
 
-uint8_t init_hardware()
+uint8_t init_hardware(void)
 {
-
-    __enable_interrupt();
+    sei();
     return 0;
 }
+
