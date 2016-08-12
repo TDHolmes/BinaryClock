@@ -15,6 +15,9 @@
 		},
 		{
 			"path": "/usr/local/CrossPack-AVR-20131216/avr/include"
+		},
+		{
+			"path": "software"
 		}
 	]
 }
