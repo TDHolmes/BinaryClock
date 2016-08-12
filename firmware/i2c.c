@@ -4,14 +4,22 @@
 #define WRITE_MASK 0x01
 #define READ_MASK  0x00
 
-i2c_drvr_t i2c_admin;
-i2c_drvr_t *i2c_admin_ptr;
+i2c_admin_t i2c_admin;
+i2c_admin_t i2c_admin_ptr;
+
+uint8_t i2c_init(void)
+{
+    i2c_admin.address = 0;
+    return i2c_drvr_init();
+}
+
 
 uint8_t i2c_start(uint8_t address, uint8_t mode)
 {
     uint8_t addr_byte_to_send;
     uint8_t i;
     uint8_t retval = FAIL;
+
     // try to start communication
     for (i = I2C_RETRY_COUNT; i != 0; i--) {
         if (mode == I2C_MODE_WRITE) {
@@ -28,11 +36,14 @@ uint8_t i2c_start(uint8_t address, uint8_t mode)
             break;
         }
     }
+
     return retval;
 }
 
+
 uint8_t i2c_write(uint8_t start_adr, uint8_t *data_to_write_ptr, uint8_t data_len)
 {
+    uint8_t retval;
     // check for the correct mode
     if (i2c_admin_ptr->mode != I2C_MODE_WRITE) {
         return I2C_ERROR;
@@ -40,11 +51,16 @@ uint8_t i2c_write(uint8_t start_adr, uint8_t *data_to_write_ptr, uint8_t data_le
     // write the address byte
     i2c_drvr_write_byte(start_adr);
     for ( ; data_len != 0; i--) {
-        i2c_drvr_write_byte(*data_to_write_ptr);  // send a byte
+        retval = i2c_drvr_write_byte(*data_to_write_ptr);  // send a byte
+        if (retval != PASS) {
+            // data write failure
+            return retval;
+        }
         data_to_write_ptr += 1;  // go to next byte
     }
     return I2C_NO_ERRORS;
 }
+
 
 uint8_t i2c_read(uint8_t start_adr, uint8_t *data_out_ptr, uint8_t data_len)
 {
@@ -55,9 +71,8 @@ uint8_t i2c_read(uint8_t start_adr, uint8_t *data_out_ptr, uint8_t data_len)
     return I2C_NO_ERRORS;
 }
 
+
 void i2c_end(uint8_t address)
 {
-
-    i2c_admin.address = address;
-    i2c_admin.mode = mode;
+    i2c_admin.address = 0;
 }

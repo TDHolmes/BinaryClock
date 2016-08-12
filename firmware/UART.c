@@ -24,6 +24,34 @@ void UART_transmit_byte(uint8_t data_to_tx)
 }
 
 
+void UART_transmit_value(int32_t var_to_tx)
+{
+    uint8_t data_to_tx[10];
+    uint8_t i;
+    // initialize transmit array
+    for (i = 9; i >= 0; i--) {
+        data_to_tx[i] = 0;
+    }
+    i = 0;
+    // handle negative variables
+    if (var_to_tx < 0) {
+        UART_transmit_byte('-');
+        var_to_tx = (-1) * var_to_tx;
+    }
+    // fill transmit array
+    while (var_to_tx >= 10) {
+        data_to_tx[i] = var_to_tx % 10 + 0x30;  // ascii value of number
+        var_to_tx = var_to_tx / 10;
+    }
+    // transmit data
+    for (i = 9; i >= 0; i--) {
+        if (data_to_tx[i] != 0) {
+            UART_transmit_byte(data_to_tx[i]);
+        }
+    }
+}
+
+
 void UART_receive(uint8_t *receive_buffer_ptr, uint8_t len)
 {
     uint8_t bytes_left = len;

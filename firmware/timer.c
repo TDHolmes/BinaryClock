@@ -1,4 +1,6 @@
 #include "timer.h"
+#include "timer_drvr_4313.h"
+
 
 void reset_timer(void)
 {

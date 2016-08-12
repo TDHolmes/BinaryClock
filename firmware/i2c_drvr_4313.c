@@ -1,7 +1,8 @@
 #include "i2c_drvr_4313.h"
 #include <avr/io.h>
 
-void i2c_drvr_init(void)
+
+uint8_t i2c_drvr_init(void)
 {
     // USICR USI Control register
     USICR = 0b00110010;
