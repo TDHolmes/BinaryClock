@@ -4,6 +4,7 @@
 #include <stdint.h>
 
 
+// Summary - 
 void LED_drvr_init(LED_drvr_t * LED_ptr)
 {
     LED_ptr->LED_errors.missed_multiplex_timer_interrupts = 0;
@@ -12,6 +13,9 @@ void LED_drvr_init(LED_drvr_t * LED_ptr)
 }
 
 
+// Summary - 
+// param (LED_drvr_t *) LED_ptr - 
+// param (uint8_t) LED_multiplex_timer_count - 
 void LED_drvr_run(LED_drvr_t *LED_ptr, uint8_t LED_multiplex_timer_count)
 {
     uint8_t color_mask = (1 << LED_ptr->active_color_bit);

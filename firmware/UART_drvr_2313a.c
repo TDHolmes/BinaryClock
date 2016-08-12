@@ -9,6 +9,7 @@ uint8_t UART_rx_buff_arr[UART_RX_BUFF_SIZE];
 ring_buffer_t UART_rx_buff;
 ring_buffer_t *UART_rx_buff_ptr;
 
+// Summary - 
 void UART_drvr_init(void)
 {
     UART_rx_buff_ptr = &UART_rx_buff;
@@ -26,6 +27,8 @@ void UART_drvr_init(void)
 }
 
 
+// Summary - 
+// param (uint8_t) data - 
 void UART_drvr_send_byte(uint8_t data)
 {
     // Wait for empty transmit buffer
@@ -35,6 +38,9 @@ void UART_drvr_send_byte(uint8_t data)
 }
 
 
+// Summary - 
+// param (uint8_t *) data_rcvd_ptr - 
+// retval (uint8_t) - 
 uint8_t UART_drvr_receive_byte(uint8_t *data_rcvd_ptr)
 {
     if(ring_buff_has_data(UART_rx_buff_ptr)) {
@@ -46,6 +52,7 @@ uint8_t UART_drvr_receive_byte(uint8_t *data_rcvd_ptr)
 }
 
 
+// Summary - 
 void UART_drvr_flush_buffer(void)
 {
     uint8_t dummy;
@@ -55,6 +62,8 @@ void UART_drvr_flush_buffer(void)
 }
 
 
+// Summary - 
+// retval (uint8_t) - 
 uint8_t UART_drvr_check_errors(void)
 {
     if (UCSRA & (1 << UPE | 1 << DOR | 1 << UPE)) {
@@ -65,18 +74,22 @@ uint8_t UART_drvr_check_errors(void)
 }
 
 
+// Summary - 
 void UART_drvr_clear_errors(void)
 {
     UCSRA = UCSRA & ~(1 << UPE | 1 << DOR | 1 << UPE);
 }
 
 
+// Summary - 
+// retval (uint8_t) - 
 uint8_t UART_drvr_receive_has_data(void)
 {
     return ring_buff_has_data(UART_rx_buff_ptr);
 }
 
 
+// Summary - 
 ISR(USART0_RX_vect)
 {
     // Wait for data to be received

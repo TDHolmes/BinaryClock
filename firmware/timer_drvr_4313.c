@@ -10,6 +10,8 @@ t_status_ptr->counter_initialized = 0;
 t_status_ptr->counter_flag_ptr = 0;
 t_status_ptr->millis_count = 0;
 
+// Summary - 
+// param (uint8_t *) counter_var_ptr - 
 void timer_counter_drvr_init(uint8_t *counter_var_ptr)
 {
     // this timer will use the 8 bit timer
@@ -25,6 +27,7 @@ void timer_counter_drvr_init(uint8_t *counter_var_ptr)
 }
 
 
+// Summary - 
 void timer_millis_drvr_init(void)
 {
     t_status_ptr->millis_count = 0;
@@ -32,6 +35,8 @@ void timer_millis_drvr_init(void)
 }
 
 
+// Summary - 
+// retval (uint32_t) - 
 uint32_t timer_millis_drvr_get(void)
 {
 
@@ -39,6 +44,7 @@ uint32_t timer_millis_drvr_get(void)
 
 
 // Interrupt service routine on comp A match
+// Summary - 
 ISR(TIMER0_COMPA_vect)
 {
     TCNT0 = 0;  // reset the timer

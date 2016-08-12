@@ -8,6 +8,7 @@
 LED_drvr_t LED_admin_struct;
 LED_drvr_t *LED_admin_ptr;
 
+// Summary - 
 void LED_init(void)
 {
     LED_admin_ptr = &LED_admin_struct;
@@ -16,6 +17,8 @@ void LED_init(void)
 }
 
 // update LED based on a time structure
+// Summary - 
+// param (rtc_time_t *) t_ptr - 
 void LED_update_time(rtc_time_t *t_ptr)
 {
     // check if we should only update the changed values
@@ -98,6 +101,8 @@ void LED_update_time(rtc_time_t *t_ptr)
 }
 
 // called cyclicly in while loop
+// Summary - 
+// param (uint8_t) LED_multiplex_timer_count - 
 void LED_run(uint8_t LED_multiplex_timer_count)
 {
     LED_drvr_run(LED_admin_ptr, LED_multiplex_timer_count);
@@ -105,6 +110,9 @@ void LED_run(uint8_t LED_multiplex_timer_count)
 
 
 // clears the LED at the given index
+// Summary - 
+// param (uint8_t) row - 
+// param (uint8_t) col - 
 void LED_clear(uint8_t row, uint8_t col)
 {
     LED_admin_ptr->LED_array[row][col][RED_IND] = 0;
@@ -113,6 +121,12 @@ void LED_clear(uint8_t row, uint8_t col)
 }
 
 // sets the LED at the given index to the given color struct
+// Summary - 
+// param (uint8_t) row - 
+// param (uint8_t) col - 
+// param (uint8_t) red - 
+// param (uint8_t) green - 
+// param (uint8_t) blue - 
 void LED_set(uint8_t row, uint8_t col, uint8_t red, uint8_t green, uint8_t blue)
 {
     LED_admin_ptr->LED_array[row][col][RED_IND] = red;
@@ -121,6 +135,7 @@ void LED_set(uint8_t row, uint8_t col, uint8_t red, uint8_t green, uint8_t blue)
 }
 
 // clears all LED
+// Summary - 
 void LED_clear_all(void)
 {
     int i, j, k;
@@ -134,6 +149,10 @@ void LED_clear_all(void)
 }
 
 // sets all LEDs to the given color
+// Summary - 
+// param (uint8_t) red - 
+// param (uint8_t) blue - 
+// param (uint8_t) green - 
 void LED_set_all(uint8_t red, uint8_t blue, uint8_t green)
 {
     int i, j;
@@ -146,6 +165,10 @@ void LED_set_all(uint8_t red, uint8_t blue, uint8_t green)
     }
 }
 
+// Summary - 
+// param (uint8_t) red - 
+// param (uint8_t) blue - 
+// param (uint8_t) green - 
 void LED_set_color(uint8_t red, uint8_t blue, uint8_t green)
 {
     LED_admin_ptr->colors.red = red;

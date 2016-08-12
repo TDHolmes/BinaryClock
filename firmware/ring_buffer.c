@@ -2,6 +2,10 @@
 #include "ring_buffer.h"
 
 
+// Summary - 
+// param (ring_buffer_t *) rb_ptr - 
+// param (uint8_t *) buffer_array_ptr - 
+// param (uint8_t) buffer_len - 
 void ring_buff_init(ring_buffer_t *rb_ptr, uint8_t *buffer_array_ptr, uint8_t buffer_len)
 {
     rb_ptr->head = buffer_array_ptr;
@@ -14,6 +18,10 @@ void ring_buff_init(ring_buffer_t *rb_ptr, uint8_t *buffer_array_ptr, uint8_t bu
 }
 
 
+// Summary - 
+// param (ring_buffer_t *) rb_ptr - 
+// param (uint8_t *) return_item_ptr - 
+// retval (uint8_t) - 
 uint8_t ring_buff_pop(ring_buffer_t *rb_ptr, uint8_t *return_item_ptr)
 {
     if (rb_ptr->unread_items == 0) {
@@ -35,6 +43,10 @@ uint8_t ring_buff_pop(ring_buffer_t *rb_ptr, uint8_t *return_item_ptr)
 }
 
 
+// Summary - 
+// param (ring_buffer_t *) rb_ptr - 
+// param (uint8_t) new_val - 
+// retval (uint8_t) - 
 uint8_t ring_buff_push(ring_buffer_t *rb_ptr, uint8_t new_val)
 {
     if(rb_ptr->unread_items == rb_ptr->buff_size) {
@@ -54,12 +66,17 @@ uint8_t ring_buff_push(ring_buffer_t *rb_ptr, uint8_t new_val)
 }
 
 
+// Summary - 
+// param (ring_buffer_t *) rb_ptr - 
+// retval (uint8_t) - 
 uint8_t ring_buff_has_data(ring_buffer_t *rb_ptr)
 {
     return rb_ptr->unread_items;
 }
 
 
+// Summary - 
+// param (ring_buffer_t *) rb_ptr - 
 void ring_buff_reset(ring_buffer_t *rb_ptr)
 {
     rb_ptr->head = rb_ptr->start;

@@ -7,6 +7,8 @@
 i2c_admin_t i2c_admin;
 i2c_admin_t i2c_admin_ptr;
 
+// Summary - 
+// retval (uint8_t) - 
 uint8_t i2c_init(void)
 {
     i2c_admin.address = 0;
@@ -14,6 +16,10 @@ uint8_t i2c_init(void)
 }
 
 
+// Summary - 
+// param (uint8_t) address - 
+// param (uint8_t) mode - 
+// retval (uint8_t) - 
 uint8_t i2c_start(uint8_t address, uint8_t mode)
 {
     uint8_t addr_byte_to_send;
@@ -41,6 +47,11 @@ uint8_t i2c_start(uint8_t address, uint8_t mode)
 }
 
 
+// Summary - 
+// param (uint8_t) start_adr - 
+// param (uint8_t *) data_to_write_ptr - 
+// param (uint8_t) data_len - 
+// retval (uint8_t) - 
 uint8_t i2c_write(uint8_t start_adr, uint8_t *data_to_write_ptr, uint8_t data_len)
 {
     uint8_t retval;
@@ -62,6 +73,11 @@ uint8_t i2c_write(uint8_t start_adr, uint8_t *data_to_write_ptr, uint8_t data_le
 }
 
 
+// Summary - 
+// param (uint8_t) start_adr - 
+// param (uint8_t *) data_out_ptr - 
+// param (uint8_t) data_len - 
+// retval (uint8_t) - 
 uint8_t i2c_read(uint8_t start_adr, uint8_t *data_out_ptr, uint8_t data_len)
 {
     // check for the correct mode
@@ -72,6 +88,8 @@ uint8_t i2c_read(uint8_t start_adr, uint8_t *data_out_ptr, uint8_t data_len)
 }
 
 
+// Summary - 
+// param (uint8_t) address - 
 void i2c_end(uint8_t address)
 {
     i2c_admin.address = 0;

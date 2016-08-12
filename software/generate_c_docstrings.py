@@ -7,12 +7,14 @@ def replace_temp_with_real(dir):
     for subdir, dirs, files in os.walk(args.dir):
         for file in files:
             if ".c" in file and "temp" not in file:
-                os.rename(file, file[:-2] + "-d.c")
+                os.rename(subdir + file, subdir + file[:-2] + "-d.c")
     # delete files marked for deletion and rename temp fils
     for subdir, dirs, files in os.walk(args.dir):
         for file in files:
-            if ".c" in file and "temp" not in file:
-                os.rename(file, file[:-2] + "-d.c")
+            if "temp.c" in file:
+                os.rename(subdir + file, subdir + file[:-7] + ".c")
+            elif "-d.c" in file:
+                os.remove(subdir + file)
 
 
 def delete_temp_files(dir):
@@ -169,3 +171,5 @@ if __name__ == '__main__':
         for file in files:
             if ".c" in file or ".C" in file:
                 main(os.path.join(subdir, file))
+    # rename / delete temp files
+    replace_temp_with_real(args.dir)

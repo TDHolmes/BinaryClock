@@ -4,6 +4,8 @@
 #include <avr/io.h>
 #include <avr/interrupt.h>
 
+// Summary - 
+// retval (uint8_t) - 
 uint8_t hardware_init(void)
 {
     // configure pins for input/output (1 = output, 0 = input)

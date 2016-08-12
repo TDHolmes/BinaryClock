@@ -1,11 +1,15 @@
 #include <stdint.h>
 #include "UART_drvr_2313a.h"
 
+// Summary - 
 void UART_init(void)
 {
     UART_drvr_init();
 }
 
+// Summary - 
+// param (uint8_t *) data_to_tx_ptr - 
+// param (uint8_t) len - 
 void UART_transmit(uint8_t *data_to_tx_ptr, uint8_t len)
 {
     uint8_t bytes_left = len;
@@ -18,12 +22,16 @@ void UART_transmit(uint8_t *data_to_tx_ptr, uint8_t len)
 }
 
 
+// Summary - 
+// param (uint8_t) data_to_tx - 
 void UART_transmit_byte(uint8_t data_to_tx)
 {
     UART_drvr_send_byte(data_to_tx);
 }
 
 
+// Summary - 
+// param (int32_t) var_to_tx - 
 void UART_transmit_value(int32_t var_to_tx)
 {
     uint8_t data_to_tx[10];
@@ -52,6 +60,9 @@ void UART_transmit_value(int32_t var_to_tx)
 }
 
 
+// Summary - 
+// param (uint8_t *) receive_buffer_ptr - 
+// param (uint8_t) len - 
 void UART_receive(uint8_t *receive_buffer_ptr, uint8_t len)
 {
     uint8_t bytes_left = len;
@@ -67,6 +78,8 @@ void UART_receive(uint8_t *receive_buffer_ptr, uint8_t len)
 }
 
 
+// Summary - 
+// retval (uint8_t) - 
 uint8_t UART_receive_byte(void)
 {
     uint8_t *data_to_rx_ptr = 0;
@@ -78,12 +91,15 @@ uint8_t UART_receive_byte(void)
 }
 
 
+// Summary - 
+// retval (uint8_t) - 
 uint8_t UART_receive_has_data(void)
 {
     return UART_drvr_receive_has_data();
 }
 
 
+// Summary - 
 void UART_reset(void)
 {
     UART_drvr_flush_buffer();

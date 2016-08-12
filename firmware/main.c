@@ -38,6 +38,8 @@ uint8_t LED_multiplex_timer_count = 0;   // count of mutiplex handler timer even
 uint8_t command_buffer[COMMAND_LENGTH];  // where UART commands are buffered
 
 
+// Summary - 
+// retval (int) - 
 int main(void)
 {
     led_color_t colors;
@@ -91,6 +93,9 @@ int main(void)
 }
 
 
+// Summary - 
+// param (rtc_time_t *) time_ptr - 
+// param (uint8_t *) cmd_buffer - 
 void process_UART_command(rtc_time_t *time_ptr, uint8_t *cmd_buffer)
 {
     switch(cmd_buffer[0]) {
@@ -179,21 +184,28 @@ void process_UART_command(rtc_time_t *time_ptr, uint8_t *cmd_buffer)
     }
 }
 
+// Summary - 
 void set_uart_flag(void)
 {
     uart_command_received = 1;
 }
 
+// Summary - 
 void set_timer_expired_flag(void) 
 {
     timer_expired = 1;
 }
 
+// Summary - 
 void clear_timer_expired_flag(void)
 {
     timer_expired = 0;
 }
 
+// Summary - 
+// param (rtc_time_t *) rtc_time_ptr - 
+// param (uint8_t) inc_ammount - 
+// retval (uint8_t) - 
 uint8_t increment_time(rtc_time_t *rtc_time_ptr, uint8_t inc_ammount)
 {
     rtc_time_ptr->sec += inc_ammount;
