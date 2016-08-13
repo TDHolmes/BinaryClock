@@ -16,7 +16,11 @@ typedef struct {
     uint8_t mode;
 } i2c_admin_t;
 
-// function definitions
 
+// function definitions
+uint8_t i2c_start(uint8_t address, uint8_t mode);
+uint8_t i2c_write_byte(uint8_t reg_addr, uint8_t data);
+uint8_t i2c_write(uint8_t start_adr, uint8_t *data_to_write_ptr, uint8_t data_len);
+uint8_t i2c_read(uint8_t start_adr, uint8_t *data_out_ptr, uint8_t data_len);
 
 #endif

@@ -2,6 +2,10 @@
 #include <avr/io.h>
 
 
+// private function definitions
+inline void toggle_scl(void);
+
+
 // Summary - 
 // retval (uint8_t) - 
 uint8_t i2c_drvr_init(void)

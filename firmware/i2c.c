@@ -7,6 +7,10 @@
 i2c_admin_t i2c_admin;
 i2c_admin_t i2c_admin_ptr;
 
+// private functions
+uint8_t i2c_start(uint8_t address, uint8_t mode);
+void i2c_end(uint8_t address);
+
 // Summary - 
 // retval (uint8_t) - 
 uint8_t i2c_init(void)
@@ -43,6 +47,23 @@ uint8_t i2c_start(uint8_t address, uint8_t mode)
         }
     }
 
+    return retval;
+}
+
+
+uint8_t i2c_write_byte(uint8_t reg_addr, uint8_t data)
+{
+    uint8_t retval;
+    // check for the correct mode
+    if (i2c_admin_ptr->mode != I2C_MODE_WRITE) {
+        return I2C_ERROR;
+    }
+    // write the address byte
+    retval = i2c_drvr_write_byte(start_adr);
+    if (retval != I2C_NO_ERRORS) {
+        return retval;
+    }
+    retval = i2c_drvr_write_byte(data);
     return retval;
 }
 
@@ -93,4 +114,5 @@ uint8_t i2c_read(uint8_t start_adr, uint8_t *data_out_ptr, uint8_t data_len)
 void i2c_end(uint8_t address)
 {
     i2c_admin.address = 0;
+    i2c_drvr_end();
 }
