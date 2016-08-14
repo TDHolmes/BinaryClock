@@ -1,5 +1,5 @@
-#ifndef UART_DRVR_2313A_H__
-#define UART_DRVR_2313A_H__
+#ifndef UART_DRVR_4313_H__
+#define UART_DRVR_4313_H__
 
 #include "hardware.h"
 #include <stdint.h>
@@ -20,4 +20,4 @@ void UART_drvr_clear_errors(void);
 uint8_t UART_drvr_receive_has_data(void);
 
 
-#endif /* UART_DRVR_2313A_H__ */
+#endif /* UART_DRVR_4313_H__ */

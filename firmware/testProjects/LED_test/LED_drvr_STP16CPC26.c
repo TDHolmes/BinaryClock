@@ -29,7 +29,7 @@ void LED_drvr_run(LED_drvr_t *LED_ptr, uint8_t LED_multiplex_timer_count)
     uint16_t color_mask = (1 << LED_ptr->active_color_bit);
     uint16_t bitstream = 0;
     uint16_t bit = 0;
-    uint8_t row, color;
+    uint8_t row;
     uint8_t i;
 
     // if we missed some multiplex timer counts, increment the errors
@@ -38,17 +38,17 @@ void LED_drvr_run(LED_drvr_t *LED_ptr, uint8_t LED_multiplex_timer_count)
     }
     // build up the bitstream to be clocked out
     for (row = 0; row < 4; row++) { // rows
-        for(color = 0; color < 3; color++) { // colors
-            bit = ((LED_ptr->LED_array[row][LED_ptr->active_column][color] & color_mask) >> LED_ptr->active_color_bit);
-            bitstream |= (bit << ((3 - row) * 3 + color));
-        }
+        /*  --  RED  --   */
+        bit = (LED_ptr->LED_array[row][LED_ptr->active_column][RED_IND] & color_mask); // mask for color
+        // shift for bitstream placement and compensate for selected color bit
+        bitstream |= (bit << ((3 - row) * 3 + RED_IND - LED_ptr->active_color_bit));
+        /*  --  GREEN  --   */
+        bit = (LED_ptr->LED_array[row][LED_ptr->active_column][GREEN_IND] & color_mask);
+        bitstream |= (bit << ((3 - row) * 3 + GREEN_IND - LED_ptr->active_color_bit));
+        /*  --  BLUE  --   */
+        bit = (LED_ptr->LED_array[row][LED_ptr->active_column][BLUE_IND] & color_mask);
+        bitstream |= (bit << ((3 - row) * 3 + BLUE_IND - LED_ptr->active_color_bit));
     }
-    // clock out the rest in zeros
-    // for(i = 0; i < 4; i++) {
-    //     LEDDRV_CLK_SET(0);
-    //     LEDDRV_SDI_SET(0);
-    //     LEDDRV_CLK_SET(1);
-    // }
     // clock out the LED bits
     for(i = 0; i < 12; i++) {
         LEDDRV_CLK_SET(0);

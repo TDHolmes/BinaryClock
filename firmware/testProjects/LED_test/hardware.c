@@ -1,6 +1,4 @@
 #include "hardware.h"
-#include "i2c.h"
-#include "UART.h"
 #include <avr/io.h>
 #include <avr/interrupt.h>
 
@@ -19,6 +17,6 @@ uint8_t hardware_init(void)
     // i2c_init();
     // timer_init();
     // turn on all interrupts
-    sei();
+    // sei();
     return PASS;
 }

@@ -1,5 +1,6 @@
 #include "RTC_DS3231.h"
 #include "i2c.c"
+#include <stdint.h>
 
 
 // Summary - 
@@ -59,10 +60,10 @@ uint8_t RTC_read_time(rtc_time_t *t_ptr)
     }
     // decrypt the time
     val = data_arr[0];
-    t_ptr->second = (val & RTC_SEC_ONE_MASK) + 10 * ((val & RTC_SEC_TEN_MASK) >> RTC_SEC_TEN_OFFSET)
+    t_ptr->second = (val & RTC_SEC_ONE_MASK) + 10 * ((val & RTC_SEC_TEN_MASK) >> RTC_SEC_TEN_OFFSET);
     val = data_arr[1];
-    t_ptr->minute = (val & RTC_MIN_ONE_MASK) + 10 * ((val & RTC_MIN_TEN_MASK) >> RTC_MIN_TEN_OFFSET)
+    t_ptr->minute = (val & RTC_MIN_ONE_MASK) + 10 * ((val & RTC_MIN_TEN_MASK) >> RTC_MIN_TEN_OFFSET);
     val = data_arr[2];
-    t_ptr->hour = (val & RTC_HOUR_ONE_MASK) + 10 * ((val & RTC_HOUR_TEN_MASK) >> RTC_HOUR_TEN_OFFSET)
+    t_ptr->hour = (val & RTC_HOUR_ONE_MASK) + 10 * ((val & RTC_HOUR_TEN_MASK) >> RTC_HOUR_TEN_OFFSET);
     return retval;
 }

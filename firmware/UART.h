@@ -2,7 +2,7 @@
 #define UART_H__
 
 #include <stdint.h>
-#include "UART_drvr_2313a.h"
+#include "UART_drvr_4313.h"
 
 // error codes
 #define UART_CMD_INVALID     0xFF
@@ -18,8 +18,6 @@
 #define UART_CMD_SET_COLOR     0x15
 #define UART_CMD_CHANGE_STATE  0x16
 
-#include <stdint.h>
-#include "UART_drvr_2313a.h"
 
 void UART_init(void);
 void UART_transmit(uint8_t *data_to_tx_ptr, uint8_t len);

@@ -2,7 +2,7 @@
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include "ring_buffer.h"
-#include "UART_drvr_2313a.h"
+#include "UART_drvr_4313.h"
 
 uint8_t UART_rx_buff_arr[UART_RX_BUFF_SIZE];
 

@@ -6,7 +6,7 @@
 
 #include <avr/io.h>
 #include "timer.h"
-#include "RTC.h"
+#include "RTC_DS3231.h"
 #include "LED.h"
 #include "UART.h"
 #include "hardware.h"
@@ -208,12 +208,12 @@ void clear_timer_expired_flag(void)
 // retval (uint8_t) - 
 uint8_t increment_time(rtc_time_t *rtc_time_ptr, uint8_t inc_ammount)
 {
-    rtc_time_ptr->sec += inc_ammount;
-    if (rtc_time_ptr->sec >= 60) {
-        rtc_time_ptr->sec -= 60;
-        rtc_time_ptr->min += 1;
-        if (rtc_time_ptr->min >= 60) {
-            rtc_time_ptr->min -= 60;
+    rtc_time_ptr->second += inc_ammount;
+    if (rtc_time_ptr->second >= 60) {
+        rtc_time_ptr->second -= 60;
+        rtc_time_ptr->minute += 1;
+        if (rtc_time_ptr->minute >= 60) {
+            rtc_time_ptr->minute -= 60;
             rtc_time_ptr->hour += 1;
             if (rtc_time_ptr->hour >= 24) {
                 rtc_time_ptr->hour -= 24;

@@ -28,7 +28,8 @@ SOURCES   := $(notdir $(shell find $(SOURCEDIR) -name "*.c"))
 #  Get list of object files, with paths
 OBJECTS := $(addprefix $(BUILDDIR),$(SOURCES:%.c=%.o))
 # OBJECTS    = main.o
-FUSES      = -U hfuse:w:0xd9:m -U lfuse:w:0x24:m
+FUSES      = -U lfuse:w:0xE4:m
+# H:FF, E:DF, L:64
 # $(info $$SOURCES is [${SOURCES}])
 # $(info $$OBJECTS is [${OBJECTS}])
 
@@ -59,15 +60,15 @@ FUSES      = -U hfuse:w:0xd9:m -U lfuse:w:0x24:m
 # 5 - SUT1: Sets system start-up time (default: 1 (unprogrammed))
 # 4 - SUT0: (default: 0 (programmed))
 # 3 - CKSEL3: Selects clock source (default: 0 (programmed))
-# 2 - CKSEL2: (default: 0 (programmed))
-# 1 - CKSEL1: (default: 1 (unprogrammed))
+# 2 - CKSEL2: (default: 1 (unprogrammed))
+# 1 - CKSEL1: (default: 0 (programmed))
 # 0 - CKSEL0: (default: 0 (programmed))
 # 
 
 # Tune the lines below only if you know what you are doing:
 
 AVRDUDE = avrdude $(PROGRAMMER) -p $(DEVICE)
-COMPILE = avr-gcc -Wextra -Os -DF_CPU=$(CLOCK) -mmcu=$(DEVICE)
+COMPILE = avr-gcc -Wextra -O2 -DF_CPU=$(CLOCK) -mmcu=$(DEVICE)
 
 # -Os  // size optimization
 
