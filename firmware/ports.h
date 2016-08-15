@@ -35,10 +35,10 @@
 
 #define ANO_PORT PORTB
 
-#define LEDDRV_OE_SET(val)  (val ? ANO_PORT |= (1 << LEDDRV_OE) : (ANO_PORT &= ~(1 << LEDDRV_OE)))
-#define LEDDRV_LE_SET(val)  (val ? ANO_PORT |= (1 << LEDDRV_LE) : (ANO_PORT &= ~(1 << LEDDRV_LE)))
-#define LEDDRV_SDI_SET(val) (val ? ANO_PORT |= (1 << LEDDRV_SDI) : (ANO_PORT &= ~(1 << LEDDRV_SDI)))
-#define LEDDRV_CLK_SET(val) (val ? ANO_PORT |= (1 << LEDDRV_CLK) : (ANO_PORT &= ~(1 << LEDDRV_CLK)))
+#define LEDDRV_OE_SET(val)  (val ? PORTD |= (1 << LEDDRV_OE) : (PORTD &= ~(1 << LEDDRV_OE)))
+#define LEDDRV_LE_SET(val)  (val ? PORTD |= (1 << LEDDRV_LE) : (PORTD &= ~(1 << LEDDRV_LE)))
+#define LEDDRV_SDI_SET(val) (val ? PORTD |= (1 << LEDDRV_SDI) : (PORTD &= ~(1 << LEDDRV_SDI)))
+#define LEDDRV_CLK_SET(val) (val ? PORTD |= (1 << LEDDRV_CLK) : (PORTD &= ~(1 << LEDDRV_CLK)))
 
 #define LED0_set(val) (val ? (PORTA |= 1 << IND_LED0) : (PORTA &= ~(1 << IND_LED0)))
 #define LED1_set(val) (val ? (PORTD |= 1 << IND_LED1) : (PORTD &= ~(1 << IND_LED1)))

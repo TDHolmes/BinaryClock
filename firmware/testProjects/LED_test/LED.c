@@ -11,6 +11,7 @@ LED_drvr_t *LED_admin_ptr;
 // Summary - 
 void LED_init(void)
 {
+    uint8_t i;
     LED_admin_ptr = &LED_admin_struct;
     LED_drvr_init(LED_admin_ptr);
     LED_clear_all();

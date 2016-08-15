@@ -1,6 +1,8 @@
 #ifndef COLOR_H__
 #define COLOR_H__
 
+#include <stdint.h>
+
 #define COLOR_BITS 8
 
 typedef struct {

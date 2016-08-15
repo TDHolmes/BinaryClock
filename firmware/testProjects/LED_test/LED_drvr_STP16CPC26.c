@@ -18,6 +18,7 @@ void LED_drvr_init(LED_drvr_t * LED_ptr)
     LED_ptr->LED_errors.missed_multiplex_timer_interrupts = 0;
     LED_ptr->active_column = 0;
     LED_ptr->active_color_bit = 0;
+    ANO_PORT = 0xFF;
 }
 
 
@@ -39,15 +40,16 @@ void LED_drvr_run(LED_drvr_t *LED_ptr, uint8_t LED_multiplex_timer_count)
     // build up the bitstream to be clocked out
     for (row = 0; row < 4; row++) { // rows
         /*  --  RED  --   */
-        bit = (LED_ptr->LED_array[row][LED_ptr->active_column][RED_IND] & color_mask); // mask for color
-        // shift for bitstream placement and compensate for selected color bit
-        bitstream |= (bit << ((3 - row) * 3 + RED_IND - LED_ptr->active_color_bit));
+         // mask for color
+        bit = (LED_ptr->LED_array[row][LED_ptr->active_column][RED_IND] & color_mask) >> LED_ptr->active_color_bit;
+        // shift for bitstream placement and compensate for selected color bi >> LED_ptr->active_color_bitt
+        bitstream |= (bit << ((3 - row) * 3 + RED_IND));
         /*  --  GREEN  --   */
-        bit = (LED_ptr->LED_array[row][LED_ptr->active_column][GREEN_IND] & color_mask);
-        bitstream |= (bit << ((3 - row) * 3 + GREEN_IND - LED_ptr->active_color_bit));
+        bit = (LED_ptr->LED_array[row][LED_ptr->active_column][GREEN_IND] & color_mask) >> LED_ptr->active_color_bit;
+        bitstream |= (bit << ((3 - row) * 3 + GREEN_IND));
         /*  --  BLUE  --   */
-        bit = (LED_ptr->LED_array[row][LED_ptr->active_column][BLUE_IND] & color_mask);
-        bitstream |= (bit << ((3 - row) * 3 + BLUE_IND - LED_ptr->active_color_bit));
+        bit = (LED_ptr->LED_array[row][LED_ptr->active_column][BLUE_IND] & color_mask) >> LED_ptr->active_color_bit;
+        bitstream |= (bit << ((3 - row) * 3 + BLUE_IND));
     }
     // clock out the LED bits
     for(i = 0; i < 12; i++) {
