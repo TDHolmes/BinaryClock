@@ -37,9 +37,10 @@ void UART_transmit_byte(uint8_t data_to_tx, bool_t blocking)
 
 // Summary - 
 // param (int32_t) var_to_tx - 
-void UART_transmit_value(int32_t var_to_tx,  bool_t blocking)
+void UART_transmit_value(int32_t var_to_tx,  bool_t blocking, bool_t print_hex)
 {
     uint8_t data_to_tx[10];
+    uint8_t temp_val;
     int8_t i;
     // initialize transmit array
     for (i = 9; i >= 0; i--) {
@@ -50,17 +51,40 @@ void UART_transmit_value(int32_t var_to_tx,  bool_t blocking)
         UART_transmit_byte('-', blocking);
         var_to_tx = (-1) * var_to_tx;
     }
+    if (print_hex == TRUE) {
+        UART_transmit_byte('0', blocking);
+        UART_transmit_byte('x', blocking);
+    }
     // fill transmit array
     i = 0;
     while (var_to_tx >= 10) {
-        data_to_tx[i] = (var_to_tx % 10) + 0x30;  // ascii value of number
-        var_to_tx = var_to_tx / 10;
+        if (print_hex == FALSE) {
+            data_to_tx[i] = (var_to_tx % 10) + 0x30;  // ascii value of number
+            var_to_tx = var_to_tx / 10;
+        } else {
+            // print hex
+            temp_val = (var_to_tx % 16);
+            if (temp_val <= 9) {
+                data_to_tx[i] = temp_val + 0x30;
+            } else {
+                data_to_tx[i] = temp_val + 0x45;  // ("A" offset) - 10 = 0x45
+            }
+            var_to_tx = var_to_tx >> 4;  // divide by 16
+        }
         if (i < 10) {
             i++;
         }
     }
     // add last character
-    data_to_tx[i] = var_to_tx + 0x30;
+    if (print_hex == TRUE) {
+        if (var_to_tx <= 9) {
+            data_to_tx[i] = var_to_tx + 0x30;
+        } else {
+            data_to_tx[i] = var_to_tx + 0x45;  // ("A" offset) - 10 = 0x45
+        }
+    } else {
+        data_to_tx[i] = var_to_tx + 0x30;
+    }
     // transmit data
     for (i = 9; i >= 0; i--) {
         if (data_to_tx[i] != 0) {

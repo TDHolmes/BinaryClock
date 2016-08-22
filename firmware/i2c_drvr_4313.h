@@ -14,5 +14,6 @@ retval_t i2c_drvr_end(void);
 retval_t i2c_drvr_write_byte(uint8_t byte_to_tx);
 retval_t i2c_drvr_read_byte(uint8_t *byte_read_ptr);
 
+void toggle_scl(void);
 
 #endif /* I2C_DRVR_4313_H__ */

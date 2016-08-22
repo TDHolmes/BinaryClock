@@ -26,7 +26,7 @@
 void UART_init(uint32_t baudrate);
 void UART_transmit(uint8_t *data_to_tx_ptr, uint8_t len, bool_t blocking);
 void UART_transmit_byte(uint8_t data_to_tx, bool_t blocking);
-void UART_transmit_value(int32_t var_to_tx,  bool_t blocking);
+void UART_transmit_value(int32_t var_to_tx,  bool_t blocking, bool_t print_hex);
 void UART_receive(uint8_t *receive_buffer_ptr, uint8_t len);
 retval_t UART_receive_byte(uint8_t *data_to_rx_ptr, bool_t blocking);
 bool_t   UART_receive_has_data(void);

@@ -3,8 +3,8 @@
 #include "global_defines.h"
 #include <stdint.h>
 
-#define WRITE_MASK 0x01
-#define READ_MASK  0x00
+#define WRITE_MASK 0x00
+#define READ_MASK  0x01
 
 
 // private functions
@@ -31,19 +31,13 @@ retval_t i2c_start(uint8_t address, uint8_t mode)
     retval_t retval = I2C_ERROR;
 
     // try to start communication
-    for (i = 0; i <= I2C_RETRY_COUNT; i++) {
-        if (mode == I2C_MODE_WRITE) {
-            addr_byte_to_send = (address << 1) | WRITE_MASK;
-        } else {
-            addr_byte_to_send = (address << 1) | READ_MASK;
-        }
-        // send the initial address in the mode
-        retval = i2c_drvr_start(addr_byte_to_send);
-        if (retval == I2C_ACK) {
-            break;
-        }
+    if (mode == I2C_MODE_WRITE) {
+        addr_byte_to_send = (address << 1) | WRITE_MASK;
+    } else {
+        addr_byte_to_send = (address << 1) | READ_MASK;
     }
-
+    // send the initial address in the mode
+    retval = i2c_drvr_start(addr_byte_to_send);
     return retval;
 }
 
@@ -53,7 +47,7 @@ retval_t i2c_write_byte(uint8_t chip_addr, uint8_t reg_addr, uint8_t data)
     // start communications with the chip
     retval_t retval = i2c_start(chip_addr, I2C_MODE_WRITE);
     // check for device ack
-    if (retval != GEN_PASS) {
+    if (retval != I2C_ACK) {
         return retval;
     }
     // write the address byte

@@ -46,26 +46,36 @@ uint8_t vals_rx[16];
 // retval (int) - 
 int main(void)
 {
-    uint32_t start_time = 0;
-    uint8_t data_to_tx = 0;
     retval_t retval;
-    bool_t transmit = TRUE;
     uint8_t multiplexer_count;
+    uint8_t rtc_int;
+    uint32_t start_time;
+    rtc_time_t time;
+    rtc_time_t *t_ptr = &time;
+    t_ptr->second = 0;
+    t_ptr->minute = 1;
+    t_ptr->hour = 2;
     hardware_init();
     timer_init(&multiplexer_count);
     UART_init((uint32_t)9600);
-    while (1) {
-        // UART_transmit_value((int32_t)timer_millis_get(), TRUE);
-        // wait_time(50);
-        // UART_transmit_byte(CR, TRUE);
-        // wait_time(50);
-        // UART_transmit_byte(LF, TRUE);
-        // wait_time(500);
-        if (UART_receive_has_data() == TRUE) {
-            retval = UART_receive_byte(&data_to_tx, FALSE);
-            UART_transmit_byte(data_to_tx, TRUE);
-        }
+    start_time = timer_millis_get();
+    while (timer_millis_get() - start_time < 3000);
+    retval = i2c_init();
+    if (retval == GEN_PASS) {
+        retval = RTC_init(t_ptr, &rtc_int);
     }
+    while (1) {
+        UART_transmit_value((int32_t)retval, TRUE, TRUE);
+        wait_time(500);
+        UART_transmit_byte(LF, TRUE);
+        wait_time(500);
+        UART_transmit_byte(CR, TRUE);
+        wait_time(5000);
+    }
+
+
+
+
     // uint8_t enter_update_time = 0;
     // rtc_time_t time;
     // rtc_time_t *time_ptr = &time;
