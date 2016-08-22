@@ -32,9 +32,9 @@ retval_t i2c_start(uint8_t address, uint8_t mode)
 
     // try to start communication
     if (mode == I2C_MODE_WRITE) {
-        addr_byte_to_send = (address << 1) | WRITE_MASK;
+        addr_byte_to_send = (address << 1) & ~(0x01);
     } else {
-        addr_byte_to_send = (address << 1) | READ_MASK;
+        addr_byte_to_send = (address << 1) | 0x01;
     }
     // send the initial address in the mode
     retval = i2c_drvr_start(addr_byte_to_send);
