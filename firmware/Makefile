@@ -21,26 +21,27 @@
 
 DEVICE     = attiny4313
 CLOCK      = 8000000
-PROGRAMMER = #-c stk500v2 -P avrdoper
+PROGRAMMER = dragon_isp
 SOURCEDIR  = .
-BUILDDIR   = 
+BUILDDIR   = build/
+# build
 SOURCES   := $(notdir $(shell find $(SOURCEDIR) -name "*.c"))
 #  Get list of object files, with paths
 OBJECTS := $(addprefix $(BUILDDIR),$(SOURCES:%.c=%.o))
-# OBJECTS    = main.o
-FUSES      = -U hfuse:w:0xd9:m -U lfuse:w:0x24:m
-# $(info $$SOURCES is [${SOURCES}])
-# $(info $$OBJECTS is [${OBJECTS}])
+# OBJECTS := $(SOURCES:%.c=%.o)
+INCLUDE_PATH := /usr/local/CrossPack-AVR-20131216/avr/include/*
+PRINT_INC = avr-gcc -print-file-name=include
+
+
+# compiler flags and such
+CC = avr-gcc
+NO_UNUSED_FUNCTS =  -fdata-sections -ffunction-sections -Wl,--gc-sections
+CFLAGS = -Wall -Wextra -DF_CPU=$(CLOCK) -mmcu=$(DEVICE) $(NO_UNUSED_FUNCTS)
+
+FUSES  = -U hfuse:w:0xd9:m -U lfuse:w:0x24:m
 
 # ATtiny2313a Fuses
 # Extended Byte
-# 7 -  (default: )
-# 6 -  (default: )
-# 5 -  (default: )
-# 4 -  (default: )
-# 3 -  (default: )
-# 2 -  (default: )
-# 1 -  (default: )
 # 0 - SELFPRGEN: Enables the SPM function (default: 1 [unprogrammed])
 # 
 # High Byte
@@ -66,30 +67,29 @@ FUSES      = -U hfuse:w:0xd9:m -U lfuse:w:0x24:m
 
 # Tune the lines below only if you know what you are doing:
 
-AVRDUDE = avrdude $(PROGRAMMER) -p $(DEVICE)
-COMPILE = avr-gcc -Wextra -Os -DF_CPU=$(CLOCK) -mmcu=$(DEVICE)
-
-# -Os  // size optimization
-
+AVRDUDE = avrdude -B 20 -c $(PROGRAMMER) -p $(DEVICE)
+COMPILE = avr-gcc 
 # symbolic targets:
-all:	main.hex
+all: $(BUILDDIR)main.hex
+	$(PRINT_INC)
 
-.c.o:
-	$(COMPILE) -c $< -o $@
-	$(shell find $(SOURCEDIR) -name '*.o' -exec mv {} $(BUILDDIR) \)
+# .c.o:
+$(BUILDDIR)%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
-.S.o:
-	$(COMPILE) -x assembler-with-cpp -c $< -o $@
+
+$(BUILDDIR)%.o: %.S
+	$(CC) $(CFLAGS) -x assembler-with-cpp -c $< -o $@
 # "-x assembler-with-cpp" should not be necessary since this is the default
 # file type for the .S (with capital S) extension. However, upper case
 # characters are not always preserved on Windows. To ensure WinAVR
 # compatibility define the file type manually.
 
 .c.s:
-	$(COMPILE) -S $< -o $@
+	$(CC) $(CFLAGS) -S $< -o $@
 
 flash:	all
-	$(AVRDUDE) -U flash:w:main.hex:i
+	$(AVRDUDE) -U flash:w:$(BUILDDIR)main.hex:i
 
 fuse:
 	$(AVRDUDE) $(FUSES)
@@ -99,25 +99,25 @@ install: flash fuse
 
 # if you use a bootloader, change the command below appropriately:
 load: all
-	bootloadHID main.hex
+	bootloadHID $(BUILDDIR)main.hex
 
 clean:
-	rm -f main.hex main.elf $(OBJECTS)
+	rm -f $(BUILDDIR)main.hex $(BUILDDIR)main.elf $(OBJECTS)
 
 # file targets:
-main.elf: $(OBJECTS)
-	$(COMPILE) -o main.elf $(OBJECTS)
+$(BUILDDIR)main.elf: $(OBJECTS)
+	$(CC) $(CFLAGS) -o $(BUILDDIR)main.elf $(OBJECTS)
 
-main.hex: main.elf
-	rm -f main.hex
-	avr-objcopy -j .text -j .data -O ihex main.elf main.hex
-	avr-size --format=avr --mcu=$(DEVICE) main.elf
+$(BUILDDIR)main.hex: $(BUILDDIR)main.elf
+	rm -f $(BUILDDIR)main.hex
+	avr-objcopy -j .text -j .data -O ihex $(BUILDDIR)main.elf $(BUILDDIR)main.hex
+	avr-size --format=avr --mcu=$(DEVICE) $(BUILDDIR)main.elf
 # If you have an EEPROM section, you must also create a hex file for the
 # EEPROM and add it to the "flash" target.
 
 # Targets for code debugging and analysis:
-disasm:	main.elf
-	avr-objdump -d main.elf
+disasm:	$(BUILDDIR)main.elf
+	avr-objdump -d $(BUILDDIR)main.elf
 
 cpp:
-	$(COMPILE) -E main.c
+	$(CC) $(CFLAGS) -E main.c

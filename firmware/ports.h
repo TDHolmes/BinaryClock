@@ -43,4 +43,7 @@
 #define LED0_set(val) (val ? (PORTA |= 1 << IND_LED0) : (PORTA &= ~(1 << IND_LED0)))
 #define LED1_set(val) (val ? (PORTD |= 1 << IND_LED1) : (PORTD &= ~(1 << IND_LED1)))
 
+#define LED0_toggle() (PORTA ^= (1 << IND_LED0))
+#define LED1_toggle() (PORTD ^= (1 << IND_LED1))
+
 #endif /* PORTS_H__ */

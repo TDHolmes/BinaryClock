@@ -1,6 +1,7 @@
 #ifndef RTC_DS3231_H__
 #define RTC_DS3231_H__
 
+#include "global_defines.h"
 #include <stdint.h>
 
 
@@ -71,9 +72,9 @@ Positive offsets slow the time base and negative offsets quicken the time base. 
 
 
 // function definitions
-uint8_t RTC_init(rtc_time_t *t_ptr);
-uint8_t RTC_set_time(rtc_time_t *t_ptr, uint8_t hour, uint8_t minute, uint8_t second);
-uint8_t RTC_read_time(rtc_time_t *t_ptr);
+retval_t RTC_init(rtc_time_t *t_ptr, uint8_t *RTC_1Hz_int_count_ptr);
+retval_t RTC_set_time(rtc_time_t *t_ptr, uint8_t hour, uint8_t minute, uint8_t second);
+retval_t RTC_read_time(rtc_time_t *t_ptr);
 
 
 #endif /* RTC_DS3231_H__ */

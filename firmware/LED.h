@@ -3,6 +3,7 @@
 
 #include "color.h"
 #include "hardware.h"
+#include "RTC_DS3231.h"
 #include <stdint.h>
 #include <avr/io.h>
 
@@ -43,7 +44,7 @@ typedef struct {
 } LED_errors_t;
 
 void LED_init(void);
-// void LED_update_time(rtc_time_t *t_ptr);
+void LED_update_time(rtc_time_t *t_ptr, uint8_t update_all_override);
 void LED_run(uint8_t LED_multiplex_timer_count);
 void LED_clear(uint8_t row, uint8_t col);
 void LED_set(uint8_t row, uint8_t col, uint8_t red, uint8_t green, uint8_t blue);

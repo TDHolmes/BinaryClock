@@ -11,7 +11,7 @@ LED_drvr_t *LED_admin_ptr;
 // Summary - 
 void LED_init(void)
 {
-    uint8_t i;
+    // uint8_t i;
     LED_admin_ptr = &LED_admin_struct;
     LED_drvr_init(LED_admin_ptr);
     LED_clear_all();
@@ -32,7 +32,7 @@ void LED_update_time(rtc_time_t *t_ptr, uint8_t update_all_override)
     uint8_t sec_one = t_ptr->second % 10;
     for (i = 0; i < 4; i++) {
         // if the hour is changed...
-        if (t_ptr->minute == 0 | update_all_override != 0) {
+        if ((t_ptr->minute == 0) | (update_all_override != 0)) {
             // update the i'th bit of hour tens place
             if (hour_ten & (1 << i)) {
                 LED_admin_ptr->LED_array[i][0][RED_IND] = LED_admin_ptr->colors.red;
@@ -55,7 +55,7 @@ void LED_update_time(rtc_time_t *t_ptr, uint8_t update_all_override)
             }
         }
         // if minutes have changed...
-        if (t_ptr->second == 0 | update_all_override != 0) {
+        if ((t_ptr->second == 0) | (update_all_override != 0)) {
             // update the i'th bit of min tens place
             if (min_ten & (1 << i)) {
                 LED_admin_ptr->LED_array[i][2][RED_IND] = LED_admin_ptr->colors.red;

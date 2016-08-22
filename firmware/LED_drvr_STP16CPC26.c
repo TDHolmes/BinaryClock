@@ -5,8 +5,6 @@
 
 #define COLOR_DEPTH 4
 
-bit_target = 0;
-
 // Notes:
 //   red is bit 1
 //   green is bit 2
@@ -62,12 +60,18 @@ void LED_drvr_run(LED_drvr_t *LED_ptr, uint8_t LED_multiplex_timer_count)
     // Latch the LED driver data
     LEDDRV_LE_SET(1);
     LEDDRV_LE_SET(0);
-    // Enable the anode high side
+    // disable the previous anode 
+    if (LED_ptr->active_column == 0) {
+        ANO_PORT |= (1 << 6);
+    } else {
+        ANO_PORT |= (1 << (LED_ptr->active_column - 1));
+    }
+    // Enable the current anode high side
     // the 6th column isn't sequential like the other 5
     if (LED_ptr->active_column != 5) {
-        ANO_PORT = ~(1 << LED_ptr->active_column);
+        ANO_PORT &= ~(1 << LED_ptr->active_column);
     } else {
-        ANO_PORT = ~(1 << (LED_ptr->active_column + 1));
+        ANO_PORT &= ~(1 << (LED_ptr->active_column + 1));
     }
     // output the LED driver data
     LEDDRV_OE_SET(0);

@@ -4,9 +4,11 @@
 
 typedef struct {
     uint8_t millis_initialized;
+    uint8_t micros_initialized;
     uint8_t counter_initialized;
     uint8_t *counter_flag_ptr;
     uint32_t millis_count;
+    uint32_t micros_count;
 } timer_status_t;
 
 
@@ -72,17 +74,16 @@ uint32_t timer_millis_get(void)
     return t_status_ptr->millis_count;
 }
 
+
 // Interrupt service routine on comp A match
 // Summary - 
 ISR(TIMER1_COMPA_vect)
 {
-    // uint8_t sreg;
-    // sreg = SREG;            // store global interrupts
-    // __disable_interrupt();  // disable interrupts
-    OCR1A = 999;          // (8 MHz) / (8 * (1 + 999)) = 1kHz
-    TCNT1 = 0;                 // reset the timer
+    cli();
+    TCNT1 = 0;  // reset the timer
+    OCR1A = 999;  // (8 MHz) / (8 * (1 + 9)) = 1 kHz
     t_status_ptr->millis_count += 1;
-    // SREG = sreg;            // restore interrupts
+    sei();
 }
 
 
@@ -90,7 +91,9 @@ ISR(TIMER1_COMPA_vect)
 // Summary - 
 ISR(TIMER0_COMPA_vect)
 {
+    cli();
+    TCNT0 = 0;        // reset the timer
     OCR0A = 173;      // output compare to 173 to generate interrupts at 2.874 kHz
-    TCNT0 = 0;  // reset the timer
     *(t_status_ptr->counter_flag_ptr) += 1;
+    sei();
 }
