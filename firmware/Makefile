@@ -36,7 +36,7 @@ PRINT_INC = avr-gcc -print-file-name=include
 # compiler flags and such
 CC = avr-gcc
 NO_UNUSED_FUNCTS =  -fdata-sections -ffunction-sections -Wl,--gc-sections
-CFLAGS = -Wall -Wextra -DF_CPU=$(CLOCK) -mmcu=$(DEVICE) $(NO_UNUSED_FUNCTS)
+CFLAGS = -Wall -Wextra -DF_CPU=$(CLOCK) -mmcu=$(DEVICE) $(NO_UNUSED_FUNCTS) -Os
 
 FUSES  = -U hfuse:w:0xd9:m -U lfuse:w:0x24:m
 
@@ -68,7 +68,7 @@ FUSES  = -U hfuse:w:0xd9:m -U lfuse:w:0x24:m
 # Tune the lines below only if you know what you are doing:
 
 AVRDUDE = avrdude -B 20 -c $(PROGRAMMER) -p $(DEVICE)
-COMPILE = avr-gcc 
+
 # symbolic targets:
 all: $(BUILDDIR)main.hex
 	$(PRINT_INC)
