@@ -6,6 +6,7 @@
 
 #define I2C_START_RETRY 5
 
+#define I2C_BITBANG
 
 // function definitions
 retval_t i2c_drvr_init(void);
