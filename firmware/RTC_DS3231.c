@@ -19,7 +19,7 @@ retval_t RTC_init(rtc_time_t *t_ptr, uint8_t *RTC_1Hz_int_count_ptr)
     // start communication with the chip & setup the chip (enable 1 Hz output, )
     byte_to_write = (1 << BBSQW);
     retval = i2c_write_byte(RTC_ADDR, RTC_ADDR_CONTROL, byte_to_write);
-    if (retval != GEN_PASS) {
+    if (retval != I2C_ACK) {
         return retval;
     }
     retval = RTC_read_time(t_ptr);

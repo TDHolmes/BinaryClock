@@ -8,7 +8,7 @@
 // private function definitions
 retval_t check_ack(void);
 
-#ifdef BITBANG
+#ifdef I2C_BITBANG
 
     // define the set pin functions for bitbang
     void set_SDA(uint8_t val);
@@ -32,8 +32,9 @@ retval_t check_ack(void);
         uint8_t retval;
         // make sure SDA is in read mode
         DDRB = DDRB & ~(1 << PB5);   // change mode to input
-        retval = (PORTB & (1 << PB5)) >> PB5; // read bit
-        return retval
+        _NOP();
+        retval = (PINB & (1 << PB5)) >> PB5; // read bit
+        return retval;
     }
 
     void set_SCL(uint8_t val)
@@ -63,15 +64,16 @@ retval_t check_ack(void);
     retval_t i2c_drvr_start(uint8_t addr_with_mode)
     {
         uint8_t i;
+
         if ((PINB & (1 << PB7)) == 0) {
             return I2C_CLK_LOW_BEFORE_START;
         }
         // generate a start condition (SDA goes high -> low while SCL stays high)
         set_SDA(0);
+        _NOP();
+        set_SCL(0);
         // start communication
-        i2c_drvr_write_byte(addr_with_mode);
-        // check ack / nack
-        return check_ack();
+        return i2c_drvr_write_byte(addr_with_mode);
     }
 
 
@@ -80,6 +82,8 @@ retval_t check_ack(void);
     retval_t i2c_drvr_end(void)
     {
         // generate a stop condition (SDA goes low -> high while SCL stays high)
+        set_SCL(1);  // double check that SCL is deasserted as well
+        _NOP();
         set_SDA(1);
         return GEN_PASS;
     }
@@ -89,16 +93,18 @@ retval_t check_ack(void);
     // param (uint8_t) byte_to_tx - 
     retval_t i2c_drvr_write_byte(uint8_t byte_to_tx)
     {
-        uint8_t i;
+        int8_t i;
         uint8_t bit;
         // send byte
-        for (i = 7; i != 0; i--) {
+        for (i = 7; i >= 0; i--) {
             bit = (byte_to_tx & 0x80) >> 7; // bring MSB to bit 0
-            set_SDA(bit)
+            set_SCL(0);
+            set_SDA(bit);
             set_SCL(1);  // clock it in
             byte_to_tx = byte_to_tx << 1; // shift byte
-            set_SCL(0);
         }
+        set_SCL(0);
+        set_SDA(1); // deassert the data line
         return check_ack();
     }
 
@@ -108,12 +114,15 @@ retval_t check_ack(void);
     retval_t i2c_drvr_read_byte(uint8_t *byte_read_ptr)
     {
         int8_t i;
+        uint8_t bit;
         uint8_t byte = 0;
         retval_t retval;
+        // make sure SDA is de-asserted
+        set_SDA(1);
         for (i = 7; i >= 0; i--) {
             set_SCL(1);
             bit = read_SDA();
-            byte = byte | (bit << i)
+            byte = byte | (bit << i);
             set_SCL(0);
         }
         retval = check_ack();
@@ -132,6 +141,7 @@ retval_t check_ack(void);
         retval_t retval;
         // check ack
         set_SCL(1);
+        _NOP();
         // check ack/nack here
         uint8_t bit = read_SDA();
         if (bit == 0) {
@@ -143,7 +153,7 @@ retval_t check_ack(void);
         return retval;
     }
 
-#else /* Non-bitbang version */
+#else // Non-bitbang version
 
     void toggle_scl();
 
@@ -261,5 +271,6 @@ retval_t check_ack(void);
         toggle_scl();
         return retval;
     }
+
 
 #endif  /* I2C_BITBANG */

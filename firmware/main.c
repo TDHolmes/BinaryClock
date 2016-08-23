@@ -61,9 +61,7 @@ int main(void)
     start_time = timer_millis_get();
     while (timer_millis_get() - start_time < 3000);
     retval = i2c_init();
-    if (retval == GEN_PASS) {
-        retval = RTC_init(t_ptr, &rtc_int);
-    }
+    retval = RTC_init(t_ptr, &rtc_int);
     while (1) {
         UART_transmit_value((int32_t)retval, TRUE, TRUE);
         wait_time(500);
