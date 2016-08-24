@@ -13,7 +13,7 @@ retval_t i2c_drvr_init(void);
 retval_t i2c_drvr_start(uint8_t byte_to_tx);
 retval_t i2c_drvr_end(void);
 retval_t i2c_drvr_write_byte(uint8_t byte_to_tx);
-retval_t i2c_drvr_read_byte(uint8_t *byte_read_ptr);
+    retval_t i2c_drvr_read_byte(uint8_t *byte_read_ptr, uint8_t ack);
 
 void toggle_scl(void);
 

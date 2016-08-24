@@ -67,7 +67,7 @@ void UART_transmit_value(int32_t var_to_tx,  bool_t blocking, bool_t print_hex)
             if (temp_val <= 9) {
                 data_to_tx[i] = temp_val + 0x30;
             } else {
-                data_to_tx[i] = temp_val + 0x45;  // ("A" offset) - 10 = 0x45
+                data_to_tx[i] = temp_val + 55;  // ("A" offset) - 10 = 55
             }
             var_to_tx = var_to_tx >> 4;  // divide by 16
         }

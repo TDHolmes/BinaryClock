@@ -6,7 +6,7 @@
 #include <stdint.h>
 
 
-uint8_t *RTC_local_1Hz_int_count_ptr;
+volatile uint8_t *RTC_local_1Hz_int_count_ptr;
 
 
 // Summary - 
@@ -16,10 +16,13 @@ retval_t RTC_init(rtc_time_t *t_ptr, uint8_t *RTC_1Hz_int_count_ptr)
     uint8_t byte_to_write = 0;
     retval_t retval = 0;
     RTC_local_1Hz_int_count_ptr = RTC_1Hz_int_count_ptr;
+    // enable a pin change interrupt on the 1 Hz RTC pin 
+    GIMSK |= (1 << PCIE1);
+    PCMSK1 = (1 << PCINT9);
     // start communication with the chip & setup the chip (enable 1 Hz output, )
     byte_to_write = (1 << BBSQW);
     retval = i2c_write_byte(RTC_ADDR, RTC_ADDR_CONTROL, byte_to_write);
-    if (retval != I2C_ACK) {
+    if (retval != GEN_PASS) {
         return retval;
     }
     retval = RTC_read_time(t_ptr);
@@ -78,7 +81,7 @@ retval_t RTC_read_time(rtc_time_t *t_ptr)
 // Summary - Pin change interrupt on the 1 Hz square wave pin from the RTC
 ISR(PCINT_A_vect)
 {
-    if (PORTA & (1 << PINA1)) {
+    if (PINA & (1 << PA1)) {
         *RTC_local_1Hz_int_count_ptr += 1;
     }
 }

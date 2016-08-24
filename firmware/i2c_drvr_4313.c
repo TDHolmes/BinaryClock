@@ -14,6 +14,7 @@ retval_t check_ack(void);
     void set_SDA(uint8_t val);
     void set_SCL(uint8_t val);
     uint8_t read_SDA(void);
+    void write_ack(uint8_t val);
 
 
     void set_SDA(uint8_t val)
@@ -82,6 +83,7 @@ retval_t check_ack(void);
     retval_t i2c_drvr_end(void)
     {
         // generate a stop condition (SDA goes low -> high while SCL stays high)
+        set_SDA(0);
         set_SCL(1);  // double check that SCL is deasserted as well
         _NOP();
         set_SDA(1);
@@ -95,6 +97,7 @@ retval_t check_ack(void);
     {
         int8_t i;
         uint8_t bit;
+        retval_t retval;
         // send byte
         for (i = 7; i >= 0; i--) {
             bit = (byte_to_tx & 0x80) >> 7; // bring MSB to bit 0
@@ -105,13 +108,18 @@ retval_t check_ack(void);
         }
         set_SCL(0);
         set_SDA(1); // deassert the data line
-        return check_ack();
+        retval = check_ack();
+        if (retval == I2C_ACK) {
+            return GEN_PASS;
+        } else {
+            return retval;
+        }
     }
 
 
     // Summary - 
     // retval (retval_t) - 
-    retval_t i2c_drvr_read_byte(uint8_t *byte_read_ptr)
+    retval_t i2c_drvr_read_byte(uint8_t *byte_read_ptr, uint8_t ack)
     {
         int8_t i;
         uint8_t bit;
@@ -125,12 +133,8 @@ retval_t check_ack(void);
             byte = byte | (bit << i);
             set_SCL(0);
         }
-        retval = check_ack();
-        if (I2C_ACK) {
-            // read from i2c buffer
-            *byte_read_ptr = byte;  // should read from USIBR? (buffer reg)
-        }
-        return retval;
+        write_ack(ack);
+        return GEN_PASS;
     }
 
 
@@ -138,19 +142,31 @@ retval_t check_ack(void);
     // retval (retval_t) - 
     retval_t check_ack(void)
     {
-        retval_t retval;
-        // check ack
+        uint8_t bit;
         set_SCL(1);
         _NOP();
         // check ack/nack here
-        uint8_t bit = read_SDA();
-        if (bit == 0) {
-            retval = I2C_ACK;
-        } else {
-            retval = I2C_NACK;
-        }
+        bit = read_SDA();
         set_SCL(0);
-        return retval;
+        if (bit == 0) {
+            return I2C_ACK;
+        } else {
+            return I2C_NACK;
+        }
+    }
+
+        // Summary - 
+    // retval (retval_t) - 
+    void write_ack(uint8_t val)
+    {
+        if (val == ACK) {
+            set_SDA(0);
+        } else {
+            set_SDA(1);
+        }
+        set_SCL(1);
+        _NOP();
+        set_SCL(0);
     }
 
 #else // Non-bitbang version

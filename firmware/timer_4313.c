@@ -6,9 +6,8 @@ typedef struct {
     uint8_t millis_initialized;
     uint8_t micros_initialized;
     uint8_t counter_initialized;
-    uint8_t *counter_flag_ptr;
-    uint32_t millis_count;
-    uint32_t micros_count;
+    volatile uint8_t *counter_flag_ptr;
+    volatile uint32_t millis_count;
 } timer_status_t;
 
 

@@ -47,63 +47,34 @@ uint8_t vals_rx[16];
 int main(void)
 {
     retval_t retval;
-    uint8_t multiplexer_count;
-    uint8_t rtc_int;
-    uint32_t start_time;
+    volatile uint8_t multiplexer_count;
+    volatile uint8_t rtc_1hz_int_count;
+    uint8_t red, green, blue = 0;
     rtc_time_t time;
     rtc_time_t *t_ptr = &time;
     t_ptr->second = 0;
     t_ptr->minute = 1;
     t_ptr->hour = 2;
     hardware_init();
+    LED_init();
+    LED_set_color(3, 3, 3);
     timer_init(&multiplexer_count);
     UART_init((uint32_t)9600);
-    start_time = timer_millis_get();
-    while (timer_millis_get() - start_time < 3000);
     retval = i2c_init();
-    retval = RTC_init(t_ptr, &rtc_int);
+    retval = RTC_init(t_ptr, &rtc_1hz_int_count);
+    RTC_set_time(t_ptr, 21, 40, 45);
     while (1) {
-        UART_transmit_value((int32_t)retval, TRUE, TRUE);
-        wait_time(500);
-        UART_transmit_byte(LF, TRUE);
-        wait_time(500);
-        UART_transmit_byte(CR, TRUE);
-        wait_time(5000);
+        if (rtc_1hz_int_count >= 1) {
+            increment_time(t_ptr, rtc_1hz_int_count);
+            rtc_1hz_int_count = 0;
+            LED_update_time(t_ptr, TRUE);
+        }
+        if (multiplexer_count >= 1) {
+            LED_run(multiplexer_count);
+            multiplexer_count = 0;
+            LED_update_time(t_ptr, TRUE);
+        }
     }
-
-
-
-
-    // uint8_t enter_update_time = 0;
-    // rtc_time_t time;
-    // rtc_time_t *time_ptr = &time;
-    // time_ptr->hour = 10;
-    // time_ptr->minute = 10;
-    // time_ptr->second = 10;
-    // uint8_t tempVal = 0;
-    // uint8_t retval = 0;
-    // uint8_t RTC_interrupt_count = 0;   // 1 Hz RTC interrupt flag
-    // // initialize everything
-    // hardware_init();
-    // LED_init();
-    // i2c_init();
-    // // UART_init();
-    // // timer_init(&LED_multiplex_timer_count);
-    // retval = RTC_init(time_ptr, &RTC_interrupt_count);
-    // if (retval != PASS) {
-    //     if (retval == I2C_TIMEOUT) {
-    //         LED_set_all(0, 0xff, 0);
-    //     } else if (retval == I2C_NACK) {
-    //         LED_set_all(0, 0, 0xff);
-    //     } else {
-    //         LED_set_all(0xff, 0, 0);
-    //     }
-    //     while (1) {
-    //         LED_run(1);
-    //     }
-    // }
-    // LED_set_color(0xff, 0xAA, 0x55);
-    // LED_update_time(time_ptr, 1);
 
     ///// main while loop /////
     while(1) {

@@ -48,12 +48,12 @@ retval_t i2c_write_byte(uint8_t chip_addr, uint8_t reg_addr, uint8_t data)
     // start communications with the chip
     retval_t retval = i2c_start(chip_addr, I2C_MODE_WRITE);
     // check for device ack
-    if (retval != I2C_ACK) {
+    if (retval != GEN_PASS) {
         return retval;
     }
     // write the address byte
     retval = i2c_drvr_write_byte(reg_addr);
-    if (retval != I2C_ACK) {
+    if (retval != GEN_PASS) {
         i2c_end(); // try to end communication
         return retval;
     }
@@ -104,27 +104,35 @@ retval_t i2c_write(uint8_t chip_addr, uint8_t start_adr, uint8_t *data_to_write_
 // retval (uint8_t) - 
 retval_t i2c_read_byte(uint8_t chip_addr, uint8_t start_adr, uint8_t *data_out_ptr)
 {
-    // start communications with the chip
-    retval_t retval = i2c_start(chip_addr, I2C_MODE_READ);
+    // start communications with the chip in write mode to change the address
+    retval_t retval = i2c_start(chip_addr, I2C_MODE_WRITE);
     // check for device ack
-    if (retval != I2C_ACK) {
-        i2c_end();     // try to end communication
+    if (retval != GEN_PASS) {
+        i2c_end(); // try to end communication
         return retval;
     }
     // write the address byte
     retval = i2c_drvr_write_byte(start_adr);
-    if (retval != I2C_ACK) {
-        i2c_end();     // try to end communication
-        return retval;
-    }
-    retval = i2c_drvr_read_byte(data_out_ptr); // read a byte
-    // check for errors
-    if (retval != I2C_ACK) {
+    if (retval != GEN_PASS) {
         i2c_end(); // try to end communication
         return retval;
     }
-    i2c_end();
-    return GEN_PASS;
+    // RE-start communications with the chip in write mode to change the address
+    retval = i2c_start(chip_addr, I2C_MODE_READ);
+    if (retval != GEN_PASS) {
+        i2c_end(); // try to end communication
+        return retval;
+    }
+    // read data
+    retval = i2c_drvr_read_byte(data_out_ptr, NACK); // read a byte & NACK
+    // check for errors
+    if (retval != GEN_PASS) {
+        i2c_end(); // try to end communication
+        return retval;
+    } else {
+        i2c_end();
+        return GEN_PASS;
+    }
 }
 
 
@@ -136,19 +144,34 @@ retval_t i2c_read_byte(uint8_t chip_addr, uint8_t start_adr, uint8_t *data_out_p
 retval_t i2c_read(uint8_t chip_addr, uint8_t start_adr, uint8_t *data_out_ptr, uint8_t data_len)
 {
     uint8_t i;
-    // start communications with the chip
-    retval_t retval = i2c_start(chip_addr, I2C_MODE_READ);
+    // start communications with the chip in write mode to change the address
+    retval_t retval = i2c_start(chip_addr, I2C_MODE_WRITE);
     // check for device ack
-    if (retval != I2C_ACK) {
+    if (retval != GEN_PASS) {
         i2c_end(); // try to end communication
         return retval;
     }
     // write the address byte
     retval = i2c_drvr_write_byte(start_adr);
+    if (retval != GEN_PASS) {
+        i2c_end(); // try to end communication
+        return retval;
+    }
+    i2c_end();
+    // RE-start communications with the chip in write mode to change the address
+    retval = i2c_start(chip_addr, I2C_MODE_READ);
+    if (retval != GEN_PASS) {
+        i2c_end(); // try to end communication
+        return retval;
+    }
     for (i = 0; i < data_len; i++) {
-        retval = i2c_drvr_read_byte(data_out_ptr); // read a byte
+        if (i != (data_len - 1)) {
+            retval = i2c_drvr_read_byte(data_out_ptr, ACK); // read a byte & ack
+        } else {
+            retval = i2c_drvr_read_byte(data_out_ptr, NACK); // read a byte & NACK
+        }
         // check for errors
-        if (retval != I2C_ACK) {
+        if (retval != GEN_PASS) {
             i2c_end(); // try to end communication
             return retval;
         }

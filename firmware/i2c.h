@@ -11,6 +11,9 @@
 
 #define I2C_RETRY_COUNT 3
 
+#define ACK  0
+#define NACK 1
+
 // function definitions 
 retval_t i2c_init(void);
 retval_t i2c_write_byte(uint8_t chip_addr, uint8_t reg_addr, uint8_t data);
