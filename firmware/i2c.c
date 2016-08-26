@@ -117,6 +117,7 @@ retval_t i2c_read_byte(uint8_t chip_addr, uint8_t start_adr, uint8_t *data_out_p
         i2c_end(); // try to end communication
         return retval;
     }
+    i2c_end();
     // RE-start communications with the chip in write mode to change the address
     retval = i2c_start(chip_addr, I2C_MODE_READ);
     if (retval != GEN_PASS) {

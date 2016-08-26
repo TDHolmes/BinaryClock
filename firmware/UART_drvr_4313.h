@@ -15,6 +15,7 @@ void UART_drvr_flush_buffer(void);
 retval_t UART_drvr_check_errors(void);
 void UART_drvr_clear_errors(void);
 bool_t UART_drvr_receive_has_data(void);
+uint8_t UART_drvr_unread_items(void);
 
 
 #endif /* UART_DRVR_4313_H__ */

@@ -30,7 +30,8 @@ void timer_init(uint8_t *counter_var_ptr)
     t_status_ptr->counter_flag_ptr = 0;
     t_status_ptr->millis_count = 0;
     timer_counter_init(counter_var_ptr);
-    timer_millis_init();
+    // don't need the millis functions
+    // timer_millis_init();
 }
 
 

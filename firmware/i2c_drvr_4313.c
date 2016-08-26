@@ -33,7 +33,6 @@ retval_t check_ack(void);
         uint8_t retval;
         // make sure SDA is in read mode
         DDRB = DDRB & ~(1 << PB5);   // change mode to input
-        _NOP();
         retval = (PINB & (1 << PB5)) >> PB5; // read bit
         return retval;
     }
@@ -125,8 +124,6 @@ retval_t check_ack(void);
         uint8_t bit;
         uint8_t byte = 0;
         retval_t retval;
-        // make sure SDA is de-asserted
-        set_SDA(1);
         for (i = 7; i >= 0; i--) {
             set_SCL(1);
             bit = read_SDA();
@@ -134,6 +131,7 @@ retval_t check_ack(void);
             set_SCL(0);
         }
         write_ack(ack);
+        *byte_read_ptr = byte;
         return GEN_PASS;
     }
 

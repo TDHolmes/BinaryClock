@@ -109,6 +109,14 @@ bool_t UART_drvr_receive_has_data(void)
 }
 
 
+// Summary - 
+// retval (uint8_t) - 
+uint8_t UART_drvr_unread_items(void)
+{
+    return ring_buff_unread_items(UART_rx_buff_ptr);
+}
+
+
 static inline bool_t UART_drvr_ready(void)
 {
     if (!(UCSRA & (1 << UDRE))) {

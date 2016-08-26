@@ -82,6 +82,15 @@ bool_t ring_buff_has_data(ring_buffer_t *rb_ptr)
 
 // Summary - 
 // param (ring_buffer_t *) rb_ptr - 
+// retval (uint8_t) - 
+uint8_t ring_buff_unread_items(ring_buffer_t *rb_ptr)
+{
+    return rb_ptr->unread_items;
+}
+
+
+// Summary - 
+// param (ring_buffer_t *) rb_ptr - 
 void ring_buff_reset(ring_buffer_t *rb_ptr)
 {
     rb_ptr->head = rb_ptr->start;

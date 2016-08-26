@@ -49,6 +49,7 @@ int main(void)
     retval_t retval;
     volatile uint8_t multiplexer_count;
     volatile uint8_t rtc_1hz_int_count;
+    uint32_t start_time = 0;
     uint8_t red, green, blue = 0;
     rtc_time_t time;
     rtc_time_t *t_ptr = &time;
@@ -62,60 +63,43 @@ int main(void)
     UART_init((uint32_t)9600);
     retval = i2c_init();
     retval = RTC_init(t_ptr, &rtc_1hz_int_count);
-    RTC_set_time(t_ptr, 21, 40, 45);
-    while (1) {
-        if (rtc_1hz_int_count >= 1) {
-            increment_time(t_ptr, rtc_1hz_int_count);
-            rtc_1hz_int_count = 0;
-            LED_update_time(t_ptr, TRUE);
-        }
-        if (multiplexer_count >= 1) {
-            LED_run(multiplexer_count);
-            multiplexer_count = 0;
-            LED_update_time(t_ptr, TRUE);
-        }
-    }
 
     ///// main while loop /////
     while(1) {
         // check if we have UART data to handle
-        // if (UART_receive_has_data() >= COMMAND_LENGTH) {
-        //     // procress the received command
-        //     process_UART_command(time_ptr, command_buffer);
-        // }
+        if (UART_receive_unread_items() >= COMMAND_LENGTH) {
+            // procress the received command
+            process_UART_command(t_ptr, command_buffer);
+        }
 
-        // switch(state) {
-        //     case RUN_TIME: {
-        //         // if (timer_millis_get() % 1000 == 0 && enter_update_time == 1) {
-        //         //     enter_update_time = 0;
-        //         //     increment_time(time_ptr, 1);
-        //         //     LED_update_time(time_ptr, 0);
-        //         // } else if (timer_millis_get() % 1000 == 1) {
-        //         //     enter_update_time = 1;
-        //         // }
-        //         if (RTC_interrupt_count != 0) {
-        //             tempVal = RTC_interrupt_count;
-        //             increment_time(time_ptr, RTC_interrupt_count);
-        //             RTC_interrupt_count -= tempVal;
-        //         }
-        //         if (LED_multiplex_timer_count != 0) {
-        //             tempVal = LED_multiplex_timer_count;
-        //             LED_run(tempVal);
-        //             LED_multiplex_timer_count -= tempVal;
-        //         }
-        //         break;
-        //     }
+        switch(state) {
+            case RUN_TIME: {
+                if (rtc_1hz_int_count >= 1) {
+                    increment_time(t_ptr, rtc_1hz_int_count);
+                    rtc_1hz_int_count = 0;
+                    LED_update_time(t_ptr, TRUE);
+                }
+                if (multiplexer_count >= 1) {
+                    LED_run(multiplexer_count);
+                    multiplexer_count = 0;
+                }
+                break;
+            }
 
-        //     case RUN_MANUAL: {
-        //         // let UART commands set LEDs
-        //         break;
-        //     }
+            case RUN_MANUAL: {
+                // let UART commands set LEDs
+                if (multiplexer_count >= 1) {
+                    LED_run(multiplexer_count);
+                    multiplexer_count = 0;
+                }
+                break;
+            }
 
-        //     default: {
+            default: {
 
-        //         break;
-        //     }
-        // }
+                break;
+            }
+        }
     }
 }
 

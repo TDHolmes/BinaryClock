@@ -126,6 +126,14 @@ retval_t UART_receive_byte(uint8_t *data_to_rx_ptr, bool_t blocking)
 
 // Summary - 
 // retval (uint8_t) - 
+uint8_t UART_receive_unread_items(void)
+{
+    return UART_drvr_unread_items();
+}
+
+
+// Summary - 
+// retval (uint8_t) - 
 bool_t UART_receive_has_data(void)
 {
     return UART_drvr_receive_has_data();
