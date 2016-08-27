@@ -11,7 +11,7 @@ volatile uint8_t *RTC_local_1Hz_int_count_ptr;
 
 // Summary - 
 // param (rtc_time_t *) t_ptr - 
-retval_t RTC_init(rtc_time_t *t_ptr, uint8_t *RTC_1Hz_int_count_ptr)
+retval_t RTC_init(rtc_time_t *t_ptr, volatile uint8_t *RTC_1Hz_int_count_ptr)
 {
     uint8_t byte_to_write = 0;
     retval_t retval = 0;

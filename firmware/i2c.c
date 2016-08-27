@@ -27,7 +27,6 @@ retval_t i2c_init(void)
 retval_t i2c_start(uint8_t address, uint8_t mode)
 {
     uint8_t addr_byte_to_send;
-    uint8_t i;
     retval_t retval = I2C_ERROR;
 
     // try to start communication
@@ -44,7 +43,6 @@ retval_t i2c_start(uint8_t address, uint8_t mode)
 
 retval_t i2c_write_byte(uint8_t chip_addr, uint8_t reg_addr, uint8_t data)
 {
-    volatile uint8_t i;
     // start communications with the chip
     retval_t retval = i2c_start(chip_addr, I2C_MODE_WRITE);
     // check for device ack

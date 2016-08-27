@@ -63,8 +63,7 @@ retval_t check_ack(void);
     // retval (retval_t) - 
     retval_t i2c_drvr_start(uint8_t addr_with_mode)
     {
-        uint8_t i;
-
+        // make sure SCL is low for a valid start condition
         if ((PINB & (1 << PB7)) == 0) {
             return I2C_CLK_LOW_BEFORE_START;
         }
@@ -123,7 +122,7 @@ retval_t check_ack(void);
         int8_t i;
         uint8_t bit;
         uint8_t byte = 0;
-        retval_t retval;
+        // read the bits
         for (i = 7; i >= 0; i--) {
             set_SCL(1);
             bit = read_SDA();

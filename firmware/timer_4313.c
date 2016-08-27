@@ -18,11 +18,11 @@ timer_status_t *t_status_ptr;
 
 
 // private function definitions
-void timer_counter_init(uint8_t *counter_var_ptr);
+void timer_counter_init(volatile uint8_t *counter_var_ptr);
 void timer_millis_init(void);
 
 
-void timer_init(uint8_t *counter_var_ptr)
+void timer_init(volatile uint8_t *counter_var_ptr)
 {
     t_status_ptr = &timer_status;
     t_status_ptr->millis_initialized = 0;
@@ -37,7 +37,7 @@ void timer_init(uint8_t *counter_var_ptr)
 
 // Summary - 
 // param (uint8_t *) counter_var_ptr - 
-void timer_counter_init(uint8_t *counter_var_ptr)
+void timer_counter_init(volatile uint8_t *counter_var_ptr)
 {
     // this timer will use the 8 bit timer
     t_status_ptr->counter_flag_ptr = counter_var_ptr;
