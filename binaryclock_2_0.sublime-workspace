@@ -4,12 +4,204 @@
 		"selected_items":
 		[
 			[
-				"enter",
-				"enter_update"
+				"up",
+				"update_time	(binaryClockAPI.py)"
+			],
+			[
+				"STAT",
+				"STATE_RUN_TIME	(binaryClockAPI.py)"
+			],
+			[
+				"clear_all_",
+				"clear_all_LEDs	function"
+			],
+			[
+				"add",
+				"add_argument	function"
+			],
+			[
+				"LED_clear",
+				"LED_clear_all	(main.c)"
+			],
+			[
+				"clear",
+				"clear_all_LEDs	(binaryClockAPI.py)"
+			],
+			[
+				"set_",
+				"set_all_LEDs	(binaryClockAPI.py)"
+			],
+			[
+				"baud",
+				"baudrate"
+			],
+			[
+				"if",
+				"ifmain	if __name__ == '__main__'"
+			],
+			[
+				"hex",
+				"hexlify	function"
+			],
+			[
+				"bin",
+				"binascii"
+			],
+			[
+				"avail",
+				"available_ports"
+			],
+			[
+				"get_",
+				"get_available_serial_ports	function"
+			],
+			[
+				"ove",
+				"time_override_arr"
 			],
 			[
 				"uint",
 				"uint8_t"
+			],
+			[
+				"byt",
+				"byte_read_ptr"
+			],
+			[
+				"UART_tra",
+				"UART_transmit_value	(main.c)"
+			],
+			[
+				"LED_set_",
+				"LED_set_color"
+			],
+			[
+				"dat",
+				"data_len"
+			],
+			[
+				"uin",
+				"uint8_t"
+			],
+			[
+				"I2C",
+				"I2C_ACK"
+			],
+			[
+				"DDR",
+				"DDRB	(hardware.c)"
+			],
+			[
+				"toggl",
+				"toggle_scl"
+			],
+			[
+				"timer_",
+				"timer_millis_get"
+			],
+			[
+				"bool",
+				"bool_t"
+			],
+			[
+				"temp",
+				"temp_val"
+			],
+			[
+				"UART_re",
+				"UART_receive_has_data"
+			],
+			[
+				"UART_tran",
+				"UART_transmit_value	(UART.c)"
+			],
+			[
+				"UART_rx_buff",
+				"UART_rx_buff_ptr"
+			],
+			[
+				"GEN_",
+				"GEN_PASS	(global_defines.h)"
+			],
+			[
+				"type",
+				"typedef	(ring_buffer.h)"
+			],
+			[
+				"mis",
+				"micros_count"
+			],
+			[
+				"start",
+				"start_time"
+			],
+			[
+				"vals",
+				"vals_rx"
+			],
+			[
+				"data",
+				"data_rcvd_ptr"
+			],
+			[
+				"byte",
+				"byte_received"
+			],
+			[
+				"ring_buff_",
+				"ring_buff_has_data	(ring_buffer.h)"
+			],
+			[
+				"ring_",
+				"ring_buff_pop	(ring_buffer.h)"
+			],
+			[
+				"ringbu",
+				"ring_buff_push	(ring_buffer.c)"
+			],
+			[
+				"UART_rec",
+				"UART_receive_byte	(UART.c)"
+			],
+			[
+				"I2C_",
+				"I2C_NACK"
+			],
+			[
+				"LED_cle",
+				"LED_clear_all"
+			],
+			[
+				"act",
+				"active_column"
+			],
+			[
+				"LED_cel",
+				"LED_clear_all"
+			],
+			[
+				"timer_mi",
+				"timer_millis_get	(timer_4313.c)"
+			],
+			[
+				"LED_",
+				"LED_update_time"
+			],
+			[
+				"LED_cl",
+				"LED_clear_all"
+			],
+			[
+				"LED_set",
+				"LED_set_all"
+			],
+			[
+				"RTC_in",
+				"RTC_interrupt_count"
+			],
+			[
+				"enter",
+				"enter_update"
 			],
 			[
 				"multi",
@@ -40,10 +232,6 @@
 				"timer_millis_drvr_get	(timer_drvr_4313.c)"
 			],
 			[
-				"LED_clear",
-				"LED_clear_all	(LED.c)"
-			],
-			[
 				"har",
 				"hardware_init	(hardware.c)"
 			],
@@ -72,18 +260,6 @@
 				"RTC_SEC_TEN_MASK	(RTC_DS3231.h)"
 			],
 			[
-				"I2C_",
-				"I2C_NO_ERRORS"
-			],
-			[
-				"data",
-				"data_arr"
-			],
-			[
-				"byt",
-				"byte_to_write"
-			],
-			[
 				"func_sr",
 				"func_str_parsed"
 			],
@@ -102,10 +278,6 @@
 			[
 				"func",
 				"func_str	param"
-			],
-			[
-				"get_",
-				"get_function_strings"
 			],
 			[
 				"funct",
@@ -148,20 +320,12 @@
 				"retval"
 			],
 			[
-				"start",
-				"start_adr"
-			],
-			[
 				"star",
 				"start_adr"
 			],
 			[
 				"i2c_wr",
 				"i2c_drvr_write_byte	(i2c_drvr_4313.c)"
-			],
-			[
-				"add",
-				"address"
 			],
 			[
 				"addr",
@@ -244,10 +408,6 @@
 				"reset_timer"
 			],
 			[
-				"LED_",
-				"LEDDRV_SDI"
-			],
-			[
 				"col",
 				"column"
 			],
@@ -304,10 +464,6 @@
 				"all_results	statement"
 			],
 			[
-				"temp",
-				"temp_results	statement"
-			],
-			[
 				"all_r",
 				"all_results	statement"
 			],
@@ -358,162 +514,6 @@
 			[
 				"x_",
 				"x_data_arr"
-			],
-			[
-				"ma_",
-				"max_val"
-			],
-			[
-				"log",
-				"log10	function"
-			],
-			[
-				"result",
-				"result_log"
-			],
-			[
-				"ram_fft",
-				"ram_fft_mag_dataout"
-			],
-			[
-				"plot_a",
-				"plot_arr	function"
-			],
-			[
-				"plot",
-				"plot_number"
-			],
-			[
-				"plo",
-				"plot_point	function"
-			],
-			[
-				"clea",
-				"clear_points	function"
-			],
-			[
-				"y_da",
-				"y_data1"
-			],
-			[
-				"y_",
-				"y_data2"
-			],
-			[
-				"x_d",
-				"x_data_array"
-			],
-			[
-				"sho",
-				"show_plot	function"
-			],
-			[
-				"plot_",
-				"plot_len"
-			],
-			[
-				"cler",
-				"clear_points	function"
-			],
-			[
-				"py",
-				"pyplot	module"
-			],
-			[
-				"pre",
-				"predistort_posedge"
-			],
-			[
-				"GPIO",
-				"GPIO0_D"
-			],
-			[
-				"de",
-				"deltasigma_1I"
-			],
-			[
-				"dela",
-				"deltasigma_clk_bufferred"
-			],
-			[
-				"FIR",
-				"FIR_datain_valid"
-			],
-			[
-				"det",
-				"deltasigma_2Q"
-			],
-			[
-				"over",
-				"overflow"
-			],
-			[
-				"oup",
-				"output_data"
-			],
-			[
-				"ram_da",
-				"ram_datain_2_Re"
-			],
-			[
-				"if",
-				"ifmain	if __name__ == '__main__'"
-			],
-			[
-				"ram_fir_2I",
-				"ram_fir_2I_writeenable_a"
-			],
-			[
-				"ram_fir_2Q",
-				"ram_fir_2Q_address_a"
-			],
-			[
-				"FFT",
-				"FFT_input_index"
-			],
-			[
-				"ram_fir_1I_d",
-				"ram_fir_1I_data_out_b"
-			],
-			[
-				"FIR_Q2_",
-				"FIR_Q2_dataout"
-			],
-			[
-				"FIR_I2_d",
-				"FIR_I2_dataout"
-			],
-			[
-				"FIR_Q1_",
-				"FIR_Q1_dataout"
-			],
-			[
-				"ram_fir_1I_data",
-				"ram_fir_1I_data_in_a"
-			],
-			[
-				"ram_fir_1I_wir",
-				"ram_fir_1I_writeenable_b"
-			],
-			[
-				"ram_fir_",
-				"ram_fir_1I_writeenable_a"
-			],
-			[
-				"ram_fir_write",
-				"ram_fir_1I_write_enable"
-			],
-			[
-				"out",
-				"output_data"
-			],
-			[
-				"fil",
-				"filename"
-			],
-			[
-				"filen",
-				"filename1"
 			]
 		]
 	},
@@ -584,17 +584,52 @@
 	},
 	"expanded_folders":
 	[
-		"/Volumes/MacData/BinaryClock2_0/Source/firmware",
-		"/Volumes/MacData/BinaryClock2_0/Source/firmware/testProjects",
-		"/Volumes/MacData/BinaryClock2_0/Source/firmware/testProjects/LED_test",
-		"/usr/local/CrossPack-AVR-20131216/avr/include/avr"
+		"/Volumes/MacData/BinaryClock2_0/Source/software",
+		"/Volumes/MacData/BinaryClock2_0/Source",
+		"/Volumes/MacData/BinaryClock2_0/Source/firmware"
 	],
 	"file_history":
 	[
+		"/Volumes/MacData/BinaryClock2_0/Source/firmware/LED.c",
+		"/Volumes/MacData/BinaryClock2_0/Source/firmware/UART_drvr_4313.c",
+		"/Volumes/MacData/BinaryClock2_0/Source/software/binaryClockAPI.py",
+		"/Volumes/MacData/BinaryClock2_0/Source/software/binaryClockTester.py",
+		"/Volumes/MacData/BinaryClock2_0/Source/firmware/LED_drvr_STP16CPC26.c",
+		"/Volumes/MacData/BinaryClock2_0/Source/firmware/main.c",
+		"/Volumes/MacData/BinaryClock2_0/Source/firmware/UART.c",
+		"/Volumes/MacData/BinaryClock2_0/Source/firmware/UART.h",
+		"/Volumes/MacData/BinaryClock2_0/Source/.gitignore",
+		"/Volumes/MacData/BinaryClock2_0/Source/firmware/RTC_DS3231.h",
+		"/Volumes/MacData/BinaryClock2_0/Source/firmware/RTC_DS3231.c",
+		"/Volumes/MacData/BinaryClock2_0/Source/firmware/timer_4313.h",
+		"/Volumes/MacData/BinaryClock2_0/Source/firmware/timer_4313.c",
+		"/Volumes/MacData/BinaryClock2_0/Source/firmware/i2c_drvr_4313.c",
+		"/Volumes/MacData/BinaryClock2_0/Source/firmware/i2c.c",
+		"/Volumes/MacData/BinaryClock2_0/Source/firmware/hardware.c",
+		"/Volumes/MacData/BinaryClock2_0/Source/firmware/global_defines.h",
 		"/usr/local/CrossPack-AVR-20131216/avr/include/avr/iotn4313.h",
+		"/Volumes/MacData/BinaryClock2_0/Source/firmware/UART_drvr_4313.h",
+		"/Volumes/MacData/BinaryClock2_0/Source/firmware/ring_buffer.c",
+		"/Volumes/MacData/BinaryClock2_0/Source/firmware/ring_buffer.h",
+		"/Volumes/MacData/BinaryClock2_0/Source/firmware/LED_drvr_STP16CPC26.h",
+		"/Volumes/MacData/BinaryClock2_0/Source/firmware/i2c_drvr_4313.h",
+		"/Volumes/MacData/BinaryClock2_0/Source/firmware/i2c.h",
+		"/Volumes/MacData/BinaryClock2_0/Source/firmware/Makefile",
+		"/Volumes/MacData/BinaryClock2_0/Source/firmware/hardware.h",
+		"/Users/tylerholmes/Desktop/example.txt",
+		"/usr/local/CrossPack-AVR-20131216/avr/include/avr/interrupt.h",
+		"/Volumes/MacData/BinaryClock2_0/Source/firmware/ports.h",
+		"/Volumes/MacData/BinaryClock2_0/Source/firmware/LED.h",
+		"/Volumes/MacData/BinaryClock2_0/Source/firmware/color.h",
+		"/Volumes/MacData/BinaryClock2_0/Source/ringBufferTest/Makefile",
+		"/Volumes/MacData/BinaryClock2_0/Source/ringBufferTest/main.c",
+		"/Volumes/MacData/BinaryClock2_0/Source/software/generate_c_docstrings.py",
+		"/Users/tylerholmes/Desktop/testProjects/LED_test/main.c",
+		"/Volumes/MacData/BinaryClock2_0/Source/software/count_lines_of_code.py",
+		"/Volumes/MacData/BinaryClock2_0/Source/firmware/testProjects/LED_test/Makefile",
+		"/Volumes/MacData/BinaryClock2_0/Source/firmware/testProjects/LED_test/main.c",
 		"/Volumes/MacData/BinaryClock2_0/Source/firmware/testProjects/LED_test/LED.c",
 		"/Volumes/MacData/BinaryClock2_0/Source/firmware/testProjects/LED_test/LED_drvr_STP16CPC26.c",
-		"/Volumes/MacData/BinaryClock2_0/Source/firmware/testProjects/LED_test/main.c",
 		"/Volumes/MacData/BinaryClock2_0/Source/firmware/testProjects/LED_test/hardware.c",
 		"/Volumes/MacData/BinaryClock2_0/Source/firmware/testProjects/LED_test/ports.h",
 		"/Volumes/MacData/BinaryClock2_0/Source/firmware/testProjects/LED_test/LED_drvr_STP16CPC26.h",
@@ -602,33 +637,12 @@
 		"/Volumes/MacData/BinaryClock2_0/Source/firmware/testProjects/LED_test/timer_4313.h",
 		"/Volumes/MacData/BinaryClock2_0/Source/firmware/testProjects/LED_test/LED.h",
 		"/Volumes/MacData/BinaryClock2_0/Source/firmware/testProjects/LED_test/timer_drvr_4313.h",
-		"/usr/local/CrossPack-AVR-20131216/avr/include/avr/interrupt.h",
 		"/Volumes/MacData/BinaryClock2_0/Source/firmware/timer_drvr_4313.h",
 		"/Volumes/MacData/BinaryClock2_0/Source/firmware/timer.c",
 		"/Volumes/MacData/BinaryClock2_0/Source/firmware/timer.h",
 		"/Volumes/MacData/BinaryClock2_0/Source/firmware/timer_drvr_4313.c",
-		"/Volumes/MacData/BinaryClock2_0/Source/firmware/testProjects/LED_test/Makefile",
-		"/Volumes/MacData/BinaryClock2_0/Source/firmware/RTC_DS3231.h",
 		"/usr/local/CrossPack-AVR-20131216/avr/include/util/delay.h",
-		"/Volumes/MacData/BinaryClock2_0/Source/firmware/main.c",
 		"/Volumes/MacData/BinaryClock2_0/Source/firmware/testProjects/LED_test/hardware.h",
-		"/Volumes/MacData/BinaryClock2_0/Source/firmware/LED_drvr_STP16CPC26.h",
-		"/Volumes/MacData/BinaryClock2_0/Source/firmware/LED_drvr_STP16CPC26.c",
-		"/Volumes/MacData/BinaryClock2_0/Source/firmware/LED.h",
-		"/Volumes/MacData/BinaryClock2_0/Source/firmware/Makefile",
-		"/Volumes/MacData/BinaryClock2_0/Source/firmware/hardware.c",
-		"/Volumes/MacData/BinaryClock2_0/Source/firmware/LED.c",
-		"/Volumes/MacData/BinaryClock2_0/Source/firmware/color.h",
-		"/Volumes/MacData/BinaryClock2_0/Source/firmware/ports.h",
-		"/Volumes/MacData/BinaryClock2_0/Source/firmware/i2c.h",
-		"/Volumes/MacData/BinaryClock2_0/Source/firmware/i2c.c",
-		"/Volumes/MacData/BinaryClock2_0/Source/firmware/RTC_DS3231.c",
-		"/Volumes/MacData/BinaryClock2_0/Source/firmware/i2c_drvr_4313.c",
-		"/Volumes/MacData/BinaryClock2_0/Source/software/generate_c_docstrings.py",
-		"/Volumes/MacData/BinaryClock2_0/Source/firmware/hardware.h",
-		"/Volumes/MacData/BinaryClock2_0/Source/firmware/UART.h",
-		"/Volumes/MacData/BinaryClock2_0/Source/firmware/i2c_drvr_4313.h",
-		"/Volumes/MacData/BinaryClock2_0/Source/firmware/UART.c",
 		"/usr/local/CrossPack-AVR-20131216/avr/include/avr/cpufunc.h",
 		"/usr/local/CrossPack-AVR-20131216/avr/include/ctype.h",
 		"/usr/local/CrossPack-AVR-20131216/avr/include/avr/delay.h",
@@ -636,13 +650,10 @@
 		"/usr/local/CrossPack-AVR-20131216/avr/include/stdio.h",
 		"/usr/local/CrossPack-AVR-20131216/avr/include/util/delay_basic.h",
 		"/usr/local/CrossPack-AVR-20131216/avr/include/util/twi.h",
-		"/Volumes/MacData/BinaryClock2_0/Source/firmware/UART_drvr_4313.c",
-		"/Volumes/MacData/BinaryClock2_0/Source/firmware/UART_drvr_4313.h",
 		"/Volumes/MacData/BinaryClock2_0/Source/firmware/i2c_drvr_4313-temp.c",
 		"/Volumes/MacData/BinaryClock2_0/Source/firmware/LED_drvr_STP16CPC26-temp.c",
 		"/Volumes/MacData/BinaryClock2_0/Source/firmware/main-temp.c",
 		"/Volumes/MacData/BinaryClock2_0/Source/firmware/ring_buffer-temp.c",
-		"/Volumes/MacData/BinaryClock2_0/Source/firmware/ring_buffer.c",
 		"/Volumes/MacData/BinaryClock2_0/Source/firmware/i2c-temp.c",
 		"/Volumes/MacData/BinaryClock2_0/Source/firmware/hardware-temp.c",
 		"/Volumes/MacData/BinaryClock2_0/Source/firmware/LED-temp.c",
@@ -706,19 +717,7 @@
 		"/Volumes/Mac Data/USTSeniorDesign2016/FFT_1024_stream/DECA.v",
 		"/Volumes/Mac Data/USTSeniorDesign2016/FIR_UART_test/DECA.v",
 		"/Users/tylerholmes/Dropbox/St Thomas Project/Uncontrolled Documents/Deca_DeltaSigmaFilter_UARTinout.py",
-		"/Users/tylerholmes/Dropbox/St Thomas Project/Uncontrolled Documents/SerialReceiveTest.py",
-		"/Volumes/Mac Data/USTSeniorDesign2016/Modules/FIRPolyphase/FIRpoly.v",
-		"/Volumes/Mac Data/USTSeniorDesign2016/Modules/qspi_mem.v",
-		"/Users/tylerholmes/Desktop/Pong.v",
-		"/Volumes/Mac Data/USTSeniorDesign2016/Modules/FIRPolyphase/tb_FIRpoly_deltasigma.v",
-		"/Users/tylerholmes/Dropbox/St Thomas Project/Uncontrolled Documents/filter_deltasigmadata.py",
-		"/Volumes/Mac Data/USTSeniorDesign2016/Modules/FIR_sig_altmult_acc.v",
-		"/Volumes/Mac Data/USTSeniorDesign2016/Modules/FIRPolyphase/tb_FIRpoly.v",
-		"/Users/tylerholmes/Desktop/printCoefs.py",
-		"/Volumes/Mac Data/USTSeniorDesign2016/Modules/FIRPolyphase/tb_FIRpoly_25MHz180kHz.v",
-		"/Users/tylerholmes/Dropbox/St Thomas Project/Uncontrolled Documents/square_root_integer.py",
-		"/Volumes/Mac Data/USTSeniorDesign2016/Modules/SpiralFFT/Spiral_1024_streaming/dft_top.v",
-		"/Users/tylerholmes/Dropbox/St Thomas Project/Uncontrolled Documents/testbench_generator.py"
+		"/Users/tylerholmes/Dropbox/St Thomas Project/Uncontrolled Documents/SerialReceiveTest.py"
 	],
 	"find":
 	{
@@ -726,9 +725,10 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 93.0,
 		"where_history":
 		[
+			""
 		]
 	},
 	"find_state":
@@ -736,134 +736,134 @@
 		"case_sensitive": false,
 		"find_history":
 		[
-			"_DRVR",
-			"_drvr",
-			"TIMER1_COMPA_vect",
-			"= 0",
-			"t_status_ptr->",
-			"0xFF",
-			"3",
-			"0xFF",
-			"NO_FORCE_UPDATE",
-			"LED_ptr->active_color_bit",
-			"0xFF",
-			"==",
-			"/*",
-			"   ",
-			"    ",
-			"   ",
-			"GREEN_IND",
-			"RED_IND",
-			"FUSES",
-			"Fuses",
-			"FUSES",
-			"0xAA",
-			"if (t_ptr->",
-			"0xFF",
-			"_ms(3);",
-			"delay_ms(1);",
-			"0xAA",
-			"0xAA,",
-			"D_set(",
-			"0x01",
-			"xFF",
-			"xAA",
-			"FF",
-			"0x01",
-			"0x55",
-			"0xff",
-			"0, 0,",
-			"0xFF",
-			"0x22",
-			"PORTB",
-			"ANO_PORT",
-			"../../",
-			"/../.",
-			"ude \"",
-			"_ptr->min",
-			"_ptr->sec",
-			"second",
-			"r->sec",
-			"r->min",
-			"USIBR",
-			"scl(void);",
-			"byte_to_tx",
-			"val",
-			"SEC",
-			"void",
-			"second",
-			"TEN",
-			"MIN_",
-			"SECON",
-			"(",
-			"0x",
-			"print",
-			"file",
-			"print",
-			"in line:",
-			";",
-			"_t",
-			"hardware_init",
-			"void",
-			"SOURCES",
-			"UART_VALID_CMD",
-			"UART_WRONG_STATE",
-			"     ",
-			"var",
-			"cc ",
-			"0x",
-			"enable",
-			"ISR(",
-			"enable_",
-			",",
-			"init_hardware",
-			"RTC_interrupt_ptr",
-			"increment_time",
-			"case: ",
-			"IND_LED0 = ",
-			"IND_LED1 = ",
-			"int",
-			"state = ",
-			" = data",
-			".command",
-			"command",
-			"WAITING_",
+			"eep(1)",
+			"sleep(1)",
+			"LED_set",
+			"LED_set_all",
+			"LED_clear_all",
+			"LED_set",
+			"\\n",
+			"set_all",
+			"0,",
+			"0x0f",
+			"== 17",
+			"+= 1",
+			"red += 1",
+			"256",
+			"UART_CMD_SET_STATE",
+			"elf.coms.read(size=6)",
+			"nsmit_byte(UART_CMD_",
+			"ransmit_byte(",
+			"\"fmt\"",
+			"bytes(",
+			"t \"transmitting: ",
+			"scii.hexlify((self.",
+			"self.coms.write",
+			"self.coms.read()",
+			"LED_set(",
+			"COMMAND_LENGTH",
+			"return;",
+			"oms.read(size=1)",
+			"tval = {:} (len ",
+			"clear_LED",
+			"retval.decode(\"UTF-8\")",
+			"format(str(retval, \"ascii\")",
+			"str(retval)",
+			"print \"retval = {:} (len = {:})\".form",
+			"break;",
+			"led_set",
 			"state",
-			"LEDDRV_OE",
-			".ones",
-			" & 10",
-			".tens",
-			"column",
-			"row",
-			"color = (",
-			"color",
-			"// Case Logic",
-			"int ",
-			"reset_timer();",
-			"bits = 19",
-			"red",
-			"ed",
-			"column == ",
-			"||",
-			"column == ",
-			"_G",
-			"_R",
-			"_R ",
-			" ||",
-			"ROW_",
-			"_R",
-			"#define ",
-			")",
-			"<<",
-			"red",
-			"MIN",
-			"MIN_",
-			"HOUR_",
-			"M_",
-			"H_",
-			"0b0",
-			"_4_",
-			"_8_"
+			"case",
+			"case UART_CMD_SET_LED",
+			"state",
+			"f (state ",
+			"STATE",
+			"state",
+			"print retval",
+			"options(",
+			"time_vals",
+			"cmd_num",
+			"tions(",
+			":",
+			"cmd_num == ",
+			".",
+			"print",
+			"\":\"",
+			"_value(\":\"",
+			"UART_transmit_value",
+			"0x77",
+			"multiplier_count",
+			"UART_transmit_value",
+			"UART_transmit_",
+			"rtc_int",
+			"RTC_int",
+			"rtc_int",
+			" + 16",
+			"I2C_ACK",
+			"retval =",
+			"\n    i2c_end();\n    return retval;\n}",
+			"GEN_PASS",
+			"\n    for (i = 0; i < 200; i++);",
+			"GEN_PASS",
+			"2000",
+			"toggle_scl",
+			"val",
+			"retval (uint8_t)",
+			"temp_val",
+			"ime(50)",
+			"FALSE",
+			"time(100);",
+			"500)",
+			"wait_time(",
+			"wait_time(10);",
+			"TRUE, TRUE",
+			"UART_transmit_byte",
+			"UART_drvr_send_byte",
+			"i < 16",
+			"i < 5",
+			");\n        for (i = 0; i < 5",
+			"5",
+			"I2C_NO_ERRORS",
+			"uint8_t UART_drvr",
+			"I2C_ACK",
+			"uint8_t retval",
+			"uint8_t UART_drvr",
+			"uint8_t UART",
+			"uint8_t retval",
+			"uint8_t RTC",
+			"uint8_t retval",
+			"uint8_t RTC",
+			"#",
+			"uint8_t ring_",
+			"uint8_t ring",
+			"retval i2c",
+			"uint8_t i2c_",
+			"uint8_t ",
+			"uint8_t i2c_",
+			"uint8_t retval",
+			"uint8_t i2c_",
+			"uint8_t",
+			"wait_time",
+			"wait_ms",
+			"timer_micros_get",
+			"wait_us",
+			"wait_ms",
+			"lis_get();\n    while (timer_millis_get() - start_time < 10);",
+			"time",
+			"j",
+			"75",
+			"25",
+			"200",
+			"UART_receive_has_data",
+			"$(BUILDDIR)",
+			"DONT_COMPILE_UNUSED_FUNCTS",
+			"main.el",
+			"main.h",
+			"$(COMPILE) ",
+			"OBJECTS",
+			"UDR",
+			"_RX_vect",
+			"USART"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -970,7 +970,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 241.0,
+	"side_bar_width": 210.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

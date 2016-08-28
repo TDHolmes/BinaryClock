@@ -1,3 +1,7 @@
+'''
+API functions for interfacing with the Binary Clock
+'''
+
 import serial
 import time
 import os
@@ -25,6 +29,9 @@ class BinaryClock:
         self.STATE_RUN_MANUAL = 1
         self.coms = serial.Serial(port=serial_port, baudrate=baud, timeout=3)
 
+    def close(self):
+        self.coms.close()
+
     def set_LED(self, row, column, red, green, blue):
         self.coms.write(struct.pack("B", self.UART_CMD_SET_LED))
         self.coms.write(struct.pack("B", row))
@@ -33,7 +40,7 @@ class BinaryClock:
         self.coms.write(struct.pack("B", green))
         self.coms.write(struct.pack("B", blue))
         response = self.coms.read(size=2)
-        return response
+        return binascii.hexlify(response)
 
     def update_time(self, time_override_arr=None):
         if time_override_arr is None:
@@ -52,17 +59,17 @@ class BinaryClock:
         self.coms.write(struct.pack("B", 0))
         self.coms.write(struct.pack("B", 0))
         response = self.coms.read(size=2)
-        return response
+        return binascii.hexlify(response)
 
     def clear_LED(self, row, column):
-        self.coms.write(struct.pack("B", self.UART_CMD_SET_TIME))
+        self.coms.write(struct.pack("B", self.UART_CMD_CLEAR_LED))
         self.coms.write(struct.pack("B", row))
         self.coms.write(struct.pack("B", column))
         self.coms.write(struct.pack("B", 0))
         self.coms.write(struct.pack("B", 0))
         self.coms.write(struct.pack("B", 0))
         response = self.coms.read(size=2)
-        return response
+        return binascii.hexlify(response)
 
     def clear_all_LEDs(self):
         self.coms.write(struct.pack("B", self.UART_CMD_CLEAR_ALL_LED))
@@ -72,7 +79,7 @@ class BinaryClock:
         self.coms.write(struct.pack("B", 0))
         self.coms.write(struct.pack("B", 0))
         response = self.coms.read(size=2)
-        return response
+        return binascii.hexlify(response)
 
     def set_all_LEDs(self, red, green, blue):
         self.coms.write(struct.pack("B", self.UART_CMD_SET_ALL_LED))
@@ -82,7 +89,7 @@ class BinaryClock:
         self.coms.write(struct.pack("B", 0))
         self.coms.write(struct.pack("B", 0))
         response = self.coms.read(size=2)
-        return response
+        return binascii.hexlify(response)
 
     def set_color(self, red, green, blue):
         self.coms.write(struct.pack("B", self.UART_CMD_SET_COLOR))
@@ -92,7 +99,7 @@ class BinaryClock:
         self.coms.write(struct.pack("B", 0))
         self.coms.write(struct.pack("B", 0))
         response = self.coms.read(size=2)
-        return response
+        return binascii.hexlify(response)
 
     def set_state(self, state):
         self.coms.write(struct.pack("B", self.UART_CMD_CHANGE_STATE))
@@ -102,7 +109,7 @@ class BinaryClock:
         self.coms.write(struct.pack("B", 0))
         self.coms.write(struct.pack("B", 0))
         response = self.coms.read(size=2)
-        return response
+        return binascii.hexlify(response)
 
 
 def run_as_main():
@@ -116,7 +123,7 @@ def run_as_main():
         print "  {:}: {:}".format(ind, port)
     port_ind = int(raw_input("Select port: "))
     serialport = available_ports[port_ind]
-    bc_obj = BinaryClock(serial_port=serialport, baud=9600)
+    bc_obj = BinaryClock(serial_port=serialport)
     while True:
         print "0. Set Led"
         print "1. Clear Led"
@@ -197,7 +204,7 @@ def get_available_serial_ports():
         # this excludes your current terminal "/dev/tty"
         ports = glob.glob('/dev/tty[A-Za-z]*')
     elif sys.platform.startswith('darwin'):
-        ports = glob.glob('/dev/tty.*')
+        ports = glob.glob('/dev/tty.usbserial*')
 
     result = []
     for ind, port in enumerate(ports):

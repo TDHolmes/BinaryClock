@@ -199,7 +199,6 @@ void process_UART_command(rtc_time_t *time_ptr, uint8_t *cmd_buffer)
                 LED_update_time(time_ptr, FORCE_UPDATE);
             } else if (cmd_buffer[1] == 1) {
                 system_state = RUN_MANUAL;
-                LED_clear_all();
             }
             UART_transmit_byte(cmd_buffer[0], TRUE);
             UART_transmit_byte(UART_CMD_VALID, TRUE);
