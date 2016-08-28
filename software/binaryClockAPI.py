@@ -205,6 +205,7 @@ def get_available_serial_ports():
         ports = glob.glob('/dev/tty[A-Za-z]*')
     elif sys.platform.startswith('darwin'):
         ports = glob.glob('/dev/tty.usbserial*')
+        return ports
 
     result = []
     for ind, port in enumerate(ports):

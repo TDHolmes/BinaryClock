@@ -27,7 +27,9 @@ class BinaryClockGUI:
         # comport label & dropdown
         ports = BC.get_available_serial_ports()
         Gui.Labels(self.root, 0, 0, "Com Port:")
-        self.serial_port_dropdown = Gui.Dropdown(self.root, 0, 1, *ports, columnspan=3, sticky="we")
+        self.serial_port_dropdown = Gui.Dropdown(self.root, 0, 1, *ports, columnspan=3, sticky="we",
+                                                 bind_callback=self.update_coms_list,
+                                                 bind_key="<Button-1>")
         bauds = [250000, 9600]
         Gui.Labels(self.root, 1, 0, "Baudrate:")
         self.serial_baud_dropdown = Gui.Dropdown(self.root, 1, 1, *bauds, sticky="we")
@@ -90,6 +92,12 @@ class BinaryClockGUI:
         self.set_led_button.activate()
         self.clear_led_button.activate()
         self.color_update_button.activate()
+
+    def update_coms_list(self, *args):
+        ports = BC.get_available_serial_ports()
+        if len(ports) == 0:
+            ports = [""]
+        self.serial_port_dropdown.update_list(ports)
 
     def disconnect(self):
         '''disconnect the binary clock (basically just deletes the binary clock object)'''

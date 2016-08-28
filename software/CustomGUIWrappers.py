@@ -177,9 +177,10 @@ class Dropdown:
         self.sticky = sticky
         self.padx = padx
         self.pady = pady
-        self.options = []
         self.options = options
-        self.widget = ttk.OptionMenu(master, self.val, options[0], *options)
+        if len(self.options) == 0:
+            self.options = [""]
+        self.widget = ttk.OptionMenu(master, self.val, self.options[0], *self.options)
         self.widget.grid(row=self.row, column=self.column, sticky=self.sticky, padx=self.padx, pady=self.pady,
                          columnspan=self.columnspan)
         if self.trace_calback is not None:
@@ -210,17 +211,16 @@ class Dropdown:
         the option at the given index
         '''
         # check if there's no real update to be made
-        if options == self.options:
-            return
+        # if options == self.options:
+        #     return
         # if there is, update the current list
-        self.options = options
         menu = self.widget["menu"]
-        menu.delete(0, "end")
+        menu.delete(0, len(self.options) - 1)
+        self.options = options
         # if there's no choices, set the current value to nothing.
-        if options == []:
+        if self.options == []:
             self.val.set("")
-        # if there was no choices before but are now, set it to the first option.
-        if self.val.get() == "" and options != []:
+        else:
             self.val.set(options[0])
         for string in options:
             menu.add_command(label=string,
