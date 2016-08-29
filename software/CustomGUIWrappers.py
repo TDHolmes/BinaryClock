@@ -43,7 +43,7 @@ class CheckBox:
         self.val = tk.BooleanVar()
         self.callback_funct = callback_funct
         self.widget = tk.Checkbutton(master, text=cb_text, variable=self.val, command=self.cb)
-        self.widget.configure(background="grey")
+        self.widget.configure(background="white")
         self.widget.grid(row=row, column=column, sticky=tk.W, padx=padx, pady=pady, columnspan=columnspan)
 
     def cb(self):
@@ -262,7 +262,7 @@ class Labels:
         self.widget = ttk.Label(master, text=label, border=self.border)
         self.widget.grid(row=self.row, column=self.column, sticky=self.sticky,
                          columnspan=self.columnspan, padx=self.padx, pady=self.pady)
-        self.widget.configure(background="grey")
+        self.widget.configure(background="white")
 
     def forget(self):
         '''Removes the label from the GUI temporarily.'''

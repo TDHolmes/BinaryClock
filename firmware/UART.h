@@ -11,6 +11,8 @@
 // valid command
 #define UART_CMD_VALID       0x42
 
+#define UART_CMD_START_BYTE  0xAA
+
 #define UART_CMD_SET_LED       0x10
 #define UART_CMD_CLEAR_LED     0x11
 #define UART_CMD_CLEAR_ALL_LED 0x12

@@ -15,7 +15,7 @@ class BinaryClockGUI:
     def __init__(self):
         # get the root object
         self.root = tk.Tk()
-        self.root.configure(background="grey")
+        self.root.configure(background="white")
         self.root.title("Binary Clock API")
         # themes: winnative, clam, alt, default, classic, vista, xpnative
         self.style = ttk.Style().theme_use('clam')
@@ -94,6 +94,7 @@ class BinaryClockGUI:
         self.color_update_button.activate()
 
     def update_coms_list(self, *args):
+        '''Update the list of serial ports'''
         ports = BC.get_available_serial_ports()
         if len(ports) == 0:
             ports = [""]
@@ -118,8 +119,7 @@ class BinaryClockGUI:
         self.color_update_button.deactivate()
 
     def set_LED(self):
-        '''
-        '''
+        '''Sets an individual LED'''
         # get row, col, and color information from UI elements
         row = int(self.row_entry.get_val())
         column = int(self.column_entry.get_val())
@@ -130,8 +130,7 @@ class BinaryClockGUI:
         print self.binary_clock.set_LED(row, column, red, green, blue)
 
     def clear_LED(self):
-        '''
-        '''
+        '''Clears an individual LED'''
         # get row, col, and color information from UI elements
         row = int(self.row_entry.get_val())
         column = int(self.column_entry.get_val())
@@ -139,8 +138,7 @@ class BinaryClockGUI:
         print self.binary_clock.clear_LED(row, column)
 
     def set_all_LEDs(self):
-        '''
-        '''
+        '''Sets all LEDs to a color'''
         # get color information from UI elements
         red = 2 ** int(self.red_entry.get_val()) - 1
         green = 2 ** int(self.green_entry.get_val()) - 1
@@ -149,8 +147,7 @@ class BinaryClockGUI:
         print self.binary_clock.set_all_LEDs(red, green, blue)
 
     def update_color(self):
-        '''
-        '''
+        '''Updates the color that is displayed when time is running'''
         # get color information from UI elements
         red = 2 ** int(self.red_entry.get_val()) - 1
         green = 2 ** int(self.green_entry.get_val()) - 1
@@ -164,7 +161,7 @@ class BinaryClockGUI:
         print self.binary_clock.clear_all_LEDs()
 
     def set_time(self):
-        '''sets the binary clock time'''
+        '''Sets the binary clock time'''
         print self.binary_clock.set_state(self.binary_clock.STATE_RUN_TIME)
         # check if time override is selected
         if self.time_override_cb.get_val():
@@ -175,11 +172,11 @@ class BinaryClockGUI:
             print self.binary_clock.update_time()
 
     def run(self):
-        '''runs the tk loop.'''
+        '''Runs the tk loop'''
         self.root.mainloop()
 
     def on_closing(self):
-        '''Asks user if they really want to close, then destroys the window.'''
+        '''Asks user if they really want to close, then destroys the window'''
         if messagebox.askquestion("Quit", "Do you want to quit?"):
             self.root.destroy()
         try:
