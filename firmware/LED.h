@@ -39,13 +39,10 @@
 #define ROWS (COLOR_BITS * 4)
 #define MULTIPLEX_TIMER_CLK_CYCLES (F_OSC / (DISP_UPDATE_FREQ * COLS * COLOR_BITS))
 
-typedef struct {
-    uint8_t missed_multiplex_timer_interrupts;
-} LED_errors_t;
 
 void LED_init(void);
 void LED_update_time(rtc_time_t *t_ptr, uint8_t update_all_override);
-void LED_run(uint8_t LED_multiplex_timer_count);
+void LED_run(void);
 void LED_clear(uint8_t row, uint8_t col);
 void LED_set(uint8_t row, uint8_t col, uint8_t red, uint8_t green, uint8_t blue);
 void LED_clear_all(void);

@@ -13,7 +13,6 @@
 // Summary - 
 void LED_drvr_init(LED_drvr_t * LED_ptr)
 {
-    LED_ptr->LED_errors.missed_multiplex_timer_interrupts = 0;
     LED_ptr->active_column = 0;
     LED_ptr->active_color_bit = 0;
     ANO_PORT = 0xFF;
@@ -23,7 +22,7 @@ void LED_drvr_init(LED_drvr_t * LED_ptr)
 // Summary - 
 // param (LED_drvr_t *) LED_ptr - 
 // param (uint8_t) LED_multiplex_timer_count - 
-void LED_drvr_run(LED_drvr_t *LED_ptr, uint8_t LED_multiplex_timer_count)
+void LED_drvr_run(LED_drvr_t *LED_ptr)
 {
     uint16_t color_mask = (1 << LED_ptr->active_color_bit);
     uint16_t bitstream = 0;
@@ -31,10 +30,6 @@ void LED_drvr_run(LED_drvr_t *LED_ptr, uint8_t LED_multiplex_timer_count)
     uint8_t row;
     uint8_t i;
 
-    // if we missed some multiplex timer counts, increment the errors
-    if (LED_multiplex_timer_count != 1) {
-        LED_ptr->LED_errors.missed_multiplex_timer_interrupts += (LED_multiplex_timer_count - 1);
-    }
     // build up the bitstream to be clocked out
     for (row = 0; row < 4; row++) { // rows
         /*  --  RED  --   */

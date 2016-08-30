@@ -104,9 +104,9 @@ void LED_update_time(rtc_time_t *t_ptr, uint8_t update_all_override)
 // called cyclicly in while loop
 // Summary - 
 // param (uint8_t) LED_multiplex_timer_count - 
-void LED_run(uint8_t LED_multiplex_timer_count)
+void LED_run(void)
 {
-    LED_drvr_run(LED_admin_ptr, LED_multiplex_timer_count);
+    LED_drvr_run(LED_admin_ptr);
 }
 
 

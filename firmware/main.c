@@ -45,8 +45,6 @@ uint8_t vals_rx[16];
 // retval (int) - 
 int main(void)
 {
-    retval_t retval;
-    uint8_t i;
     volatile uint8_t multiplexer_count;
     volatile uint8_t rtc_1hz_int_count;
     uint8_t start_byte_received = FALSE;
@@ -60,8 +58,8 @@ int main(void)
     LED_set_color(1, 1, 1);
     timer_init(&multiplexer_count);
     UART_init((uint32_t)250000);
-    retval = i2c_init();
-    retval = RTC_init(t_ptr, &rtc_1hz_int_count);
+    i2c_init();
+    RTC_init(t_ptr, &rtc_1hz_int_count);
 
     ///// main while loop /////
     while(1) {
@@ -84,34 +82,35 @@ int main(void)
                     UART_receive(command_buffer, COMMAND_LENGTH);
                     // procress the received command
                     process_UART_command(t_ptr, command_buffer);
+                    start_byte_received = FALSE;  // reset start byte
                 }
             }
         }
-
+        // run the system
         switch(system_state) {
             case RUN_TIME: {
                 if (rtc_1hz_int_count >= 1) {
-                    increment_time(t_ptr, rtc_1hz_int_count);
                     rtc_1hz_int_count = 0;
+                    increment_time(t_ptr, rtc_1hz_int_count);
                     LED_update_time(t_ptr, TRUE);
                 }
                 if (multiplexer_count >= 1) {
-                    LED_run(multiplexer_count);
                     multiplexer_count = 0;
+                    LED_run();
                 }
                 break;
             }
 
             case RUN_MANUAL: {
-                // let UART commands set LEDs
+                // let UART commands update the LEDs, but continue to refresh them
                 if (multiplexer_count >= 1) {
-                    LED_run(multiplexer_count);
                     multiplexer_count = 0;
+                    LED_run();
                 }
                 // but keep track of the time still
                 if (rtc_1hz_int_count >= 1) {
-                    increment_time(t_ptr, rtc_1hz_int_count);
                     rtc_1hz_int_count = 0;
+                    increment_time(t_ptr, rtc_1hz_int_count);
                 }
                 break;
             }
