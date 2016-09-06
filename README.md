@@ -3,7 +3,7 @@ A simple but well designed clock that displays the time in [binary coded decimal
 
 ## PCB
 
-__PCB picture goes here__
+![alt text][PCB picture]
 
 The current design uses an Atmel [ATtiny4313][attiny link] microcontroller in conjunction with a Maxim [DS3231M][ds3231m link] [RTC][RTC wiki link] for accurate time keeping. The LEDs are driven with a [STP16CPC26][stp16cpc26 link] constant current LED driver along with [high-side MOSFETs][mosfet wiki link] for [multiplexing][multiplexing wiki link].
 
@@ -37,7 +37,7 @@ The user interface communicates to the PCB via a [UART][UART wiki link] through 
 [stp16cpc26 link]: http://www.st.com/content/st_com/en/products/power-management/led-drivers/led-array-drivers/stp16cpc26.html
 [Multiplex - off]: https://raw.githubusercontent.com/TDHolmes/BinaryClock/master/documents/pictures/binaryClock_multiplexLogic_notOn.png "Diagram of the connections if the LEDs"
 [Multiplex - on]: https://raw.githubusercontent.com/TDHolmes/BinaryClock/master/documents/pictures/binaryClock_multiplexLogic_on.png "Diagram of a snapshot when the minute ones column is active."
-[PCB picture]: PCB link goes here "Binary Clock v1.0"
+[PCB picture]: https://raw.githubusercontent.com/TDHolmes/BinaryClock/master/documents/pictures/BinaryClock_rev1.JPG "Binary Clock v1 displaying 20:31:08 (8:31 PM)"
 [RTC wiki link]: https://en.wikipedia.org/wiki/Real-time_clock
 [mosfet wiki link]: https://en.wikipedia.org/wiki/MOSFET#Single-type
 [multiplexing wiki link]: https://en.wikipedia.org/wiki/Multiplexing
