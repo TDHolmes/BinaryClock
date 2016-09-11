@@ -4,6 +4,10 @@
 #include <stdint.h>
 #include "global_defines.h"
 
+/*! \file ring_buffer.h
+    \brief Data structures and definitions for the ring buffer.
+*/
+
 
 //! data structure to keep track of important ring buffer variables
 typedef struct {

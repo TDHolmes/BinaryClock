@@ -1,7 +1,6 @@
-/* Name: main.c
- * Author: <insert your name here>
- * Copyright: <insert your copyright message here>
- * License: <insert your license reference here>
+/* Author: Tyler Holmes
+ * Copyright: TBD
+ * License: TBD
  */
 
 #include <avr/io.h>
@@ -15,6 +14,11 @@
 #include "ports.h"
 #include "global_defines.h"
 #include <stdint.h>
+
+/*! \file main.c
+    \brief  Main logic of the Binary Clock firmware. Handles calling all other functions
+    other than interrupt driven ISRs.
+*/
 
 
 #define NO_FORCE_UPDATE 0  //!< Only update the LED array columns that have changed.

@@ -1,5 +1,10 @@
 \hypertarget{hardware_8c}{}\section{firmware/hardware.c File Reference}
 \label{hardware_8c}\index{firmware/hardware.\+c@{firmware/hardware.\+c}}
+
+
+Initialization of basic hardware (port direction \& initial pin states) goes here in \hyperlink{hardware_8c_adbc33da75acaccd09e014cd36193cea4}{hardware\+\_\+init()}.  
+
+
 {\ttfamily \#include \char`\"{}hardware.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}ports.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}global\+\_\+defines.\+h\char`\"{}}\newline
@@ -10,6 +15,11 @@
 \item 
 \hyperlink{global__defines_8h_a7a53c0a65d763442224ca36299adee75}{retval\+\_\+t} \hyperlink{hardware_8c_adbc33da75acaccd09e014cd36193cea4}{hardware\+\_\+init} (void)
 \end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Initialization of basic hardware (port direction \& initial pin states) goes here in \hyperlink{hardware_8c_adbc33da75acaccd09e014cd36193cea4}{hardware\+\_\+init()}. 
+
 
 
 \subsection{Function Documentation}
@@ -24,7 +34,3 @@ Initializes all the hardware
 \mbox{\tt out}  & {\em retval} & (retval\+\_\+t)\+: The memory area to copy to. \\
 \hline
 \end{DoxyParams}
-
-
-Definition at line 11 of file hardware.\+c.
-

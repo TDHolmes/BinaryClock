@@ -1,5 +1,10 @@
 \hypertarget{_r_t_c___d_s3231_8c}{}\section{firmware/\+R\+T\+C\+\_\+\+D\+S3231.c File Reference}
 \label{_r_t_c___d_s3231_8c}\index{firmware/\+R\+T\+C\+\_\+\+D\+S3231.\+c@{firmware/\+R\+T\+C\+\_\+\+D\+S3231.\+c}}
+
+
+Functions for interfacing with the Maxim D\+S3231 real time clock chip.  
+
+
 {\ttfamily \#include \char`\"{}R\+T\+C\+\_\+\+D\+S3231.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}i2c.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}global\+\_\+defines.\+h\char`\"{}}\newline
@@ -24,6 +29,11 @@ volatile uint8\+\_\+t $\ast$ \hyperlink{_r_t_c___d_s3231_8c_a7cc1c95486a291f1506
 \end{DoxyCompactItemize}
 
 
+\subsection{Detailed Description}
+Functions for interfacing with the Maxim D\+S3231 real time clock chip. 
+
+
+
 \subsection{Function Documentation}
 \hypertarget{_r_t_c___d_s3231_8c_a6f628626e34ad86362a46a4b0b0880d5}{}\label{_r_t_c___d_s3231_8c_a6f628626e34ad86362a46a4b0b0880d5} 
 \index{R\+T\+C\+\_\+\+D\+S3231.\+c@{R\+T\+C\+\_\+\+D\+S3231.\+c}!I\+SR@{I\+SR}}
@@ -31,11 +41,7 @@ volatile uint8\+\_\+t $\ast$ \hyperlink{_r_t_c___d_s3231_8c_a7cc1c95486a291f1506
 \subsubsection{\texorpdfstring{I\+S\+R()}{ISR()}}
 {\footnotesize\ttfamily I\+SR (\begin{DoxyParamCaption}\item[{P\+C\+I\+N\+T\+\_\+\+A\+\_\+vect}]{ }\end{DoxyParamCaption})}
 
-Interrupts on pin change form the R\+TC chip which is a 1 Hz square wave. Increments the counter to keep the time up to date. 
-
-Definition at line 106 of file R\+T\+C\+\_\+\+D\+S3231.\+c.
-
-\hypertarget{_r_t_c___d_s3231_8c_a08e02f54bb9f3dffa4c4852eab51ac49}{}\label{_r_t_c___d_s3231_8c_a08e02f54bb9f3dffa4c4852eab51ac49} 
+Interrupts on pin change form the R\+TC chip which is a 1 Hz square wave. Increments the counter to keep the time up to date. \hypertarget{_r_t_c___d_s3231_8c_a08e02f54bb9f3dffa4c4852eab51ac49}{}\label{_r_t_c___d_s3231_8c_a08e02f54bb9f3dffa4c4852eab51ac49} 
 \index{R\+T\+C\+\_\+\+D\+S3231.\+c@{R\+T\+C\+\_\+\+D\+S3231.\+c}!R\+T\+C\+\_\+init@{R\+T\+C\+\_\+init}}
 \index{R\+T\+C\+\_\+init@{R\+T\+C\+\_\+init}!R\+T\+C\+\_\+\+D\+S3231.\+c@{R\+T\+C\+\_\+\+D\+S3231.\+c}}
 \subsubsection{\texorpdfstring{R\+T\+C\+\_\+init()}{RTC\_init()}}
@@ -52,10 +58,6 @@ Real time clock (R\+TC) initialization function that sets up the 1 Hz pin change
 \mbox{\tt out}  & {\em retval} & (retval\+\_\+t)\+: Returns the initialization status of the R\+TC chip. \\
 \hline
 \end{DoxyParams}
-
-
-Definition at line 22 of file R\+T\+C\+\_\+\+D\+S3231.\+c.
-
 \hypertarget{_r_t_c___d_s3231_8c_a2bff9ac64b6abc57feab2a567e4942f1}{}\label{_r_t_c___d_s3231_8c_a2bff9ac64b6abc57feab2a567e4942f1} 
 \index{R\+T\+C\+\_\+\+D\+S3231.\+c@{R\+T\+C\+\_\+\+D\+S3231.\+c}!R\+T\+C\+\_\+read\+\_\+time@{R\+T\+C\+\_\+read\+\_\+time}}
 \index{R\+T\+C\+\_\+read\+\_\+time@{R\+T\+C\+\_\+read\+\_\+time}!R\+T\+C\+\_\+\+D\+S3231.\+c@{R\+T\+C\+\_\+\+D\+S3231.\+c}}
@@ -71,10 +73,6 @@ Reads the time on the R\+TC chip as well as updating the time keeping data struc
 \mbox{\tt out}  & {\em retval} & (retval\+\_\+t)\+: Returns the success or failure of reading the time from the R\+TC chip. \\
 \hline
 \end{DoxyParams}
-
-
-Definition at line 80 of file R\+T\+C\+\_\+\+D\+S3231.\+c.
-
 \hypertarget{_r_t_c___d_s3231_8c_a33efe978755de7c3bea5ec1f68c3c0ee}{}\label{_r_t_c___d_s3231_8c_a33efe978755de7c3bea5ec1f68c3c0ee} 
 \index{R\+T\+C\+\_\+\+D\+S3231.\+c@{R\+T\+C\+\_\+\+D\+S3231.\+c}!R\+T\+C\+\_\+set\+\_\+time@{R\+T\+C\+\_\+set\+\_\+time}}
 \index{R\+T\+C\+\_\+set\+\_\+time@{R\+T\+C\+\_\+set\+\_\+time}!R\+T\+C\+\_\+\+D\+S3231.\+c@{R\+T\+C\+\_\+\+D\+S3231.\+c}}
@@ -98,10 +96,6 @@ Updates the time on the R\+TC chip as well as in the time keeping data structure
 \end{DoxyParams}
 
 
-Definition at line 54 of file R\+T\+C\+\_\+\+D\+S3231.\+c.
-
-
-
 \subsection{Variable Documentation}
 \hypertarget{_r_t_c___d_s3231_8c_a7cc1c95486a291f15068b66d694a13fe}{}\label{_r_t_c___d_s3231_8c_a7cc1c95486a291f15068b66d694a13fe} 
 \index{R\+T\+C\+\_\+\+D\+S3231.\+c@{R\+T\+C\+\_\+\+D\+S3231.\+c}!R\+T\+C\+\_\+local\+\_\+1\+Hz\+\_\+int\+\_\+count\+\_\+ptr@{R\+T\+C\+\_\+local\+\_\+1\+Hz\+\_\+int\+\_\+count\+\_\+ptr}}
@@ -110,6 +104,3 @@ Definition at line 54 of file R\+T\+C\+\_\+\+D\+S3231.\+c.
 {\footnotesize\ttfamily volatile uint8\+\_\+t$\ast$ R\+T\+C\+\_\+local\+\_\+1\+Hz\+\_\+int\+\_\+count\+\_\+ptr}
 
 pointer to the variable in main that keeps track of the R\+TC interrupt count for accurate time keeping. 
-
-Definition at line 10 of file R\+T\+C\+\_\+\+D\+S3231.\+c.
-

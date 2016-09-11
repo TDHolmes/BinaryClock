@@ -1,5 +1,10 @@
 \hypertarget{_l_e_d__drvr___s_t_p16_c_p_c26_8c}{}\section{firmware/\+L\+E\+D\+\_\+drvr\+\_\+\+S\+T\+P16\+C\+P\+C26.c File Reference}
 \label{_l_e_d__drvr___s_t_p16_c_p_c26_8c}\index{firmware/\+L\+E\+D\+\_\+drvr\+\_\+\+S\+T\+P16\+C\+P\+C26.\+c@{firmware/\+L\+E\+D\+\_\+drvr\+\_\+\+S\+T\+P16\+C\+P\+C26.\+c}}
+
+
+Low level L\+ED driver functions to be used with the S\+T\+P16\+C\+P\+C26 L\+ED constant current driver.  
+
+
 {\ttfamily \#include \char`\"{}L\+E\+D\+\_\+drvr\+\_\+\+S\+T\+P16\+C\+P\+C26.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}L\+E\+D.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}ports.\+h\char`\"{}}\newline
@@ -7,6 +12,7 @@
 \subsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
+\hypertarget{_l_e_d__drvr___s_t_p16_c_p_c26_8c_a70d330906276a996f7dab090a03ce2a5}{}\label{_l_e_d__drvr___s_t_p16_c_p_c26_8c_a70d330906276a996f7dab090a03ce2a5} 
 \#define \hyperlink{_l_e_d__drvr___s_t_p16_c_p_c26_8c_a70d330906276a996f7dab090a03ce2a5}{C\+O\+L\+O\+R\+\_\+\+D\+E\+P\+TH}~4
 \begin{DoxyCompactList}\small\item\em Number of bits of color to multiplex. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Functions}
@@ -18,20 +24,8 @@ void \hyperlink{_l_e_d__drvr___s_t_p16_c_p_c26_8c_a649a79cad2b9aae395acbbd8612cc
 \end{DoxyCompactItemize}
 
 
-\subsection{Macro Definition Documentation}
-\hypertarget{_l_e_d__drvr___s_t_p16_c_p_c26_8c_a70d330906276a996f7dab090a03ce2a5}{}\label{_l_e_d__drvr___s_t_p16_c_p_c26_8c_a70d330906276a996f7dab090a03ce2a5} 
-\index{L\+E\+D\+\_\+drvr\+\_\+\+S\+T\+P16\+C\+P\+C26.\+c@{L\+E\+D\+\_\+drvr\+\_\+\+S\+T\+P16\+C\+P\+C26.\+c}!C\+O\+L\+O\+R\+\_\+\+D\+E\+P\+TH@{C\+O\+L\+O\+R\+\_\+\+D\+E\+P\+TH}}
-\index{C\+O\+L\+O\+R\+\_\+\+D\+E\+P\+TH@{C\+O\+L\+O\+R\+\_\+\+D\+E\+P\+TH}!L\+E\+D\+\_\+drvr\+\_\+\+S\+T\+P16\+C\+P\+C26.\+c@{L\+E\+D\+\_\+drvr\+\_\+\+S\+T\+P16\+C\+P\+C26.\+c}}
-\subsubsection{\texorpdfstring{C\+O\+L\+O\+R\+\_\+\+D\+E\+P\+TH}{COLOR\_DEPTH}}
-{\footnotesize\ttfamily \#define C\+O\+L\+O\+R\+\_\+\+D\+E\+P\+TH~4}
-
-
-
-Number of bits of color to multiplex. 
-
-
-
-Definition at line 6 of file L\+E\+D\+\_\+drvr\+\_\+\+S\+T\+P16\+C\+P\+C26.\+c.
+\subsection{Detailed Description}
+Low level L\+ED driver functions to be used with the S\+T\+P16\+C\+P\+C26 L\+ED constant current driver. 
 
 
 
@@ -49,10 +43,6 @@ Initializes the L\+ED driver structure and drives the anode port high to avoid L
 \mbox{\tt in}  & {\em L\+E\+D\+\_\+ptr} & (\hyperlink{struct_l_e_d__drvr__t}{L\+E\+D\+\_\+drvr\+\_\+t} $\ast$)\+: pointer to the L\+ED driver structure. \\
 \hline
 \end{DoxyParams}
-
-
-Definition at line 15 of file L\+E\+D\+\_\+drvr\+\_\+\+S\+T\+P16\+C\+P\+C26.\+c.
-
 \hypertarget{_l_e_d__drvr___s_t_p16_c_p_c26_8c_a649a79cad2b9aae395acbbd8612cc970}{}\label{_l_e_d__drvr___s_t_p16_c_p_c26_8c_a649a79cad2b9aae395acbbd8612cc970} 
 \index{L\+E\+D\+\_\+drvr\+\_\+\+S\+T\+P16\+C\+P\+C26.\+c@{L\+E\+D\+\_\+drvr\+\_\+\+S\+T\+P16\+C\+P\+C26.\+c}!L\+E\+D\+\_\+drvr\+\_\+run@{L\+E\+D\+\_\+drvr\+\_\+run}}
 \index{L\+E\+D\+\_\+drvr\+\_\+run@{L\+E\+D\+\_\+drvr\+\_\+run}!L\+E\+D\+\_\+drvr\+\_\+\+S\+T\+P16\+C\+P\+C26.\+c@{L\+E\+D\+\_\+drvr\+\_\+\+S\+T\+P16\+C\+P\+C26.\+c}}
@@ -66,7 +56,3 @@ Runs the L\+ED multiplexing code. Generates a bitstream to send to the L\+ED dri
 \mbox{\tt in}  & {\em L\+E\+D\+\_\+ptr} & (\hyperlink{struct_l_e_d__drvr__t}{L\+E\+D\+\_\+drvr\+\_\+t} $\ast$)\+: pointer to the L\+ED driver structure. \\
 \hline
 \end{DoxyParams}
-
-
-Definition at line 29 of file L\+E\+D\+\_\+drvr\+\_\+\+S\+T\+P16\+C\+P\+C26.\+c.
-

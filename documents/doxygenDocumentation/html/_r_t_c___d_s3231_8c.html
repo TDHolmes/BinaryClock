@@ -69,15 +69,16 @@ $(function() {
 <div class="title">RTC_DS3231.c File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Functions for interfacing with the Maxim DS3231 real time clock chip.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="_r_t_c___d_s3231_8h_source.html">RTC_DS3231.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="i2c_8h_source.html">i2c.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="global__defines_8h_source.html">global_defines.h</a>&quot;</code><br />
 <code>#include &lt;avr/io.h&gt;</code><br />
 <code>#include &lt;avr/interrupt.h&gt;</code><br />
 <code>#include &lt;stdint.h&gt;</code><br />
-</div>
-<p><a href="_r_t_c___d_s3231_8c_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
+</div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a08e02f54bb9f3dffa4c4852eab51ac49"><td class="memItemLeft" align="right" valign="top"><a class="el" href="global__defines_8h.html#a7a53c0a65d763442224ca36299adee75">retval_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_r_t_c___d_s3231_8c.html#a08e02f54bb9f3dffa4c4852eab51ac49">RTC_init</a> (<a class="el" href="structrtc__time__t.html">rtc_time_t</a> *t_ptr, volatile uint8_t *RTC_int_cnt_ptr)</td></tr>
@@ -94,7 +95,9 @@ Variables</h2></td></tr>
 <tr class="memitem:a7cc1c95486a291f15068b66d694a13fe"><td class="memItemLeft" align="right" valign="top">volatile uint8_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_r_t_c___d_s3231_8c.html#a7cc1c95486a291f15068b66d694a13fe">RTC_local_1Hz_int_count_ptr</a></td></tr>
 <tr class="separator:a7cc1c95486a291f15068b66d694a13fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Functions for interfacing with the Maxim DS3231 real time clock chip. </p>
+</div><h2 class="groupheader">Function Documentation</h2>
 <a id="a6f628626e34ad86362a46a4b0b0880d5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6f628626e34ad86362a46a4b0b0880d5">&sect;&nbsp;</a></span>ISR()</h2>
 
@@ -111,8 +114,6 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Interrupts on pin change form the RTC chip which is a 1 Hz square wave. Increments the counter to keep the time up to date. </p>
-
-<p>Definition at line <a class="el" href="_r_t_c___d_s3231_8c_source.html#l00106">106</a> of file <a class="el" href="_r_t_c___d_s3231_8c_source.html">RTC_DS3231.c</a>.</p>
 
 </div>
 </div>
@@ -151,8 +152,6 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_r_t_c___d_s3231_8c_source.html#l00022">22</a> of file <a class="el" href="_r_t_c___d_s3231_8c_source.html">RTC_DS3231.c</a>.</p>
-
 </div>
 </div>
 <a id="a2bff9ac64b6abc57feab2a567e4942f1"></a>
@@ -178,8 +177,6 @@ Variables</h2></td></tr>
   </table>
   </dd>
 </dl>
-
-<p>Definition at line <a class="el" href="_r_t_c___d_s3231_8c_source.html#l00080">80</a> of file <a class="el" href="_r_t_c___d_s3231_8c_source.html">RTC_DS3231.c</a>.</p>
 
 </div>
 </div>
@@ -232,8 +229,6 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_r_t_c___d_s3231_8c_source.html#l00054">54</a> of file <a class="el" href="_r_t_c___d_s3231_8c_source.html">RTC_DS3231.c</a>.</p>
-
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
@@ -249,8 +244,6 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>pointer to the variable in main that keeps track of the RTC interrupt count for accurate time keeping. </p>
-
-<p>Definition at line <a class="el" href="_r_t_c___d_s3231_8c_source.html#l00010">10</a> of file <a class="el" href="_r_t_c___d_s3231_8c_source.html">RTC_DS3231.c</a>.</p>
 
 </div>
 </div>

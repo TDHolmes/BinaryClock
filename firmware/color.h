@@ -3,6 +3,9 @@
 
 #include <stdint.h>
 
+/*! \file color.h
+    \brief Color related definitions and structures.
+*/
 
 #define COLOR_BITS 8 //!< Defines the amount of color resolution
 

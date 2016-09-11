@@ -5,6 +5,11 @@
 #include <avr/interrupt.h>
 #include <stdint.h>
 
+/*! \file RTC_DS3231.c
+    \brief Functions for interfacing with the Maxim DS3231 real time clock chip.
+*/
+
+
 /*! pointer to the variable in main that keeps track of the RTC interrupt
  *  count for accurate time keeping.  */
 volatile uint8_t *RTC_local_1Hz_int_count_ptr;

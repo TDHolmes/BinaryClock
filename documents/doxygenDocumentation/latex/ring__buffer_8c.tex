@@ -1,5 +1,10 @@
 \hypertarget{ring__buffer_8c}{}\section{firmware/ring\+\_\+buffer.c File Reference}
 \label{ring__buffer_8c}\index{firmware/ring\+\_\+buffer.\+c@{firmware/ring\+\_\+buffer.\+c}}
+
+
+Defines a set of functions for implementing a general purpose ring buffer.  
+
+
 {\ttfamily \#include \char`\"{}ring\+\_\+buffer.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}global\+\_\+defines.\+h\char`\"{}}\newline
 {\ttfamily \#include $<$stdint.\+h$>$}\newline
@@ -20,6 +25,11 @@ void \hyperlink{ring__buffer_8c_abcc91663d05e0886e58c13752b004e18}{ring\+\_\+buf
 \end{DoxyCompactItemize}
 
 
+\subsection{Detailed Description}
+Defines a set of functions for implementing a general purpose ring buffer. 
+
+
+
 \subsection{Function Documentation}
 \hypertarget{ring__buffer_8c_ab7f6f411c8e446db08c1096ffab542bb}{}\label{ring__buffer_8c_ab7f6f411c8e446db08c1096ffab542bb} 
 \index{ring\+\_\+buffer.\+c@{ring\+\_\+buffer.\+c}!ring\+\_\+buff\+\_\+has\+\_\+data@{ring\+\_\+buff\+\_\+has\+\_\+data}}
@@ -36,10 +46,6 @@ Gets whether or not there is valid data in the ring buffer.
 \mbox{\tt out}  & {\em retval} & (bool\+\_\+t)\+: Returns whether or not there\textquotesingle{}s data on the buffer. \\
 \hline
 \end{DoxyParams}
-
-
-Definition at line 85 of file ring\+\_\+buffer.\+c.
-
 \hypertarget{ring__buffer_8c_a8591627100b1c46afe9d5761a435e75c}{}\label{ring__buffer_8c_a8591627100b1c46afe9d5761a435e75c} 
 \index{ring\+\_\+buffer.\+c@{ring\+\_\+buffer.\+c}!ring\+\_\+buff\+\_\+init@{ring\+\_\+buff\+\_\+init}}
 \index{ring\+\_\+buff\+\_\+init@{ring\+\_\+buff\+\_\+init}!ring\+\_\+buffer.\+c@{ring\+\_\+buffer.\+c}}
@@ -57,10 +63,6 @@ Initializes the ring buffer structure.
 \mbox{\tt in}  & {\em buffer\+\_\+len} & (uint8\+\_\+t)\+: length of the buffer to be initialized. \\
 \hline
 \end{DoxyParams}
-
-
-Definition at line 13 of file ring\+\_\+buffer.\+c.
-
 \hypertarget{ring__buffer_8c_a0b7a7b735a6a14f71ebe81c04b494b3a}{}\label{ring__buffer_8c_a0b7a7b735a6a14f71ebe81c04b494b3a} 
 \index{ring\+\_\+buffer.\+c@{ring\+\_\+buffer.\+c}!ring\+\_\+buff\+\_\+pop@{ring\+\_\+buff\+\_\+pop}}
 \index{ring\+\_\+buff\+\_\+pop@{ring\+\_\+buff\+\_\+pop}!ring\+\_\+buffer.\+c@{ring\+\_\+buffer.\+c}}
@@ -78,10 +80,6 @@ Pops a value off of the ring buffer.
 \mbox{\tt out}  & {\em retval} & (retval\+\_\+t)\+: Returns the error or pass status. \\
 \hline
 \end{DoxyParams}
-
-
-Definition at line 32 of file ring\+\_\+buffer.\+c.
-
 \hypertarget{ring__buffer_8c_a35ee9bc993c6d22a0b8af0bef7ac746f}{}\label{ring__buffer_8c_a35ee9bc993c6d22a0b8af0bef7ac746f} 
 \index{ring\+\_\+buffer.\+c@{ring\+\_\+buffer.\+c}!ring\+\_\+buff\+\_\+push@{ring\+\_\+buff\+\_\+push}}
 \index{ring\+\_\+buff\+\_\+push@{ring\+\_\+buff\+\_\+push}!ring\+\_\+buffer.\+c@{ring\+\_\+buffer.\+c}}
@@ -99,10 +97,6 @@ Pushes a value onto the ring buffer.
 \mbox{\tt out}  & {\em retval} & (retval\+\_\+t)\+: Returns the error or pass status. \\
 \hline
 \end{DoxyParams}
-
-
-Definition at line 60 of file ring\+\_\+buffer.\+c.
-
 \hypertarget{ring__buffer_8c_abcc91663d05e0886e58c13752b004e18}{}\label{ring__buffer_8c_abcc91663d05e0886e58c13752b004e18} 
 \index{ring\+\_\+buffer.\+c@{ring\+\_\+buffer.\+c}!ring\+\_\+buff\+\_\+reset@{ring\+\_\+buff\+\_\+reset}}
 \index{ring\+\_\+buff\+\_\+reset@{ring\+\_\+buff\+\_\+reset}!ring\+\_\+buffer.\+c@{ring\+\_\+buffer.\+c}}
@@ -116,10 +110,6 @@ Resets the ring buffer.
 \mbox{\tt in}  & {\em rb\+\_\+ptr} & (\hyperlink{structring__buffer__t}{ring\+\_\+buffer\+\_\+t} $\ast$)\+: admin structure for the ring buffer we\textquotesingle{}re using. \\
 \hline
 \end{DoxyParams}
-
-
-Definition at line 112 of file ring\+\_\+buffer.\+c.
-
 \hypertarget{ring__buffer_8c_abf6dee7a5ec05182379198b5e6c8267d}{}\label{ring__buffer_8c_abf6dee7a5ec05182379198b5e6c8267d} 
 \index{ring\+\_\+buffer.\+c@{ring\+\_\+buffer.\+c}!ring\+\_\+buff\+\_\+unread\+\_\+items@{ring\+\_\+buff\+\_\+unread\+\_\+items}}
 \index{ring\+\_\+buff\+\_\+unread\+\_\+items@{ring\+\_\+buff\+\_\+unread\+\_\+items}!ring\+\_\+buffer.\+c@{ring\+\_\+buffer.\+c}}
@@ -135,7 +125,3 @@ Gets how much unread data is on the buffer.
 \mbox{\tt out}  & {\em unread\+\_\+items} & (uint8\+\_\+t)\+: Returns the amount of unread data is on the buffer. \\
 \hline
 \end{DoxyParams}
-
-
-Definition at line 101 of file ring\+\_\+buffer.\+c.
-

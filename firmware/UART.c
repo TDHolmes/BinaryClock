@@ -3,6 +3,10 @@
 #include <avr/interrupt.h>
 #include <stdint.h>
 
+/*! \file UART.c
+    \brief High level UART functions to interface with lower level UART driver functions.
+*/
+
 
 /*!
  * Initializes the UART module at the given baudrate.

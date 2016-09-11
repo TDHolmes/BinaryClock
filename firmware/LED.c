@@ -5,6 +5,10 @@
 #include "LED_drvr_STP16CPC26.h"
 #include <stdint.h>
 
+/*! \file LED.c
+    \brief High level LED functions to interface with an LED driver of some sort.
+*/
+
 LED_drvr_t LED_admin_struct;  //!< Structure that keeps track of important LED variables.
 LED_drvr_t *LED_admin_ptr;    //!< Pointer to the LED admin structure.
 

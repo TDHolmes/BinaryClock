@@ -1,5 +1,10 @@
 \hypertarget{_u_a_r_t_8c}{}\section{firmware/\+U\+A\+RT.c File Reference}
 \label{_u_a_r_t_8c}\index{firmware/\+U\+A\+R\+T.\+c@{firmware/\+U\+A\+R\+T.\+c}}
+
+
+High level U\+A\+RT functions to interface with lower level U\+A\+RT driver functions.  
+
+
 {\ttfamily \#include \char`\"{}U\+A\+R\+T\+\_\+drvr\+\_\+4313.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}global\+\_\+defines.\+h\char`\"{}}\newline
 {\ttfamily \#include $<$avr/interrupt.\+h$>$}\newline
@@ -27,6 +32,11 @@ void \hyperlink{_u_a_r_t_8c_a36d020619148935e3836fbfe85a5e6fb}{U\+A\+R\+T\+\_\+r
 \end{DoxyCompactItemize}
 
 
+\subsection{Detailed Description}
+High level U\+A\+RT functions to interface with lower level U\+A\+RT driver functions. 
+
+
+
 \subsection{Function Documentation}
 \hypertarget{_u_a_r_t_8c_a821ba6a21f4896a9a815940bfcf5d45c}{}\label{_u_a_r_t_8c_a821ba6a21f4896a9a815940bfcf5d45c} 
 \index{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+init@{U\+A\+R\+T\+\_\+init}}
@@ -41,10 +51,6 @@ Initializes the U\+A\+RT module at the given baudrate.
 \mbox{\tt in}  & {\em baudrate} & (uint32\+\_\+t)\+: baudrate to setup the U\+A\+RT module to. \\
 \hline
 \end{DoxyParams}
-
-
-Definition at line 12 of file U\+A\+R\+T.\+c.
-
 \hypertarget{_u_a_r_t_8c_af7904ba62c8456c9bcd5f6b84adcb262}{}\label{_u_a_r_t_8c_af7904ba62c8456c9bcd5f6b84adcb262} 
 \index{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+receive@{U\+A\+R\+T\+\_\+receive}}
 \index{U\+A\+R\+T\+\_\+receive@{U\+A\+R\+T\+\_\+receive}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}}
@@ -60,10 +66,6 @@ Receives N values from the U\+A\+RT driver. Inherently blocks until it receives 
 \mbox{\tt in}  & {\em len} & (uint8\+\_\+t)\+: number of bytes to receive \\
 \hline
 \end{DoxyParams}
-
-
-Definition at line 121 of file U\+A\+R\+T.\+c.
-
 \hypertarget{_u_a_r_t_8c_adfbd65b23d278104fe4581479add9892}{}\label{_u_a_r_t_8c_adfbd65b23d278104fe4581479add9892} 
 \index{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+receive\+\_\+byte@{U\+A\+R\+T\+\_\+receive\+\_\+byte}}
 \index{U\+A\+R\+T\+\_\+receive\+\_\+byte@{U\+A\+R\+T\+\_\+receive\+\_\+byte}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}}
@@ -81,10 +83,6 @@ Receives a byte from the U\+A\+RT driver.
 \mbox{\tt out}  & {\em retval} & (retval\+\_\+t)\+: returns success/failure of receiving a byte. \\
 \hline
 \end{DoxyParams}
-
-
-Definition at line 143 of file U\+A\+R\+T.\+c.
-
 \hypertarget{_u_a_r_t_8c_a83d6a7e3709e9391c448a48413f4722a}{}\label{_u_a_r_t_8c_a83d6a7e3709e9391c448a48413f4722a} 
 \index{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+receive\+\_\+has\+\_\+data@{U\+A\+R\+T\+\_\+receive\+\_\+has\+\_\+data}}
 \index{U\+A\+R\+T\+\_\+receive\+\_\+has\+\_\+data@{U\+A\+R\+T\+\_\+receive\+\_\+has\+\_\+data}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}}
@@ -98,10 +96,6 @@ returns if any bytes have been received by the U\+A\+RT driver.
 \mbox{\tt out}  & {\em has\+\_\+data} & (bool\+\_\+t)\+: true if we have bytes received, false if none. \\
 \hline
 \end{DoxyParams}
-
-
-Definition at line 170 of file U\+A\+R\+T.\+c.
-
 \hypertarget{_u_a_r_t_8c_a18b6dfda0347576121145e7becc02551}{}\label{_u_a_r_t_8c_a18b6dfda0347576121145e7becc02551} 
 \index{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+receive\+\_\+unread\+\_\+items@{U\+A\+R\+T\+\_\+receive\+\_\+unread\+\_\+items}}
 \index{U\+A\+R\+T\+\_\+receive\+\_\+unread\+\_\+items@{U\+A\+R\+T\+\_\+receive\+\_\+unread\+\_\+items}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}}
@@ -115,21 +109,13 @@ returns how many bytes have been received by the U\+A\+RT driver.
 \mbox{\tt out}  & {\em unread\+\_\+items} & (uint8\+\_\+t)\+: number of valid bytes received by the U\+A\+RT module. \\
 \hline
 \end{DoxyParams}
-
-
-Definition at line 159 of file U\+A\+R\+T.\+c.
-
 \hypertarget{_u_a_r_t_8c_a36d020619148935e3836fbfe85a5e6fb}{}\label{_u_a_r_t_8c_a36d020619148935e3836fbfe85a5e6fb} 
 \index{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+reset@{U\+A\+R\+T\+\_\+reset}}
 \index{U\+A\+R\+T\+\_\+reset@{U\+A\+R\+T\+\_\+reset}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}}
 \subsubsection{\texorpdfstring{U\+A\+R\+T\+\_\+reset()}{UART\_reset()}}
 {\footnotesize\ttfamily void U\+A\+R\+T\+\_\+reset (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
-clears hardware errors and flushes the U\+A\+RT received buffer. 
-
-Definition at line 179 of file U\+A\+R\+T.\+c.
-
-\hypertarget{_u_a_r_t_8c_af1ad6f713188977601a8b549503dce78}{}\label{_u_a_r_t_8c_af1ad6f713188977601a8b549503dce78} 
+clears hardware errors and flushes the U\+A\+RT received buffer. \hypertarget{_u_a_r_t_8c_af1ad6f713188977601a8b549503dce78}{}\label{_u_a_r_t_8c_af1ad6f713188977601a8b549503dce78} 
 \index{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+transmit@{U\+A\+R\+T\+\_\+transmit}}
 \index{U\+A\+R\+T\+\_\+transmit@{U\+A\+R\+T\+\_\+transmit}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}}
 \subsubsection{\texorpdfstring{U\+A\+R\+T\+\_\+transmit()}{UART\_transmit()}}
@@ -146,10 +132,6 @@ Transmits N bytes via U\+A\+RT (either blocking or non-\/blocking).
 \mbox{\tt in}  & {\em blocking} & (bool\+\_\+t)\+: whether or not to blocking send each byte. \\
 \hline
 \end{DoxyParams}
-
-
-Definition at line 24 of file U\+A\+R\+T.\+c.
-
 \hypertarget{_u_a_r_t_8c_a24bb26011d768b44f3a13bf603a001dd}{}\label{_u_a_r_t_8c_a24bb26011d768b44f3a13bf603a001dd} 
 \index{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+transmit\+\_\+byte@{U\+A\+R\+T\+\_\+transmit\+\_\+byte}}
 \index{U\+A\+R\+T\+\_\+transmit\+\_\+byte@{U\+A\+R\+T\+\_\+transmit\+\_\+byte}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}}
@@ -165,10 +147,6 @@ Transmits 1 byte via U\+A\+RT (either blocking or non-\/blocking).
 \mbox{\tt in}  & {\em blocking} & (bool\+\_\+t)\+: whether or not to blocking send the byte. \\
 \hline
 \end{DoxyParams}
-
-
-Definition at line 42 of file U\+A\+R\+T.\+c.
-
 \hypertarget{_u_a_r_t_8c_a1df5cfe5675bf1f123342d5a1bb33839}{}\label{_u_a_r_t_8c_a1df5cfe5675bf1f123342d5a1bb33839} 
 \index{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T\+\_\+transmit\+\_\+value@{U\+A\+R\+T\+\_\+transmit\+\_\+value}}
 \index{U\+A\+R\+T\+\_\+transmit\+\_\+value@{U\+A\+R\+T\+\_\+transmit\+\_\+value}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}}
@@ -186,7 +164,3 @@ Transmits a value via U\+A\+RT (either blocking or non-\/blocking) encoded into 
 \mbox{\tt in}  & {\em print\+\_\+hex} & (bool\+\_\+t)\+: whether or not to print in hexadecimal. \\
 \hline
 \end{DoxyParams}
-
-
-Definition at line 56 of file U\+A\+R\+T.\+c.
-

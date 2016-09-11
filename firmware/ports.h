@@ -3,6 +3,11 @@
 
 #include <avr/io.h>
 
+/*! \file ports.h
+    \brief Defines what pins are connected to and defines useful macros for setting certain
+    pins.
+*/
+
 //! PORT A PIN DEFINITIONS
 #define IND_LED0     PA0
 #define RTC_SQW      PA1

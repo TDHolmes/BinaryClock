@@ -69,6 +69,9 @@ $(function() {
 <div class="title">UART_drvr_4313.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Low level driver definitions for UART communications on the ATtiny4313.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="hardware_8h_source.html">hardware.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="global__defines_8h_source.html">global_defines.h</a>&quot;</code><br />
 <code>#include &lt;stdint.h&gt;</code><br />
@@ -77,8 +80,9 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:ab3ae05ec3fd66fa81e9a53fb9f495c9b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t__drvr__4313_8h.html#ab3ae05ec3fd66fa81e9a53fb9f495c9b">UART_RX_BUFF_SIZE</a>&#160;&#160;&#160;16</td></tr>
-<tr class="memdesc:ab3ae05ec3fd66fa81e9a53fb9f495c9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">size of the UART receive buffer  <a href="#ab3ae05ec3fd66fa81e9a53fb9f495c9b">More...</a><br /></td></tr>
+<tr class="memitem:ab3ae05ec3fd66fa81e9a53fb9f495c9b"><td class="memItemLeft" align="right" valign="top"><a id="ab3ae05ec3fd66fa81e9a53fb9f495c9b"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t__drvr__4313_8h.html#ab3ae05ec3fd66fa81e9a53fb9f495c9b">UART_RX_BUFF_SIZE</a>&#160;&#160;&#160;16</td></tr>
+<tr class="memdesc:ab3ae05ec3fd66fa81e9a53fb9f495c9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">size of the UART receive buffer <br /></td></tr>
 <tr class="separator:ab3ae05ec3fd66fa81e9a53fb9f495c9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -100,26 +104,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a649535ec29ed3ef0ff89da0d3de24462"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t__drvr__4313_8h.html#a649535ec29ed3ef0ff89da0d3de24462">UART_drvr_unread_items</a> (void)</td></tr>
 <tr class="separator:a649535ec29ed3ef0ff89da0d3de24462"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="ab3ae05ec3fd66fa81e9a53fb9f495c9b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab3ae05ec3fd66fa81e9a53fb9f495c9b">&sect;&nbsp;</a></span>UART_RX_BUFF_SIZE</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define UART_RX_BUFF_SIZE&#160;&#160;&#160;16</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>size of the UART receive buffer </p>
-
-<p>Definition at line <a class="el" href="_u_a_r_t__drvr__4313_8h_source.html#l00009">9</a> of file <a class="el" href="_u_a_r_t__drvr__4313_8h_source.html">UART_drvr_4313.h</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Low level driver definitions for UART communications on the ATtiny4313. </p>
+</div><h2 class="groupheader">Function Documentation</h2>
 <a id="a66d34ad60e1f81f5f7587499a0182dd9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a66d34ad60e1f81f5f7587499a0182dd9">&sect;&nbsp;</a></span>UART_drvr_check_errors()</h2>
 
@@ -147,8 +134,6 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_u_a_r_t__drvr__4313_8c_source.html#l00105">105</a> of file <a class="el" href="_u_a_r_t__drvr__4313_8c_source.html">UART_drvr_4313.c</a>.</p>
-
 </div>
 </div>
 <a id="a9ed2e4f525b7f682012dbfcfce4af4aa"></a>
@@ -168,8 +153,6 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Clears UART hardware errors. </p>
 
-<p>Definition at line <a class="el" href="_u_a_r_t__drvr__4313_8c_source.html#l00122">122</a> of file <a class="el" href="_u_a_r_t__drvr__4313_8c_source.html">UART_drvr_4313.c</a>.</p>
-
 </div>
 </div>
 <a id="a7ace95bcdfa45917b43f28eec72a48a6"></a>
@@ -188,8 +171,6 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Flushes the current data from the ring buffer and from the hardware UART module </p>
-
-<p>Definition at line <a class="el" href="_u_a_r_t__drvr__4313_8c_source.html#l00087">87</a> of file <a class="el" href="_u_a_r_t__drvr__4313_8c_source.html">UART_drvr_4313.c</a>.</p>
 
 </div>
 </div>
@@ -215,8 +196,6 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-
-<p>Definition at line <a class="el" href="_u_a_r_t__drvr__4313_8c_source.html#l00026">26</a> of file <a class="el" href="_u_a_r_t__drvr__4313_8c_source.html">UART_drvr_4313.c</a>.</p>
 
 </div>
 </div>
@@ -244,8 +223,6 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_u_a_r_t__drvr__4313_8c_source.html#l00069">69</a> of file <a class="el" href="_u_a_r_t__drvr__4313_8c_source.html">UART_drvr_4313.c</a>.</p>
-
 </div>
 </div>
 <a id="af9775814977e07f9e2fd66e1d50d3ee4"></a>
@@ -270,8 +247,6 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-
-<p>Definition at line <a class="el" href="_u_a_r_t__drvr__4313_8c_source.html#l00133">133</a> of file <a class="el" href="_u_a_r_t__drvr__4313_8c_source.html">UART_drvr_4313.c</a>.</p>
 
 </div>
 </div>
@@ -309,8 +284,6 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_u_a_r_t__drvr__4313_8c_source.html#l00050">50</a> of file <a class="el" href="_u_a_r_t__drvr__4313_8c_source.html">UART_drvr_4313.c</a>.</p>
-
 </div>
 </div>
 <a id="a649535ec29ed3ef0ff89da0d3de24462"></a>
@@ -335,8 +308,6 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-
-<p>Definition at line <a class="el" href="_u_a_r_t__drvr__4313_8c_source.html#l00144">144</a> of file <a class="el" href="_u_a_r_t__drvr__4313_8c_source.html">UART_drvr_4313.c</a>.</p>
 
 </div>
 </div>

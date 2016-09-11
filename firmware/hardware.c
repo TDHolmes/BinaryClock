@@ -4,6 +4,11 @@
 #include <avr/io.h>
 #include <avr/interrupt.h>
 
+/*! \file hardware.c
+    \brief Initialization of basic hardware (port direction & initial pin
+    states) goes here in hardware_init().
+*/
+
 /*!
  * Initializes all the hardware
  * @param[out] retval (retval_t): The memory area to copy to.

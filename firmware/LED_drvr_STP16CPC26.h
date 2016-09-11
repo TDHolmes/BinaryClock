@@ -6,6 +6,11 @@
 #include "color.h"
 #include <stdint.h>
 
+/*! \file LED_drvr_STP16CPC26.h
+    \brief Low level LED driver definitions to be used with the STP16CPC26 LED
+    constant current driver.
+*/
+
 
 #define ROW_SIZE   4  //!< Number of rows on the binary clock
 #define COL_SIZE   6  //!< Number of clumns on the binary clock

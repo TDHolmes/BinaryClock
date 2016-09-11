@@ -7,6 +7,10 @@
 #include <stdint.h>
 #include <avr/io.h>
 
+/*! \file LED.h
+    \brief High level LED definitions.
+*/
+
 #define DISP_UPDATE_FREQ 60   //!< update frequency
 #define COLS 6                //!< number of columns
 #define ROWS (COLOR_BITS * 4) //!< number of rows

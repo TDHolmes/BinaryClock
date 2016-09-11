@@ -2,6 +2,10 @@
 #include "global_defines.h"
 #include <stdint.h>
 
+/*! \file ring_buffer.c
+    \brief Defines a set of functions for implementing a general purpose ring buffer.
+*/
+
 
 /*!
  * Initializes the ring buffer structure.

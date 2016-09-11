@@ -5,6 +5,9 @@
 #include "global_defines.h"
 #include <stdint.h>
 
+/*! \file UART_drvr_4313.h
+    \brief Low level driver definitions for UART communications on the ATtiny4313.
+*/
 
 #define UART_RX_BUFF_SIZE 16 //!< size of the UART receive buffer
 

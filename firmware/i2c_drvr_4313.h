@@ -4,6 +4,10 @@
 #include "global_defines.h"
 #include <stdint.h>
 
+/*! \file i2c_drvr_4313.h
+    \brief Low level I2C definitions for the ATtiny4313.
+*/
+
 #define I2C_START_RETRY 5 //!< defines how many times we should retry to start communication
 
 #define I2C_BITBANG  //!< Don't use I2C hardware modules, but rather manual port manipulation

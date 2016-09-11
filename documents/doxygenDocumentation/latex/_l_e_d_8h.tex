@@ -1,5 +1,10 @@
 \hypertarget{_l_e_d_8h}{}\section{firmware/\+L\+ED.h File Reference}
 \label{_l_e_d_8h}\index{firmware/\+L\+E\+D.\+h@{firmware/\+L\+E\+D.\+h}}
+
+
+High level L\+ED definitions.  
+
+
 {\ttfamily \#include \char`\"{}color.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}hardware.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}R\+T\+C\+\_\+\+D\+S3231.\+h\char`\"{}}\newline
@@ -8,12 +13,15 @@
 \subsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
+\hypertarget{_l_e_d_8h_af089e103fd0f212afa03c03bd09f9b06}{}\label{_l_e_d_8h_af089e103fd0f212afa03c03bd09f9b06} 
 \#define \hyperlink{_l_e_d_8h_af089e103fd0f212afa03c03bd09f9b06}{D\+I\+S\+P\+\_\+\+U\+P\+D\+A\+T\+E\+\_\+\+F\+R\+EQ}~60
 \begin{DoxyCompactList}\small\item\em update frequency \end{DoxyCompactList}\item 
+\hypertarget{_l_e_d_8h_ab59ad2ee1a48b83c2eef1f019ed8cc48}{}\label{_l_e_d_8h_ab59ad2ee1a48b83c2eef1f019ed8cc48} 
 \#define \hyperlink{_l_e_d_8h_ab59ad2ee1a48b83c2eef1f019ed8cc48}{C\+O\+LS}~6
 \begin{DoxyCompactList}\small\item\em number of columns \end{DoxyCompactList}\item 
 \#define \hyperlink{_l_e_d_8h_a3cfd3aa62338d12609f6d65bce97e9cd}{R\+O\+WS}~(\hyperlink{color_8h_a778b652fdb3874d29eb349d9dd89359a}{C\+O\+L\+O\+R\+\_\+\+B\+I\+TS} $\ast$ 4)
 \item 
+\hypertarget{_l_e_d_8h_ad6d3ed4d91ddcbee37212cfd92ed6827}{}\label{_l_e_d_8h_ad6d3ed4d91ddcbee37212cfd92ed6827} 
 \#define \hyperlink{_l_e_d_8h_ad6d3ed4d91ddcbee37212cfd92ed6827}{M\+U\+L\+T\+I\+P\+L\+E\+X\+\_\+\+T\+I\+M\+E\+R\+\_\+\+C\+L\+K\+\_\+\+C\+Y\+C\+L\+ES}~(\hyperlink{hardware_8h_a3aee3beceffb391d6aa3012c48f0a35b}{F\+\_\+\+O\+SC} / (\hyperlink{_l_e_d_8h_af089e103fd0f212afa03c03bd09f9b06}{D\+I\+S\+P\+\_\+\+U\+P\+D\+A\+T\+E\+\_\+\+F\+R\+EQ} $\ast$ \hyperlink{_l_e_d_8h_ab59ad2ee1a48b83c2eef1f019ed8cc48}{C\+O\+LS} $\ast$ \hyperlink{color_8h_a778b652fdb3874d29eb349d9dd89359a}{C\+O\+L\+O\+R\+\_\+\+B\+I\+TS}))
 \begin{DoxyCompactList}\small\item\em number of clock cycles in between multiplexer cycles \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Functions}
@@ -37,49 +45,12 @@ void \hyperlink{_l_e_d_8h_a03b912786effb26b1a9ebcfc222c1a12}{L\+E\+D\+\_\+set\+\
 \end{DoxyCompactItemize}
 
 
+\subsection{Detailed Description}
+High level L\+ED definitions. 
+
+
+
 \subsection{Macro Definition Documentation}
-\hypertarget{_l_e_d_8h_ab59ad2ee1a48b83c2eef1f019ed8cc48}{}\label{_l_e_d_8h_ab59ad2ee1a48b83c2eef1f019ed8cc48} 
-\index{L\+E\+D.\+h@{L\+E\+D.\+h}!C\+O\+LS@{C\+O\+LS}}
-\index{C\+O\+LS@{C\+O\+LS}!L\+E\+D.\+h@{L\+E\+D.\+h}}
-\subsubsection{\texorpdfstring{C\+O\+LS}{COLS}}
-{\footnotesize\ttfamily \#define C\+O\+LS~6}
-
-
-
-number of columns 
-
-
-
-Definition at line 11 of file L\+E\+D.\+h.
-
-\hypertarget{_l_e_d_8h_af089e103fd0f212afa03c03bd09f9b06}{}\label{_l_e_d_8h_af089e103fd0f212afa03c03bd09f9b06} 
-\index{L\+E\+D.\+h@{L\+E\+D.\+h}!D\+I\+S\+P\+\_\+\+U\+P\+D\+A\+T\+E\+\_\+\+F\+R\+EQ@{D\+I\+S\+P\+\_\+\+U\+P\+D\+A\+T\+E\+\_\+\+F\+R\+EQ}}
-\index{D\+I\+S\+P\+\_\+\+U\+P\+D\+A\+T\+E\+\_\+\+F\+R\+EQ@{D\+I\+S\+P\+\_\+\+U\+P\+D\+A\+T\+E\+\_\+\+F\+R\+EQ}!L\+E\+D.\+h@{L\+E\+D.\+h}}
-\subsubsection{\texorpdfstring{D\+I\+S\+P\+\_\+\+U\+P\+D\+A\+T\+E\+\_\+\+F\+R\+EQ}{DISP\_UPDATE\_FREQ}}
-{\footnotesize\ttfamily \#define D\+I\+S\+P\+\_\+\+U\+P\+D\+A\+T\+E\+\_\+\+F\+R\+EQ~60}
-
-
-
-update frequency 
-
-
-
-Definition at line 10 of file L\+E\+D.\+h.
-
-\hypertarget{_l_e_d_8h_ad6d3ed4d91ddcbee37212cfd92ed6827}{}\label{_l_e_d_8h_ad6d3ed4d91ddcbee37212cfd92ed6827} 
-\index{L\+E\+D.\+h@{L\+E\+D.\+h}!M\+U\+L\+T\+I\+P\+L\+E\+X\+\_\+\+T\+I\+M\+E\+R\+\_\+\+C\+L\+K\+\_\+\+C\+Y\+C\+L\+ES@{M\+U\+L\+T\+I\+P\+L\+E\+X\+\_\+\+T\+I\+M\+E\+R\+\_\+\+C\+L\+K\+\_\+\+C\+Y\+C\+L\+ES}}
-\index{M\+U\+L\+T\+I\+P\+L\+E\+X\+\_\+\+T\+I\+M\+E\+R\+\_\+\+C\+L\+K\+\_\+\+C\+Y\+C\+L\+ES@{M\+U\+L\+T\+I\+P\+L\+E\+X\+\_\+\+T\+I\+M\+E\+R\+\_\+\+C\+L\+K\+\_\+\+C\+Y\+C\+L\+ES}!L\+E\+D.\+h@{L\+E\+D.\+h}}
-\subsubsection{\texorpdfstring{M\+U\+L\+T\+I\+P\+L\+E\+X\+\_\+\+T\+I\+M\+E\+R\+\_\+\+C\+L\+K\+\_\+\+C\+Y\+C\+L\+ES}{MULTIPLEX\_TIMER\_CLK\_CYCLES}}
-{\footnotesize\ttfamily \#define M\+U\+L\+T\+I\+P\+L\+E\+X\+\_\+\+T\+I\+M\+E\+R\+\_\+\+C\+L\+K\+\_\+\+C\+Y\+C\+L\+ES~(\hyperlink{hardware_8h_a3aee3beceffb391d6aa3012c48f0a35b}{F\+\_\+\+O\+SC} / (\hyperlink{_l_e_d_8h_af089e103fd0f212afa03c03bd09f9b06}{D\+I\+S\+P\+\_\+\+U\+P\+D\+A\+T\+E\+\_\+\+F\+R\+EQ} $\ast$ \hyperlink{_l_e_d_8h_ab59ad2ee1a48b83c2eef1f019ed8cc48}{C\+O\+LS} $\ast$ \hyperlink{color_8h_a778b652fdb3874d29eb349d9dd89359a}{C\+O\+L\+O\+R\+\_\+\+B\+I\+TS}))}
-
-
-
-number of clock cycles in between multiplexer cycles 
-
-
-
-Definition at line 14 of file L\+E\+D.\+h.
-
 \hypertarget{_l_e_d_8h_a3cfd3aa62338d12609f6d65bce97e9cd}{}\label{_l_e_d_8h_a3cfd3aa62338d12609f6d65bce97e9cd} 
 \index{L\+E\+D.\+h@{L\+E\+D.\+h}!R\+O\+WS@{R\+O\+WS}}
 \index{R\+O\+WS@{R\+O\+WS}!L\+E\+D.\+h@{L\+E\+D.\+h}}
@@ -87,10 +58,6 @@ Definition at line 14 of file L\+E\+D.\+h.
 {\footnotesize\ttfamily \#define R\+O\+WS~(\hyperlink{color_8h_a778b652fdb3874d29eb349d9dd89359a}{C\+O\+L\+O\+R\+\_\+\+B\+I\+TS} $\ast$ 4)}
 
 number of rows 
-
-Definition at line 12 of file L\+E\+D.\+h.
-
-
 
 \subsection{Function Documentation}
 \hypertarget{_l_e_d_8h_a4787cb4562b37ffc2fad08f55da989a1}{}\label{_l_e_d_8h_a4787cb4562b37ffc2fad08f55da989a1} 
@@ -108,41 +75,25 @@ Clears an L\+ED at the given row \& column.
 \mbox{\tt in}  & {\em col} & (uint8\+\_\+t)\+: column of the L\+ED to clear. \\
 \hline
 \end{DoxyParams}
-
-
-Definition at line 129 of file L\+E\+D.\+c.
-
 \hypertarget{_l_e_d_8h_a0490a1834f071acbfe64bee0ae584a18}{}\label{_l_e_d_8h_a0490a1834f071acbfe64bee0ae584a18} 
 \index{L\+E\+D.\+h@{L\+E\+D.\+h}!L\+E\+D\+\_\+clear\+\_\+all@{L\+E\+D\+\_\+clear\+\_\+all}}
 \index{L\+E\+D\+\_\+clear\+\_\+all@{L\+E\+D\+\_\+clear\+\_\+all}!L\+E\+D.\+h@{L\+E\+D.\+h}}
 \subsubsection{\texorpdfstring{L\+E\+D\+\_\+clear\+\_\+all()}{LED\_clear\_all()}}
 {\footnotesize\ttfamily void L\+E\+D\+\_\+clear\+\_\+all (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
-Clears all of the L\+E\+Ds. 
-
-Definition at line 156 of file L\+E\+D.\+c.
-
-\hypertarget{_l_e_d_8h_a50cf228fce8563fc202330b7b4816cb9}{}\label{_l_e_d_8h_a50cf228fce8563fc202330b7b4816cb9} 
+Clears all of the L\+E\+Ds. \hypertarget{_l_e_d_8h_a50cf228fce8563fc202330b7b4816cb9}{}\label{_l_e_d_8h_a50cf228fce8563fc202330b7b4816cb9} 
 \index{L\+E\+D.\+h@{L\+E\+D.\+h}!L\+E\+D\+\_\+init@{L\+E\+D\+\_\+init}}
 \index{L\+E\+D\+\_\+init@{L\+E\+D\+\_\+init}!L\+E\+D.\+h@{L\+E\+D.\+h}}
 \subsubsection{\texorpdfstring{L\+E\+D\+\_\+init()}{LED\_init()}}
 {\footnotesize\ttfamily void L\+E\+D\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
-initializes the L\+ED driver, clears the L\+E\+Ds, and initializes the L\+ED admin pointer. 
-
-Definition at line 16 of file L\+E\+D.\+c.
-
-\hypertarget{_l_e_d_8h_a209d85c0dae3797b5e83c81a23152647}{}\label{_l_e_d_8h_a209d85c0dae3797b5e83c81a23152647} 
+initializes the L\+ED driver, clears the L\+E\+Ds, and initializes the L\+ED admin pointer. \hypertarget{_l_e_d_8h_a209d85c0dae3797b5e83c81a23152647}{}\label{_l_e_d_8h_a209d85c0dae3797b5e83c81a23152647} 
 \index{L\+E\+D.\+h@{L\+E\+D.\+h}!L\+E\+D\+\_\+run@{L\+E\+D\+\_\+run}}
 \index{L\+E\+D\+\_\+run@{L\+E\+D\+\_\+run}!L\+E\+D.\+h@{L\+E\+D.\+h}}
 \subsubsection{\texorpdfstring{L\+E\+D\+\_\+run()}{LED\_run()}}
 {\footnotesize\ttfamily void L\+E\+D\+\_\+run (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
-Runs the L\+ED driver run function. Used for multiplexing. 
-
-Definition at line 117 of file L\+E\+D.\+c.
-
-\hypertarget{_l_e_d_8h_acf1c91fdc341bab74818ef2b68f56a71}{}\label{_l_e_d_8h_acf1c91fdc341bab74818ef2b68f56a71} 
+Runs the L\+ED driver run function. Used for multiplexing. \hypertarget{_l_e_d_8h_acf1c91fdc341bab74818ef2b68f56a71}{}\label{_l_e_d_8h_acf1c91fdc341bab74818ef2b68f56a71} 
 \index{L\+E\+D.\+h@{L\+E\+D.\+h}!L\+E\+D\+\_\+set@{L\+E\+D\+\_\+set}}
 \index{L\+E\+D\+\_\+set@{L\+E\+D\+\_\+set}!L\+E\+D.\+h@{L\+E\+D.\+h}}
 \subsubsection{\texorpdfstring{L\+E\+D\+\_\+set()}{LED\_set()}}
@@ -163,10 +114,6 @@ sets the L\+ED at the given index to the given color struct
 \mbox{\tt in}  & {\em blue} & (uint8\+\_\+t)\+: amount of blue color to set the L\+ED to. \\
 \hline
 \end{DoxyParams}
-
-
-Definition at line 146 of file L\+E\+D.\+c.
-
 \hypertarget{_l_e_d_8h_a40249eaaaf8ca06760fc72d4bb4d1115}{}\label{_l_e_d_8h_a40249eaaaf8ca06760fc72d4bb4d1115} 
 \index{L\+E\+D.\+h@{L\+E\+D.\+h}!L\+E\+D\+\_\+set\+\_\+all@{L\+E\+D\+\_\+set\+\_\+all}}
 \index{L\+E\+D\+\_\+set\+\_\+all@{L\+E\+D\+\_\+set\+\_\+all}!L\+E\+D.\+h@{L\+E\+D.\+h}}
@@ -184,10 +131,6 @@ sets all of the L\+E\+Ds to the given color.
 \mbox{\tt in}  & {\em blue} & (uint8\+\_\+t)\+: amount of blue color to set all the L\+E\+Ds to. \\
 \hline
 \end{DoxyParams}
-
-
-Definition at line 176 of file L\+E\+D.\+c.
-
 \hypertarget{_l_e_d_8h_a03b912786effb26b1a9ebcfc222c1a12}{}\label{_l_e_d_8h_a03b912786effb26b1a9ebcfc222c1a12} 
 \index{L\+E\+D.\+h@{L\+E\+D.\+h}!L\+E\+D\+\_\+set\+\_\+color@{L\+E\+D\+\_\+set\+\_\+color}}
 \index{L\+E\+D\+\_\+set\+\_\+color@{L\+E\+D\+\_\+set\+\_\+color}!L\+E\+D.\+h@{L\+E\+D.\+h}}
@@ -205,10 +148,6 @@ sets all of the active time L\+E\+Ds to the given color.
 \mbox{\tt in}  & {\em blue} & (uint8\+\_\+t)\+: amount of blue color to set all the active time L\+E\+Ds to. \\
 \hline
 \end{DoxyParams}
-
-
-Definition at line 196 of file L\+E\+D.\+c.
-
 \hypertarget{_l_e_d_8h_a0ec75d05e2bce12b7fa3637c65175fdc}{}\label{_l_e_d_8h_a0ec75d05e2bce12b7fa3637c65175fdc} 
 \index{L\+E\+D.\+h@{L\+E\+D.\+h}!L\+E\+D\+\_\+update\+\_\+time@{L\+E\+D\+\_\+update\+\_\+time}}
 \index{L\+E\+D\+\_\+update\+\_\+time@{L\+E\+D\+\_\+update\+\_\+time}!L\+E\+D.\+h@{L\+E\+D.\+h}}
@@ -224,7 +163,3 @@ Updates the time on the R\+TC chip as well as in the time keeping data structure
 \mbox{\tt in}  & {\em update\+\_\+all} & (uint8\+\_\+t)\+: Determines if we should update all L\+E\+Ds or only the ones that should have changed second to second. \\
 \hline
 \end{DoxyParams}
-
-
-Definition at line 32 of file L\+E\+D.\+c.
-

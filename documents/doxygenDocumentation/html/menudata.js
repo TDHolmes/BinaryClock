@@ -57,6 +57,5 @@ var menudata={children:[
 {text:'n',url:'globals_defs.html#index_n'},
 {text:'o',url:'globals_defs.html#index_o'},
 {text:'r',url:'globals_defs.html#index_r'},
-{text:'s',url:'globals_defs.html#index_s'},
 {text:'u',url:'globals_defs.html#index_u'},
 {text:'w',url:'globals_defs.html#index_w'}]}]}]}]}

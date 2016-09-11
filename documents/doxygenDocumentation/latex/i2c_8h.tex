@@ -1,19 +1,29 @@
 \hypertarget{i2c_8h}{}\section{firmware/i2c.h File Reference}
 \label{i2c_8h}\index{firmware/i2c.\+h@{firmware/i2c.\+h}}
+
+
+High level I2C definitions.  
+
+
 {\ttfamily \#include \char`\"{}hardware.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}global\+\_\+defines.\+h\char`\"{}}\newline
 {\ttfamily \#include $<$stdint.\+h$>$}\newline
 \subsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
+\hypertarget{i2c_8h_a95874a2ad9cbdd150afd1efb6d1f7e67}{}\label{i2c_8h_a95874a2ad9cbdd150afd1efb6d1f7e67} 
 \#define \hyperlink{i2c_8h_a95874a2ad9cbdd150afd1efb6d1f7e67}{I2\+C\+\_\+\+M\+O\+D\+E\+\_\+\+R\+E\+AD}~1
 \begin{DoxyCompactList}\small\item\em I2C read mode definition. \end{DoxyCompactList}\item 
+\hypertarget{i2c_8h_a944c5427602948ab1da98661a2a5c7e3}{}\label{i2c_8h_a944c5427602948ab1da98661a2a5c7e3} 
 \#define \hyperlink{i2c_8h_a944c5427602948ab1da98661a2a5c7e3}{I2\+C\+\_\+\+M\+O\+D\+E\+\_\+\+W\+R\+I\+TE}~0
 \begin{DoxyCompactList}\small\item\em I2C write mode definition. \end{DoxyCompactList}\item 
+\hypertarget{i2c_8h_a7a625a27cd09ae70aefbb08680c7236a}{}\label{i2c_8h_a7a625a27cd09ae70aefbb08680c7236a} 
 \#define \hyperlink{i2c_8h_a7a625a27cd09ae70aefbb08680c7236a}{I2\+C\+\_\+\+R\+E\+T\+R\+Y\+\_\+\+C\+O\+U\+NT}~3
 \begin{DoxyCompactList}\small\item\em number of times to retry \end{DoxyCompactList}\item 
+\hypertarget{i2c_8h_a6f6489887e08bff4887d0bc5dcf214d8}{}\label{i2c_8h_a6f6489887e08bff4887d0bc5dcf214d8} 
 \#define \hyperlink{i2c_8h_a6f6489887e08bff4887d0bc5dcf214d8}{A\+CK}~0
 \begin{DoxyCompactList}\small\item\em defines an acknowledge condition (low) \end{DoxyCompactList}\item 
+\hypertarget{i2c_8h_a958518a45b12053ae33606ee7cb68a55}{}\label{i2c_8h_a958518a45b12053ae33606ee7cb68a55} 
 \#define \hyperlink{i2c_8h_a958518a45b12053ae33606ee7cb68a55}{N\+A\+CK}~1
 \begin{DoxyCompactList}\small\item\em defines a neg-\/ack condition (high) \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Functions}
@@ -31,76 +41,8 @@
 \end{DoxyCompactItemize}
 
 
-\subsection{Macro Definition Documentation}
-\hypertarget{i2c_8h_a6f6489887e08bff4887d0bc5dcf214d8}{}\label{i2c_8h_a6f6489887e08bff4887d0bc5dcf214d8} 
-\index{i2c.\+h@{i2c.\+h}!A\+CK@{A\+CK}}
-\index{A\+CK@{A\+CK}!i2c.\+h@{i2c.\+h}}
-\subsubsection{\texorpdfstring{A\+CK}{ACK}}
-{\footnotesize\ttfamily \#define A\+CK~0}
-
-
-
-defines an acknowledge condition (low) 
-
-
-
-Definition at line 14 of file i2c.\+h.
-
-\hypertarget{i2c_8h_a95874a2ad9cbdd150afd1efb6d1f7e67}{}\label{i2c_8h_a95874a2ad9cbdd150afd1efb6d1f7e67} 
-\index{i2c.\+h@{i2c.\+h}!I2\+C\+\_\+\+M\+O\+D\+E\+\_\+\+R\+E\+AD@{I2\+C\+\_\+\+M\+O\+D\+E\+\_\+\+R\+E\+AD}}
-\index{I2\+C\+\_\+\+M\+O\+D\+E\+\_\+\+R\+E\+AD@{I2\+C\+\_\+\+M\+O\+D\+E\+\_\+\+R\+E\+AD}!i2c.\+h@{i2c.\+h}}
-\subsubsection{\texorpdfstring{I2\+C\+\_\+\+M\+O\+D\+E\+\_\+\+R\+E\+AD}{I2C\_MODE\_READ}}
-{\footnotesize\ttfamily \#define I2\+C\+\_\+\+M\+O\+D\+E\+\_\+\+R\+E\+AD~1}
-
-
-
-I2C read mode definition. 
-
-
-
-Definition at line 9 of file i2c.\+h.
-
-\hypertarget{i2c_8h_a944c5427602948ab1da98661a2a5c7e3}{}\label{i2c_8h_a944c5427602948ab1da98661a2a5c7e3} 
-\index{i2c.\+h@{i2c.\+h}!I2\+C\+\_\+\+M\+O\+D\+E\+\_\+\+W\+R\+I\+TE@{I2\+C\+\_\+\+M\+O\+D\+E\+\_\+\+W\+R\+I\+TE}}
-\index{I2\+C\+\_\+\+M\+O\+D\+E\+\_\+\+W\+R\+I\+TE@{I2\+C\+\_\+\+M\+O\+D\+E\+\_\+\+W\+R\+I\+TE}!i2c.\+h@{i2c.\+h}}
-\subsubsection{\texorpdfstring{I2\+C\+\_\+\+M\+O\+D\+E\+\_\+\+W\+R\+I\+TE}{I2C\_MODE\_WRITE}}
-{\footnotesize\ttfamily \#define I2\+C\+\_\+\+M\+O\+D\+E\+\_\+\+W\+R\+I\+TE~0}
-
-
-
-I2C write mode definition. 
-
-
-
-Definition at line 10 of file i2c.\+h.
-
-\hypertarget{i2c_8h_a7a625a27cd09ae70aefbb08680c7236a}{}\label{i2c_8h_a7a625a27cd09ae70aefbb08680c7236a} 
-\index{i2c.\+h@{i2c.\+h}!I2\+C\+\_\+\+R\+E\+T\+R\+Y\+\_\+\+C\+O\+U\+NT@{I2\+C\+\_\+\+R\+E\+T\+R\+Y\+\_\+\+C\+O\+U\+NT}}
-\index{I2\+C\+\_\+\+R\+E\+T\+R\+Y\+\_\+\+C\+O\+U\+NT@{I2\+C\+\_\+\+R\+E\+T\+R\+Y\+\_\+\+C\+O\+U\+NT}!i2c.\+h@{i2c.\+h}}
-\subsubsection{\texorpdfstring{I2\+C\+\_\+\+R\+E\+T\+R\+Y\+\_\+\+C\+O\+U\+NT}{I2C\_RETRY\_COUNT}}
-{\footnotesize\ttfamily \#define I2\+C\+\_\+\+R\+E\+T\+R\+Y\+\_\+\+C\+O\+U\+NT~3}
-
-
-
-number of times to retry 
-
-
-
-Definition at line 12 of file i2c.\+h.
-
-\hypertarget{i2c_8h_a958518a45b12053ae33606ee7cb68a55}{}\label{i2c_8h_a958518a45b12053ae33606ee7cb68a55} 
-\index{i2c.\+h@{i2c.\+h}!N\+A\+CK@{N\+A\+CK}}
-\index{N\+A\+CK@{N\+A\+CK}!i2c.\+h@{i2c.\+h}}
-\subsubsection{\texorpdfstring{N\+A\+CK}{NACK}}
-{\footnotesize\ttfamily \#define N\+A\+CK~1}
-
-
-
-defines a neg-\/ack condition (high) 
-
-
-
-Definition at line 15 of file i2c.\+h.
+\subsection{Detailed Description}
+High level I2C definitions. 
 
 
 
@@ -118,10 +60,6 @@ Initializes the I2C driver.
 \mbox{\tt out}  & {\em retval} & (retval\+\_\+t)\+: Returns the initialization status of the I2C driver. \\
 \hline
 \end{DoxyParams}
-
-
-Definition at line 20 of file i2c.\+c.
-
 \hypertarget{i2c_8h_a0e9eaa90696291daa732848da63beef8}{}\label{i2c_8h_a0e9eaa90696291daa732848da63beef8} 
 \index{i2c.\+h@{i2c.\+h}!i2c\+\_\+read@{i2c\+\_\+read}}
 \index{i2c\+\_\+read@{i2c\+\_\+read}!i2c.\+h@{i2c.\+h}}
@@ -143,10 +81,6 @@ Reads N bytes from a chip. Handles starting and stopping of communication.
 \mbox{\tt out}  & {\em retval} & (retval\+\_\+t)\+: Returns the success or failure of starting communication \& reading the byte. \\
 \hline
 \end{DoxyParams}
-
-
-Definition at line 174 of file i2c.\+c.
-
 \hypertarget{i2c_8h_a1b26df225ca26b8849684b99868a7d9c}{}\label{i2c_8h_a1b26df225ca26b8849684b99868a7d9c} 
 \index{i2c.\+h@{i2c.\+h}!i2c\+\_\+read\+\_\+byte@{i2c\+\_\+read\+\_\+byte}}
 \index{i2c\+\_\+read\+\_\+byte@{i2c\+\_\+read\+\_\+byte}!i2c.\+h@{i2c.\+h}}
@@ -166,10 +100,6 @@ Reads a byte from a chip. Handles starting and stopping of communication.
 \mbox{\tt out}  & {\em retval} & (retval\+\_\+t)\+: Returns the success or failure of starting communication \& reading the byte. \\
 \hline
 \end{DoxyParams}
-
-
-Definition at line 129 of file i2c.\+c.
-
 \hypertarget{i2c_8h_a31a726b3ac4b29d6422b303b3e8e89b4}{}\label{i2c_8h_a31a726b3ac4b29d6422b303b3e8e89b4} 
 \index{i2c.\+h@{i2c.\+h}!i2c\+\_\+write@{i2c\+\_\+write}}
 \index{i2c\+\_\+write@{i2c\+\_\+write}!i2c.\+h@{i2c.\+h}}
@@ -191,10 +121,6 @@ Starts communication with a chip and writes N bytes to the chip. Handles startin
 \mbox{\tt out}  & {\em retval} & (retval\+\_\+t)\+: Returns the success or failure of starting communication and writing to the device. \\
 \hline
 \end{DoxyParams}
-
-
-Definition at line 91 of file i2c.\+c.
-
 \hypertarget{i2c_8h_a0be5140cb205508b6eca8e8d3bd2042e}{}\label{i2c_8h_a0be5140cb205508b6eca8e8d3bd2042e} 
 \index{i2c.\+h@{i2c.\+h}!i2c\+\_\+write\+\_\+byte@{i2c\+\_\+write\+\_\+byte}}
 \index{i2c\+\_\+write\+\_\+byte@{i2c\+\_\+write\+\_\+byte}!i2c.\+h@{i2c.\+h}}
@@ -214,7 +140,3 @@ Writes a byte to a chip. Handles starting and stopping of communication.
 \mbox{\tt out}  & {\em retval} & (retval\+\_\+t)\+: Returns the success or failure of starting communication \& sending the byte. \\
 \hline
 \end{DoxyParams}
-
-
-Definition at line 60 of file i2c.\+c.
-

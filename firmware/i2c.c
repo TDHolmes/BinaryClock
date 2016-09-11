@@ -3,6 +3,10 @@
 #include "global_defines.h"
 #include <stdint.h>
 
+/*! \file i2c.c
+    \brief High level I2C functions to interface with an I2C driver.
+*/
+
 #define WRITE_MASK 0x00  //!< Mask for writing to a chip.
 #define READ_MASK  0x01  //!< Mask for reading from a chip.
 

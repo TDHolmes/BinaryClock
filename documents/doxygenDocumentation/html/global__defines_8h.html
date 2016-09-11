@@ -63,14 +63,65 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#define-members">Macros</a> &#124;
 <a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle">
 <div class="title">global_defines.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
+<p>Definitions and types used in all files. Should be included in all project files.  
+<a href="#details">More...</a></p>
+
 <p><a href="global__defines_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a66a99ddb7c9743c3d787fb42953c1947"><td class="memItemLeft" align="right" valign="top"><a id="a66a99ddb7c9743c3d787fb42953c1947"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="global__defines_8h.html#a66a99ddb7c9743c3d787fb42953c1947">UART_CMD_INVALID</a>&#160;&#160;&#160;0xFF</td></tr>
+<tr class="memdesc:a66a99ddb7c9743c3d787fb42953c1947"><td class="mdescLeft">&#160;</td><td class="mdescRight">code if the UART command received is invalid <br /></td></tr>
+<tr class="separator:a66a99ddb7c9743c3d787fb42953c1947"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9da7d8506e116aa0d4550f48540b2793"><td class="memItemLeft" align="right" valign="top"><a id="a9da7d8506e116aa0d4550f48540b2793"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="global__defines_8h.html#a9da7d8506e116aa0d4550f48540b2793">UART_CMD_WRONG_STATE</a>&#160;&#160;&#160;0xFE</td></tr>
+<tr class="memdesc:a9da7d8506e116aa0d4550f48540b2793"><td class="mdescLeft">&#160;</td><td class="mdescRight">code to send if the state is incorrect for the given command <br /></td></tr>
+<tr class="separator:a9da7d8506e116aa0d4550f48540b2793"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a103dda730c91b3865dc9b21dc7cf50b3"><td class="memItemLeft" align="right" valign="top"><a id="a103dda730c91b3865dc9b21dc7cf50b3"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="global__defines_8h.html#a103dda730c91b3865dc9b21dc7cf50b3">UART_CMD_VALID</a>&#160;&#160;&#160;0x42</td></tr>
+<tr class="memdesc:a103dda730c91b3865dc9b21dc7cf50b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">valid command &amp; successful <br /></td></tr>
+<tr class="separator:a103dda730c91b3865dc9b21dc7cf50b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6bb946b4f7eafdefad8df6850cf4c83"><td class="memItemLeft" align="right" valign="top"><a id="ac6bb946b4f7eafdefad8df6850cf4c83"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="global__defines_8h.html#ac6bb946b4f7eafdefad8df6850cf4c83">UART_CMD_START_BYTE</a>&#160;&#160;&#160;0xAA</td></tr>
+<tr class="memdesc:ac6bb946b4f7eafdefad8df6850cf4c83"><td class="mdescLeft">&#160;</td><td class="mdescRight">byte that starts each transaction <br /></td></tr>
+<tr class="separator:ac6bb946b4f7eafdefad8df6850cf4c83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a579aaa216295501d2d838a7dca0ac50d"><td class="memItemLeft" align="right" valign="top"><a id="a579aaa216295501d2d838a7dca0ac50d"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="global__defines_8h.html#a579aaa216295501d2d838a7dca0ac50d">UART_CMD_SET_LED</a>&#160;&#160;&#160;0x10</td></tr>
+<tr class="memdesc:a579aaa216295501d2d838a7dca0ac50d"><td class="mdescLeft">&#160;</td><td class="mdescRight">command to set an LED to a certain color (must be in manual control mode) <br /></td></tr>
+<tr class="separator:a579aaa216295501d2d838a7dca0ac50d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb7ed61915098fa2b202b2adfacbeef1"><td class="memItemLeft" align="right" valign="top"><a id="afb7ed61915098fa2b202b2adfacbeef1"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="global__defines_8h.html#afb7ed61915098fa2b202b2adfacbeef1">UART_CMD_CLEAR_LED</a>&#160;&#160;&#160;0x11</td></tr>
+<tr class="memdesc:afb7ed61915098fa2b202b2adfacbeef1"><td class="mdescLeft">&#160;</td><td class="mdescRight">command to set an LED to a certain color (must be in manual control mode) <br /></td></tr>
+<tr class="separator:afb7ed61915098fa2b202b2adfacbeef1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e558713de08fc5a1bb813317ee11dfa"><td class="memItemLeft" align="right" valign="top"><a id="a9e558713de08fc5a1bb813317ee11dfa"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="global__defines_8h.html#a9e558713de08fc5a1bb813317ee11dfa">UART_CMD_CLEAR_ALL_LED</a>&#160;&#160;&#160;0x12</td></tr>
+<tr class="memdesc:a9e558713de08fc5a1bb813317ee11dfa"><td class="mdescLeft">&#160;</td><td class="mdescRight">command to clear an led (must be in manual control mode) <br /></td></tr>
+<tr class="separator:a9e558713de08fc5a1bb813317ee11dfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2c599c7dd49c232c81c21f6a4ab499d"><td class="memItemLeft" align="right" valign="top"><a id="aa2c599c7dd49c232c81c21f6a4ab499d"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="global__defines_8h.html#aa2c599c7dd49c232c81c21f6a4ab499d">UART_CMD_SET_ALL_LED</a>&#160;&#160;&#160;0x13</td></tr>
+<tr class="memdesc:aa2c599c7dd49c232c81c21f6a4ab499d"><td class="mdescLeft">&#160;</td><td class="mdescRight">command to clear all leds (must be in manual control mode) <br /></td></tr>
+<tr class="separator:aa2c599c7dd49c232c81c21f6a4ab499d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad592e3dde157e9c00fd16147b65fbe80"><td class="memItemLeft" align="right" valign="top"><a id="ad592e3dde157e9c00fd16147b65fbe80"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="global__defines_8h.html#ad592e3dde157e9c00fd16147b65fbe80">UART_CMD_SET_TIME</a>&#160;&#160;&#160;0x14</td></tr>
+<tr class="memdesc:ad592e3dde157e9c00fd16147b65fbe80"><td class="mdescLeft">&#160;</td><td class="mdescRight">command to set all leds to a certain color (must be in manual control mode) <br /></td></tr>
+<tr class="separator:ad592e3dde157e9c00fd16147b65fbe80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5b62223e4ca028add9471d549eb5d2f"><td class="memItemLeft" align="right" valign="top"><a id="af5b62223e4ca028add9471d549eb5d2f"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="global__defines_8h.html#af5b62223e4ca028add9471d549eb5d2f">UART_CMD_SET_COLOR</a>&#160;&#160;&#160;0x15</td></tr>
+<tr class="memdesc:af5b62223e4ca028add9471d549eb5d2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">command to set the time (must be in time control mode) <br /></td></tr>
+<tr class="separator:af5b62223e4ca028add9471d549eb5d2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8725d27d4078f14a086b505ab5637c56"><td class="memItemLeft" align="right" valign="top"><a id="a8725d27d4078f14a086b505ab5637c56"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="global__defines_8h.html#a8725d27d4078f14a086b505ab5637c56">UART_CMD_CHANGE_STATE</a>&#160;&#160;&#160;0x16</td></tr>
+<tr class="memdesc:a8725d27d4078f14a086b505ab5637c56"><td class="mdescLeft">&#160;</td><td class="mdescRight">command to set the color during time mode (must be in time control mode) <br /></td></tr>
+<tr class="separator:a8725d27d4078f14a086b505ab5637c56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
 <tr class="memitem:a7a53c0a65d763442224ca36299adee75"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="global__defines_8h.html#a7a53c0a65d763442224ca36299adee75">retval_t</a> { <br />
@@ -99,11 +150,13 @@ Enumerations</h2></td></tr>
 <tr class="separator:a7a53c0a65d763442224ca36299adee75"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a04dd5074964518403bf944f2b240a5f8"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="global__defines_8h.html#a04dd5074964518403bf944f2b240a5f8">bool_t</a> { <a class="el" href="global__defines_8h.html#a04dd5074964518403bf944f2b240a5f8aa1e095cc966dbecf6a0d8aad75348d1a">FALSE</a> = 0, 
 <a class="el" href="global__defines_8h.html#a04dd5074964518403bf944f2b240a5f8aa82764c3079aea4e60c80e45befbb839">TRUE</a>
- }<tr class="memdesc:a04dd5074964518403bf944f2b240a5f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">definition of a custom boolean type  <a href="global__defines_8h.html#a04dd5074964518403bf944f2b240a5f8">More...</a><br /></td></tr>
+ }<tr class="memdesc:a04dd5074964518403bf944f2b240a5f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">command to change states  <a href="global__defines_8h.html#a04dd5074964518403bf944f2b240a5f8">More...</a><br /></td></tr>
 </td></tr>
 <tr class="separator:a04dd5074964518403bf944f2b240a5f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Definitions and types used in all files. Should be included in all project files. </p>
+</div><h2 class="groupheader">Enumeration Type Documentation</h2>
 <a id="a04dd5074964518403bf944f2b240a5f8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a04dd5074964518403bf944f2b240a5f8">&sect;&nbsp;</a></span>bool_t</h2>
 
@@ -116,6 +169,7 @@ Enumerations</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>command to change states </p>
 <p>definition of a custom boolean type </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a04dd5074964518403bf944f2b240a5f8aa1e095cc966dbecf6a0d8aad75348d1a"></a>FALSE&#160;</td><td class="fielddoc"><p>False boolian value. </p>
@@ -123,8 +177,6 @@ Enumerations</h2></td></tr>
 <tr><td class="fieldname"><a id="a04dd5074964518403bf944f2b240a5f8aa82764c3079aea4e60c80e45befbb839"></a>TRUE&#160;</td><td class="fielddoc"><p>True boolian value. </p>
 </td></tr>
 </table>
-
-<p>Definition at line <a class="el" href="global__defines_8h_source.html#l00027">27</a> of file <a class="el" href="global__defines_8h_source.html">global_defines.h</a>.</p>
 
 </div>
 </div>
@@ -175,8 +227,6 @@ Enumerations</h2></td></tr>
 <tr><td class="fieldname"><a id="a7a53c0a65d763442224ca36299adee75a9019a68d807f0569187a5300677dd64a"></a>I2C_START_COND_NOT_DETECTED&#160;</td><td class="fielddoc"><p>return if the start condition was not detected </p>
 </td></tr>
 </table>
-
-<p>Definition at line <a class="el" href="global__defines_8h_source.html#l00006">6</a> of file <a class="el" href="global__defines_8h_source.html">global_defines.h</a>.</p>
 
 </div>
 </div>

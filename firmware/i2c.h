@@ -5,6 +5,10 @@
 #include "global_defines.h"
 #include <stdint.h>
 
+/*! \file i2c.h
+    \brief High level I2C definitions.
+*/
+
 // I2C constant definitions
 #define I2C_MODE_READ  1 //!< I2C read mode definition
 #define I2C_MODE_WRITE 0 //!< I2C write mode definition

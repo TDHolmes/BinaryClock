@@ -69,6 +69,9 @@ $(function() {
 <div class="title">i2c.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>High level I2C definitions.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="hardware_8h_source.html">hardware.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="global__defines_8h_source.html">global_defines.h</a>&quot;</code><br />
 <code>#include &lt;stdint.h&gt;</code><br />
@@ -77,20 +80,25 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a95874a2ad9cbdd150afd1efb6d1f7e67"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="i2c_8h.html#a95874a2ad9cbdd150afd1efb6d1f7e67">I2C_MODE_READ</a>&#160;&#160;&#160;1</td></tr>
-<tr class="memdesc:a95874a2ad9cbdd150afd1efb6d1f7e67"><td class="mdescLeft">&#160;</td><td class="mdescRight">I2C read mode definition.  <a href="#a95874a2ad9cbdd150afd1efb6d1f7e67">More...</a><br /></td></tr>
+<tr class="memitem:a95874a2ad9cbdd150afd1efb6d1f7e67"><td class="memItemLeft" align="right" valign="top"><a id="a95874a2ad9cbdd150afd1efb6d1f7e67"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="i2c_8h.html#a95874a2ad9cbdd150afd1efb6d1f7e67">I2C_MODE_READ</a>&#160;&#160;&#160;1</td></tr>
+<tr class="memdesc:a95874a2ad9cbdd150afd1efb6d1f7e67"><td class="mdescLeft">&#160;</td><td class="mdescRight">I2C read mode definition. <br /></td></tr>
 <tr class="separator:a95874a2ad9cbdd150afd1efb6d1f7e67"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a944c5427602948ab1da98661a2a5c7e3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="i2c_8h.html#a944c5427602948ab1da98661a2a5c7e3">I2C_MODE_WRITE</a>&#160;&#160;&#160;0</td></tr>
-<tr class="memdesc:a944c5427602948ab1da98661a2a5c7e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">I2C write mode definition.  <a href="#a944c5427602948ab1da98661a2a5c7e3">More...</a><br /></td></tr>
+<tr class="memitem:a944c5427602948ab1da98661a2a5c7e3"><td class="memItemLeft" align="right" valign="top"><a id="a944c5427602948ab1da98661a2a5c7e3"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="i2c_8h.html#a944c5427602948ab1da98661a2a5c7e3">I2C_MODE_WRITE</a>&#160;&#160;&#160;0</td></tr>
+<tr class="memdesc:a944c5427602948ab1da98661a2a5c7e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">I2C write mode definition. <br /></td></tr>
 <tr class="separator:a944c5427602948ab1da98661a2a5c7e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7a625a27cd09ae70aefbb08680c7236a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="i2c_8h.html#a7a625a27cd09ae70aefbb08680c7236a">I2C_RETRY_COUNT</a>&#160;&#160;&#160;3</td></tr>
-<tr class="memdesc:a7a625a27cd09ae70aefbb08680c7236a"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of times to retry  <a href="#a7a625a27cd09ae70aefbb08680c7236a">More...</a><br /></td></tr>
+<tr class="memitem:a7a625a27cd09ae70aefbb08680c7236a"><td class="memItemLeft" align="right" valign="top"><a id="a7a625a27cd09ae70aefbb08680c7236a"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="i2c_8h.html#a7a625a27cd09ae70aefbb08680c7236a">I2C_RETRY_COUNT</a>&#160;&#160;&#160;3</td></tr>
+<tr class="memdesc:a7a625a27cd09ae70aefbb08680c7236a"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of times to retry <br /></td></tr>
 <tr class="separator:a7a625a27cd09ae70aefbb08680c7236a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6f6489887e08bff4887d0bc5dcf214d8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="i2c_8h.html#a6f6489887e08bff4887d0bc5dcf214d8">ACK</a>&#160;&#160;&#160;0</td></tr>
-<tr class="memdesc:a6f6489887e08bff4887d0bc5dcf214d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">defines an acknowledge condition (low)  <a href="#a6f6489887e08bff4887d0bc5dcf214d8">More...</a><br /></td></tr>
+<tr class="memitem:a6f6489887e08bff4887d0bc5dcf214d8"><td class="memItemLeft" align="right" valign="top"><a id="a6f6489887e08bff4887d0bc5dcf214d8"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="i2c_8h.html#a6f6489887e08bff4887d0bc5dcf214d8">ACK</a>&#160;&#160;&#160;0</td></tr>
+<tr class="memdesc:a6f6489887e08bff4887d0bc5dcf214d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">defines an acknowledge condition (low) <br /></td></tr>
 <tr class="separator:a6f6489887e08bff4887d0bc5dcf214d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a958518a45b12053ae33606ee7cb68a55"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="i2c_8h.html#a958518a45b12053ae33606ee7cb68a55">NACK</a>&#160;&#160;&#160;1</td></tr>
-<tr class="memdesc:a958518a45b12053ae33606ee7cb68a55"><td class="mdescLeft">&#160;</td><td class="mdescRight">defines a neg-ack condition (high)  <a href="#a958518a45b12053ae33606ee7cb68a55">More...</a><br /></td></tr>
+<tr class="memitem:a958518a45b12053ae33606ee7cb68a55"><td class="memItemLeft" align="right" valign="top"><a id="a958518a45b12053ae33606ee7cb68a55"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="i2c_8h.html#a958518a45b12053ae33606ee7cb68a55">NACK</a>&#160;&#160;&#160;1</td></tr>
+<tr class="memdesc:a958518a45b12053ae33606ee7cb68a55"><td class="mdescLeft">&#160;</td><td class="mdescRight">defines a neg-ack condition (high) <br /></td></tr>
 <tr class="separator:a958518a45b12053ae33606ee7cb68a55"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -106,98 +114,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a0e9eaa90696291daa732848da63beef8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="global__defines_8h.html#a7a53c0a65d763442224ca36299adee75">retval_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="i2c_8h.html#a0e9eaa90696291daa732848da63beef8">i2c_read</a> (uint8_t chip_addr, uint8_t start_adr, uint8_t *data_out_ptr, uint8_t data_len)</td></tr>
 <tr class="separator:a0e9eaa90696291daa732848da63beef8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a6f6489887e08bff4887d0bc5dcf214d8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6f6489887e08bff4887d0bc5dcf214d8">&sect;&nbsp;</a></span>ACK</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define ACK&#160;&#160;&#160;0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>defines an acknowledge condition (low) </p>
-
-<p>Definition at line <a class="el" href="i2c_8h_source.html#l00014">14</a> of file <a class="el" href="i2c_8h_source.html">i2c.h</a>.</p>
-
-</div>
-</div>
-<a id="a95874a2ad9cbdd150afd1efb6d1f7e67"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a95874a2ad9cbdd150afd1efb6d1f7e67">&sect;&nbsp;</a></span>I2C_MODE_READ</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define I2C_MODE_READ&#160;&#160;&#160;1</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>I2C read mode definition. </p>
-
-<p>Definition at line <a class="el" href="i2c_8h_source.html#l00009">9</a> of file <a class="el" href="i2c_8h_source.html">i2c.h</a>.</p>
-
-</div>
-</div>
-<a id="a944c5427602948ab1da98661a2a5c7e3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a944c5427602948ab1da98661a2a5c7e3">&sect;&nbsp;</a></span>I2C_MODE_WRITE</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define I2C_MODE_WRITE&#160;&#160;&#160;0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>I2C write mode definition. </p>
-
-<p>Definition at line <a class="el" href="i2c_8h_source.html#l00010">10</a> of file <a class="el" href="i2c_8h_source.html">i2c.h</a>.</p>
-
-</div>
-</div>
-<a id="a7a625a27cd09ae70aefbb08680c7236a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7a625a27cd09ae70aefbb08680c7236a">&sect;&nbsp;</a></span>I2C_RETRY_COUNT</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define I2C_RETRY_COUNT&#160;&#160;&#160;3</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>number of times to retry </p>
-
-<p>Definition at line <a class="el" href="i2c_8h_source.html#l00012">12</a> of file <a class="el" href="i2c_8h_source.html">i2c.h</a>.</p>
-
-</div>
-</div>
-<a id="a958518a45b12053ae33606ee7cb68a55"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a958518a45b12053ae33606ee7cb68a55">&sect;&nbsp;</a></span>NACK</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define NACK&#160;&#160;&#160;1</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>defines a neg-ack condition (high) </p>
-
-<p>Definition at line <a class="el" href="i2c_8h_source.html#l00015">15</a> of file <a class="el" href="i2c_8h_source.html">i2c.h</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>High level I2C definitions. </p>
+</div><h2 class="groupheader">Function Documentation</h2>
 <a id="a179335d191b4a62f55f6534fd3706964"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a179335d191b4a62f55f6534fd3706964">&sect;&nbsp;</a></span>i2c_init()</h2>
 
@@ -220,8 +139,6 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-
-<p>Definition at line <a class="el" href="i2c_8c_source.html#l00020">20</a> of file <a class="el" href="i2c_8c_source.html">i2c.c</a>.</p>
 
 </div>
 </div>
@@ -274,8 +191,6 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="i2c_8c_source.html#l00174">174</a> of file <a class="el" href="i2c_8c_source.html">i2c.c</a>.</p>
-
 </div>
 </div>
 <a id="a1b26df225ca26b8849684b99868a7d9c"></a>
@@ -319,8 +234,6 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-
-<p>Definition at line <a class="el" href="i2c_8c_source.html#l00129">129</a> of file <a class="el" href="i2c_8c_source.html">i2c.c</a>.</p>
 
 </div>
 </div>
@@ -373,8 +286,6 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="i2c_8c_source.html#l00091">91</a> of file <a class="el" href="i2c_8c_source.html">i2c.c</a>.</p>
-
 </div>
 </div>
 <a id="a0be5140cb205508b6eca8e8d3bd2042e"></a>
@@ -418,8 +329,6 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-
-<p>Definition at line <a class="el" href="i2c_8c_source.html#l00060">60</a> of file <a class="el" href="i2c_8c_source.html">i2c.c</a>.</p>
 
 </div>
 </div>

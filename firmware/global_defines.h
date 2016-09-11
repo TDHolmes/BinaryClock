@@ -1,6 +1,10 @@
 #ifndef GLOBAL_DEFINES_H__
 #define GLOBAL_DEFINES_H__
 
+/*! \file global_defines.h
+    \brief Definitions and types used in all files. Should be included in all project files.
+*/
+
 
 //! definition of the types of return values possible
 typedef enum {
@@ -21,6 +25,33 @@ typedef enum {
     I2C_CLK_LOW_BEFORE_START,   //!< return if the SCL line is low when it shouldn't be
     I2C_START_COND_NOT_DETECTED //!< return if the start condition was not detected
 } retval_t;
+
+
+//! code if the UART command received is invalid
+#define UART_CMD_INVALID     0xFF
+//! code to send if the state is incorrect for the given command
+#define UART_CMD_WRONG_STATE 0xFE
+//! valid command & successful
+#define UART_CMD_VALID       0x42
+
+//! byte that starts each transaction
+#define UART_CMD_START_BYTE  0xAA
+
+//! command to set an LED to a certain color (must be in manual control mode)
+#define UART_CMD_SET_LED       0x10
+//! command to set an LED to a certain color (must be in manual control mode)
+#define UART_CMD_CLEAR_LED     0x11
+//! command to clear an led (must be in manual control mode)
+#define UART_CMD_CLEAR_ALL_LED 0x12
+//! command to clear all leds (must be in manual control mode)
+#define UART_CMD_SET_ALL_LED   0x13
+//! command to set all leds to a certain color (must be in manual control mode)
+#define UART_CMD_SET_TIME      0x14
+//! command to set the time (must be in time control mode)
+#define UART_CMD_SET_COLOR     0x15
+//! command to set the color during time mode (must be in time control mode)
+#define UART_CMD_CHANGE_STATE  0x16
+//! command to change states
 
 
 //! definition of a custom boolean type

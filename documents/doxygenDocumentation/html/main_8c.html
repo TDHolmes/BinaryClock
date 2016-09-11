@@ -71,6 +71,9 @@ $(function() {
 <div class="title">main.c File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Main logic of the Binary Clock firmware. Handles calling all other functions other than interrupt driven ISRs.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;avr/io.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="timer__4313_8h_source.html">timer_4313.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_r_t_c___d_s3231_8h_source.html">RTC_DS3231.h</a>&quot;</code><br />
@@ -82,19 +85,20 @@ $(function() {
 <code>#include &quot;<a class="el" href="ports_8h_source.html">ports.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="global__defines_8h_source.html">global_defines.h</a>&quot;</code><br />
 <code>#include &lt;stdint.h&gt;</code><br />
-</div>
-<p><a href="main_8c_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
+</div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:ad3fcfed0b340c80205d17572a9d1f5c8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#ad3fcfed0b340c80205d17572a9d1f5c8">NO_FORCE_UPDATE</a>&#160;&#160;&#160;0</td></tr>
-<tr class="memdesc:ad3fcfed0b340c80205d17572a9d1f5c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Only update the LED array columns that have changed.  <a href="#ad3fcfed0b340c80205d17572a9d1f5c8">More...</a><br /></td></tr>
+<tr class="memitem:ad3fcfed0b340c80205d17572a9d1f5c8"><td class="memItemLeft" align="right" valign="top"><a id="ad3fcfed0b340c80205d17572a9d1f5c8"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#ad3fcfed0b340c80205d17572a9d1f5c8">NO_FORCE_UPDATE</a>&#160;&#160;&#160;0</td></tr>
+<tr class="memdesc:ad3fcfed0b340c80205d17572a9d1f5c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Only update the LED array columns that have changed. <br /></td></tr>
 <tr class="separator:ad3fcfed0b340c80205d17572a9d1f5c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a986b9ffaa07e690ab7d2731405337319"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a986b9ffaa07e690ab7d2731405337319">FORCE_UPDATE</a>&#160;&#160;&#160;1</td></tr>
-<tr class="memdesc:a986b9ffaa07e690ab7d2731405337319"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update all LED array columns.  <a href="#a986b9ffaa07e690ab7d2731405337319">More...</a><br /></td></tr>
+<tr class="memitem:a986b9ffaa07e690ab7d2731405337319"><td class="memItemLeft" align="right" valign="top"><a id="a986b9ffaa07e690ab7d2731405337319"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a986b9ffaa07e690ab7d2731405337319">FORCE_UPDATE</a>&#160;&#160;&#160;1</td></tr>
+<tr class="memdesc:a986b9ffaa07e690ab7d2731405337319"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update all LED array columns. <br /></td></tr>
 <tr class="separator:a986b9ffaa07e690ab7d2731405337319"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a73c52f3e083ffd8acde0b01f74de7a5a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a73c52f3e083ffd8acde0b01f74de7a5a">COMMAND_LENGTH</a>&#160;&#160;&#160;6</td></tr>
-<tr class="memdesc:a73c52f3e083ffd8acde0b01f74de7a5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of bytes in a valid UART command.  <a href="#a73c52f3e083ffd8acde0b01f74de7a5a">More...</a><br /></td></tr>
+<tr class="memitem:a73c52f3e083ffd8acde0b01f74de7a5a"><td class="memItemLeft" align="right" valign="top"><a id="a73c52f3e083ffd8acde0b01f74de7a5a"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a73c52f3e083ffd8acde0b01f74de7a5a">COMMAND_LENGTH</a>&#160;&#160;&#160;6</td></tr>
+<tr class="memdesc:a73c52f3e083ffd8acde0b01f74de7a5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of bytes in a valid UART command. <br /></td></tr>
 <tr class="separator:a73c52f3e083ffd8acde0b01f74de7a5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
@@ -112,78 +116,30 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:ab7ca1d7f6e3e0aa50018c99ecface556"><td class="memItemLeft" align="right" valign="top"><a class="el" href="main_8c.html#aa0aafed44fec19806d8f9ad834be1248">state_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#ab7ca1d7f6e3e0aa50018c99ecface556">system_state</a> = <a class="el" href="main_8c.html#aa0aafed44fec19806d8f9ad834be1248a3a35b5637ac389462359c30abbfbf405">RUN_TIME</a></td></tr>
-<tr class="memdesc:ab7ca1d7f6e3e0aa50018c99ecface556"><td class="mdescLeft">&#160;</td><td class="mdescRight">keeps track of the system state.  <a href="#ab7ca1d7f6e3e0aa50018c99ecface556">More...</a><br /></td></tr>
+<tr class="memitem:ab7ca1d7f6e3e0aa50018c99ecface556"><td class="memItemLeft" align="right" valign="top"><a id="ab7ca1d7f6e3e0aa50018c99ecface556"></a>
+<a class="el" href="main_8c.html#aa0aafed44fec19806d8f9ad834be1248">state_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#ab7ca1d7f6e3e0aa50018c99ecface556">system_state</a> = <a class="el" href="main_8c.html#aa0aafed44fec19806d8f9ad834be1248a3a35b5637ac389462359c30abbfbf405">RUN_TIME</a></td></tr>
+<tr class="memdesc:ab7ca1d7f6e3e0aa50018c99ecface556"><td class="mdescLeft">&#160;</td><td class="mdescRight">keeps track of the system state. <br /></td></tr>
 <tr class="separator:ab7ca1d7f6e3e0aa50018c99ecface556"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac7e20580a719e05c4636488e9be3f416"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#ac7e20580a719e05c4636488e9be3f416">uart_command_received</a> = 0</td></tr>
-<tr class="memdesc:ac7e20580a719e05c4636488e9be3f416"><td class="mdescLeft">&#160;</td><td class="mdescRight">valid command received flag.  <a href="#ac7e20580a719e05c4636488e9be3f416">More...</a><br /></td></tr>
+<tr class="memitem:ac7e20580a719e05c4636488e9be3f416"><td class="memItemLeft" align="right" valign="top"><a id="ac7e20580a719e05c4636488e9be3f416"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#ac7e20580a719e05c4636488e9be3f416">uart_command_received</a> = 0</td></tr>
+<tr class="memdesc:ac7e20580a719e05c4636488e9be3f416"><td class="mdescLeft">&#160;</td><td class="mdescRight">valid command received flag. <br /></td></tr>
 <tr class="separator:ac7e20580a719e05c4636488e9be3f416"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5cfb334a7bf0f4b5c337f27520190abe"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a5cfb334a7bf0f4b5c337f27520190abe">timer_expired</a> = 0</td></tr>
-<tr class="memdesc:a5cfb334a7bf0f4b5c337f27520190abe"><td class="mdescLeft">&#160;</td><td class="mdescRight">15-20ish ms timer timeout flag.  <a href="#a5cfb334a7bf0f4b5c337f27520190abe">More...</a><br /></td></tr>
+<tr class="memitem:a5cfb334a7bf0f4b5c337f27520190abe"><td class="memItemLeft" align="right" valign="top"><a id="a5cfb334a7bf0f4b5c337f27520190abe"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a5cfb334a7bf0f4b5c337f27520190abe">timer_expired</a> = 0</td></tr>
+<tr class="memdesc:a5cfb334a7bf0f4b5c337f27520190abe"><td class="mdescLeft">&#160;</td><td class="mdescRight">15-20ish ms timer timeout flag. <br /></td></tr>
 <tr class="separator:a5cfb334a7bf0f4b5c337f27520190abe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e5ffe07d12493f339d4be9454ef2a2b"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a6e5ffe07d12493f339d4be9454ef2a2b">LED_multiplex_timer_count</a> = 0</td></tr>
-<tr class="memdesc:a6e5ffe07d12493f339d4be9454ef2a2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">count of mutiplex handler timer events.  <a href="#a6e5ffe07d12493f339d4be9454ef2a2b">More...</a><br /></td></tr>
+<tr class="memitem:a6e5ffe07d12493f339d4be9454ef2a2b"><td class="memItemLeft" align="right" valign="top"><a id="a6e5ffe07d12493f339d4be9454ef2a2b"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a6e5ffe07d12493f339d4be9454ef2a2b">LED_multiplex_timer_count</a> = 0</td></tr>
+<tr class="memdesc:a6e5ffe07d12493f339d4be9454ef2a2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">count of mutiplex handler timer events. <br /></td></tr>
 <tr class="separator:a6e5ffe07d12493f339d4be9454ef2a2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7b552a5dffd6c6e5ff11caac286ba3de"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a7b552a5dffd6c6e5ff11caac286ba3de">command_buffer</a> [<a class="el" href="main_8c.html#a73c52f3e083ffd8acde0b01f74de7a5a">COMMAND_LENGTH</a>]</td></tr>
-<tr class="memdesc:a7b552a5dffd6c6e5ff11caac286ba3de"><td class="mdescLeft">&#160;</td><td class="mdescRight">where UART commands are buffered.  <a href="#a7b552a5dffd6c6e5ff11caac286ba3de">More...</a><br /></td></tr>
+<tr class="memitem:a7b552a5dffd6c6e5ff11caac286ba3de"><td class="memItemLeft" align="right" valign="top"><a id="a7b552a5dffd6c6e5ff11caac286ba3de"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a7b552a5dffd6c6e5ff11caac286ba3de">command_buffer</a> [<a class="el" href="main_8c.html#a73c52f3e083ffd8acde0b01f74de7a5a">COMMAND_LENGTH</a>]</td></tr>
+<tr class="memdesc:a7b552a5dffd6c6e5ff11caac286ba3de"><td class="mdescLeft">&#160;</td><td class="mdescRight">where UART commands are buffered. <br /></td></tr>
 <tr class="separator:a7b552a5dffd6c6e5ff11caac286ba3de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a73c52f3e083ffd8acde0b01f74de7a5a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a73c52f3e083ffd8acde0b01f74de7a5a">&sect;&nbsp;</a></span>COMMAND_LENGTH</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define COMMAND_LENGTH&#160;&#160;&#160;6</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>number of bytes in a valid UART command. </p>
-
-<p>Definition at line <a class="el" href="main_8c_source.html#l00023">23</a> of file <a class="el" href="main_8c_source.html">main.c</a>.</p>
-
-</div>
-</div>
-<a id="a986b9ffaa07e690ab7d2731405337319"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a986b9ffaa07e690ab7d2731405337319">&sect;&nbsp;</a></span>FORCE_UPDATE</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define FORCE_UPDATE&#160;&#160;&#160;1</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Update all LED array columns. </p>
-
-<p>Definition at line <a class="el" href="main_8c_source.html#l00021">21</a> of file <a class="el" href="main_8c_source.html">main.c</a>.</p>
-
-</div>
-</div>
-<a id="ad3fcfed0b340c80205d17572a9d1f5c8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad3fcfed0b340c80205d17572a9d1f5c8">&sect;&nbsp;</a></span>NO_FORCE_UPDATE</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define NO_FORCE_UPDATE&#160;&#160;&#160;0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Only update the LED array columns that have changed. </p>
-
-<p>Definition at line <a class="el" href="main_8c_source.html#l00020">20</a> of file <a class="el" href="main_8c_source.html">main.c</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Main logic of the Binary Clock firmware. Handles calling all other functions other than interrupt driven ISRs. </p>
+</div><h2 class="groupheader">Enumeration Type Documentation</h2>
 <a id="aa0aafed44fec19806d8f9ad834be1248"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa0aafed44fec19806d8f9ad834be1248">&sect;&nbsp;</a></span>state_t</h2>
 
@@ -203,8 +159,6 @@ Variables</h2></td></tr>
 <tr><td class="fieldname"><a id="aa0aafed44fec19806d8f9ad834be1248a0db6a15af5dfe805b3670bd7b0cc79aa"></a>RUN_MANUAL&#160;</td><td class="fielddoc"><p>Runs manual display mode. LEDs controlled by UART commands. </p>
 </td></tr>
 </table>
-
-<p>Definition at line <a class="el" href="main_8c_source.html#l00026">26</a> of file <a class="el" href="main_8c_source.html">main.c</a>.</p>
 
 </div>
 </div>
@@ -239,99 +193,6 @@ Variables</h2></td></tr>
 </ul>
 </li>
 </ol>
-
-<p>Definition at line <a class="el" href="main_8c_source.html#l00057">57</a> of file <a class="el" href="main_8c_source.html">main.c</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a id="a7b552a5dffd6c6e5ff11caac286ba3de"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7b552a5dffd6c6e5ff11caac286ba3de">&sect;&nbsp;</a></span>command_buffer</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint8_t command_buffer[<a class="el" href="main_8c.html#a73c52f3e083ffd8acde0b01f74de7a5a">COMMAND_LENGTH</a>]</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>where UART commands are buffered. </p>
-
-<p>Definition at line <a class="el" href="main_8c_source.html#l00035">35</a> of file <a class="el" href="main_8c_source.html">main.c</a>.</p>
-
-</div>
-</div>
-<a id="a6e5ffe07d12493f339d4be9454ef2a2b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6e5ffe07d12493f339d4be9454ef2a2b">&sect;&nbsp;</a></span>LED_multiplex_timer_count</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint8_t LED_multiplex_timer_count = 0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>count of mutiplex handler timer events. </p>
-
-<p>Definition at line <a class="el" href="main_8c_source.html#l00034">34</a> of file <a class="el" href="main_8c_source.html">main.c</a>.</p>
-
-</div>
-</div>
-<a id="ab7ca1d7f6e3e0aa50018c99ecface556"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab7ca1d7f6e3e0aa50018c99ecface556">&sect;&nbsp;</a></span>system_state</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="main_8c.html#aa0aafed44fec19806d8f9ad834be1248">state_t</a> system_state = <a class="el" href="main_8c.html#aa0aafed44fec19806d8f9ad834be1248a3a35b5637ac389462359c30abbfbf405">RUN_TIME</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>keeps track of the system state. </p>
-
-<p>Definition at line <a class="el" href="main_8c_source.html#l00031">31</a> of file <a class="el" href="main_8c_source.html">main.c</a>.</p>
-
-</div>
-</div>
-<a id="a5cfb334a7bf0f4b5c337f27520190abe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5cfb334a7bf0f4b5c337f27520190abe">&sect;&nbsp;</a></span>timer_expired</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint8_t timer_expired = 0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>15-20ish ms timer timeout flag. </p>
-
-<p>Definition at line <a class="el" href="main_8c_source.html#l00033">33</a> of file <a class="el" href="main_8c_source.html">main.c</a>.</p>
-
-</div>
-</div>
-<a id="ac7e20580a719e05c4636488e9be3f416"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac7e20580a719e05c4636488e9be3f416">&sect;&nbsp;</a></span>uart_command_received</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint8_t uart_command_received = 0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>valid command received flag. </p>
-
-<p>Definition at line <a class="el" href="main_8c_source.html#l00032">32</a> of file <a class="el" href="main_8c_source.html">main.c</a>.</p>
 
 </div>
 </div>

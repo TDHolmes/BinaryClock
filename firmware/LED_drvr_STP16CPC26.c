@@ -3,6 +3,11 @@
 #include "ports.h"
 #include <stdint.h>
 
+/*! \file LED_drvr_STP16CPC26.c
+    \brief Low level LED driver functions to be used with the STP16CPC26 LED
+    constant current driver.
+*/
+
 #define COLOR_DEPTH 4  //!< Number of bits of color to multiplex.
 
 

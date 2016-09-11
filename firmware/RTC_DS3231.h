@@ -4,6 +4,9 @@
 #include "global_defines.h"
 #include <stdint.h>
 
+/*! \file RTC_DS3231.h
+    \brief Data structures and address definitions for the DS3231 RTC.
+*/
 
 //! data structure to keep track of the time
 typedef struct {

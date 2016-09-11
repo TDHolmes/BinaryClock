@@ -1,6 +1,9 @@
 #include "timer_4313.h"
 #include <avr/interrupt.h>
 
+/*! \file timer_4313.c
+    \brief Functions and  data structures for interfacing with the ATtiny4313 timers.
+*/
 
 //! Structure for all important timer variables
 typedef struct {

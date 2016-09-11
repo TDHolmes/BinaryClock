@@ -4,6 +4,9 @@
 #include <avr/cpufunc.h>
 #include <stdint.h>
 
+/*! \file i2c_drvr_4313.c
+    \brief Low level I2C driver functions for the ATtiny4313.
+*/
 
 // private function definitions
 retval_t check_ack(void);

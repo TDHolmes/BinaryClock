@@ -7,6 +7,10 @@
 #include <avr/interrupt.h>
 #include <stdint.h>
 
+/*! \file UART_drvr_4313.c
+    \brief Low level driver functions for UART communications on the ATtiny4313.
+*/
+
 uint8_t UART_rx_buff_arr[UART_RX_BUFF_SIZE]; //!< buffer for the UART received ring buffer
 
 ring_buffer_t UART_rx_buff;      //!< UART RX ring buffer admin structure.
