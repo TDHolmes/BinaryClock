@@ -3,14 +3,15 @@
 #include "ports.h"
 #include <stdint.h>
 
-#define COLOR_DEPTH 4
+#define COLOR_DEPTH 4  //!< Number of bits of color to multiplex.
 
-// Notes:
-//   red is bit 1
-//   green is bit 2
-//   blue is bit 0
 
-// Summary - 
+/*!
+ * Initializes the LED driver structure and drives the anode port high to
+ * avoid LEDs turning on.
+ * 
+ * @param[in] LED_ptr (LED_drvr_t *): pointer to the LED driver structure.
+ */
 void LED_drvr_init(LED_drvr_t * LED_ptr)
 {
     LED_ptr->active_column = 0;
@@ -19,9 +20,12 @@ void LED_drvr_init(LED_drvr_t * LED_ptr)
 }
 
 
-// Summary - 
-// param (LED_drvr_t *) LED_ptr - 
-// param (uint8_t) LED_multiplex_timer_count - 
+/*!
+ * Runs the LED multiplexing code. Generates a bitstream to send to the LED
+ * driver, then activates the corresponding column.
+ * 
+ * @param[in] LED_ptr (LED_drvr_t *): pointer to the LED driver structure.
+ */
 void LED_drvr_run(LED_drvr_t *LED_ptr)
 {
     uint16_t color_mask = (1 << LED_ptr->active_color_bit);

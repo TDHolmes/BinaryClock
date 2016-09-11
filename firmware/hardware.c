@@ -4,8 +4,10 @@
 #include <avr/io.h>
 #include <avr/interrupt.h>
 
-// Summary - 
-// retval (uint8_t) - 
+/*!
+ * Initializes all the hardware
+ * @param[out] retval (retval_t): The memory area to copy to.
+ */
 retval_t hardware_init(void)
 {
     // configure pins for input/output (1 = output, 0 = input)

@@ -1,0 +1,369 @@
+\hypertarget{ports_8h}{}\section{firmware/ports.h File Reference}
+\label{ports_8h}\index{firmware/ports.\+h@{firmware/ports.\+h}}
+{\ttfamily \#include $<$avr/io.\+h$>$}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{ports_8h_a4dfad58b39e26b30888656359f5dffd8}{I\+N\+D\+\_\+\+L\+E\+D0}~P\+A0
+\begin{DoxyCompactList}\small\item\em P\+O\+RT A P\+IN D\+E\+F\+I\+N\+I\+T\+I\+O\+NS. \end{DoxyCompactList}\item 
+\#define \hyperlink{ports_8h_a5a48f5a0f9e352bdae302b78ea29ddf5}{R\+T\+C\+\_\+\+S\+QW}~P\+A1
+\item 
+\#define \hyperlink{ports_8h_acdad617f1c9bebf64ff22174b49faf1d}{H\+O\+U\+R\+\_\+\+T\+E\+N\+\_\+\+A\+NO}~P\+B0
+\begin{DoxyCompactList}\small\item\em P\+O\+RT B P\+IN D\+E\+F\+I\+N\+I\+T\+I\+O\+NS. \end{DoxyCompactList}\item 
+\#define \hyperlink{ports_8h_a77ab9d9afabf1129ec7b0a7a99a278cb}{H\+O\+U\+R\+\_\+\+O\+N\+E\+\_\+\+A\+NO}~P\+B1
+\item 
+\#define \hyperlink{ports_8h_a9748b7e5e96ae2aa47c30d5659916d0d}{M\+I\+N\+\_\+\+T\+E\+N\+\_\+\+A\+NO}~P\+B2
+\item 
+\#define \hyperlink{ports_8h_a91ff68661d637bfba4a86d6774c68aa4}{M\+I\+N\+\_\+\+O\+N\+E\+\_\+\+A\+NO}~P\+B3
+\item 
+\#define \hyperlink{ports_8h_ad85954ea7620196915de88aa36c401f6}{S\+E\+C\+\_\+\+T\+E\+N\+\_\+\+A\+NO}~P\+B4
+\item 
+\#define \hyperlink{ports_8h_ad137b49d8266b56bb6063ba8c882b1e4}{R\+T\+C\+\_\+\+S\+DA}~P\+B5
+\item 
+\#define \hyperlink{ports_8h_ac24579821d1a3506b7e690271a148dd8}{S\+E\+C\+\_\+\+O\+N\+E\+\_\+\+A\+NO}~P\+B6
+\item 
+\#define \hyperlink{ports_8h_a80e456546d70dd2d14dfd203f023fc62}{R\+T\+C\+\_\+\+S\+CL}~P\+B7
+\item 
+\#define \hyperlink{ports_8h_a89e30ef9081c8bdc9c7799990a57c133}{U\+A\+R\+T\+\_\+\+R\+XD}~P\+D0
+\begin{DoxyCompactList}\small\item\em P\+O\+RT D P\+IN D\+E\+F\+I\+N\+I\+T\+I\+O\+NS. \end{DoxyCompactList}\item 
+\#define \hyperlink{ports_8h_a92a783385325f2ce25693bc5beafc49c}{U\+A\+R\+T\+\_\+\+T\+XD}~P\+D1
+\item 
+\#define \hyperlink{ports_8h_a52c8699a444f92a9d537224d448b30b9}{I\+N\+D\+\_\+\+L\+E\+D1}~P\+D2
+\item 
+\#define \hyperlink{ports_8h_acbe239292a69760cd63518b8fc896fc5}{L\+E\+D\+D\+R\+V\+\_\+\+S\+DI}~P\+D3
+\item 
+\#define \hyperlink{ports_8h_a79c0a61c637999cb0a0ab2ae724a4f0b}{L\+E\+D\+D\+R\+V\+\_\+\+C\+LK}~P\+D4
+\item 
+\#define \hyperlink{ports_8h_a7f94a464ebc0f12b8a2a45570bdb0db1}{L\+E\+D\+D\+R\+V\+\_\+\+OE}~P\+D5
+\item 
+\#define \hyperlink{ports_8h_a7f2eb6c86f2d5a1688b9a0d13f1925e5}{L\+E\+D\+D\+R\+V\+\_\+\+LE}~P\+D6
+\item 
+\#define \hyperlink{ports_8h_acf4ef1cf4a7f4a9318a0ba29482f2b83}{A\+N\+O\+\_\+\+P\+O\+RT}~P\+O\+R\+TB
+\begin{DoxyCompactList}\small\item\em The annode of the L\+E\+Ds is on port B. \end{DoxyCompactList}\item 
+\#define \hyperlink{ports_8h_a5adc7031c01c6f7f8cc9a0b0170dfb6a}{L\+E\+D\+D\+R\+V\+\_\+\+O\+E\+\_\+\+S\+ET}(val)~(val ? P\+O\+R\+TD $\vert$= (1 $<$$<$ \hyperlink{ports_8h_a7f94a464ebc0f12b8a2a45570bdb0db1}{L\+E\+D\+D\+R\+V\+\_\+\+OE}) \+: (P\+O\+R\+TD \&= $\sim$(1 $<$$<$ \hyperlink{ports_8h_a7f94a464ebc0f12b8a2a45570bdb0db1}{L\+E\+D\+D\+R\+V\+\_\+\+OE})))
+\begin{DoxyCompactList}\small\item\em Macro to set the L\+ED Driver output enable pin to either high or low. \end{DoxyCompactList}\item 
+\#define \hyperlink{ports_8h_afc43ce1e0719cfd0d44059f24eefa515}{L\+E\+D\+D\+R\+V\+\_\+\+L\+E\+\_\+\+S\+ET}(val)~(val ? P\+O\+R\+TD $\vert$= (1 $<$$<$ \hyperlink{ports_8h_a7f2eb6c86f2d5a1688b9a0d13f1925e5}{L\+E\+D\+D\+R\+V\+\_\+\+LE}) \+: (P\+O\+R\+TD \&= $\sim$(1 $<$$<$ \hyperlink{ports_8h_a7f2eb6c86f2d5a1688b9a0d13f1925e5}{L\+E\+D\+D\+R\+V\+\_\+\+LE})))
+\begin{DoxyCompactList}\small\item\em Macro to set the L\+ED Driver latch enable pin to either high or low. \end{DoxyCompactList}\item 
+\#define \hyperlink{ports_8h_aae0c40c318531739e4367043ecca5f93}{L\+E\+D\+D\+R\+V\+\_\+\+S\+D\+I\+\_\+\+S\+ET}(val)~(val ? P\+O\+R\+TD $\vert$= (1 $<$$<$ \hyperlink{ports_8h_acbe239292a69760cd63518b8fc896fc5}{L\+E\+D\+D\+R\+V\+\_\+\+S\+DI}) \+: (P\+O\+R\+TD \&= $\sim$(1 $<$$<$ \hyperlink{ports_8h_acbe239292a69760cd63518b8fc896fc5}{L\+E\+D\+D\+R\+V\+\_\+\+S\+DI})))
+\begin{DoxyCompactList}\small\item\em Macro to set the L\+ED Driver serial data in pin to either high or low. \end{DoxyCompactList}\item 
+\#define \hyperlink{ports_8h_af8dfefe538e7c5bd1269e8c5af3069c6}{L\+E\+D\+D\+R\+V\+\_\+\+C\+L\+K\+\_\+\+S\+ET}(val)~(val ? P\+O\+R\+TD $\vert$= (1 $<$$<$ \hyperlink{ports_8h_a79c0a61c637999cb0a0ab2ae724a4f0b}{L\+E\+D\+D\+R\+V\+\_\+\+C\+LK}) \+: (P\+O\+R\+TD \&= $\sim$(1 $<$$<$ \hyperlink{ports_8h_a79c0a61c637999cb0a0ab2ae724a4f0b}{L\+E\+D\+D\+R\+V\+\_\+\+C\+LK})))
+\begin{DoxyCompactList}\small\item\em Macro to set the L\+ED Driver clock pin to either high or low. \end{DoxyCompactList}\item 
+\#define \hyperlink{ports_8h_a68b07ec19f399581bf88f807c9782972}{L\+E\+D0\+\_\+set}(val)~(val ? (P\+O\+R\+TA $\vert$= 1 $<$$<$ \hyperlink{ports_8h_a4dfad58b39e26b30888656359f5dffd8}{I\+N\+D\+\_\+\+L\+E\+D0}) \+: (P\+O\+R\+TA \&= $\sim$(1 $<$$<$ \hyperlink{ports_8h_a4dfad58b39e26b30888656359f5dffd8}{I\+N\+D\+\_\+\+L\+E\+D0})))
+\begin{DoxyCompactList}\small\item\em Macro to set the debug L\+ED 0 pin to either high or low. \end{DoxyCompactList}\item 
+\#define \hyperlink{ports_8h_ac59147bb672bac3997865f6da964d367}{L\+E\+D1\+\_\+set}(val)~(val ? (P\+O\+R\+TD $\vert$= 1 $<$$<$ \hyperlink{ports_8h_a52c8699a444f92a9d537224d448b30b9}{I\+N\+D\+\_\+\+L\+E\+D1}) \+: (P\+O\+R\+TD \&= $\sim$(1 $<$$<$ \hyperlink{ports_8h_a52c8699a444f92a9d537224d448b30b9}{I\+N\+D\+\_\+\+L\+E\+D1})))
+\begin{DoxyCompactList}\small\item\em Macro to set the debug L\+ED 1 pin to either high or low. \end{DoxyCompactList}\item 
+\#define \hyperlink{ports_8h_ae83cdaccb71a8fe741c602c206f02f6d}{L\+E\+D0\+\_\+toggle}()~(P\+O\+R\+TA $^\wedge$= (1 $<$$<$ \hyperlink{ports_8h_a4dfad58b39e26b30888656359f5dffd8}{I\+N\+D\+\_\+\+L\+E\+D0}))
+\begin{DoxyCompactList}\small\item\em Macro to toggle the debug L\+ED 0 pin. \end{DoxyCompactList}\item 
+\#define \hyperlink{ports_8h_ac4cba9b5cb08ca7951445b5cf41b2c03}{L\+E\+D1\+\_\+toggle}()~(P\+O\+R\+TD $^\wedge$= (1 $<$$<$ \hyperlink{ports_8h_a52c8699a444f92a9d537224d448b30b9}{I\+N\+D\+\_\+\+L\+E\+D1}))
+\begin{DoxyCompactList}\small\item\em Macro to toggle the debug L\+ED 1 pin. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{ports_8h_acf4ef1cf4a7f4a9318a0ba29482f2b83}{}\label{ports_8h_acf4ef1cf4a7f4a9318a0ba29482f2b83} 
+\index{ports.\+h@{ports.\+h}!A\+N\+O\+\_\+\+P\+O\+RT@{A\+N\+O\+\_\+\+P\+O\+RT}}
+\index{A\+N\+O\+\_\+\+P\+O\+RT@{A\+N\+O\+\_\+\+P\+O\+RT}!ports.\+h@{ports.\+h}}
+\subsubsection{\texorpdfstring{A\+N\+O\+\_\+\+P\+O\+RT}{ANO\_PORT}}
+{\footnotesize\ttfamily \#define A\+N\+O\+\_\+\+P\+O\+RT~P\+O\+R\+TB}
+
+
+
+The annode of the L\+E\+Ds is on port B. 
+
+
+
+Definition at line 31 of file ports.\+h.
+
+\hypertarget{ports_8h_a77ab9d9afabf1129ec7b0a7a99a278cb}{}\label{ports_8h_a77ab9d9afabf1129ec7b0a7a99a278cb} 
+\index{ports.\+h@{ports.\+h}!H\+O\+U\+R\+\_\+\+O\+N\+E\+\_\+\+A\+NO@{H\+O\+U\+R\+\_\+\+O\+N\+E\+\_\+\+A\+NO}}
+\index{H\+O\+U\+R\+\_\+\+O\+N\+E\+\_\+\+A\+NO@{H\+O\+U\+R\+\_\+\+O\+N\+E\+\_\+\+A\+NO}!ports.\+h@{ports.\+h}}
+\subsubsection{\texorpdfstring{H\+O\+U\+R\+\_\+\+O\+N\+E\+\_\+\+A\+NO}{HOUR\_ONE\_ANO}}
+{\footnotesize\ttfamily \#define H\+O\+U\+R\+\_\+\+O\+N\+E\+\_\+\+A\+NO~P\+B1}
+
+
+
+Definition at line 13 of file ports.\+h.
+
+\hypertarget{ports_8h_acdad617f1c9bebf64ff22174b49faf1d}{}\label{ports_8h_acdad617f1c9bebf64ff22174b49faf1d} 
+\index{ports.\+h@{ports.\+h}!H\+O\+U\+R\+\_\+\+T\+E\+N\+\_\+\+A\+NO@{H\+O\+U\+R\+\_\+\+T\+E\+N\+\_\+\+A\+NO}}
+\index{H\+O\+U\+R\+\_\+\+T\+E\+N\+\_\+\+A\+NO@{H\+O\+U\+R\+\_\+\+T\+E\+N\+\_\+\+A\+NO}!ports.\+h@{ports.\+h}}
+\subsubsection{\texorpdfstring{H\+O\+U\+R\+\_\+\+T\+E\+N\+\_\+\+A\+NO}{HOUR\_TEN\_ANO}}
+{\footnotesize\ttfamily \#define H\+O\+U\+R\+\_\+\+T\+E\+N\+\_\+\+A\+NO~P\+B0}
+
+
+
+P\+O\+RT B P\+IN D\+E\+F\+I\+N\+I\+T\+I\+O\+NS. 
+
+
+
+Definition at line 12 of file ports.\+h.
+
+\hypertarget{ports_8h_a4dfad58b39e26b30888656359f5dffd8}{}\label{ports_8h_a4dfad58b39e26b30888656359f5dffd8} 
+\index{ports.\+h@{ports.\+h}!I\+N\+D\+\_\+\+L\+E\+D0@{I\+N\+D\+\_\+\+L\+E\+D0}}
+\index{I\+N\+D\+\_\+\+L\+E\+D0@{I\+N\+D\+\_\+\+L\+E\+D0}!ports.\+h@{ports.\+h}}
+\subsubsection{\texorpdfstring{I\+N\+D\+\_\+\+L\+E\+D0}{IND\_LED0}}
+{\footnotesize\ttfamily \#define I\+N\+D\+\_\+\+L\+E\+D0~P\+A0}
+
+
+
+P\+O\+RT A P\+IN D\+E\+F\+I\+N\+I\+T\+I\+O\+NS. 
+
+
+
+Definition at line 7 of file ports.\+h.
+
+\hypertarget{ports_8h_a52c8699a444f92a9d537224d448b30b9}{}\label{ports_8h_a52c8699a444f92a9d537224d448b30b9} 
+\index{ports.\+h@{ports.\+h}!I\+N\+D\+\_\+\+L\+E\+D1@{I\+N\+D\+\_\+\+L\+E\+D1}}
+\index{I\+N\+D\+\_\+\+L\+E\+D1@{I\+N\+D\+\_\+\+L\+E\+D1}!ports.\+h@{ports.\+h}}
+\subsubsection{\texorpdfstring{I\+N\+D\+\_\+\+L\+E\+D1}{IND\_LED1}}
+{\footnotesize\ttfamily \#define I\+N\+D\+\_\+\+L\+E\+D1~P\+D2}
+
+
+
+Definition at line 24 of file ports.\+h.
+
+\hypertarget{ports_8h_a68b07ec19f399581bf88f807c9782972}{}\label{ports_8h_a68b07ec19f399581bf88f807c9782972} 
+\index{ports.\+h@{ports.\+h}!L\+E\+D0\+\_\+set@{L\+E\+D0\+\_\+set}}
+\index{L\+E\+D0\+\_\+set@{L\+E\+D0\+\_\+set}!ports.\+h@{ports.\+h}}
+\subsubsection{\texorpdfstring{L\+E\+D0\+\_\+set}{LED0\_set}}
+{\footnotesize\ttfamily \#define L\+E\+D0\+\_\+set(\begin{DoxyParamCaption}\item[{}]{val }\end{DoxyParamCaption})~(val ? (P\+O\+R\+TA $\vert$= 1 $<$$<$ \hyperlink{ports_8h_a4dfad58b39e26b30888656359f5dffd8}{I\+N\+D\+\_\+\+L\+E\+D0}) \+: (P\+O\+R\+TA \&= $\sim$(1 $<$$<$ \hyperlink{ports_8h_a4dfad58b39e26b30888656359f5dffd8}{I\+N\+D\+\_\+\+L\+E\+D0})))}
+
+
+
+Macro to set the debug L\+ED 0 pin to either high or low. 
+
+
+
+Definition at line 43 of file ports.\+h.
+
+\hypertarget{ports_8h_ae83cdaccb71a8fe741c602c206f02f6d}{}\label{ports_8h_ae83cdaccb71a8fe741c602c206f02f6d} 
+\index{ports.\+h@{ports.\+h}!L\+E\+D0\+\_\+toggle@{L\+E\+D0\+\_\+toggle}}
+\index{L\+E\+D0\+\_\+toggle@{L\+E\+D0\+\_\+toggle}!ports.\+h@{ports.\+h}}
+\subsubsection{\texorpdfstring{L\+E\+D0\+\_\+toggle}{LED0\_toggle}}
+{\footnotesize\ttfamily \#define L\+E\+D0\+\_\+toggle(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(P\+O\+R\+TA $^\wedge$= (1 $<$$<$ \hyperlink{ports_8h_a4dfad58b39e26b30888656359f5dffd8}{I\+N\+D\+\_\+\+L\+E\+D0}))}
+
+
+
+Macro to toggle the debug L\+ED 0 pin. 
+
+
+
+Definition at line 47 of file ports.\+h.
+
+\hypertarget{ports_8h_ac59147bb672bac3997865f6da964d367}{}\label{ports_8h_ac59147bb672bac3997865f6da964d367} 
+\index{ports.\+h@{ports.\+h}!L\+E\+D1\+\_\+set@{L\+E\+D1\+\_\+set}}
+\index{L\+E\+D1\+\_\+set@{L\+E\+D1\+\_\+set}!ports.\+h@{ports.\+h}}
+\subsubsection{\texorpdfstring{L\+E\+D1\+\_\+set}{LED1\_set}}
+{\footnotesize\ttfamily \#define L\+E\+D1\+\_\+set(\begin{DoxyParamCaption}\item[{}]{val }\end{DoxyParamCaption})~(val ? (P\+O\+R\+TD $\vert$= 1 $<$$<$ \hyperlink{ports_8h_a52c8699a444f92a9d537224d448b30b9}{I\+N\+D\+\_\+\+L\+E\+D1}) \+: (P\+O\+R\+TD \&= $\sim$(1 $<$$<$ \hyperlink{ports_8h_a52c8699a444f92a9d537224d448b30b9}{I\+N\+D\+\_\+\+L\+E\+D1})))}
+
+
+
+Macro to set the debug L\+ED 1 pin to either high or low. 
+
+
+
+Definition at line 45 of file ports.\+h.
+
+\hypertarget{ports_8h_ac4cba9b5cb08ca7951445b5cf41b2c03}{}\label{ports_8h_ac4cba9b5cb08ca7951445b5cf41b2c03} 
+\index{ports.\+h@{ports.\+h}!L\+E\+D1\+\_\+toggle@{L\+E\+D1\+\_\+toggle}}
+\index{L\+E\+D1\+\_\+toggle@{L\+E\+D1\+\_\+toggle}!ports.\+h@{ports.\+h}}
+\subsubsection{\texorpdfstring{L\+E\+D1\+\_\+toggle}{LED1\_toggle}}
+{\footnotesize\ttfamily \#define L\+E\+D1\+\_\+toggle(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(P\+O\+R\+TD $^\wedge$= (1 $<$$<$ \hyperlink{ports_8h_a52c8699a444f92a9d537224d448b30b9}{I\+N\+D\+\_\+\+L\+E\+D1}))}
+
+
+
+Macro to toggle the debug L\+ED 1 pin. 
+
+
+
+Definition at line 49 of file ports.\+h.
+
+\hypertarget{ports_8h_a79c0a61c637999cb0a0ab2ae724a4f0b}{}\label{ports_8h_a79c0a61c637999cb0a0ab2ae724a4f0b} 
+\index{ports.\+h@{ports.\+h}!L\+E\+D\+D\+R\+V\+\_\+\+C\+LK@{L\+E\+D\+D\+R\+V\+\_\+\+C\+LK}}
+\index{L\+E\+D\+D\+R\+V\+\_\+\+C\+LK@{L\+E\+D\+D\+R\+V\+\_\+\+C\+LK}!ports.\+h@{ports.\+h}}
+\subsubsection{\texorpdfstring{L\+E\+D\+D\+R\+V\+\_\+\+C\+LK}{LEDDRV\_CLK}}
+{\footnotesize\ttfamily \#define L\+E\+D\+D\+R\+V\+\_\+\+C\+LK~P\+D4}
+
+
+
+Definition at line 26 of file ports.\+h.
+
+\hypertarget{ports_8h_af8dfefe538e7c5bd1269e8c5af3069c6}{}\label{ports_8h_af8dfefe538e7c5bd1269e8c5af3069c6} 
+\index{ports.\+h@{ports.\+h}!L\+E\+D\+D\+R\+V\+\_\+\+C\+L\+K\+\_\+\+S\+ET@{L\+E\+D\+D\+R\+V\+\_\+\+C\+L\+K\+\_\+\+S\+ET}}
+\index{L\+E\+D\+D\+R\+V\+\_\+\+C\+L\+K\+\_\+\+S\+ET@{L\+E\+D\+D\+R\+V\+\_\+\+C\+L\+K\+\_\+\+S\+ET}!ports.\+h@{ports.\+h}}
+\subsubsection{\texorpdfstring{L\+E\+D\+D\+R\+V\+\_\+\+C\+L\+K\+\_\+\+S\+ET}{LEDDRV\_CLK\_SET}}
+{\footnotesize\ttfamily \#define L\+E\+D\+D\+R\+V\+\_\+\+C\+L\+K\+\_\+\+S\+ET(\begin{DoxyParamCaption}\item[{}]{val }\end{DoxyParamCaption})~(val ? P\+O\+R\+TD $\vert$= (1 $<$$<$ \hyperlink{ports_8h_a79c0a61c637999cb0a0ab2ae724a4f0b}{L\+E\+D\+D\+R\+V\+\_\+\+C\+LK}) \+: (P\+O\+R\+TD \&= $\sim$(1 $<$$<$ \hyperlink{ports_8h_a79c0a61c637999cb0a0ab2ae724a4f0b}{L\+E\+D\+D\+R\+V\+\_\+\+C\+LK})))}
+
+
+
+Macro to set the L\+ED Driver clock pin to either high or low. 
+
+
+
+Definition at line 40 of file ports.\+h.
+
+\hypertarget{ports_8h_a7f2eb6c86f2d5a1688b9a0d13f1925e5}{}\label{ports_8h_a7f2eb6c86f2d5a1688b9a0d13f1925e5} 
+\index{ports.\+h@{ports.\+h}!L\+E\+D\+D\+R\+V\+\_\+\+LE@{L\+E\+D\+D\+R\+V\+\_\+\+LE}}
+\index{L\+E\+D\+D\+R\+V\+\_\+\+LE@{L\+E\+D\+D\+R\+V\+\_\+\+LE}!ports.\+h@{ports.\+h}}
+\subsubsection{\texorpdfstring{L\+E\+D\+D\+R\+V\+\_\+\+LE}{LEDDRV\_LE}}
+{\footnotesize\ttfamily \#define L\+E\+D\+D\+R\+V\+\_\+\+LE~P\+D6}
+
+
+
+Definition at line 28 of file ports.\+h.
+
+\hypertarget{ports_8h_afc43ce1e0719cfd0d44059f24eefa515}{}\label{ports_8h_afc43ce1e0719cfd0d44059f24eefa515} 
+\index{ports.\+h@{ports.\+h}!L\+E\+D\+D\+R\+V\+\_\+\+L\+E\+\_\+\+S\+ET@{L\+E\+D\+D\+R\+V\+\_\+\+L\+E\+\_\+\+S\+ET}}
+\index{L\+E\+D\+D\+R\+V\+\_\+\+L\+E\+\_\+\+S\+ET@{L\+E\+D\+D\+R\+V\+\_\+\+L\+E\+\_\+\+S\+ET}!ports.\+h@{ports.\+h}}
+\subsubsection{\texorpdfstring{L\+E\+D\+D\+R\+V\+\_\+\+L\+E\+\_\+\+S\+ET}{LEDDRV\_LE\_SET}}
+{\footnotesize\ttfamily \#define L\+E\+D\+D\+R\+V\+\_\+\+L\+E\+\_\+\+S\+ET(\begin{DoxyParamCaption}\item[{}]{val }\end{DoxyParamCaption})~(val ? P\+O\+R\+TD $\vert$= (1 $<$$<$ \hyperlink{ports_8h_a7f2eb6c86f2d5a1688b9a0d13f1925e5}{L\+E\+D\+D\+R\+V\+\_\+\+LE}) \+: (P\+O\+R\+TD \&= $\sim$(1 $<$$<$ \hyperlink{ports_8h_a7f2eb6c86f2d5a1688b9a0d13f1925e5}{L\+E\+D\+D\+R\+V\+\_\+\+LE})))}
+
+
+
+Macro to set the L\+ED Driver latch enable pin to either high or low. 
+
+
+
+Definition at line 36 of file ports.\+h.
+
+\hypertarget{ports_8h_a7f94a464ebc0f12b8a2a45570bdb0db1}{}\label{ports_8h_a7f94a464ebc0f12b8a2a45570bdb0db1} 
+\index{ports.\+h@{ports.\+h}!L\+E\+D\+D\+R\+V\+\_\+\+OE@{L\+E\+D\+D\+R\+V\+\_\+\+OE}}
+\index{L\+E\+D\+D\+R\+V\+\_\+\+OE@{L\+E\+D\+D\+R\+V\+\_\+\+OE}!ports.\+h@{ports.\+h}}
+\subsubsection{\texorpdfstring{L\+E\+D\+D\+R\+V\+\_\+\+OE}{LEDDRV\_OE}}
+{\footnotesize\ttfamily \#define L\+E\+D\+D\+R\+V\+\_\+\+OE~P\+D5}
+
+
+
+Definition at line 27 of file ports.\+h.
+
+\hypertarget{ports_8h_a5adc7031c01c6f7f8cc9a0b0170dfb6a}{}\label{ports_8h_a5adc7031c01c6f7f8cc9a0b0170dfb6a} 
+\index{ports.\+h@{ports.\+h}!L\+E\+D\+D\+R\+V\+\_\+\+O\+E\+\_\+\+S\+ET@{L\+E\+D\+D\+R\+V\+\_\+\+O\+E\+\_\+\+S\+ET}}
+\index{L\+E\+D\+D\+R\+V\+\_\+\+O\+E\+\_\+\+S\+ET@{L\+E\+D\+D\+R\+V\+\_\+\+O\+E\+\_\+\+S\+ET}!ports.\+h@{ports.\+h}}
+\subsubsection{\texorpdfstring{L\+E\+D\+D\+R\+V\+\_\+\+O\+E\+\_\+\+S\+ET}{LEDDRV\_OE\_SET}}
+{\footnotesize\ttfamily \#define L\+E\+D\+D\+R\+V\+\_\+\+O\+E\+\_\+\+S\+ET(\begin{DoxyParamCaption}\item[{}]{val }\end{DoxyParamCaption})~(val ? P\+O\+R\+TD $\vert$= (1 $<$$<$ \hyperlink{ports_8h_a7f94a464ebc0f12b8a2a45570bdb0db1}{L\+E\+D\+D\+R\+V\+\_\+\+OE}) \+: (P\+O\+R\+TD \&= $\sim$(1 $<$$<$ \hyperlink{ports_8h_a7f94a464ebc0f12b8a2a45570bdb0db1}{L\+E\+D\+D\+R\+V\+\_\+\+OE})))}
+
+
+
+Macro to set the L\+ED Driver output enable pin to either high or low. 
+
+
+
+Definition at line 34 of file ports.\+h.
+
+\hypertarget{ports_8h_acbe239292a69760cd63518b8fc896fc5}{}\label{ports_8h_acbe239292a69760cd63518b8fc896fc5} 
+\index{ports.\+h@{ports.\+h}!L\+E\+D\+D\+R\+V\+\_\+\+S\+DI@{L\+E\+D\+D\+R\+V\+\_\+\+S\+DI}}
+\index{L\+E\+D\+D\+R\+V\+\_\+\+S\+DI@{L\+E\+D\+D\+R\+V\+\_\+\+S\+DI}!ports.\+h@{ports.\+h}}
+\subsubsection{\texorpdfstring{L\+E\+D\+D\+R\+V\+\_\+\+S\+DI}{LEDDRV\_SDI}}
+{\footnotesize\ttfamily \#define L\+E\+D\+D\+R\+V\+\_\+\+S\+DI~P\+D3}
+
+
+
+Definition at line 25 of file ports.\+h.
+
+\hypertarget{ports_8h_aae0c40c318531739e4367043ecca5f93}{}\label{ports_8h_aae0c40c318531739e4367043ecca5f93} 
+\index{ports.\+h@{ports.\+h}!L\+E\+D\+D\+R\+V\+\_\+\+S\+D\+I\+\_\+\+S\+ET@{L\+E\+D\+D\+R\+V\+\_\+\+S\+D\+I\+\_\+\+S\+ET}}
+\index{L\+E\+D\+D\+R\+V\+\_\+\+S\+D\+I\+\_\+\+S\+ET@{L\+E\+D\+D\+R\+V\+\_\+\+S\+D\+I\+\_\+\+S\+ET}!ports.\+h@{ports.\+h}}
+\subsubsection{\texorpdfstring{L\+E\+D\+D\+R\+V\+\_\+\+S\+D\+I\+\_\+\+S\+ET}{LEDDRV\_SDI\_SET}}
+{\footnotesize\ttfamily \#define L\+E\+D\+D\+R\+V\+\_\+\+S\+D\+I\+\_\+\+S\+ET(\begin{DoxyParamCaption}\item[{}]{val }\end{DoxyParamCaption})~(val ? P\+O\+R\+TD $\vert$= (1 $<$$<$ \hyperlink{ports_8h_acbe239292a69760cd63518b8fc896fc5}{L\+E\+D\+D\+R\+V\+\_\+\+S\+DI}) \+: (P\+O\+R\+TD \&= $\sim$(1 $<$$<$ \hyperlink{ports_8h_acbe239292a69760cd63518b8fc896fc5}{L\+E\+D\+D\+R\+V\+\_\+\+S\+DI})))}
+
+
+
+Macro to set the L\+ED Driver serial data in pin to either high or low. 
+
+
+
+Definition at line 38 of file ports.\+h.
+
+\hypertarget{ports_8h_a91ff68661d637bfba4a86d6774c68aa4}{}\label{ports_8h_a91ff68661d637bfba4a86d6774c68aa4} 
+\index{ports.\+h@{ports.\+h}!M\+I\+N\+\_\+\+O\+N\+E\+\_\+\+A\+NO@{M\+I\+N\+\_\+\+O\+N\+E\+\_\+\+A\+NO}}
+\index{M\+I\+N\+\_\+\+O\+N\+E\+\_\+\+A\+NO@{M\+I\+N\+\_\+\+O\+N\+E\+\_\+\+A\+NO}!ports.\+h@{ports.\+h}}
+\subsubsection{\texorpdfstring{M\+I\+N\+\_\+\+O\+N\+E\+\_\+\+A\+NO}{MIN\_ONE\_ANO}}
+{\footnotesize\ttfamily \#define M\+I\+N\+\_\+\+O\+N\+E\+\_\+\+A\+NO~P\+B3}
+
+
+
+Definition at line 15 of file ports.\+h.
+
+\hypertarget{ports_8h_a9748b7e5e96ae2aa47c30d5659916d0d}{}\label{ports_8h_a9748b7e5e96ae2aa47c30d5659916d0d} 
+\index{ports.\+h@{ports.\+h}!M\+I\+N\+\_\+\+T\+E\+N\+\_\+\+A\+NO@{M\+I\+N\+\_\+\+T\+E\+N\+\_\+\+A\+NO}}
+\index{M\+I\+N\+\_\+\+T\+E\+N\+\_\+\+A\+NO@{M\+I\+N\+\_\+\+T\+E\+N\+\_\+\+A\+NO}!ports.\+h@{ports.\+h}}
+\subsubsection{\texorpdfstring{M\+I\+N\+\_\+\+T\+E\+N\+\_\+\+A\+NO}{MIN\_TEN\_ANO}}
+{\footnotesize\ttfamily \#define M\+I\+N\+\_\+\+T\+E\+N\+\_\+\+A\+NO~P\+B2}
+
+
+
+Definition at line 14 of file ports.\+h.
+
+\hypertarget{ports_8h_a80e456546d70dd2d14dfd203f023fc62}{}\label{ports_8h_a80e456546d70dd2d14dfd203f023fc62} 
+\index{ports.\+h@{ports.\+h}!R\+T\+C\+\_\+\+S\+CL@{R\+T\+C\+\_\+\+S\+CL}}
+\index{R\+T\+C\+\_\+\+S\+CL@{R\+T\+C\+\_\+\+S\+CL}!ports.\+h@{ports.\+h}}
+\subsubsection{\texorpdfstring{R\+T\+C\+\_\+\+S\+CL}{RTC\_SCL}}
+{\footnotesize\ttfamily \#define R\+T\+C\+\_\+\+S\+CL~P\+B7}
+
+
+
+Definition at line 19 of file ports.\+h.
+
+\hypertarget{ports_8h_ad137b49d8266b56bb6063ba8c882b1e4}{}\label{ports_8h_ad137b49d8266b56bb6063ba8c882b1e4} 
+\index{ports.\+h@{ports.\+h}!R\+T\+C\+\_\+\+S\+DA@{R\+T\+C\+\_\+\+S\+DA}}
+\index{R\+T\+C\+\_\+\+S\+DA@{R\+T\+C\+\_\+\+S\+DA}!ports.\+h@{ports.\+h}}
+\subsubsection{\texorpdfstring{R\+T\+C\+\_\+\+S\+DA}{RTC\_SDA}}
+{\footnotesize\ttfamily \#define R\+T\+C\+\_\+\+S\+DA~P\+B5}
+
+
+
+Definition at line 17 of file ports.\+h.
+
+\hypertarget{ports_8h_a5a48f5a0f9e352bdae302b78ea29ddf5}{}\label{ports_8h_a5a48f5a0f9e352bdae302b78ea29ddf5} 
+\index{ports.\+h@{ports.\+h}!R\+T\+C\+\_\+\+S\+QW@{R\+T\+C\+\_\+\+S\+QW}}
+\index{R\+T\+C\+\_\+\+S\+QW@{R\+T\+C\+\_\+\+S\+QW}!ports.\+h@{ports.\+h}}
+\subsubsection{\texorpdfstring{R\+T\+C\+\_\+\+S\+QW}{RTC\_SQW}}
+{\footnotesize\ttfamily \#define R\+T\+C\+\_\+\+S\+QW~P\+A1}
+
+
+
+Definition at line 8 of file ports.\+h.
+
+\hypertarget{ports_8h_ac24579821d1a3506b7e690271a148dd8}{}\label{ports_8h_ac24579821d1a3506b7e690271a148dd8} 
+\index{ports.\+h@{ports.\+h}!S\+E\+C\+\_\+\+O\+N\+E\+\_\+\+A\+NO@{S\+E\+C\+\_\+\+O\+N\+E\+\_\+\+A\+NO}}
+\index{S\+E\+C\+\_\+\+O\+N\+E\+\_\+\+A\+NO@{S\+E\+C\+\_\+\+O\+N\+E\+\_\+\+A\+NO}!ports.\+h@{ports.\+h}}
+\subsubsection{\texorpdfstring{S\+E\+C\+\_\+\+O\+N\+E\+\_\+\+A\+NO}{SEC\_ONE\_ANO}}
+{\footnotesize\ttfamily \#define S\+E\+C\+\_\+\+O\+N\+E\+\_\+\+A\+NO~P\+B6}
+
+
+
+Definition at line 18 of file ports.\+h.
+
+\hypertarget{ports_8h_ad85954ea7620196915de88aa36c401f6}{}\label{ports_8h_ad85954ea7620196915de88aa36c401f6} 
+\index{ports.\+h@{ports.\+h}!S\+E\+C\+\_\+\+T\+E\+N\+\_\+\+A\+NO@{S\+E\+C\+\_\+\+T\+E\+N\+\_\+\+A\+NO}}
+\index{S\+E\+C\+\_\+\+T\+E\+N\+\_\+\+A\+NO@{S\+E\+C\+\_\+\+T\+E\+N\+\_\+\+A\+NO}!ports.\+h@{ports.\+h}}
+\subsubsection{\texorpdfstring{S\+E\+C\+\_\+\+T\+E\+N\+\_\+\+A\+NO}{SEC\_TEN\_ANO}}
+{\footnotesize\ttfamily \#define S\+E\+C\+\_\+\+T\+E\+N\+\_\+\+A\+NO~P\+B4}
+
+
+
+Definition at line 16 of file ports.\+h.
+
+\hypertarget{ports_8h_a89e30ef9081c8bdc9c7799990a57c133}{}\label{ports_8h_a89e30ef9081c8bdc9c7799990a57c133} 
+\index{ports.\+h@{ports.\+h}!U\+A\+R\+T\+\_\+\+R\+XD@{U\+A\+R\+T\+\_\+\+R\+XD}}
+\index{U\+A\+R\+T\+\_\+\+R\+XD@{U\+A\+R\+T\+\_\+\+R\+XD}!ports.\+h@{ports.\+h}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T\+\_\+\+R\+XD}{UART\_RXD}}
+{\footnotesize\ttfamily \#define U\+A\+R\+T\+\_\+\+R\+XD~P\+D0}
+
+
+
+P\+O\+RT D P\+IN D\+E\+F\+I\+N\+I\+T\+I\+O\+NS. 
+
+
+
+Definition at line 22 of file ports.\+h.
+
+\hypertarget{ports_8h_a92a783385325f2ce25693bc5beafc49c}{}\label{ports_8h_a92a783385325f2ce25693bc5beafc49c} 
+\index{ports.\+h@{ports.\+h}!U\+A\+R\+T\+\_\+\+T\+XD@{U\+A\+R\+T\+\_\+\+T\+XD}}
+\index{U\+A\+R\+T\+\_\+\+T\+XD@{U\+A\+R\+T\+\_\+\+T\+XD}!ports.\+h@{ports.\+h}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T\+\_\+\+T\+XD}{UART\_TXD}}
+{\footnotesize\ttfamily \#define U\+A\+R\+T\+\_\+\+T\+XD~P\+D1}
+
+
+
+Definition at line 23 of file ports.\+h.
+

@@ -4,10 +4,10 @@
 #include <stdint.h>
 #include "global_defines.h"
 
-#define ON  1
-#define OFF 0
+#define ON  1 //!< defines the on state
+#define OFF 0 //!< defines the off state
 
-#define F_OSC 8000000UL
+#define F_OSC 8000000UL //!< oscillator speec
 
 retval_t hardware_init(void);
 

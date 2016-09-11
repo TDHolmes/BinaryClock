@@ -5,17 +5,25 @@
 #include <avr/interrupt.h>
 #include <stdint.h>
 
-
+/*! pointer to the variable in main that keeps track of the RTC interrupt
+ *  count for accurate time keeping.  */
 volatile uint8_t *RTC_local_1Hz_int_count_ptr;
 
 
-// Summary - 
-// param (rtc_time_t *) t_ptr - 
-retval_t RTC_init(rtc_time_t *t_ptr, volatile uint8_t *RTC_1Hz_int_count_ptr)
+/*!
+ * Real time clock (RTC) initialization function that sets up the 1 Hz pin change interrupt
+ * and the I2C communication to the chip to configure it and read the time it has internally.
+ * 
+ * @param[in]  time_ptr (rtc_time_t *): Pointer that is used to keep track of the time.
+ * @param[in]  RTC_int_cnt_ptr (volatile uint8_t *): RTC interrupt count pointer
+ *             so we can keep track of the interrupt count from outside of this file.
+ * @param[out] retval (retval_t): Returns the initialization status of the RTC chip.
+ */
+retval_t RTC_init(rtc_time_t *t_ptr, volatile uint8_t *RTC_int_cnt_ptr)
 {
     uint8_t byte_to_write = 0;
     retval_t retval = 0;
-    RTC_local_1Hz_int_count_ptr = RTC_1Hz_int_count_ptr;
+    RTC_local_1Hz_int_count_ptr = RTC_int_cnt_ptr;
     // enable a pin change interrupt on the 1 Hz RTC pin 
     GIMSK |= (1 << PCIE1);
     PCMSK1 = (1 << PCINT9);
@@ -30,11 +38,19 @@ retval_t RTC_init(rtc_time_t *t_ptr, volatile uint8_t *RTC_1Hz_int_count_ptr)
 }
 
 
-// Summary - 
-// param (rtc_time_t *) t_ptr - 
-// param (uint8_t) hour - 
-// param (uint8_t) minute - 
-// param (uint8_t) second - 
+/*!
+ * Updates the time on the RTC chip as well as in the time keeping data structure t_ptr.
+ * 
+ * @param[in] t_ptr (rtc_time_t *): Pointer that is used to keep track of the time.
+ * @param[in] hour (uint8_t): hour to change the time to on the RTC chip as wel as in
+ *      the time pointer.
+ * @param[in] minute (uint8_t): minute to change the time to on the RTC chip as wel as
+ *      in the time pointer.
+ * @param[in] second (uint8_t): second to change the time to on the RTC chip as wel as
+ *      in the time pointer.
+ * @param[out] retval (retval_t): Returns the success or failure of updating the time on
+ *      the RTC chip.
+ */
 retval_t RTC_set_time(rtc_time_t *t_ptr, uint8_t hour, uint8_t minute, uint8_t second)
 {
     uint8_t data_arr[3];
@@ -54,8 +70,13 @@ retval_t RTC_set_time(rtc_time_t *t_ptr, uint8_t hour, uint8_t minute, uint8_t s
 }
 
 
-// Summary - 
-// param (rtc_time_t *) t_ptr - 
+/*!
+ * Reads the time on the RTC chip as well as updating the time keeping data structure t_ptr.
+ * 
+ * @param[in] t_ptr (rtc_time_t *): Pointer that is used to keep track of the time.
+ * @param[out] retval (retval_t): Returns the success or failure of reading the time from
+ *      the RTC chip.
+ */
 retval_t RTC_read_time(rtc_time_t *t_ptr)
 {
     uint8_t data_arr[3];
@@ -78,7 +99,10 @@ retval_t RTC_read_time(rtc_time_t *t_ptr)
 }
 
 
-// Summary - Pin change interrupt on the 1 Hz square wave pin from the RTC
+/*!
+ * Interrupts on pin change form the RTC chip which is a 1 Hz square wave.
+ * Increments the counter to keep the time up to date.
+ */
 ISR(PCINT_A_vect)
 {
     if (PINA & (1 << PA1)) {

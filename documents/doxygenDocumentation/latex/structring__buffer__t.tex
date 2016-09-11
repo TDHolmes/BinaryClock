@@ -1,0 +1,141 @@
+\hypertarget{structring__buffer__t}{}\section{ring\+\_\+buffer\+\_\+t Struct Reference}
+\label{structring__buffer__t}\index{ring\+\_\+buffer\+\_\+t@{ring\+\_\+buffer\+\_\+t}}
+
+
+data structure to keep track of important ring buffer variables  
+
+
+
+
+{\ttfamily \#include $<$ring\+\_\+buffer.\+h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t $\ast$ \hyperlink{structring__buffer__t_a102cac6eb6f8f341f1891c0905181491}{head}
+\begin{DoxyCompactList}\small\item\em pointer to the head of the buffer \end{DoxyCompactList}\item 
+uint8\+\_\+t $\ast$ \hyperlink{structring__buffer__t_af7a2fe8e3fd152742f9d54354ad99db7}{tail}
+\begin{DoxyCompactList}\small\item\em pointer to the tail of the buffer \end{DoxyCompactList}\item 
+uint8\+\_\+t $\ast$ \hyperlink{structring__buffer__t_a7b78fc8dde7c5c2b76176106e087b1de}{start}
+\begin{DoxyCompactList}\small\item\em pointer to the start address of the buffer space \end{DoxyCompactList}\item 
+uint8\+\_\+t $\ast$ \hyperlink{structring__buffer__t_abd1acb187be8f3b30a79336d4962993f}{end}
+\begin{DoxyCompactList}\small\item\em pointer to the end address of the buffer space \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{structring__buffer__t_afd186f1012b3e5a3eca43a965bfa5adb}{buff\+\_\+size}
+\begin{DoxyCompactList}\small\item\em size of the buffer space \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{structring__buffer__t_adc64ccb7538429fe78e3fe0139267370}{error}
+\begin{DoxyCompactList}\small\item\em error flag (not currently used) \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{structring__buffer__t_a0ed89f14dd3a8e0a46a901d73c869804}{unread\+\_\+items}
+\begin{DoxyCompactList}\small\item\em number of unread items in the ring buffer \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+data structure to keep track of important ring buffer variables 
+
+Definition at line 9 of file ring\+\_\+buffer.\+h.
+
+
+
+\subsection{Field Documentation}
+\hypertarget{structring__buffer__t_afd186f1012b3e5a3eca43a965bfa5adb}{}\label{structring__buffer__t_afd186f1012b3e5a3eca43a965bfa5adb} 
+\index{ring\+\_\+buffer\+\_\+t@{ring\+\_\+buffer\+\_\+t}!buff\+\_\+size@{buff\+\_\+size}}
+\index{buff\+\_\+size@{buff\+\_\+size}!ring\+\_\+buffer\+\_\+t@{ring\+\_\+buffer\+\_\+t}}
+\subsubsection{\texorpdfstring{buff\+\_\+size}{buff\_size}}
+{\footnotesize\ttfamily uint8\+\_\+t buff\+\_\+size}
+
+
+
+size of the buffer space 
+
+
+
+Definition at line 14 of file ring\+\_\+buffer.\+h.
+
+\hypertarget{structring__buffer__t_abd1acb187be8f3b30a79336d4962993f}{}\label{structring__buffer__t_abd1acb187be8f3b30a79336d4962993f} 
+\index{ring\+\_\+buffer\+\_\+t@{ring\+\_\+buffer\+\_\+t}!end@{end}}
+\index{end@{end}!ring\+\_\+buffer\+\_\+t@{ring\+\_\+buffer\+\_\+t}}
+\subsubsection{\texorpdfstring{end}{end}}
+{\footnotesize\ttfamily uint8\+\_\+t$\ast$ end}
+
+
+
+pointer to the end address of the buffer space 
+
+
+
+Definition at line 13 of file ring\+\_\+buffer.\+h.
+
+\hypertarget{structring__buffer__t_adc64ccb7538429fe78e3fe0139267370}{}\label{structring__buffer__t_adc64ccb7538429fe78e3fe0139267370} 
+\index{ring\+\_\+buffer\+\_\+t@{ring\+\_\+buffer\+\_\+t}!error@{error}}
+\index{error@{error}!ring\+\_\+buffer\+\_\+t@{ring\+\_\+buffer\+\_\+t}}
+\subsubsection{\texorpdfstring{error}{error}}
+{\footnotesize\ttfamily uint8\+\_\+t error}
+
+
+
+error flag (not currently used) 
+
+
+
+Definition at line 15 of file ring\+\_\+buffer.\+h.
+
+\hypertarget{structring__buffer__t_a102cac6eb6f8f341f1891c0905181491}{}\label{structring__buffer__t_a102cac6eb6f8f341f1891c0905181491} 
+\index{ring\+\_\+buffer\+\_\+t@{ring\+\_\+buffer\+\_\+t}!head@{head}}
+\index{head@{head}!ring\+\_\+buffer\+\_\+t@{ring\+\_\+buffer\+\_\+t}}
+\subsubsection{\texorpdfstring{head}{head}}
+{\footnotesize\ttfamily uint8\+\_\+t$\ast$ head}
+
+
+
+pointer to the head of the buffer 
+
+
+
+Definition at line 10 of file ring\+\_\+buffer.\+h.
+
+\hypertarget{structring__buffer__t_a7b78fc8dde7c5c2b76176106e087b1de}{}\label{structring__buffer__t_a7b78fc8dde7c5c2b76176106e087b1de} 
+\index{ring\+\_\+buffer\+\_\+t@{ring\+\_\+buffer\+\_\+t}!start@{start}}
+\index{start@{start}!ring\+\_\+buffer\+\_\+t@{ring\+\_\+buffer\+\_\+t}}
+\subsubsection{\texorpdfstring{start}{start}}
+{\footnotesize\ttfamily uint8\+\_\+t$\ast$ start}
+
+
+
+pointer to the start address of the buffer space 
+
+
+
+Definition at line 12 of file ring\+\_\+buffer.\+h.
+
+\hypertarget{structring__buffer__t_af7a2fe8e3fd152742f9d54354ad99db7}{}\label{structring__buffer__t_af7a2fe8e3fd152742f9d54354ad99db7} 
+\index{ring\+\_\+buffer\+\_\+t@{ring\+\_\+buffer\+\_\+t}!tail@{tail}}
+\index{tail@{tail}!ring\+\_\+buffer\+\_\+t@{ring\+\_\+buffer\+\_\+t}}
+\subsubsection{\texorpdfstring{tail}{tail}}
+{\footnotesize\ttfamily uint8\+\_\+t$\ast$ tail}
+
+
+
+pointer to the tail of the buffer 
+
+
+
+Definition at line 11 of file ring\+\_\+buffer.\+h.
+
+\hypertarget{structring__buffer__t_a0ed89f14dd3a8e0a46a901d73c869804}{}\label{structring__buffer__t_a0ed89f14dd3a8e0a46a901d73c869804} 
+\index{ring\+\_\+buffer\+\_\+t@{ring\+\_\+buffer\+\_\+t}!unread\+\_\+items@{unread\+\_\+items}}
+\index{unread\+\_\+items@{unread\+\_\+items}!ring\+\_\+buffer\+\_\+t@{ring\+\_\+buffer\+\_\+t}}
+\subsubsection{\texorpdfstring{unread\+\_\+items}{unread\_items}}
+{\footnotesize\ttfamily uint8\+\_\+t unread\+\_\+items}
+
+
+
+number of unread items in the ring buffer 
+
+
+
+Definition at line 16 of file ring\+\_\+buffer.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+firmware/\hyperlink{ring__buffer_8h}{ring\+\_\+buffer.\+h}\end{DoxyCompactItemize}

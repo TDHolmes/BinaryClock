@@ -5,24 +5,34 @@
 #include "global_defines.h"
 #include <stdint.h>
 
-// error codes
+//! code if the UART command received is invalid
 #define UART_CMD_INVALID     0xFF
+//! code to send if the state is incorrect for the given command
 #define UART_CMD_WRONG_STATE 0xFE
-// valid command
+//! valid command & successful
 #define UART_CMD_VALID       0x42
 
+//! byte that starts each transaction
 #define UART_CMD_START_BYTE  0xAA
 
+//! command to set an LED to a certain color (must be in manual control mode)
 #define UART_CMD_SET_LED       0x10
+//! command to set an LED to a certain color (must be in manual control mode)
 #define UART_CMD_CLEAR_LED     0x11
+//! command to clear an led (must be in manual control mode)
 #define UART_CMD_CLEAR_ALL_LED 0x12
+//! command to clear all leds (must be in manual control mode)
 #define UART_CMD_SET_ALL_LED   0x13
+//! command to set all leds to a certain color (must be in manual control mode)
 #define UART_CMD_SET_TIME      0x14
+//! command to set the time (must be in time control mode)
 #define UART_CMD_SET_COLOR     0x15
+//! command to set the color during time mode (must be in time control mode)
 #define UART_CMD_CHANGE_STATE  0x16
+//! command to change states
 
-#define LF 0x0A
-#define CR 0x0D
+#define LF 0x0A  //!< ascii value for line feed
+#define CR 0x0D  //!< ascii value for carriage return
 
 
 void UART_init(uint32_t baudrate);

@@ -3,13 +3,15 @@
 
 #include <stdint.h>
 
-#define COLOR_BITS 8
 
+#define COLOR_BITS 8 //!< Defines the amount of color resolution
+
+//! structure to keep track of color information
 typedef struct {
-    uint8_t red;
-    uint8_t green;
-    uint8_t blue;
-    uint8_t color_bit;
+    uint8_t red;    /*! amount of red in the color.*/
+    uint8_t green;  /*! amount of green in the color.*/
+    uint8_t blue;   /*! amount of blue in the color.*/
+    uint8_t color_bit;  /*! keeps track of what bit we're displaying.*/
 } led_color_t;
 
 #endif /* COLOR_H__ */

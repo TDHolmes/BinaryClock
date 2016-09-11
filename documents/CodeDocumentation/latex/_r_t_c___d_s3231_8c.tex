@@ -1,0 +1,96 @@
+\hypertarget{_r_t_c___d_s3231_8c}{}\section{firmware/\+R\+T\+C\+\_\+\+D\+S3231.c File Reference}
+\label{_r_t_c___d_s3231_8c}\index{firmware/\+R\+T\+C\+\_\+\+D\+S3231.\+c@{firmware/\+R\+T\+C\+\_\+\+D\+S3231.\+c}}
+{\ttfamily \#include \char`\"{}R\+T\+C\+\_\+\+D\+S3231.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}i2c.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}global\+\_\+defines.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$avr/io.\+h$>$}\newline
+{\ttfamily \#include $<$avr/interrupt.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{global__defines_8h_a7a53c0a65d763442224ca36299adee75}{retval\+\_\+t} \hyperlink{_r_t_c___d_s3231_8c_a08e02f54bb9f3dffa4c4852eab51ac49}{R\+T\+C\+\_\+init} (\hyperlink{structrtc__time__t}{rtc\+\_\+time\+\_\+t} $\ast$t\+\_\+ptr, volatile uint8\+\_\+t $\ast$R\+T\+C\+\_\+int\+\_\+cnt\+\_\+ptr)
+\item 
+\hyperlink{global__defines_8h_a7a53c0a65d763442224ca36299adee75}{retval\+\_\+t} \hyperlink{_r_t_c___d_s3231_8c_a33efe978755de7c3bea5ec1f68c3c0ee}{R\+T\+C\+\_\+set\+\_\+time} (\hyperlink{structrtc__time__t}{rtc\+\_\+time\+\_\+t} $\ast$t\+\_\+ptr, uint8\+\_\+t hour, uint8\+\_\+t minute, uint8\+\_\+t second)
+\item 
+\hyperlink{global__defines_8h_a7a53c0a65d763442224ca36299adee75}{retval\+\_\+t} \hyperlink{_r_t_c___d_s3231_8c_a2bff9ac64b6abc57feab2a567e4942f1}{R\+T\+C\+\_\+read\+\_\+time} (\hyperlink{structrtc__time__t}{rtc\+\_\+time\+\_\+t} $\ast$t\+\_\+ptr)
+\item 
+\hyperlink{_r_t_c___d_s3231_8c_a6f628626e34ad86362a46a4b0b0880d5}{I\+SR} (P\+C\+I\+N\+T\+\_\+\+A\+\_\+vect)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+volatile uint8\+\_\+t $\ast$ \hyperlink{_r_t_c___d_s3231_8c_a7cc1c95486a291f15068b66d694a13fe}{R\+T\+C\+\_\+local\+\_\+1\+Hz\+\_\+int\+\_\+count\+\_\+ptr}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{_r_t_c___d_s3231_8c_a6f628626e34ad86362a46a4b0b0880d5}{}\label{_r_t_c___d_s3231_8c_a6f628626e34ad86362a46a4b0b0880d5} 
+\index{R\+T\+C\+\_\+\+D\+S3231.\+c@{R\+T\+C\+\_\+\+D\+S3231.\+c}!I\+SR@{I\+SR}}
+\index{I\+SR@{I\+SR}!R\+T\+C\+\_\+\+D\+S3231.\+c@{R\+T\+C\+\_\+\+D\+S3231.\+c}}
+\subsubsection{\texorpdfstring{I\+S\+R()}{ISR()}}
+{\footnotesize\ttfamily I\+SR (\begin{DoxyParamCaption}\item[{P\+C\+I\+N\+T\+\_\+\+A\+\_\+vect}]{ }\end{DoxyParamCaption})}
+
+Interrupts on pin change form the R\+TC chip which is a 1 Hz square wave. Increments the counter to keep the time up to date. \hypertarget{_r_t_c___d_s3231_8c_a08e02f54bb9f3dffa4c4852eab51ac49}{}\label{_r_t_c___d_s3231_8c_a08e02f54bb9f3dffa4c4852eab51ac49} 
+\index{R\+T\+C\+\_\+\+D\+S3231.\+c@{R\+T\+C\+\_\+\+D\+S3231.\+c}!R\+T\+C\+\_\+init@{R\+T\+C\+\_\+init}}
+\index{R\+T\+C\+\_\+init@{R\+T\+C\+\_\+init}!R\+T\+C\+\_\+\+D\+S3231.\+c@{R\+T\+C\+\_\+\+D\+S3231.\+c}}
+\subsubsection{\texorpdfstring{R\+T\+C\+\_\+init()}{RTC\_init()}}
+{\footnotesize\ttfamily \hyperlink{global__defines_8h_a7a53c0a65d763442224ca36299adee75}{retval\+\_\+t} R\+T\+C\+\_\+init (\begin{DoxyParamCaption}\item[{\hyperlink{structrtc__time__t}{rtc\+\_\+time\+\_\+t} $\ast$}]{t\+\_\+ptr,  }\item[{volatile uint8\+\_\+t $\ast$}]{R\+T\+C\+\_\+int\+\_\+cnt\+\_\+ptr }\end{DoxyParamCaption})}
+
+Real time clock (R\+TC) initialization function that sets up the 1 Hz pin change interrupt and the I2C communication to the chip to configure it and read the time it has internally.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em time\+\_\+ptr} & (\hyperlink{structrtc__time__t}{rtc\+\_\+time\+\_\+t} $\ast$)\+: Pointer that is used to keep track of the time. \\
+\hline
+\mbox{\tt in}  & {\em R\+T\+C\+\_\+int\+\_\+cnt\+\_\+ptr} & (volatile uint8\+\_\+t $\ast$)\+: R\+TC interrupt count pointer so we can keep track of the interrupt count from outside of this file. \\
+\hline
+\mbox{\tt out}  & {\em retval} & (retval\+\_\+t)\+: Returns the initialization status of the R\+TC chip. \\
+\hline
+\end{DoxyParams}
+\hypertarget{_r_t_c___d_s3231_8c_a2bff9ac64b6abc57feab2a567e4942f1}{}\label{_r_t_c___d_s3231_8c_a2bff9ac64b6abc57feab2a567e4942f1} 
+\index{R\+T\+C\+\_\+\+D\+S3231.\+c@{R\+T\+C\+\_\+\+D\+S3231.\+c}!R\+T\+C\+\_\+read\+\_\+time@{R\+T\+C\+\_\+read\+\_\+time}}
+\index{R\+T\+C\+\_\+read\+\_\+time@{R\+T\+C\+\_\+read\+\_\+time}!R\+T\+C\+\_\+\+D\+S3231.\+c@{R\+T\+C\+\_\+\+D\+S3231.\+c}}
+\subsubsection{\texorpdfstring{R\+T\+C\+\_\+read\+\_\+time()}{RTC\_read\_time()}}
+{\footnotesize\ttfamily \hyperlink{global__defines_8h_a7a53c0a65d763442224ca36299adee75}{retval\+\_\+t} R\+T\+C\+\_\+read\+\_\+time (\begin{DoxyParamCaption}\item[{\hyperlink{structrtc__time__t}{rtc\+\_\+time\+\_\+t} $\ast$}]{t\+\_\+ptr }\end{DoxyParamCaption})}
+
+Reads the time on the R\+TC chip as well as updating the time keeping data structure t\+\_\+ptr.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em t\+\_\+ptr} & (\hyperlink{structrtc__time__t}{rtc\+\_\+time\+\_\+t} $\ast$)\+: Pointer that is used to keep track of the time. \\
+\hline
+\mbox{\tt out}  & {\em retval} & (retval\+\_\+t)\+: Returns the success or failure of reading the time from the R\+TC chip. \\
+\hline
+\end{DoxyParams}
+\hypertarget{_r_t_c___d_s3231_8c_a33efe978755de7c3bea5ec1f68c3c0ee}{}\label{_r_t_c___d_s3231_8c_a33efe978755de7c3bea5ec1f68c3c0ee} 
+\index{R\+T\+C\+\_\+\+D\+S3231.\+c@{R\+T\+C\+\_\+\+D\+S3231.\+c}!R\+T\+C\+\_\+set\+\_\+time@{R\+T\+C\+\_\+set\+\_\+time}}
+\index{R\+T\+C\+\_\+set\+\_\+time@{R\+T\+C\+\_\+set\+\_\+time}!R\+T\+C\+\_\+\+D\+S3231.\+c@{R\+T\+C\+\_\+\+D\+S3231.\+c}}
+\subsubsection{\texorpdfstring{R\+T\+C\+\_\+set\+\_\+time()}{RTC\_set\_time()}}
+{\footnotesize\ttfamily \hyperlink{global__defines_8h_a7a53c0a65d763442224ca36299adee75}{retval\+\_\+t} R\+T\+C\+\_\+set\+\_\+time (\begin{DoxyParamCaption}\item[{\hyperlink{structrtc__time__t}{rtc\+\_\+time\+\_\+t} $\ast$}]{t\+\_\+ptr,  }\item[{uint8\+\_\+t}]{hour,  }\item[{uint8\+\_\+t}]{minute,  }\item[{uint8\+\_\+t}]{second }\end{DoxyParamCaption})}
+
+Updates the time on the R\+TC chip as well as in the time keeping data structure t\+\_\+ptr.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em t\+\_\+ptr} & (\hyperlink{structrtc__time__t}{rtc\+\_\+time\+\_\+t} $\ast$)\+: Pointer that is used to keep track of the time. \\
+\hline
+\mbox{\tt in}  & {\em hour} & (uint8\+\_\+t)\+: hour to change the time to on the R\+TC chip as wel as in the time pointer. \\
+\hline
+\mbox{\tt in}  & {\em minute} & (uint8\+\_\+t)\+: minute to change the time to on the R\+TC chip as wel as in the time pointer. \\
+\hline
+\mbox{\tt in}  & {\em second} & (uint8\+\_\+t)\+: second to change the time to on the R\+TC chip as wel as in the time pointer. \\
+\hline
+\mbox{\tt out}  & {\em retval} & (retval\+\_\+t)\+: Returns the success or failure of updating the time on the R\+TC chip. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Variable Documentation}
+\hypertarget{_r_t_c___d_s3231_8c_a7cc1c95486a291f15068b66d694a13fe}{}\label{_r_t_c___d_s3231_8c_a7cc1c95486a291f15068b66d694a13fe} 
+\index{R\+T\+C\+\_\+\+D\+S3231.\+c@{R\+T\+C\+\_\+\+D\+S3231.\+c}!R\+T\+C\+\_\+local\+\_\+1\+Hz\+\_\+int\+\_\+count\+\_\+ptr@{R\+T\+C\+\_\+local\+\_\+1\+Hz\+\_\+int\+\_\+count\+\_\+ptr}}
+\index{R\+T\+C\+\_\+local\+\_\+1\+Hz\+\_\+int\+\_\+count\+\_\+ptr@{R\+T\+C\+\_\+local\+\_\+1\+Hz\+\_\+int\+\_\+count\+\_\+ptr}!R\+T\+C\+\_\+\+D\+S3231.\+c@{R\+T\+C\+\_\+\+D\+S3231.\+c}}
+\subsubsection{\texorpdfstring{R\+T\+C\+\_\+local\+\_\+1\+Hz\+\_\+int\+\_\+count\+\_\+ptr}{RTC\_local\_1Hz\_int\_count\_ptr}}
+{\footnotesize\ttfamily volatile uint8\+\_\+t$\ast$ R\+T\+C\+\_\+local\+\_\+1\+Hz\+\_\+int\+\_\+count\+\_\+ptr}
+
+pointer to the variable in main that keeps track of the R\+TC interrupt count for accurate time keeping. 

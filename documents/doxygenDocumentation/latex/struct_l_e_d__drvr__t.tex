@@ -1,0 +1,93 @@
+\hypertarget{struct_l_e_d__drvr__t}{}\section{L\+E\+D\+\_\+drvr\+\_\+t Struct Reference}
+\label{struct_l_e_d__drvr__t}\index{L\+E\+D\+\_\+drvr\+\_\+t@{L\+E\+D\+\_\+drvr\+\_\+t}}
+
+
+L\+ED driver structure to keep track of pertinant L\+ED variables.  
+
+
+
+
+{\ttfamily \#include $<$L\+E\+D\+\_\+drvr\+\_\+\+S\+T\+P16\+C\+P\+C26.\+h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \hyperlink{struct_l_e_d__drvr__t_a7f01ed87a74212d270cae32130977184}{L\+E\+D\+\_\+array} \mbox{[}\hyperlink{_l_e_d__drvr___s_t_p16_c_p_c26_8h_aa4d030604a90c8d019d90fc721900d63}{R\+O\+W\+\_\+\+S\+I\+ZE}\mbox{]}\mbox{[}\hyperlink{_l_e_d__drvr___s_t_p16_c_p_c26_8h_a99468544016f0abb855e6415c629ec29}{C\+O\+L\+\_\+\+S\+I\+ZE}\mbox{]}\mbox{[}\hyperlink{_l_e_d__drvr___s_t_p16_c_p_c26_8h_a68a80be4e42506b0127b8559bc6662b0}{C\+O\+L\+O\+R\+\_\+\+S\+I\+ZE}\mbox{]}
+\begin{DoxyCompactList}\small\item\em Array of the individual L\+E\+Ds colors. \end{DoxyCompactList}\item 
+\hyperlink{structled__color__t}{led\+\_\+color\+\_\+t} \hyperlink{struct_l_e_d__drvr__t_a544f37552e92b00030921908e34edda4}{colors}
+\begin{DoxyCompactList}\small\item\em structure to keep track of the color to display \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{struct_l_e_d__drvr__t_a736bd2bd907652812bf3a1f3d20eb9ae}{active\+\_\+column}
+\begin{DoxyCompactList}\small\item\em keeps track of column being displayed for multiplexing \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{struct_l_e_d__drvr__t_a36030c0b3d311ba697fb3e70ad7680a2}{active\+\_\+color\+\_\+bit}
+\begin{DoxyCompactList}\small\item\em keeps track of the current color bit being displayed \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+L\+ED driver structure to keep track of pertinant L\+ED variables. 
+
+Definition at line 20 of file L\+E\+D\+\_\+drvr\+\_\+\+S\+T\+P16\+C\+P\+C26.\+h.
+
+
+
+\subsection{Field Documentation}
+\hypertarget{struct_l_e_d__drvr__t_a36030c0b3d311ba697fb3e70ad7680a2}{}\label{struct_l_e_d__drvr__t_a36030c0b3d311ba697fb3e70ad7680a2} 
+\index{L\+E\+D\+\_\+drvr\+\_\+t@{L\+E\+D\+\_\+drvr\+\_\+t}!active\+\_\+color\+\_\+bit@{active\+\_\+color\+\_\+bit}}
+\index{active\+\_\+color\+\_\+bit@{active\+\_\+color\+\_\+bit}!L\+E\+D\+\_\+drvr\+\_\+t@{L\+E\+D\+\_\+drvr\+\_\+t}}
+\subsubsection{\texorpdfstring{active\+\_\+color\+\_\+bit}{active\_color\_bit}}
+{\footnotesize\ttfamily uint8\+\_\+t active\+\_\+color\+\_\+bit}
+
+
+
+keeps track of the current color bit being displayed 
+
+
+
+Definition at line 24 of file L\+E\+D\+\_\+drvr\+\_\+\+S\+T\+P16\+C\+P\+C26.\+h.
+
+\hypertarget{struct_l_e_d__drvr__t_a736bd2bd907652812bf3a1f3d20eb9ae}{}\label{struct_l_e_d__drvr__t_a736bd2bd907652812bf3a1f3d20eb9ae} 
+\index{L\+E\+D\+\_\+drvr\+\_\+t@{L\+E\+D\+\_\+drvr\+\_\+t}!active\+\_\+column@{active\+\_\+column}}
+\index{active\+\_\+column@{active\+\_\+column}!L\+E\+D\+\_\+drvr\+\_\+t@{L\+E\+D\+\_\+drvr\+\_\+t}}
+\subsubsection{\texorpdfstring{active\+\_\+column}{active\_column}}
+{\footnotesize\ttfamily uint8\+\_\+t active\+\_\+column}
+
+
+
+keeps track of column being displayed for multiplexing 
+
+
+
+Definition at line 23 of file L\+E\+D\+\_\+drvr\+\_\+\+S\+T\+P16\+C\+P\+C26.\+h.
+
+\hypertarget{struct_l_e_d__drvr__t_a544f37552e92b00030921908e34edda4}{}\label{struct_l_e_d__drvr__t_a544f37552e92b00030921908e34edda4} 
+\index{L\+E\+D\+\_\+drvr\+\_\+t@{L\+E\+D\+\_\+drvr\+\_\+t}!colors@{colors}}
+\index{colors@{colors}!L\+E\+D\+\_\+drvr\+\_\+t@{L\+E\+D\+\_\+drvr\+\_\+t}}
+\subsubsection{\texorpdfstring{colors}{colors}}
+{\footnotesize\ttfamily \hyperlink{structled__color__t}{led\+\_\+color\+\_\+t} colors}
+
+
+
+structure to keep track of the color to display 
+
+
+
+Definition at line 22 of file L\+E\+D\+\_\+drvr\+\_\+\+S\+T\+P16\+C\+P\+C26.\+h.
+
+\hypertarget{struct_l_e_d__drvr__t_a7f01ed87a74212d270cae32130977184}{}\label{struct_l_e_d__drvr__t_a7f01ed87a74212d270cae32130977184} 
+\index{L\+E\+D\+\_\+drvr\+\_\+t@{L\+E\+D\+\_\+drvr\+\_\+t}!L\+E\+D\+\_\+array@{L\+E\+D\+\_\+array}}
+\index{L\+E\+D\+\_\+array@{L\+E\+D\+\_\+array}!L\+E\+D\+\_\+drvr\+\_\+t@{L\+E\+D\+\_\+drvr\+\_\+t}}
+\subsubsection{\texorpdfstring{L\+E\+D\+\_\+array}{LED\_array}}
+{\footnotesize\ttfamily uint8\+\_\+t L\+E\+D\+\_\+array\mbox{[}\hyperlink{_l_e_d__drvr___s_t_p16_c_p_c26_8h_aa4d030604a90c8d019d90fc721900d63}{R\+O\+W\+\_\+\+S\+I\+ZE}\mbox{]}\mbox{[}\hyperlink{_l_e_d__drvr___s_t_p16_c_p_c26_8h_a99468544016f0abb855e6415c629ec29}{C\+O\+L\+\_\+\+S\+I\+ZE}\mbox{]}\mbox{[}\hyperlink{_l_e_d__drvr___s_t_p16_c_p_c26_8h_a68a80be4e42506b0127b8559bc6662b0}{C\+O\+L\+O\+R\+\_\+\+S\+I\+ZE}\mbox{]}}
+
+
+
+Array of the individual L\+E\+Ds colors. 
+
+
+
+Definition at line 21 of file L\+E\+D\+\_\+drvr\+\_\+\+S\+T\+P16\+C\+P\+C26.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+firmware/\hyperlink{_l_e_d__drvr___s_t_p16_c_p_c26_8h}{L\+E\+D\+\_\+drvr\+\_\+\+S\+T\+P16\+C\+P\+C26.\+h}\end{DoxyCompactItemize}

@@ -4,9 +4,9 @@
 #include "global_defines.h"
 #include <stdint.h>
 
-#define I2C_START_RETRY 5
+#define I2C_START_RETRY 5 //!< defines how many times we should retry to start communication
 
-#define I2C_BITBANG
+#define I2C_BITBANG  //!< Don't use I2C hardware modules, but rather manual port manipulation
 
 // function definitions
 retval_t i2c_drvr_init(void);

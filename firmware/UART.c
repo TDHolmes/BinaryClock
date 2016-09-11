@@ -4,16 +4,23 @@
 #include <stdint.h>
 
 
-// Summary - 
+/*!
+ * Initializes the UART module at the given baudrate.
+ * 
+ * @param[in] baudrate (uint32_t): baudrate to setup the UART module to.
+ */
 void UART_init(uint32_t baudrate)
 {
     UART_drvr_init(baudrate);
 }
 
-// Summary - 
-// param (uint8_t *) data_to_tx_ptr - 
-// param (uint8_t) len - 
-// param (bool_t) blocking - 
+/*!
+ * Transmits N bytes via UART (either blocking or non-blocking).
+ * 
+ * @param[in] data_to_tx_ptr (uint8_t *): location of the data to transmit.
+ * @param[in] len (uint8_t): number of bytes to transmit.
+ * @param[in] blocking (bool_t): whether or not to blocking send each byte.
+ */
 void UART_transmit(uint8_t *data_to_tx_ptr, uint8_t len, bool_t blocking)
 {
     uint8_t bytes_left = len;
@@ -26,17 +33,26 @@ void UART_transmit(uint8_t *data_to_tx_ptr, uint8_t len, bool_t blocking)
 }
 
 
-// Summary - 
-// param (uint8_t) data_to_tx - 
-// param (bool_t) blocking - 
+/*!
+ * Transmits 1 byte via UART (either blocking or non-blocking).
+ * 
+ * @param[in] data_to_tx (uint8_t): data to transmit.
+ * @param[in] blocking (bool_t): whether or not to blocking send the byte.
+ */
 void UART_transmit_byte(uint8_t data_to_tx, bool_t blocking)
 {
     UART_drvr_send_byte(data_to_tx, blocking);
 }
 
 
-// Summary - 
-// param (int32_t) var_to_tx - 
+/*!
+ * Transmits a value via UART (either blocking or non-blocking) encoded into ASCII.
+ * NOTE: you must cast your variable to an int32_t for this to work properly.
+ * 
+ * @param[in] var_to_tx (uint32_t): variable to transmit in ASCII encoding.
+ * @param[in] blocking (bool_t): whether or not to blocking send each byte.
+ * @param[in] print_hex (bool_t): whether or not to print in hexadecimal.
+ */
 void UART_transmit_value(int32_t var_to_tx,  bool_t blocking, bool_t print_hex)
 {
     uint8_t data_to_tx[10];
@@ -94,9 +110,14 @@ void UART_transmit_value(int32_t var_to_tx,  bool_t blocking, bool_t print_hex)
 }
 
 
-// Summary - 
-// param (uint8_t *) receive_buffer_ptr - 
-// param (uint8_t) len - 
+/*!
+ * Receives N values from the UART driver. Inherently blocks until it receives
+ * all values requested.
+ * 
+ * @param[in] receive_buffer_ptr (uint8_t *): location to receive the bytes
+ *      into
+ * @param[in] len (uint8_t): number of bytes to receive
+ */
 void UART_receive(uint8_t *receive_buffer_ptr, uint8_t len)
 {
     uint8_t bytes_left = len;
@@ -112,8 +133,13 @@ void UART_receive(uint8_t *receive_buffer_ptr, uint8_t len)
 }
 
 
-// Summary - 
-// retval (uint8_t) - 
+/*!
+ * Receives a byte from the UART driver.
+ * 
+ * @param[in] data_to_rx_ptr (uint8_t *): location to receive the byte to.
+ * @param[in] blocking (bool_t): blocks until a valid byte is received.
+ * @param[out] retval (retval_t): returns success/failure of receiving a byte.
+ */
 retval_t UART_receive_byte(uint8_t *data_to_rx_ptr, bool_t blocking)
 {
     retval_t retval = GEN_FAIL;
@@ -124,23 +150,32 @@ retval_t UART_receive_byte(uint8_t *data_to_rx_ptr, bool_t blocking)
 }
 
 
-// Summary - 
-// retval (uint8_t) - 
+/*!
+ * returns how many bytes have been received by the UART driver.
+ * 
+ * @param[out] unread_items (uint8_t): number of valid bytes received by the
+ *      UART module.
+ */
 uint8_t UART_receive_unread_items(void)
 {
     return UART_drvr_unread_items();
 }
 
 
-// Summary - 
-// retval (uint8_t) - 
+/*!
+ * returns if any bytes have been received by the UART driver.
+ * 
+ * @param[out] has_data (bool_t): true if we have bytes received, false if none.
+ */
 bool_t UART_receive_has_data(void)
 {
     return UART_drvr_receive_has_data();
 }
 
 
-// Summary - 
+/*!
+ * clears hardware errors and flushes the UART received buffer.
+ */
 void UART_reset(void)
 {
     cli();

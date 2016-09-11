@@ -17,6 +17,11 @@ retval_t check_ack(void);
     void write_ack(uint8_t val);
 
 
+    /*!
+     * Drives the SDA line low or lets it go high.
+     * 
+     * @param[in] val (uint8_t): Value to set the SDA line to. (high or low)
+     */
     void set_SDA(uint8_t val)
     {
         if (val != 0) {
@@ -28,6 +33,12 @@ retval_t check_ack(void);
         }
     }
 
+
+    /*!
+     * Reads the state of the SDA line.
+     * 
+     * @param[out] SDA_state (uint8_t): State of the SDA line.
+     */
     uint8_t read_SDA(void)
     {
         uint8_t retval;
@@ -37,6 +48,12 @@ retval_t check_ack(void);
         return retval;
     }
 
+
+    /*!
+     * Drives the SCL line low or lets it go high.
+     * 
+     * @param[in] val (uint8_t): Value to set the SCL line to. (high or low)
+     */
     void set_SCL(uint8_t val)
     {
         if (val != 0) {
@@ -48,8 +65,12 @@ retval_t check_ack(void);
         }
     }
 
-    // Summary - 
-    // retval (retval_t) - 
+
+    /*!
+     * Initializes the I2C lines.
+     * 
+     * @param[out] retval (retval_t): Returns if the initialization worked.
+     */
     retval_t i2c_drvr_init(void)
     {
         set_SCL(1);
@@ -58,9 +79,12 @@ retval_t check_ack(void);
     }
 
 
-    // Summary - 
-    // param (uint8_t) byte_to_tx - 
-    // retval (retval_t) - 
+    /*!
+     * Creates a start condition, addresses the chip and returns if it was successful.
+     * 
+     * @param[in] addr_with_mode (uint8_t): Address of the chip with mode set.
+     * @param[out] retval (retval_t): Returns if the start condition worked.
+     */
     retval_t i2c_drvr_start(uint8_t addr_with_mode)
     {
         // make sure SCL is low for a valid start condition
@@ -76,8 +100,11 @@ retval_t check_ack(void);
     }
 
 
-    // Summary - 
-    // retval (retval_t) - 
+    /*!
+     * Creates an end condition and returns if it was successful.
+     * 
+     * @param[out] retval (retval_t): Returns if the end condition worked.
+     */
     retval_t i2c_drvr_end(void)
     {
         // generate a stop condition (SDA goes low -> high while SCL stays high)
@@ -89,8 +116,12 @@ retval_t check_ack(void);
     }
 
 
-    // Summary - 
-    // param (uint8_t) byte_to_tx - 
+    /*!
+     * Writes a byte of information to the I2C line.
+     * 
+     * @param[in] byte_to_tx (uint8_t): Byte to transmit.
+     * @param[out] retval (retval_t): Returns if the byte write was acknowledged.
+     */
     retval_t i2c_drvr_write_byte(uint8_t byte_to_tx)
     {
         int8_t i;
@@ -115,8 +146,13 @@ retval_t check_ack(void);
     }
 
 
-    // Summary - 
-    // retval (retval_t) - 
+    /*!
+     * Reads a byte of information to from the I2C line.
+     * 
+     * @param[in] byte_read_ptr (uint8_t *): Location to return the read back value.
+     * @param[in] ack (uint8_t): Whether or not to acknowledge the byte.
+     * @param[out] retval (retval_t): Returns if the read was successful.
+     */
     retval_t i2c_drvr_read_byte(uint8_t *byte_read_ptr, uint8_t ack)
     {
         int8_t i;
@@ -135,8 +171,11 @@ retval_t check_ack(void);
     }
 
 
-    // Summary - 
-    // retval (retval_t) - 
+    /*!
+     * Checks is the slave asserts an acknowledge condition on the I2C bus.
+     * 
+     * @param[out] retval (retval_t): Returns if the slave acknowledged.
+     */
     retval_t check_ack(void)
     {
         uint8_t bit;
@@ -152,8 +191,13 @@ retval_t check_ack(void);
         }
     }
 
-        // Summary - 
-    // retval (retval_t) - 
+
+    /*!
+     * Writes an acknowledge or neg-ack to the I2C bus.
+     * 
+     * @param[in] ack (uint8_t): Whether or not to acknowledge
+     * @param[out] retval (retval_t): Returns if the read was successful.
+     */
     void write_ack(uint8_t val)
     {
         if (val == ACK) {
@@ -168,122 +212,121 @@ retval_t check_ack(void);
 
 #else // Non-bitbang version
 
-    void toggle_scl();
+    // void toggle_scl();
 
-    // Summary - 
-    // retval (retval_t) - 
-    retval_t i2c_drvr_init(void)
-    {
-        uint8_t retries = 3;
-        // set the data reg to all 1's to avoid a start condition
-        USIDR = 0xFF;
-        // USICR USI Control register
-        // two wire mode, use scl pin for clock and bit USITC to toggle scl
-        USICR = (1 << USIWM1) | (1 << USICS1);
-        // wait a bit for things to settle
-        for (retries = 0; retries < 10; retries++) {
-            _NOP();
-        }
-        retries = 5;
-        // ensure the clock line is deaserted
-        while ((PINB & (1 << PB7)) == 0) {
-            toggle_scl();
-            retries -= 1;
-            if (retries == 0) {
-                return I2C_INIT_TIMEOUT;
-            }
-        }
-        return GEN_PASS;
-    }
-
-
-    // Summary - 
-    // param (uint8_t) byte_to_tx - 
-    // retval (retval_t) - 
-    retval_t i2c_drvr_start(uint8_t addr_with_mode)
-    {
-        uint8_t i;
-        if ((PINB & (1 << PB7)) == 0) {
-            return I2C_CLK_LOW_BEFORE_START;
-        }
-        // generate a start condition (SDA goes high -> low while SCL stays high)
-
-        // start communication
-        i2c_drvr_write_byte(addr_with_mode);
-        // check ack / nack
-        return check_ack();
-    }
+    // // Summary - 
+    // // retval (retval_t) - 
+    // retval_t i2c_drvr_init(void)
+    // {
+    //     uint8_t retries = 3;
+    //     // set the data reg to all 1's to avoid a start condition
+    //     USIDR = 0xFF;
+    //     // USICR USI Control register
+    //     // two wire mode, use scl pin for clock and bit USITC to toggle scl
+    //     USICR = (1 << USIWM1) | (1 << USICS1);
+    //     // wait a bit for things to settle
+    //     for (retries = 0; retries < 10; retries++) {
+    //         _NOP();
+    //     }
+    //     retries = 5;
+    //     // ensure the clock line is deaserted
+    //     while ((PINB & (1 << PB7)) == 0) {
+    //         toggle_scl();
+    //         retries -= 1;
+    //         if (retries == 0) {
+    //             return I2C_INIT_TIMEOUT;
+    //         }
+    //     }
+    //     return GEN_PASS;
+    // }
 
 
-    // Summary - 
-    // retval (retval_t) - 
-    retval_t i2c_drvr_end(void)
-    {
-        // generate a stop condition (SDA goes low -> high while SCL stays high)
-        USIDR = 0xFF;
-        return GEN_PASS;
-    }
+    // // Summary - 
+    // // param (uint8_t) byte_to_tx - 
+    // // retval (retval_t) - 
+    // retval_t i2c_drvr_start(uint8_t addr_with_mode)
+    // {
+    //     uint8_t i;
+    //     if ((PINB & (1 << PB7)) == 0) {
+    //         return I2C_CLK_LOW_BEFORE_START;
+    //     }
+    //     // generate a start condition (SDA goes high -> low while SCL stays high)
+
+    //     // start communication
+    //     i2c_drvr_write_byte(addr_with_mode);
+    //     // check ack / nack
+    //     return check_ack();
+    // }
 
 
-    // Summary - 
-    // param (uint8_t) byte_to_tx - 
-    retval_t i2c_drvr_write_byte(uint8_t byte_to_tx)
-    {
-        uint8_t i;
-        uint8_t bit;
-        // send byte
-        USIDR = byte_to_tx;
-        // deassert scl by clearing start condition flag
-        if (USISR & (1 << (USISIF))) {
-            USISR &= (~(1 << (USISIF)));
-        } else {
-            return I2C_START_COND_NOT_DETECTED;
-        }
-        return check_ack();
-    }
+    // // Summary - 
+    // // retval (retval_t) - 
+    // retval_t i2c_drvr_end(void)
+    // {
+    //     // generate a stop condition (SDA goes low -> high while SCL stays high)
+    //     USIDR = 0xFF;
+    //     return GEN_PASS;
+    // }
 
 
-    // Summary - 
-    // retval (retval_t) - 
-    retval_t i2c_drvr_read_byte(uint8_t *byte_read_ptr)
-    {
-        uint8_t i;
-        retval_t retval;
-        for (i = 7; i != 0; i--) {
-            toggle_scl();
-            toggle_scl();
-        }
-        retval = check_ack();
-        if (I2C_ACK) {
-            // read from i2c buffer
-            *byte_read_ptr = USIDR;  // should read from USIBR? (buffer reg)
-        }
-        return retval;
-    }
-
-    // Summary - 
-    void toggle_scl(void)
-    {
-        PORTB ^= (1 << PB7);  // toggle scl
-    }
+    // // Summary - 
+    // // param (uint8_t) byte_to_tx - 
+    // retval_t i2c_drvr_write_byte(uint8_t byte_to_tx)
+    // {
+    //     uint8_t i;
+    //     uint8_t bit;
+    //     // send byte
+    //     USIDR = byte_to_tx;
+    //     // deassert scl by clearing start condition flag
+    //     if (USISR & (1 << (USISIF))) {
+    //         USISR &= (~(1 << (USISIF)));
+    //     } else {
+    //         return I2C_START_COND_NOT_DETECTED;
+    //     }
+    //     return check_ack();
+    // }
 
 
-    // Summary - 
-    // retval (retval_t) - 
-    retval_t check_ack(void)
-    {
-        retval_t retval;
-        // check ack
-        toggle_scl();
-        // check ack/nack here
-        if ((PINB & (1 << PB5)) == 0) {  // check if SDA is low
-            retval = I2C_ACK;
-        } else {
-            retval = I2C_NACK;
-        }
-        toggle_scl();
-        return retval;
-    }
+    // // Summary - 
+    // // retval (retval_t) - 
+    // retval_t i2c_drvr_read_byte(uint8_t *byte_read_ptr)
+    // {
+    //     uint8_t i;
+    //     retval_t retval;
+    //     for (i = 7; i != 0; i--) {
+    //         toggle_scl();
+    //         toggle_scl();
+    //     }
+    //     retval = check_ack();
+    //     if (I2C_ACK) {
+    //         // read from i2c buffer
+    //         *byte_read_ptr = USIDR;  // should read from USIBR? (buffer reg)
+    //     }
+    //     return retval;
+    // }
 
+    // // Summary - 
+    // void toggle_scl(void)
+    // {
+    //     PORTB ^= (1 << PB7);  // toggle scl
+    // }
+
+
+    // // Summary - 
+    // // retval (retval_t) - 
+    // retval_t check_ack(void)
+    // {
+    //     retval_t retval;
+    //     // check ack
+    //     toggle_scl();
+    //     // check ack/nack here
+    //     if ((PINB & (1 << PB5)) == 0) {  // check if SDA is low
+    //         retval = I2C_ACK;
+    //     } else {
+    //         retval = I2C_NACK;
+    //     }
+    //     toggle_scl();
+    //     return retval;
+    // }
 
 #endif  /* I2C_BITBANG */
