@@ -5,7 +5,8 @@
 #include "global_defines.h"
 #include <stdint.h>
 
-#define UART_RX_BUFF_SIZE 16
+
+#define UART_RX_BUFF_SIZE 16 //!< size of the UART receive buffer
 
 
 void UART_drvr_init(uint32_t baudrate);

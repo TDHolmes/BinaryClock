@@ -1,0 +1,60 @@
+\hypertarget{_l_e_d__drvr___s_t_p16_c_p_c26_8c}{}\section{firmware/\+L\+E\+D\+\_\+drvr\+\_\+\+S\+T\+P16\+C\+P\+C26.c File Reference}
+\label{_l_e_d__drvr___s_t_p16_c_p_c26_8c}\index{firmware/\+L\+E\+D\+\_\+drvr\+\_\+\+S\+T\+P16\+C\+P\+C26.\+c@{firmware/\+L\+E\+D\+\_\+drvr\+\_\+\+S\+T\+P16\+C\+P\+C26.\+c}}
+{\ttfamily \#include \char`\"{}L\+E\+D\+\_\+drvr\+\_\+\+S\+T\+P16\+C\+P\+C26.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}L\+E\+D.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ports.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{_l_e_d__drvr___s_t_p16_c_p_c26_8c_a70d330906276a996f7dab090a03ce2a5}{C\+O\+L\+O\+R\+\_\+\+D\+E\+P\+TH}~4
+\begin{DoxyCompactList}\small\item\em Number of bits of color to multiplex. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{_l_e_d__drvr___s_t_p16_c_p_c26_8c_a114c987dc587d53f9c53173afe4f9a54}{L\+E\+D\+\_\+drvr\+\_\+init} (\hyperlink{struct_l_e_d__drvr__t}{L\+E\+D\+\_\+drvr\+\_\+t} $\ast$L\+E\+D\+\_\+ptr)
+\item 
+void \hyperlink{_l_e_d__drvr___s_t_p16_c_p_c26_8c_a649a79cad2b9aae395acbbd8612cc970}{L\+E\+D\+\_\+drvr\+\_\+run} (\hyperlink{struct_l_e_d__drvr__t}{L\+E\+D\+\_\+drvr\+\_\+t} $\ast$L\+E\+D\+\_\+ptr)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{_l_e_d__drvr___s_t_p16_c_p_c26_8c_a70d330906276a996f7dab090a03ce2a5}{}\label{_l_e_d__drvr___s_t_p16_c_p_c26_8c_a70d330906276a996f7dab090a03ce2a5} 
+\index{L\+E\+D\+\_\+drvr\+\_\+\+S\+T\+P16\+C\+P\+C26.\+c@{L\+E\+D\+\_\+drvr\+\_\+\+S\+T\+P16\+C\+P\+C26.\+c}!C\+O\+L\+O\+R\+\_\+\+D\+E\+P\+TH@{C\+O\+L\+O\+R\+\_\+\+D\+E\+P\+TH}}
+\index{C\+O\+L\+O\+R\+\_\+\+D\+E\+P\+TH@{C\+O\+L\+O\+R\+\_\+\+D\+E\+P\+TH}!L\+E\+D\+\_\+drvr\+\_\+\+S\+T\+P16\+C\+P\+C26.\+c@{L\+E\+D\+\_\+drvr\+\_\+\+S\+T\+P16\+C\+P\+C26.\+c}}
+\subsubsection{\texorpdfstring{C\+O\+L\+O\+R\+\_\+\+D\+E\+P\+TH}{COLOR\_DEPTH}}
+{\footnotesize\ttfamily \#define C\+O\+L\+O\+R\+\_\+\+D\+E\+P\+TH~4}
+
+
+
+Number of bits of color to multiplex. 
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_l_e_d__drvr___s_t_p16_c_p_c26_8c_a114c987dc587d53f9c53173afe4f9a54}{}\label{_l_e_d__drvr___s_t_p16_c_p_c26_8c_a114c987dc587d53f9c53173afe4f9a54} 
+\index{L\+E\+D\+\_\+drvr\+\_\+\+S\+T\+P16\+C\+P\+C26.\+c@{L\+E\+D\+\_\+drvr\+\_\+\+S\+T\+P16\+C\+P\+C26.\+c}!L\+E\+D\+\_\+drvr\+\_\+init@{L\+E\+D\+\_\+drvr\+\_\+init}}
+\index{L\+E\+D\+\_\+drvr\+\_\+init@{L\+E\+D\+\_\+drvr\+\_\+init}!L\+E\+D\+\_\+drvr\+\_\+\+S\+T\+P16\+C\+P\+C26.\+c@{L\+E\+D\+\_\+drvr\+\_\+\+S\+T\+P16\+C\+P\+C26.\+c}}
+\subsubsection{\texorpdfstring{L\+E\+D\+\_\+drvr\+\_\+init()}{LED\_drvr\_init()}}
+{\footnotesize\ttfamily void L\+E\+D\+\_\+drvr\+\_\+init (\begin{DoxyParamCaption}\item[{\hyperlink{struct_l_e_d__drvr__t}{L\+E\+D\+\_\+drvr\+\_\+t} $\ast$}]{L\+E\+D\+\_\+ptr }\end{DoxyParamCaption})}
+
+Initializes the L\+ED driver structure and drives the anode port high to avoid L\+E\+Ds turning on.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em L\+E\+D\+\_\+ptr} & (\hyperlink{struct_l_e_d__drvr__t}{L\+E\+D\+\_\+drvr\+\_\+t} $\ast$)\+: pointer to the L\+ED driver structure. \\
+\hline
+\end{DoxyParams}
+\hypertarget{_l_e_d__drvr___s_t_p16_c_p_c26_8c_a649a79cad2b9aae395acbbd8612cc970}{}\label{_l_e_d__drvr___s_t_p16_c_p_c26_8c_a649a79cad2b9aae395acbbd8612cc970} 
+\index{L\+E\+D\+\_\+drvr\+\_\+\+S\+T\+P16\+C\+P\+C26.\+c@{L\+E\+D\+\_\+drvr\+\_\+\+S\+T\+P16\+C\+P\+C26.\+c}!L\+E\+D\+\_\+drvr\+\_\+run@{L\+E\+D\+\_\+drvr\+\_\+run}}
+\index{L\+E\+D\+\_\+drvr\+\_\+run@{L\+E\+D\+\_\+drvr\+\_\+run}!L\+E\+D\+\_\+drvr\+\_\+\+S\+T\+P16\+C\+P\+C26.\+c@{L\+E\+D\+\_\+drvr\+\_\+\+S\+T\+P16\+C\+P\+C26.\+c}}
+\subsubsection{\texorpdfstring{L\+E\+D\+\_\+drvr\+\_\+run()}{LED\_drvr\_run()}}
+{\footnotesize\ttfamily void L\+E\+D\+\_\+drvr\+\_\+run (\begin{DoxyParamCaption}\item[{\hyperlink{struct_l_e_d__drvr__t}{L\+E\+D\+\_\+drvr\+\_\+t} $\ast$}]{L\+E\+D\+\_\+ptr }\end{DoxyParamCaption})}
+
+Runs the L\+ED multiplexing code. Generates a bitstream to send to the L\+ED driver, then activates the corresponding column.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em L\+E\+D\+\_\+ptr} & (\hyperlink{struct_l_e_d__drvr__t}{L\+E\+D\+\_\+drvr\+\_\+t} $\ast$)\+: pointer to the L\+ED driver structure. \\
+\hline
+\end{DoxyParams}

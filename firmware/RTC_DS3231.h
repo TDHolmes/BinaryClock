@@ -5,15 +5,17 @@
 #include <stdint.h>
 
 
+//! data structure to keep track of the time
 typedef struct {
     uint8_t second;
     uint8_t minute;
     uint8_t hour;
 } rtc_time_t;
 
-#define RTC_ADDR 0x68
 
-/**** address definitions ****/
+#define RTC_ADDR 0x68  //!< I2C address of the RTC chip
+
+//! address definitions for the RTC chip
 #define RTC_ADDR_SECONDS           0x00
 #define RTC_ADDR_MINUTES           0x01
 #define RTC_ADDR_HOURS             0x02
@@ -34,8 +36,8 @@ typedef struct {
 #define RTC_ADDR_TEMP_MSB          0x11
 #define RTC_ADDR_TEMP_LSB          0x12
 
-/**** bit definitions ****/
-// control reg bits
+
+//! control register bit definitions
 #define EOSC_N 7
 #define BBSQW  6
 #define CONV   5
@@ -43,7 +45,7 @@ typedef struct {
 #define A2IE   1
 #define A1IE   0
 
-// status reg bits
+//! status register bit definitions
 #define OSF     7
 #define EN32KHZ 3
 #define BSY     2
@@ -51,7 +53,7 @@ typedef struct {
 #define A1F     0
 
 
-/**** Masks ****/
+//! Masks for the binary encoded decimal values in the RTC chip
 #define RTC_SEC_ONE_MASK  0b00001111
 #define RTC_SEC_TEN_MASK  0b01110000
 #define RTC_MIN_ONE_MASK  0b00001111
@@ -59,16 +61,10 @@ typedef struct {
 #define RTC_HOUR_ONE_MASK 0b00001111
 #define RTC_HOUR_TEN_MASK 0b00110000
 
-// offsets
+//! offsets into the registers
 #define RTC_SEC_TEN_OFFSET  4
 #define RTC_MIN_TEN_OFFSET  4
 #define RTC_HOUR_TEN_OFFSET 4
-
-
-/* The Aging Offset code is encoded in two’s complement, with bit 7 representing the
-SIGN bit and a valid range of ±127. One LSB typically represents a 0.12ppm change in
-frequency. The change in ppm per LSB is the same over the operating temperature range.
-Positive offsets slow the time base and negative offsets quicken the time base. */
 
 
 // function definitions

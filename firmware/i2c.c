@@ -3,8 +3,8 @@
 #include "global_defines.h"
 #include <stdint.h>
 
-#define WRITE_MASK 0x00
-#define READ_MASK  0x01
+#define WRITE_MASK 0x00  //!< Mask for writing to a chip.
+#define READ_MASK  0x01  //!< Mask for reading from a chip.
 
 
 // private functions
@@ -12,18 +12,25 @@ static retval_t i2c_start(uint8_t address, uint8_t mode);
 static void i2c_end(void);
 
 
-// Summary - 
-// retval (uint8_t) - 
+/*!
+ * Initializes the I2C driver.
+ * 
+ * @param[out] retval (retval_t): Returns the initialization status of the I2C driver.
+ */
 retval_t i2c_init(void)
 {
     return i2c_drvr_init();
 }
 
 
-// Summary - 
-// param (uint8_t) address - 
-// param (uint8_t) mode - 
-// retval (uint8_t) - 
+/*!
+ * Starts communication with a chip in the given mode. Only local use!
+ * 
+ * @param[in]  address (uint8_t): Address of the chip to communicate with.
+ * @param[in]  mode (uint8_t): Read/write mode to start communication
+ * @param[out] retval (retval_t): Returns the success or failure of starting
+ *      communication.
+ */
 retval_t i2c_start(uint8_t address, uint8_t mode)
 {
     uint8_t addr_byte_to_send;
@@ -41,6 +48,15 @@ retval_t i2c_start(uint8_t address, uint8_t mode)
 }
 
 
+/*!
+ * Writes a byte to a chip. Handles starting and stopping of communication.
+ * 
+ * @param[in]  chip_addr (uint8_t): The chip's address without the read/write bit set.
+ * @param[in]  reg_addr (uint8_t): Address of the register you want to write to.
+ * @param[in]  data (uint8_t): Data you want to write.
+ * @param[out] retval (retval_t): Returns the success or failure of starting communication
+ *      & sending the byte.
+ */
 retval_t i2c_write_byte(uint8_t chip_addr, uint8_t reg_addr, uint8_t data)
 {
     // start communications with the chip
@@ -61,11 +77,17 @@ retval_t i2c_write_byte(uint8_t chip_addr, uint8_t reg_addr, uint8_t data)
 }
 
 
-// Summary - 
-// param (uint8_t) start_adr - 
-// param (uint8_t *) data_to_write_ptr - 
-// param (uint8_t) data_len - 
-// retval (uint8_t) - 
+/*!
+ * Starts communication with a chip and writes N bytes to the chip. Handles starting
+ * and ending communication as well.
+ * 
+ * @param[in] chip_addr (uint8_t): The address of the chip to be written to.
+ * @param[in] start_adr (uint8_t): The starting register of the write.
+ * @param[in] data_to_write_ptr (uint8_t *): The data to be written array.
+ * @param[in] data_len (uint8_t): How many bytes to be written.
+ * @param[out] retval (retval_t): Returns the success or failure of starting
+ *      communication and writing to the device.
+ */
 retval_t i2c_write(uint8_t chip_addr, uint8_t start_adr, uint8_t *data_to_write_ptr, uint8_t data_len)
 {
     // start communications with the chip
@@ -95,11 +117,15 @@ retval_t i2c_write(uint8_t chip_addr, uint8_t start_adr, uint8_t *data_to_write_
 }
 
 
-// Summary - 
-// param (uint8_t) start_adr - 
-// param (uint8_t *) data_out_ptr - 
-// param (uint8_t) data_len - 
-// retval (uint8_t) - 
+/*!
+ * Reads a byte from a chip. Handles starting and stopping of communication.
+ * 
+ * @param[in] chip_addr (uint8_t): The address of the chip to be read from.
+ * @param[in] start_adr (uint8_t): The starting register of the read.
+ * @param[in] data_out_ptr (uint8_t *): Location to store the read value.
+ * @param[out] retval (retval_t): Returns the success or failure of starting communication
+ *      & reading the byte.
+ */
 retval_t i2c_read_byte(uint8_t chip_addr, uint8_t start_adr, uint8_t *data_out_ptr)
 {
     // start communications with the chip in write mode to change the address
@@ -135,11 +161,16 @@ retval_t i2c_read_byte(uint8_t chip_addr, uint8_t start_adr, uint8_t *data_out_p
 }
 
 
-// Summary - 
-// param (uint8_t) start_adr - 
-// param (uint8_t *) data_out_ptr - 
-// param (uint8_t) data_len - 
-// retval (uint8_t) - 
+/*!
+ * Reads N bytes from a chip. Handles starting and stopping of communication.
+ * 
+ * @param[in] chip_addr (uint8_t): The address of the chip to be read from.
+ * @param[in] start_adr (uint8_t): The starting register of the read.
+ * @param[in] data_out_ptr (uint8_t *): Location to store the read values.
+ * @param[in] data_len (uint8_t): amount of bytes to read.
+ * @param[out] retval (retval_t): Returns the success or failure of starting communication
+ *      & reading the byte.
+ */
 retval_t i2c_read(uint8_t chip_addr, uint8_t start_adr, uint8_t *data_out_ptr, uint8_t data_len)
 {
     uint8_t i;
@@ -181,7 +212,9 @@ retval_t i2c_read(uint8_t chip_addr, uint8_t start_adr, uint8_t *data_out_ptr, u
 }
 
 
-// Summary - 
+/*!
+ * Ends communication with a chip in the given mode. Only local use!
+ */
 void i2c_end(void)
 {
     i2c_drvr_end();

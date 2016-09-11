@@ -4,14 +4,16 @@
 #include <stdint.h>
 #include "global_defines.h"
 
+
+//! data structure to keep track of important ring buffer variables
 typedef struct {
-    uint8_t *head;
-    uint8_t *tail;
-    uint8_t *start;
-    uint8_t *end;
-    uint8_t buff_size;
-    uint8_t error;
-    uint8_t unread_items;
+    uint8_t *head;  //!< pointer to the head of the buffer
+    uint8_t *tail;  //!< pointer to the tail of the buffer
+    uint8_t *start; //!< pointer to the start address of the buffer space
+    uint8_t *end;   //!< pointer to the end address of the buffer space
+    uint8_t buff_size;    //!< size of the buffer space
+    uint8_t error;        //!< error flag (not currently used)
+    uint8_t unread_items; //!< number of unread items in the ring buffer
 } ring_buffer_t;
 
 

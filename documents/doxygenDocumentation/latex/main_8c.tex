@@ -1,0 +1,221 @@
+\hypertarget{main_8c}{}\section{firmware/main.c File Reference}
+\label{main_8c}\index{firmware/main.\+c@{firmware/main.\+c}}
+{\ttfamily \#include $<$avr/io.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}timer\+\_\+4313.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}R\+T\+C\+\_\+\+D\+S3231.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}L\+E\+D.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}U\+A\+R\+T.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}i2c.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}hardware.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}color.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ports.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}global\+\_\+defines.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{main_8c_ad3fcfed0b340c80205d17572a9d1f5c8}{N\+O\+\_\+\+F\+O\+R\+C\+E\+\_\+\+U\+P\+D\+A\+TE}~0
+\begin{DoxyCompactList}\small\item\em Only update the L\+ED array columns that have changed. \end{DoxyCompactList}\item 
+\#define \hyperlink{main_8c_a986b9ffaa07e690ab7d2731405337319}{F\+O\+R\+C\+E\+\_\+\+U\+P\+D\+A\+TE}~1
+\begin{DoxyCompactList}\small\item\em Update all L\+ED array columns. \end{DoxyCompactList}\item 
+\#define \hyperlink{main_8c_a73c52f3e083ffd8acde0b01f74de7a5a}{C\+O\+M\+M\+A\+N\+D\+\_\+\+L\+E\+N\+G\+TH}~6
+\begin{DoxyCompactList}\small\item\em number of bytes in a valid U\+A\+RT command. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{main_8c_aa0aafed44fec19806d8f9ad834be1248}{state\+\_\+t} \{ \hyperlink{main_8c_aa0aafed44fec19806d8f9ad834be1248a3a35b5637ac389462359c30abbfbf405}{R\+U\+N\+\_\+\+T\+I\+ME}, 
+\hyperlink{main_8c_aa0aafed44fec19806d8f9ad834be1248a0db6a15af5dfe805b3670bd7b0cc79aa}{R\+U\+N\+\_\+\+M\+A\+N\+U\+AL}
+ \}\begin{DoxyCompactList}\small\item\em Current state of the clock. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{main_8c_a840291bc02cba5474a4cb46a9b9566fe}{main} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{main_8c_aa0aafed44fec19806d8f9ad834be1248}{state\+\_\+t} \hyperlink{main_8c_ab7ca1d7f6e3e0aa50018c99ecface556}{system\+\_\+state} = \hyperlink{main_8c_aa0aafed44fec19806d8f9ad834be1248a3a35b5637ac389462359c30abbfbf405}{R\+U\+N\+\_\+\+T\+I\+ME}
+\begin{DoxyCompactList}\small\item\em keeps track of the system state. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{main_8c_ac7e20580a719e05c4636488e9be3f416}{uart\+\_\+command\+\_\+received} = 0
+\begin{DoxyCompactList}\small\item\em valid command received flag. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{main_8c_a5cfb334a7bf0f4b5c337f27520190abe}{timer\+\_\+expired} = 0
+\begin{DoxyCompactList}\small\item\em 15-\/20ish ms timer timeout flag. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{main_8c_a6e5ffe07d12493f339d4be9454ef2a2b}{L\+E\+D\+\_\+multiplex\+\_\+timer\+\_\+count} = 0
+\begin{DoxyCompactList}\small\item\em count of mutiplex handler timer events. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{main_8c_a7b552a5dffd6c6e5ff11caac286ba3de}{command\+\_\+buffer} \mbox{[}\hyperlink{main_8c_a73c52f3e083ffd8acde0b01f74de7a5a}{C\+O\+M\+M\+A\+N\+D\+\_\+\+L\+E\+N\+G\+TH}\mbox{]}
+\begin{DoxyCompactList}\small\item\em where U\+A\+RT commands are buffered. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{main_8c_a73c52f3e083ffd8acde0b01f74de7a5a}{}\label{main_8c_a73c52f3e083ffd8acde0b01f74de7a5a} 
+\index{main.\+c@{main.\+c}!C\+O\+M\+M\+A\+N\+D\+\_\+\+L\+E\+N\+G\+TH@{C\+O\+M\+M\+A\+N\+D\+\_\+\+L\+E\+N\+G\+TH}}
+\index{C\+O\+M\+M\+A\+N\+D\+\_\+\+L\+E\+N\+G\+TH@{C\+O\+M\+M\+A\+N\+D\+\_\+\+L\+E\+N\+G\+TH}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{C\+O\+M\+M\+A\+N\+D\+\_\+\+L\+E\+N\+G\+TH}{COMMAND\_LENGTH}}
+{\footnotesize\ttfamily \#define C\+O\+M\+M\+A\+N\+D\+\_\+\+L\+E\+N\+G\+TH~6}
+
+
+
+number of bytes in a valid U\+A\+RT command. 
+
+
+
+Definition at line 23 of file main.\+c.
+
+\hypertarget{main_8c_a986b9ffaa07e690ab7d2731405337319}{}\label{main_8c_a986b9ffaa07e690ab7d2731405337319} 
+\index{main.\+c@{main.\+c}!F\+O\+R\+C\+E\+\_\+\+U\+P\+D\+A\+TE@{F\+O\+R\+C\+E\+\_\+\+U\+P\+D\+A\+TE}}
+\index{F\+O\+R\+C\+E\+\_\+\+U\+P\+D\+A\+TE@{F\+O\+R\+C\+E\+\_\+\+U\+P\+D\+A\+TE}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{F\+O\+R\+C\+E\+\_\+\+U\+P\+D\+A\+TE}{FORCE\_UPDATE}}
+{\footnotesize\ttfamily \#define F\+O\+R\+C\+E\+\_\+\+U\+P\+D\+A\+TE~1}
+
+
+
+Update all L\+ED array columns. 
+
+
+
+Definition at line 21 of file main.\+c.
+
+\hypertarget{main_8c_ad3fcfed0b340c80205d17572a9d1f5c8}{}\label{main_8c_ad3fcfed0b340c80205d17572a9d1f5c8} 
+\index{main.\+c@{main.\+c}!N\+O\+\_\+\+F\+O\+R\+C\+E\+\_\+\+U\+P\+D\+A\+TE@{N\+O\+\_\+\+F\+O\+R\+C\+E\+\_\+\+U\+P\+D\+A\+TE}}
+\index{N\+O\+\_\+\+F\+O\+R\+C\+E\+\_\+\+U\+P\+D\+A\+TE@{N\+O\+\_\+\+F\+O\+R\+C\+E\+\_\+\+U\+P\+D\+A\+TE}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{N\+O\+\_\+\+F\+O\+R\+C\+E\+\_\+\+U\+P\+D\+A\+TE}{NO\_FORCE\_UPDATE}}
+{\footnotesize\ttfamily \#define N\+O\+\_\+\+F\+O\+R\+C\+E\+\_\+\+U\+P\+D\+A\+TE~0}
+
+
+
+Only update the L\+ED array columns that have changed. 
+
+
+
+Definition at line 20 of file main.\+c.
+
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{main_8c_aa0aafed44fec19806d8f9ad834be1248}{}\label{main_8c_aa0aafed44fec19806d8f9ad834be1248} 
+\index{main.\+c@{main.\+c}!state\+\_\+t@{state\+\_\+t}}
+\index{state\+\_\+t@{state\+\_\+t}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{state\+\_\+t}{state\_t}}
+{\footnotesize\ttfamily enum \hyperlink{main_8c_aa0aafed44fec19806d8f9ad834be1248}{state\+\_\+t}}
+
+
+
+Current state of the clock. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{R\+U\+N\+\_\+\+T\+I\+ME@{R\+U\+N\+\_\+\+T\+I\+ME}!main.\+c@{main.\+c}}\index{main.\+c@{main.\+c}!R\+U\+N\+\_\+\+T\+I\+ME@{R\+U\+N\+\_\+\+T\+I\+ME}}}\hypertarget{main_8c_aa0aafed44fec19806d8f9ad834be1248a3a35b5637ac389462359c30abbfbf405}{}\label{main_8c_aa0aafed44fec19806d8f9ad834be1248a3a35b5637ac389462359c30abbfbf405} 
+R\+U\+N\+\_\+\+T\+I\+ME&Runs time display mode. L\+E\+Ds controlled by the current time. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{R\+U\+N\+\_\+\+M\+A\+N\+U\+AL@{R\+U\+N\+\_\+\+M\+A\+N\+U\+AL}!main.\+c@{main.\+c}}\index{main.\+c@{main.\+c}!R\+U\+N\+\_\+\+M\+A\+N\+U\+AL@{R\+U\+N\+\_\+\+M\+A\+N\+U\+AL}}}\hypertarget{main_8c_aa0aafed44fec19806d8f9ad834be1248a0db6a15af5dfe805b3670bd7b0cc79aa}{}\label{main_8c_aa0aafed44fec19806d8f9ad834be1248a0db6a15af5dfe805b3670bd7b0cc79aa} 
+R\+U\+N\+\_\+\+M\+A\+N\+U\+AL&Runs manual display mode. L\+E\+Ds controlled by U\+A\+RT commands. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 26 of file main.\+c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{main_8c_a840291bc02cba5474a4cb46a9b9566fe}{}\label{main_8c_a840291bc02cba5474a4cb46a9b9566fe} 
+\index{main.\+c@{main.\+c}!main@{main}}
+\index{main@{main}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Runs the main program.
+
+Order of opperation\+:
+\begin{DoxyEnumerate}
+\item Check if we\textquotesingle{}ve received enough data for a command.
+\begin{DoxyItemize}
+\item If we have, process it.
+\end{DoxyItemize}
+\item Check if we should run manual control or time control.
+\begin{DoxyItemize}
+\item If manual control\+: a. run the L\+ED multiplex function. b. keep time as well.
+\item If time control\+: a. check if we need to update the time
+\begin{DoxyItemize}
+\item if so, increment time and update the L\+ED array b. run the L\+ED multiplex function 
+\end{DoxyItemize}
+\end{DoxyItemize}
+\end{DoxyEnumerate}
+
+Definition at line 57 of file main.\+c.
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{main_8c_a7b552a5dffd6c6e5ff11caac286ba3de}{}\label{main_8c_a7b552a5dffd6c6e5ff11caac286ba3de} 
+\index{main.\+c@{main.\+c}!command\+\_\+buffer@{command\+\_\+buffer}}
+\index{command\+\_\+buffer@{command\+\_\+buffer}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{command\+\_\+buffer}{command\_buffer}}
+{\footnotesize\ttfamily uint8\+\_\+t command\+\_\+buffer\mbox{[}\hyperlink{main_8c_a73c52f3e083ffd8acde0b01f74de7a5a}{C\+O\+M\+M\+A\+N\+D\+\_\+\+L\+E\+N\+G\+TH}\mbox{]}}
+
+
+
+where U\+A\+RT commands are buffered. 
+
+
+
+Definition at line 35 of file main.\+c.
+
+\hypertarget{main_8c_a6e5ffe07d12493f339d4be9454ef2a2b}{}\label{main_8c_a6e5ffe07d12493f339d4be9454ef2a2b} 
+\index{main.\+c@{main.\+c}!L\+E\+D\+\_\+multiplex\+\_\+timer\+\_\+count@{L\+E\+D\+\_\+multiplex\+\_\+timer\+\_\+count}}
+\index{L\+E\+D\+\_\+multiplex\+\_\+timer\+\_\+count@{L\+E\+D\+\_\+multiplex\+\_\+timer\+\_\+count}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{L\+E\+D\+\_\+multiplex\+\_\+timer\+\_\+count}{LED\_multiplex\_timer\_count}}
+{\footnotesize\ttfamily uint8\+\_\+t L\+E\+D\+\_\+multiplex\+\_\+timer\+\_\+count = 0}
+
+
+
+count of mutiplex handler timer events. 
+
+
+
+Definition at line 34 of file main.\+c.
+
+\hypertarget{main_8c_ab7ca1d7f6e3e0aa50018c99ecface556}{}\label{main_8c_ab7ca1d7f6e3e0aa50018c99ecface556} 
+\index{main.\+c@{main.\+c}!system\+\_\+state@{system\+\_\+state}}
+\index{system\+\_\+state@{system\+\_\+state}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{system\+\_\+state}{system\_state}}
+{\footnotesize\ttfamily \hyperlink{main_8c_aa0aafed44fec19806d8f9ad834be1248}{state\+\_\+t} system\+\_\+state = \hyperlink{main_8c_aa0aafed44fec19806d8f9ad834be1248a3a35b5637ac389462359c30abbfbf405}{R\+U\+N\+\_\+\+T\+I\+ME}}
+
+
+
+keeps track of the system state. 
+
+
+
+Definition at line 31 of file main.\+c.
+
+\hypertarget{main_8c_a5cfb334a7bf0f4b5c337f27520190abe}{}\label{main_8c_a5cfb334a7bf0f4b5c337f27520190abe} 
+\index{main.\+c@{main.\+c}!timer\+\_\+expired@{timer\+\_\+expired}}
+\index{timer\+\_\+expired@{timer\+\_\+expired}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{timer\+\_\+expired}{timer\_expired}}
+{\footnotesize\ttfamily uint8\+\_\+t timer\+\_\+expired = 0}
+
+
+
+15-\/20ish ms timer timeout flag. 
+
+
+
+Definition at line 33 of file main.\+c.
+
+\hypertarget{main_8c_ac7e20580a719e05c4636488e9be3f416}{}\label{main_8c_ac7e20580a719e05c4636488e9be3f416} 
+\index{main.\+c@{main.\+c}!uart\+\_\+command\+\_\+received@{uart\+\_\+command\+\_\+received}}
+\index{uart\+\_\+command\+\_\+received@{uart\+\_\+command\+\_\+received}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{uart\+\_\+command\+\_\+received}{uart\_command\_received}}
+{\footnotesize\ttfamily uint8\+\_\+t uart\+\_\+command\+\_\+received = 0}
+
+
+
+valid command received flag. 
+
+
+
+Definition at line 32 of file main.\+c.
+

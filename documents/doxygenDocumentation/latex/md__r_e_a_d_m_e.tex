@@ -1,0 +1,33 @@
+A simple but well designed clock that displays the time in \href{https://en.wikipedia.org/wiki/Binary-coded_decimal}{\tt binary coded decimal}
+
+\subsection*{P\+CB}
+
+
+
+The current design uses an Atmel \href{http://www.atmel.com/devices/ATTINY4313.aspx}{\tt A\+Ttiny4313} microcontroller in conjunction with a Maxim \href{https://www.maximintegrated.com/en/products/digital/real-time-clocks/DS3231M.html}{\tt D\+S3231M} \href{https://en.wikipedia.org/wiki/Real-time_clock}{\tt R\+TC} for accurate time keeping. The L\+E\+Ds are driven with a \href{http://www.st.com/content/st_com/en/products/power-management/led-drivers/led-array-drivers/stp16cpc26.html}{\tt S\+T\+P16\+C\+P\+C26} constant current L\+ED driver along with \href{https://en.wikipedia.org/wiki/MOSFET#Single-type}{\tt high-\/side M\+O\+S\+F\+E\+Ts} for \href{https://en.wikipedia.org/wiki/Multiplexing}{\tt multiplexing}.
+
+\subsection*{L\+ED Driving Scheme}
+
+The L\+E\+Ds are driven by multiplexing the rows and columns. The columns are dirven individually via P\+M\+OS transistors. The rows are daisy chained and driven by the \href{http://www.st.com/content/st_com/en/products/power-management/led-drivers/led-array-drivers/stp16cpc26.html}{\tt S\+T\+P16\+C\+P\+C26}. The columns are refreshed at an effective rate of 360 Hz to be equivallent to 60 Hz refresh rate.
+
+In order to get more than basic red, green and blue combinations, the L\+E\+Ds have four time slots to create more color combinations. So in reality, the L\+E\+Ds are updated at (60 Hz) $\ast$ (6 columns) $\ast$ (4 bit color) = 1440 Hz.
+
+Below shows the connectivity of the L\+E\+Ds to the driver chips.
+
+
+
+Below is a snapshot in time when the minute ones column is active.
+
+
+
+\subsection*{G\+UI}
+
+The user interface communicates to the P\+CB via a \href{https://en.wikipedia.org/wiki/Universal_asynchronous_receiver/transmitter}{\tt U\+A\+RT} through a U\+SB to serial converter chip. The user interface can do a few things\+:
+\begin{DoxyItemize}
+\item set the time to the current computer system time
+\item set a custom time
+\item set one or all L\+E\+Ds to a certain color
+\item clear one or all L\+E\+Ds
+\end{DoxyItemize}
+
+ 

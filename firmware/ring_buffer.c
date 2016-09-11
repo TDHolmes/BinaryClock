@@ -3,10 +3,13 @@
 #include <stdint.h>
 
 
-// Summary - 
-// param (ring_buffer_t *) rb_ptr - 
-// param (uint8_t *) buffer_array_ptr - 
-// param (uint8_t) buffer_len - 
+/*!
+ * Initializes the ring buffer structure.
+ * 
+ * @param[in] rb_ptr (ring_buffer_t *): ring buffer admin structure to initialize.
+ * @param[in] buffer_array_ptr (uint8_t *): pointer to the buffer array.
+ * @param[in] buffer_len (uint8_t): length of the buffer to be initialized.
+ */
 void ring_buff_init(ring_buffer_t *rb_ptr, uint8_t *buffer_array_ptr, uint8_t buffer_len)
 {
     rb_ptr->start = buffer_array_ptr;
@@ -19,10 +22,13 @@ void ring_buff_init(ring_buffer_t *rb_ptr, uint8_t *buffer_array_ptr, uint8_t bu
 }
 
 
-// Summary - 
-// param (ring_buffer_t *) rb_ptr - 
-// param (uint8_t *) return_item_ptr - 
-// retval (uint8_t) - 
+/*!
+ * Pops a value off of the ring buffer.
+ * 
+ * @param[in] rb_ptr (ring_buffer_t *): admin structure for the ring buffer we're using.
+ * @param[in] return_item_ptr (uint8_t *): Location to return the value to
+ * @param[out] retval (retval_t): Returns the error or pass status.
+ */
 retval_t ring_buff_pop(ring_buffer_t *rb_ptr, uint8_t *return_item_ptr)
 {
     if (rb_ptr->unread_items == 0) {
@@ -44,10 +50,13 @@ retval_t ring_buff_pop(ring_buffer_t *rb_ptr, uint8_t *return_item_ptr)
 }
 
 
-// Summary - 
-// param (ring_buffer_t *) rb_ptr - 
-// param (uint8_t) new_val - 
-// retval (uint8_t) - 
+/*!
+ * Pushes a value onto the ring buffer.
+ * 
+ * @param[in] rb_ptr (ring_buffer_t *): admin structure for the ring buffer we're using.
+ * @param[in] new_val (uint8_t): value to push onto the buffer.
+ * @param[out] retval (retval_t): Returns the error or pass status.
+ */
 retval_t ring_buff_push(ring_buffer_t *rb_ptr, uint8_t new_val)
 {
     if(rb_ptr->unread_items == rb_ptr->buff_size) {
@@ -67,9 +76,12 @@ retval_t ring_buff_push(ring_buffer_t *rb_ptr, uint8_t new_val)
 }
 
 
-// Summary - 
-// param (ring_buffer_t *) rb_ptr - 
-// retval (uint8_t) - 
+/*!
+ * Gets whether or not there is valid data in the ring buffer.
+ * 
+ * @param[in] rb_ptr (ring_buffer_t *): admin structure for the ring buffer we're using.
+ * @param[out] retval (bool_t): Returns whether or not there's data on the buffer.
+ */
 bool_t ring_buff_has_data(ring_buffer_t *rb_ptr)
 {
     if (rb_ptr->unread_items > 0) {
@@ -80,17 +92,23 @@ bool_t ring_buff_has_data(ring_buffer_t *rb_ptr)
 }
 
 
-// Summary - 
-// param (ring_buffer_t *) rb_ptr - 
-// retval (uint8_t) - 
+/*!
+ * Gets how much unread data is on the buffer.
+ * 
+ * @param[in] rb_ptr (ring_buffer_t *): admin structure for the ring buffer we're using.
+ * @param[out] unread_items (uint8_t): Returns the amount of unread data is on the buffer.
+ */
 uint8_t ring_buff_unread_items(ring_buffer_t *rb_ptr)
 {
     return rb_ptr->unread_items;
 }
 
 
-// Summary - 
-// param (ring_buffer_t *) rb_ptr - 
+/*!
+ * Resets the ring buffer.
+ * 
+ * @param[in] rb_ptr (ring_buffer_t *): admin structure for the ring buffer we're using.
+ */
 void ring_buff_reset(ring_buffer_t *rb_ptr)
 {
     rb_ptr->head = rb_ptr->start;

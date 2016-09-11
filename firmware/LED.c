@@ -5,10 +5,14 @@
 #include "LED_drvr_STP16CPC26.h"
 #include <stdint.h>
 
-LED_drvr_t LED_admin_struct;
-LED_drvr_t *LED_admin_ptr;
+LED_drvr_t LED_admin_struct;  //!< Structure that keeps track of important LED variables.
+LED_drvr_t *LED_admin_ptr;    //!< Pointer to the LED admin structure.
 
-// Summary - 
+
+/*!
+ * initializes the LED driver, clears the LEDs, and initializes
+ * the LED admin pointer.
+ */
 void LED_init(void)
 {
     // uint8_t i;
@@ -17,10 +21,15 @@ void LED_init(void)
     LED_clear_all();
 }
 
-// // update LED based on a time structure
-// // Summary - 
-// // param (rtc_time_t *) t_ptr - 
-void LED_update_time(rtc_time_t *t_ptr, uint8_t update_all_override)
+
+/*!
+ * Updates the time on the RTC chip as well as in the time keeping data structure t_ptr.
+ * 
+ * @param[in] t_ptr (rtc_time_t *): Pointer that is used to keep track of the time.
+ * @param[in] update_all (uint8_t): Determines if we should update all LEDs or only
+ *      the ones that should have changed second to second.
+ */
+void LED_update_time(rtc_time_t *t_ptr, uint8_t update_all)
 {
     // check if we should only update the changed values
     uint8_t i;
@@ -32,7 +41,7 @@ void LED_update_time(rtc_time_t *t_ptr, uint8_t update_all_override)
     uint8_t sec_one = t_ptr->second % 10;
     for (i = 0; i < 4; i++) {
         // if the hour is changed...
-        if ((t_ptr->minute == 0) | (update_all_override != 0)) {
+        if ((t_ptr->minute == 0) | (update_all != 0)) {
             // update the i'th bit of hour tens place
             if (hour_ten & (1 << i)) {
                 LED_admin_ptr->LED_array[i][0][RED_IND] = LED_admin_ptr->colors.red;
@@ -55,7 +64,7 @@ void LED_update_time(rtc_time_t *t_ptr, uint8_t update_all_override)
             }
         }
         // if minutes have changed...
-        if ((t_ptr->second == 0) | (update_all_override != 0)) {
+        if ((t_ptr->second == 0) | (update_all != 0)) {
             // update the i'th bit of min tens place
             if (min_ten & (1 << i)) {
                 LED_admin_ptr->LED_array[i][2][RED_IND] = LED_admin_ptr->colors.red;
@@ -101,19 +110,22 @@ void LED_update_time(rtc_time_t *t_ptr, uint8_t update_all_override)
     }
 }
 
-// called cyclicly in while loop
-// Summary - 
-// param (uint8_t) LED_multiplex_timer_count - 
+
+/*!
+ * Runs the LED driver run function. Used for multiplexing.
+ */
 void LED_run(void)
 {
     LED_drvr_run(LED_admin_ptr);
 }
 
 
-// clears the LED at the given index
-// Summary - 
-// param (uint8_t) row - 
-// param (uint8_t) col - 
+/*!
+ * Clears an LED at the given row & column.
+ * 
+ * @param[in] row (uint8_t): row of the LED to clear.
+ * @param[in] col (uint8_t): column of the LED to clear.
+ */
 void LED_clear(uint8_t row, uint8_t col)
 {
     LED_admin_ptr->LED_array[row][col][RED_IND] = 0;
@@ -121,13 +133,16 @@ void LED_clear(uint8_t row, uint8_t col)
     LED_admin_ptr->LED_array[row][col][BLUE_IND] = 0;
 }
 
-// sets the LED at the given index to the given color struct
-// Summary - 
-// param (uint8_t) row - 
-// param (uint8_t) col - 
-// param (uint8_t) red - 
-// param (uint8_t) green - 
-// param (uint8_t) blue - 
+
+/*!
+ * sets the LED at the given index to the given color struct
+ * 
+ * @param[in] row  (uint8_t): row of the LED to set.
+ * @param[in] col  (uint8_t): column of the LED to set.
+ * @param[in] red  (uint8_t): amount of red color to set the LED to.
+ * @param[in] green (uint8_t): amount of green color to set the LED to.
+ * @param[in] blue  (uint8_t): amount of blue color to set the LED to.
+ */
 void LED_set(uint8_t row, uint8_t col, uint8_t red, uint8_t green, uint8_t blue)
 {
     LED_admin_ptr->LED_array[row][col][RED_IND] = red;
@@ -135,8 +150,9 @@ void LED_set(uint8_t row, uint8_t col, uint8_t red, uint8_t green, uint8_t blue)
     LED_admin_ptr->LED_array[row][col][BLUE_IND] = blue;
 }
 
-// clears all LED
-// Summary - 
+/*!
+ * Clears all of the LEDs.
+ */
 void LED_clear_all(void)
 {
     int i, j, k;
@@ -149,11 +165,14 @@ void LED_clear_all(void)
     }
 }
 
-// sets all LEDs to the given color
-// Summary - 
-// param (uint8_t) red - 
-// param (uint8_t) blue - 
-// param (uint8_t) green - 
+
+/*!
+ * sets all of the LEDs to the given color.
+ * 
+ * @param[in] red  (uint8_t): amount of red color to set all the LEDs to.
+ * @param[in] green (uint8_t): amount of green color to set all the LEDs to.
+ * @param[in] blue  (uint8_t): amount of blue color to set all the LEDs to.
+ */
 void LED_set_all(uint8_t red, uint8_t blue, uint8_t green)
 {
     int i, j;
@@ -166,26 +185,17 @@ void LED_set_all(uint8_t red, uint8_t blue, uint8_t green)
     }
 }
 
-// Summary - 
-// param (uint8_t) red - 
-// param (uint8_t) blue - 
-// param (uint8_t) green - 
+
+/*!
+ * sets all of the active time LEDs to the given color.
+ * 
+ * @param[in] red  (uint8_t): amount of red color to set all the active time LEDs to.
+ * @param[in] green (uint8_t): amount of green color to set all the active time LEDs to.
+ * @param[in] blue  (uint8_t): amount of blue color to set all the active time LEDs to.
+ */
 void LED_set_color(uint8_t red, uint8_t blue, uint8_t green)
 {
     LED_admin_ptr->colors.red = red;
     LED_admin_ptr->colors.green = green;
     LED_admin_ptr->colors.blue = blue;
 }
-
-
-// // returns the accrued errors
-// void LED_errors_check(LED_errors_t LED_error_struct_ptr)
-// {
-
-// }
-
-// // resets any errors
-// void LED_errors_reset()
-// {
-
-// }
