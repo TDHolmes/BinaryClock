@@ -1,28 +1,11 @@
 '''
-Custom wrappers around Tkinter classes & functions
+Custom wrappers around Tkinter classes & functions.
 '''
 
 # tk stuff
 import Tkinter as tk
 import tkMessageBox as messagebox
 import ttk
-
-
-# working on being more object oriented about these things...
-# class BaseWidget:
-#     def __init__(self, master, row, column, style, **kwargs):
-#         self.row = row
-#         self.column = column
-#         self.style = style
-#         self.root = master
-#         self.padx = kwargs.get("padx", 3)
-#         self.pady = kwargs.get("pady", 3)
-#         self.box_width = kwargs.get("box_width", 20)
-#         self.state = kwargs.get("state", "active")
-#         self.sticky = kwargs.get("sticky", "")
-#         self.justify = kwargs.get("justify", tk.LEFT)
-
-#     def
 
 
 class CheckBox:

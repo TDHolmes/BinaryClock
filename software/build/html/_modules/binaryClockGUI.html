@@ -1,0 +1,282 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>binaryClockGUI &#8212; Binary Clock Software 1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Binary Clock Software 1 documentation" href="../index.html" />
+    <link rel="up" title="Module code" href="index.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for binaryClockGUI</h1><div class="highlight"><pre>
+<span></span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">GUI for the Binary Clock API.</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="kn">import</span> <span class="nn">binaryClockAPI</span> <span class="k">as</span> <span class="nn">BC</span>
+<span class="kn">import</span> <span class="nn">CustomGUIWrappers</span> <span class="k">as</span> <span class="nn">Gui</span>
+<span class="kn">import</span> <span class="nn">Tkinter</span> <span class="k">as</span> <span class="nn">tk</span>
+<span class="kn">import</span> <span class="nn">ttk</span>
+<span class="kn">import</span> <span class="nn">tkMessageBox</span> <span class="k">as</span> <span class="nn">messagebox</span>
+
+
+<div class="viewcode-block" id="BinaryClockGUI"><a class="viewcode-back" href="../index.html#binaryClockGUI.BinaryClockGUI">[docs]</a><span class="k">class</span> <span class="nc">BinaryClockGUI</span><span class="p">:</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Binary Clock GUI Object</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># get the root object</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">root</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Tk</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="n">background</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Binary Clock API&quot;</span><span class="p">)</span>
+        <span class="c1"># themes: winnative, clam, alt, default, classic, vista, xpnative</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">style</span> <span class="o">=</span> <span class="n">ttk</span><span class="o">.</span><span class="n">Style</span><span class="p">()</span><span class="o">.</span><span class="n">theme_use</span><span class="p">(</span><span class="s1">&#39;clam&#39;</span><span class="p">)</span>
+        <span class="c1"># make the window fixed in size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">resizable</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">protocol</span><span class="p">(</span><span class="s2">&quot;WM_DELETE_WINDOW&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">on_closing</span><span class="p">)</span>
+
+        <span class="c1"># setup the buttons, input boxes, etc.</span>
+        <span class="c1"># comport label &amp; dropdown</span>
+        <span class="n">ports</span> <span class="o">=</span> <span class="n">BC</span><span class="o">.</span><span class="n">get_available_serial_ports</span><span class="p">()</span>
+        <span class="n">Gui</span><span class="o">.</span><span class="n">Labels</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Com Port:&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">serial_port_dropdown</span> <span class="o">=</span> <span class="n">Gui</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">*</span><span class="n">ports</span><span class="p">,</span> <span class="n">columnspan</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;we&quot;</span><span class="p">,</span>
+                                                 <span class="n">bind_callback</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">update_coms_list</span><span class="p">,</span>
+                                                 <span class="n">bind_key</span><span class="o">=</span><span class="s2">&quot;&lt;Button-1&gt;&quot;</span><span class="p">)</span>
+        <span class="n">bauds</span> <span class="o">=</span> <span class="p">[</span><span class="mi">250000</span><span class="p">,</span> <span class="mi">9600</span><span class="p">]</span>
+        <span class="n">Gui</span><span class="o">.</span><span class="n">Labels</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Baudrate:&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">serial_baud_dropdown</span> <span class="o">=</span> <span class="n">Gui</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">*</span><span class="n">bauds</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;we&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">serial_connect_button</span> <span class="o">=</span> <span class="n">Gui</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">connect</span><span class="p">,</span> <span class="s2">&quot;Connect&quot;</span><span class="p">,</span> <span class="n">columnspan</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">serial_disconnect_button</span> <span class="o">=</span> <span class="n">Gui</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">disconnect</span><span class="p">,</span> <span class="s2">&quot;Disconnect&quot;</span><span class="p">,</span> <span class="n">columnspan</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="c1"># time override settings</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">time_override_cb</span> <span class="o">=</span> <span class="n">Gui</span><span class="o">.</span><span class="n">CheckBox</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">cb_text</span><span class="o">=</span><span class="s2">&quot;Override Time&quot;</span><span class="p">,</span>
+                                             <span class="n">callback_funct</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">time_override</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">time_entry</span> <span class="o">=</span> <span class="n">Gui</span><span class="o">.</span><span class="n">TimeEntry</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">time_update_button</span> <span class="o">=</span> <span class="n">Gui</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_time</span><span class="p">,</span> <span class="s2">&quot;Update Time&quot;</span><span class="p">,</span> <span class="n">columnspan</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">color_update_button</span> <span class="o">=</span> <span class="n">Gui</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">update_color</span><span class="p">,</span> <span class="s2">&quot;Update Color&quot;</span><span class="p">,</span> <span class="n">columnspan</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="c1"># color settings</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">red_label</span> <span class="o">=</span> <span class="n">Gui</span><span class="o">.</span><span class="n">Labels</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Red:&quot;</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;e&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">red_entry</span> <span class="o">=</span> <span class="n">Gui</span><span class="o">.</span><span class="n">ScrollBox</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">min_val</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">max_val</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">start_val</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">box_width</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">green_label</span> <span class="o">=</span> <span class="n">Gui</span><span class="o">.</span><span class="n">Labels</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Green:&quot;</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;e&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">green_entry</span> <span class="o">=</span> <span class="n">Gui</span><span class="o">.</span><span class="n">ScrollBox</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">min_val</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">max_val</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">start_val</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+                                         <span class="n">box_width</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">blue_label</span> <span class="o">=</span> <span class="n">Gui</span><span class="o">.</span><span class="n">Labels</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Blue:&quot;</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;e&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">blue_entry</span> <span class="o">=</span> <span class="n">Gui</span><span class="o">.</span><span class="n">ScrollBox</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">min_val</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">max_val</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">start_val</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+                                        <span class="n">box_width</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">)</span>
+        <span class="c1"># set color buttons</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_all_button</span> <span class="o">=</span> <span class="n">Gui</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_all_LEDs</span><span class="p">,</span> <span class="s2">&quot;Set All&quot;</span><span class="p">,</span> <span class="n">columnspan</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">clear_all_button</span> <span class="o">=</span> <span class="n">Gui</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">clear_all_LEDs</span><span class="p">,</span> <span class="s2">&quot;Clear All&quot;</span><span class="p">,</span> <span class="n">columnspan</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_led_button</span> <span class="o">=</span> <span class="n">Gui</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_LED</span><span class="p">,</span> <span class="s2">&quot;Set LED&quot;</span><span class="p">,</span> <span class="n">columnspan</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">clear_led_button</span> <span class="o">=</span> <span class="n">Gui</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">clear_LED</span><span class="p">,</span> <span class="s2">&quot;Clear LED&quot;</span><span class="p">,</span> <span class="n">columnspan</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="c1"># row &amp; column value entry</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">row_label</span> <span class="o">=</span> <span class="n">Gui</span><span class="o">.</span><span class="n">Labels</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;Row:&quot;</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;e&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">row_entry</span> <span class="o">=</span> <span class="n">Gui</span><span class="o">.</span><span class="n">ScrollBox</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">min_val</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">max_val</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">start_val</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">box_width</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">column_label</span> <span class="o">=</span> <span class="n">Gui</span><span class="o">.</span><span class="n">Labels</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;Column:&quot;</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;e&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">column_entry</span> <span class="o">=</span> <span class="n">Gui</span><span class="o">.</span><span class="n">ScrollBox</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">min_val</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">max_val</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">start_val</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                                          <span class="n">box_width</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">)</span>
+        <span class="c1"># deactivate buttons that shouldn&#39;t be accessable yet</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">serial_disconnect_button</span><span class="o">.</span><span class="n">deactivate</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">time_update_button</span><span class="o">.</span><span class="n">deactivate</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">color_update_button</span><span class="o">.</span><span class="n">deactivate</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_all_button</span><span class="o">.</span><span class="n">deactivate</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">clear_all_button</span><span class="o">.</span><span class="n">deactivate</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_led_button</span><span class="o">.</span><span class="n">deactivate</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">clear_led_button</span><span class="o">.</span><span class="n">deactivate</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">time_entry</span><span class="o">.</span><span class="n">deactivate</span><span class="p">()</span>
+
+<div class="viewcode-block" id="BinaryClockGUI.time_override"><a class="viewcode-back" href="../index.html#binaryClockGUI.BinaryClockGUI.time_override">[docs]</a>    <span class="k">def</span> <span class="nf">time_override</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        activates and deactivates the time override boxes (hour, minute, and second) when the</span>
+<span class="sd">        time override checkbox is toggled.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">time_override_cb</span><span class="o">.</span><span class="n">get_val</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">time_entry</span><span class="o">.</span><span class="n">activate</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">time_entry</span><span class="o">.</span><span class="n">deactivate</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="BinaryClockGUI.connect"><a class="viewcode-back" href="../index.html#binaryClockGUI.BinaryClockGUI.connect">[docs]</a>    <span class="k">def</span> <span class="nf">connect</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Connect with the binary clock. (basically just opens serial communication)&#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">binary_clock</span> <span class="o">=</span> <span class="n">BC</span><span class="o">.</span><span class="n">BinaryClock</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">serial_port_dropdown</span><span class="o">.</span><span class="n">get_val</span><span class="p">(),</span>
+                                           <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">serial_baud_dropdown</span><span class="o">.</span><span class="n">get_val</span><span class="p">()))</span>
+        <span class="c1"># make sure this doesn&#39;t get called again</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">serial_connect_button</span><span class="o">.</span><span class="n">deactivate</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">serial_disconnect_button</span><span class="o">.</span><span class="n">activate</span><span class="p">()</span>
+        <span class="c1"># allow any update functions to be called</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">time_update_button</span><span class="o">.</span><span class="n">activate</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_all_button</span><span class="o">.</span><span class="n">activate</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">clear_all_button</span><span class="o">.</span><span class="n">activate</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_led_button</span><span class="o">.</span><span class="n">activate</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">clear_led_button</span><span class="o">.</span><span class="n">activate</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">color_update_button</span><span class="o">.</span><span class="n">activate</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="BinaryClockGUI.update_coms_list"><a class="viewcode-back" href="../index.html#binaryClockGUI.BinaryClockGUI.update_coms_list">[docs]</a>    <span class="k">def</span> <span class="nf">update_coms_list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Update the list of serial ports when the coms list dropdown is clicked.&#39;&#39;&#39;</span>
+        <span class="n">ports</span> <span class="o">=</span> <span class="n">BC</span><span class="o">.</span><span class="n">get_available_serial_ports</span><span class="p">()</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">ports</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">ports</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">serial_port_dropdown</span><span class="o">.</span><span class="n">update_list</span><span class="p">(</span><span class="n">ports</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="BinaryClockGUI.disconnect"><a class="viewcode-back" href="../index.html#binaryClockGUI.BinaryClockGUI.disconnect">[docs]</a>    <span class="k">def</span> <span class="nf">disconnect</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Disconnect the binary clock by closing communication, deleting the binaryClock</span>
+<span class="sd">        object, and resetting the GUI elements to the disconnected state.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">binary_clock</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">pass</span>
+        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">binary_clock</span>
+        <span class="c1"># make sure this doesn&#39;t get called again</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">serial_connect_button</span><span class="o">.</span><span class="n">activate</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">serial_disconnect_button</span><span class="o">.</span><span class="n">deactivate</span><span class="p">()</span>
+        <span class="c1"># don&#39;t allow any update functions to be called</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">time_update_button</span><span class="o">.</span><span class="n">deactivate</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_all_button</span><span class="o">.</span><span class="n">deactivate</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">clear_all_button</span><span class="o">.</span><span class="n">deactivate</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_led_button</span><span class="o">.</span><span class="n">deactivate</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">clear_led_button</span><span class="o">.</span><span class="n">deactivate</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">color_update_button</span><span class="o">.</span><span class="n">deactivate</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="BinaryClockGUI.set_LED"><a class="viewcode-back" href="../index.html#binaryClockGUI.BinaryClockGUI.set_LED">[docs]</a>    <span class="k">def</span> <span class="nf">set_LED</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Sets an individual LED.&#39;&#39;&#39;</span>
+        <span class="c1"># get row, col, and color information from UI elements</span>
+        <span class="n">row</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">row_entry</span><span class="o">.</span><span class="n">get_val</span><span class="p">())</span>
+        <span class="n">column</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">column_entry</span><span class="o">.</span><span class="n">get_val</span><span class="p">())</span>
+        <span class="n">red</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">**</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">red_entry</span><span class="o">.</span><span class="n">get_val</span><span class="p">())</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="n">green</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">**</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">green_entry</span><span class="o">.</span><span class="n">get_val</span><span class="p">())</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="n">blue</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">**</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">blue_entry</span><span class="o">.</span><span class="n">get_val</span><span class="p">())</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="nb">print</span> <span class="bp">self</span><span class="o">.</span><span class="n">binary_clock</span><span class="o">.</span><span class="n">set_state</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">binary_clock</span><span class="o">.</span><span class="n">STATE_RUN_MANUAL</span><span class="p">)</span>
+        <span class="nb">print</span> <span class="bp">self</span><span class="o">.</span><span class="n">binary_clock</span><span class="o">.</span><span class="n">set_LED</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">column</span><span class="p">,</span> <span class="n">red</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="n">blue</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="BinaryClockGUI.clear_LED"><a class="viewcode-back" href="../index.html#binaryClockGUI.BinaryClockGUI.clear_LED">[docs]</a>    <span class="k">def</span> <span class="nf">clear_LED</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Clears an individual LED.&#39;&#39;&#39;</span>
+        <span class="c1"># get row, col, and color information from UI elements</span>
+        <span class="n">row</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">row_entry</span><span class="o">.</span><span class="n">get_val</span><span class="p">())</span>
+        <span class="n">column</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">column_entry</span><span class="o">.</span><span class="n">get_val</span><span class="p">())</span>
+        <span class="nb">print</span> <span class="bp">self</span><span class="o">.</span><span class="n">binary_clock</span><span class="o">.</span><span class="n">set_state</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">binary_clock</span><span class="o">.</span><span class="n">STATE_RUN_MANUAL</span><span class="p">)</span>
+        <span class="nb">print</span> <span class="bp">self</span><span class="o">.</span><span class="n">binary_clock</span><span class="o">.</span><span class="n">clear_LED</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">column</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="BinaryClockGUI.set_all_LEDs"><a class="viewcode-back" href="../index.html#binaryClockGUI.BinaryClockGUI.set_all_LEDs">[docs]</a>    <span class="k">def</span> <span class="nf">set_all_LEDs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Sets all LEDs to a color.&#39;&#39;&#39;</span>
+        <span class="c1"># get color information from UI elements</span>
+        <span class="n">red</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">**</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">red_entry</span><span class="o">.</span><span class="n">get_val</span><span class="p">())</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="n">green</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">**</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">green_entry</span><span class="o">.</span><span class="n">get_val</span><span class="p">())</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="n">blue</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">**</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">blue_entry</span><span class="o">.</span><span class="n">get_val</span><span class="p">())</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="nb">print</span> <span class="bp">self</span><span class="o">.</span><span class="n">binary_clock</span><span class="o">.</span><span class="n">set_state</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">binary_clock</span><span class="o">.</span><span class="n">STATE_RUN_MANUAL</span><span class="p">)</span>
+        <span class="nb">print</span> <span class="bp">self</span><span class="o">.</span><span class="n">binary_clock</span><span class="o">.</span><span class="n">set_all_LEDs</span><span class="p">(</span><span class="n">red</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="n">blue</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="BinaryClockGUI.update_color"><a class="viewcode-back" href="../index.html#binaryClockGUI.BinaryClockGUI.update_color">[docs]</a>    <span class="k">def</span> <span class="nf">update_color</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Updates the color that is displayed when time is running.&#39;&#39;&#39;</span>
+        <span class="c1"># get color information from UI elements</span>
+        <span class="n">red</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">**</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">red_entry</span><span class="o">.</span><span class="n">get_val</span><span class="p">())</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="n">green</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">**</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">green_entry</span><span class="o">.</span><span class="n">get_val</span><span class="p">())</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="n">blue</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">**</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">blue_entry</span><span class="o">.</span><span class="n">get_val</span><span class="p">())</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="nb">print</span> <span class="bp">self</span><span class="o">.</span><span class="n">binary_clock</span><span class="o">.</span><span class="n">set_state</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">binary_clock</span><span class="o">.</span><span class="n">STATE_RUN_TIME</span><span class="p">)</span>
+        <span class="nb">print</span> <span class="bp">self</span><span class="o">.</span><span class="n">binary_clock</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="n">red</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="n">blue</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="BinaryClockGUI.clear_all_LEDs"><a class="viewcode-back" href="../index.html#binaryClockGUI.BinaryClockGUI.clear_all_LEDs">[docs]</a>    <span class="k">def</span> <span class="nf">clear_all_LEDs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Clears all LEDs.&#39;&#39;&#39;</span>
+        <span class="nb">print</span> <span class="bp">self</span><span class="o">.</span><span class="n">binary_clock</span><span class="o">.</span><span class="n">set_state</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">binary_clock</span><span class="o">.</span><span class="n">STATE_RUN_MANUAL</span><span class="p">)</span>
+        <span class="nb">print</span> <span class="bp">self</span><span class="o">.</span><span class="n">binary_clock</span><span class="o">.</span><span class="n">clear_all_LEDs</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="BinaryClockGUI.set_time"><a class="viewcode-back" href="../index.html#binaryClockGUI.BinaryClockGUI.set_time">[docs]</a>    <span class="k">def</span> <span class="nf">set_time</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Sets the binary clock time.&#39;&#39;&#39;</span>
+        <span class="nb">print</span> <span class="bp">self</span><span class="o">.</span><span class="n">binary_clock</span><span class="o">.</span><span class="n">set_state</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">binary_clock</span><span class="o">.</span><span class="n">STATE_RUN_TIME</span><span class="p">)</span>
+        <span class="c1"># check if time override is selected</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">time_override_cb</span><span class="o">.</span><span class="n">get_val</span><span class="p">():</span>
+            <span class="n">time_dict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">time_entry</span><span class="o">.</span><span class="n">get_val</span><span class="p">()</span>
+            <span class="n">time_override_array</span> <span class="o">=</span> <span class="p">[</span><span class="n">time_dict</span><span class="p">[</span><span class="s2">&quot;hour&quot;</span><span class="p">],</span> <span class="n">time_dict</span><span class="p">[</span><span class="s2">&quot;minute&quot;</span><span class="p">],</span> <span class="n">time_dict</span><span class="p">[</span><span class="s2">&quot;second&quot;</span><span class="p">]]</span>
+            <span class="nb">print</span> <span class="bp">self</span><span class="o">.</span><span class="n">binary_clock</span><span class="o">.</span><span class="n">update_time</span><span class="p">(</span><span class="n">time_override_array</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span> <span class="bp">self</span><span class="o">.</span><span class="n">binary_clock</span><span class="o">.</span><span class="n">update_time</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="BinaryClockGUI.run"><a class="viewcode-back" href="../index.html#binaryClockGUI.BinaryClockGUI.run">[docs]</a>    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Runs the tk loop.&#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="BinaryClockGUI.on_closing"><a class="viewcode-back" href="../index.html#binaryClockGUI.BinaryClockGUI.on_closing">[docs]</a>    <span class="k">def</span> <span class="nf">on_closing</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Asks user if they really want to close, then destroys the window.&#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="n">messagebox</span><span class="o">.</span><span class="n">askquestion</span><span class="p">(</span><span class="s2">&quot;Quit&quot;</span><span class="p">,</span> <span class="s2">&quot;Do you want to quit?&quot;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">destroy</span><span class="p">()</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">binary_clock</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">pass</span></div></div>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">BC_GUI</span> <span class="o">=</span> <span class="n">BinaryClockGUI</span><span class="p">()</span>
+    <span class="n">BC_GUI</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Tyler Holmes.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

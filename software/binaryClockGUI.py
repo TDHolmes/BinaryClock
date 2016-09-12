@@ -1,5 +1,5 @@
 '''
-GUI for the Binary Clock API
+GUI for the Binary Clock API.
 '''
 import binaryClockAPI as BC
 import CustomGUIWrappers as Gui
@@ -72,14 +72,17 @@ class BinaryClockGUI:
         self.time_entry.deactivate()
 
     def time_override(self, *args):
-        '''activates and deactivates the time override boxes (hour, minute, and second)'''
+        '''
+        activates and deactivates the time override boxes (hour, minute, and second) when the
+        time override checkbox is toggled.
+        '''
         if self.time_override_cb.get_val():
             self.time_entry.activate()
         else:
             self.time_entry.deactivate()
 
     def connect(self):
-        '''connect with the binary clock (basically just opens serial communication)'''
+        '''Connect with the binary clock. (basically just opens serial communication)'''
         self.binary_clock = BC.BinaryClock(self.serial_port_dropdown.get_val(),
                                            int(self.serial_baud_dropdown.get_val()))
         # make sure this doesn't get called again
@@ -94,14 +97,17 @@ class BinaryClockGUI:
         self.color_update_button.activate()
 
     def update_coms_list(self, *args):
-        '''Update the list of serial ports'''
+        '''Update the list of serial ports when the coms list dropdown is clicked.'''
         ports = BC.get_available_serial_ports()
         if len(ports) == 0:
             ports = [""]
         self.serial_port_dropdown.update_list(ports)
 
     def disconnect(self):
-        '''disconnect the binary clock (basically just deletes the binary clock object)'''
+        '''
+        Disconnect the binary clock by closing communication, deleting the binaryClock
+        object, and resetting the GUI elements to the disconnected state.
+        '''
         try:
             self.binary_clock.close()
         except:
@@ -119,7 +125,7 @@ class BinaryClockGUI:
         self.color_update_button.deactivate()
 
     def set_LED(self):
-        '''Sets an individual LED'''
+        '''Sets an individual LED.'''
         # get row, col, and color information from UI elements
         row = int(self.row_entry.get_val())
         column = int(self.column_entry.get_val())
@@ -130,7 +136,7 @@ class BinaryClockGUI:
         print self.binary_clock.set_LED(row, column, red, green, blue)
 
     def clear_LED(self):
-        '''Clears an individual LED'''
+        '''Clears an individual LED.'''
         # get row, col, and color information from UI elements
         row = int(self.row_entry.get_val())
         column = int(self.column_entry.get_val())
@@ -138,7 +144,7 @@ class BinaryClockGUI:
         print self.binary_clock.clear_LED(row, column)
 
     def set_all_LEDs(self):
-        '''Sets all LEDs to a color'''
+        '''Sets all LEDs to a color.'''
         # get color information from UI elements
         red = 2 ** int(self.red_entry.get_val()) - 1
         green = 2 ** int(self.green_entry.get_val()) - 1
@@ -147,7 +153,7 @@ class BinaryClockGUI:
         print self.binary_clock.set_all_LEDs(red, green, blue)
 
     def update_color(self):
-        '''Updates the color that is displayed when time is running'''
+        '''Updates the color that is displayed when time is running.'''
         # get color information from UI elements
         red = 2 ** int(self.red_entry.get_val()) - 1
         green = 2 ** int(self.green_entry.get_val()) - 1
@@ -156,12 +162,12 @@ class BinaryClockGUI:
         print self.binary_clock.set_color(red, green, blue)
 
     def clear_all_LEDs(self):
-        '''Clears all LEDs'''
+        '''Clears all LEDs.'''
         print self.binary_clock.set_state(self.binary_clock.STATE_RUN_MANUAL)
         print self.binary_clock.clear_all_LEDs()
 
     def set_time(self):
-        '''Sets the binary clock time'''
+        '''Sets the binary clock time.'''
         print self.binary_clock.set_state(self.binary_clock.STATE_RUN_TIME)
         # check if time override is selected
         if self.time_override_cb.get_val():
@@ -172,11 +178,11 @@ class BinaryClockGUI:
             print self.binary_clock.update_time()
 
     def run(self):
-        '''Runs the tk loop'''
+        '''Runs the tk loop.'''
         self.root.mainloop()
 
     def on_closing(self):
-        '''Asks user if they really want to close, then destroys the window'''
+        '''Asks user if they really want to close, then destroys the window.'''
         if messagebox.askquestion("Quit", "Do you want to quit?"):
             self.root.destroy()
         try:

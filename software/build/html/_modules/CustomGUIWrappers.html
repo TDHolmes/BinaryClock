@@ -1,0 +1,698 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>CustomGUIWrappers &#8212; Binary Clock Software 1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Binary Clock Software 1 documentation" href="../index.html" />
+    <link rel="up" title="Module code" href="index.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for CustomGUIWrappers</h1><div class="highlight"><pre>
+<span></span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">Custom wrappers around Tkinter classes &amp; functions</span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+<span class="c1"># tk stuff</span>
+<span class="kn">import</span> <span class="nn">Tkinter</span> <span class="k">as</span> <span class="nn">tk</span>
+<span class="kn">import</span> <span class="nn">tkMessageBox</span> <span class="k">as</span> <span class="nn">messagebox</span>
+<span class="kn">import</span> <span class="nn">ttk</span>
+
+
+<span class="c1"># working on being more object oriented about these things...</span>
+<span class="c1"># class BaseWidget:</span>
+<span class="c1">#     def __init__(self, master, row, column, style, **kwargs):</span>
+<span class="c1">#         self.row = row</span>
+<span class="c1">#         self.column = column</span>
+<span class="c1">#         self.style = style</span>
+<span class="c1">#         self.root = master</span>
+<span class="c1">#         self.padx = kwargs.get(&quot;padx&quot;, 3)</span>
+<span class="c1">#         self.pady = kwargs.get(&quot;pady&quot;, 3)</span>
+<span class="c1">#         self.box_width = kwargs.get(&quot;box_width&quot;, 20)</span>
+<span class="c1">#         self.state = kwargs.get(&quot;state&quot;, &quot;active&quot;)</span>
+<span class="c1">#         self.sticky = kwargs.get(&quot;sticky&quot;, &quot;&quot;)</span>
+<span class="c1">#         self.justify = kwargs.get(&quot;justify&quot;, tk.LEFT)</span>
+
+<span class="c1">#     def</span>
+
+
+<div class="viewcode-block" id="CheckBox"><a class="viewcode-back" href="../index.html#CustomGUIWrappers.CheckBox">[docs]</a><span class="k">class</span> <span class="nc">CheckBox</span><span class="p">:</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Class for creating a checkbox. Used when you need a boolean decision from the user.</span>
+
+<span class="sd">    :param master: This is the root variable of the GUI. (*tk.TK()*)</span>
+<span class="sd">    :param int row: what row the check box is put into.</span>
+<span class="sd">    :param int column: what column the check box is put into.</span>
+<span class="sd">    :param funct true_callback_funct: This function is called when the box is checked by the user.</span>
+<span class="sd">    :param funct false_callback_funct: This function is called when the box is unchecked by the user.</span>
+<span class="sd">    :param str cb_text: this is the label for the check box. [default: &quot;&quot;]</span>
+<span class="sd">    :param int padx: This is how much x axis padding is given to the check box. [default: 3 px]</span>
+<span class="sd">    :param int pady: This is how much y axis padding is given to the check box. [default: 3 px]</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">master</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="n">column</span><span class="p">,</span> <span class="n">callback_funct</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cb_text</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+                 <span class="n">padx</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">columnspan</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">val</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">BooleanVar</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">callback_funct</span> <span class="o">=</span> <span class="n">callback_funct</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">widget</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Checkbutton</span><span class="p">(</span><span class="n">master</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="n">cb_text</span><span class="p">,</span> <span class="n">variable</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">val</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">cb</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="n">background</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="n">row</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="n">column</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="n">tk</span><span class="o">.</span><span class="n">W</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="n">padx</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="n">pady</span><span class="p">,</span> <span class="n">columnspan</span><span class="o">=</span><span class="n">columnspan</span><span class="p">)</span>
+
+<div class="viewcode-block" id="CheckBox.cb"><a class="viewcode-back" href="../index.html#CustomGUIWrappers.CheckBox.cb">[docs]</a>    <span class="k">def</span> <span class="nf">cb</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        This function is called when the check box changes state. if it is checked, it calls</span>
+<span class="sd">        *self.true_callback_funct()*. if it is unchecked, it calls *self.false_callback_funct()*</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">callback_funct</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">callback_funct</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_val</span><span class="p">())</span></div>
+
+<div class="viewcode-block" id="CheckBox.get_val"><a class="viewcode-back" href="../index.html#CustomGUIWrappers.CheckBox.get_val">[docs]</a>    <span class="k">def</span> <span class="nf">get_val</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Returns the current value of the check box.&#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">val</span><span class="o">.</span><span class="n">get</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="CheckBox.deactivate"><a class="viewcode-back" href="../index.html#CustomGUIWrappers.CheckBox.deactivate">[docs]</a>    <span class="k">def</span> <span class="nf">deactivate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Deactivates the check box to prevent the user from changing it&#39;s value.&#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="n">state</span><span class="o">=</span><span class="n">tk</span><span class="o">.</span><span class="n">DISABLED</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="CheckBox.activate"><a class="viewcode-back" href="../index.html#CustomGUIWrappers.CheckBox.activate">[docs]</a>    <span class="k">def</span> <span class="nf">activate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Activates the check box to allow the user to change it&#39;s value.&#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="n">state</span><span class="o">=</span><span class="n">tk</span><span class="o">.</span><span class="n">NORMAL</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">select</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">val</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">deselect</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">val</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="EntryBox"><a class="viewcode-back" href="../index.html#CustomGUIWrappers.EntryBox">[docs]</a><span class="k">class</span> <span class="nc">EntryBox</span><span class="p">:</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Class for creating an Entry box. Used when you need a string input from the user.</span>
+
+<span class="sd">    :param master: This is the root variable of the GUI. (*tk.TK()*)</span>
+<span class="sd">    :param int row: what row the entry box is put into.</span>
+<span class="sd">    :param int column: what column the entry box is put into.</span>
+<span class="sd">    :param str default_val: String that first populates the box. [default: &quot;&quot;]</span>
+<span class="sd">    :param int \*\*padx: This is how much x axis padding is given to the entry box. [default: 3 px]</span>
+<span class="sd">    :param int \*\*pady: This is how much y axis padding is given to the entry box. [default: 3 px]</span>
+<span class="sd">    :param int \*\*box_width: Sets how wide the input box is [default: 20 px]</span>
+<span class="sd">    :param str \*\*state: Sets the state of the entry box (disabled, readonly, etc.) [default: &quot;active&quot;]</span>
+<span class="sd">    :param \*\*sticky: Sets which side of the cell the Entry box sticks to. (e.g. tk.E) [default: &quot;&quot;]</span>
+<span class="sd">    :param \*\*justify: Sets how the text in the Entry box aligns. [default: tk.LEFT]</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">master</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="n">column</span><span class="p">,</span> <span class="n">default_val</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">val</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">StringVar</span><span class="p">()</span>
+        <span class="c1"># get various named arguments</span>
+        <span class="n">padx</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;padx&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+        <span class="n">pady</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;pady&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+        <span class="n">box_width</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;box_width&quot;</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+        <span class="n">state</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;state&quot;</span><span class="p">,</span> <span class="s2">&quot;active&quot;</span><span class="p">)</span>
+        <span class="n">sticky</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;sticky&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="n">justify</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;justify&quot;</span><span class="p">,</span> <span class="n">tk</span><span class="o">.</span><span class="n">LEFT</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">row</span> <span class="o">=</span> <span class="n">row</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">column</span> <span class="o">=</span> <span class="n">column</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sticky</span> <span class="o">=</span> <span class="n">sticky</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">padx</span> <span class="o">=</span> <span class="n">padx</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pady</span> <span class="o">=</span> <span class="n">pady</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">widget</span> <span class="o">=</span> <span class="n">ttk</span><span class="o">.</span><span class="n">Entry</span><span class="p">(</span><span class="n">master</span><span class="p">,</span> <span class="n">textvariable</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">val</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">box_width</span><span class="p">,</span> <span class="n">justify</span><span class="o">=</span><span class="n">justify</span><span class="p">,</span> <span class="n">state</span><span class="o">=</span><span class="n">state</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">row</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">column</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">sticky</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">padx</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">pady</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">default_val</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">int</span><span class="p">:</span>
+            <span class="n">default_val</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">default_val</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">default_val</span><span class="p">)</span>
+
+<div class="viewcode-block" id="EntryBox.get_val"><a class="viewcode-back" href="../index.html#CustomGUIWrappers.EntryBox.get_val">[docs]</a>    <span class="k">def</span> <span class="nf">get_val</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Returns the current value of the Entry box.&#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">val</span><span class="o">.</span><span class="n">get</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="EntryBox.activate"><a class="viewcode-back" href="../index.html#CustomGUIWrappers.EntryBox.activate">[docs]</a>    <span class="k">def</span> <span class="nf">activate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Activates the entry box to allow the user to change it&#39;s value.&#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="n">state</span><span class="o">=</span><span class="n">tk</span><span class="o">.</span><span class="n">NORMAL</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="EntryBox.deactivate"><a class="viewcode-back" href="../index.html#CustomGUIWrappers.EntryBox.deactivate">[docs]</a>    <span class="k">def</span> <span class="nf">deactivate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Deactivates the entry box to prevent the user from changing it&#39;s value.&#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="n">state</span><span class="o">=</span><span class="n">tk</span><span class="o">.</span><span class="n">DISABLED</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="EntryBox.focus"><a class="viewcode-back" href="../index.html#CustomGUIWrappers.EntryBox.focus">[docs]</a>    <span class="k">def</span> <span class="nf">focus</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Moves the user&#39;s cursor to this box.&#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">focus</span><span class="p">()</span></div>
+
+    <span class="k">def</span> <span class="nf">bind</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">func</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">last</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">last</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">insert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+
+<div class="viewcode-block" id="EntryBox.forget"><a class="viewcode-back" href="../index.html#CustomGUIWrappers.EntryBox.forget">[docs]</a>    <span class="k">def</span> <span class="nf">forget</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Removes the label from the GUI temporarily.&#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">grid_forget</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="EntryBox.remember"><a class="viewcode-back" href="../index.html#CustomGUIWrappers.EntryBox.remember">[docs]</a>    <span class="k">def</span> <span class="nf">remember</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Brings the label back into view.&#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">row</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">column</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">sticky</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">padx</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">pady</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="Dropdown"><a class="viewcode-back" href="../index.html#CustomGUIWrappers.Dropdown">[docs]</a><span class="k">class</span> <span class="nc">Dropdown</span><span class="p">:</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Class for creating a Dropdown menu. Used when you need an option from a fixed list the user.</span>
+
+<span class="sd">    :param master: This is the root variable of the GUI. (*tk.TK()*)</span>
+<span class="sd">    :param int row: what row the dropdown is put into.</span>
+<span class="sd">    :param int column: what column the dropdown is put into.</span>
+<span class="sd">    :param list \*values: String list that populates the options.</span>
+<span class="sd">    :param int \*\*padx: This is how much x axis padding is given to the dropdown box. [default: 3 px]</span>
+<span class="sd">    :param int \*\*pady: This is how much y axis padding is given to the dropdown box. [default: 3 px]</span>
+<span class="sd">    :param int \*\*sticky: Sets where the dropdown box populates in it&#39;s cell. [default: None]</span>
+<span class="sd">    :param int \*\*columnspan: Sets how many columns the label spans. [default: 1]</span>
+<span class="sd">    :param funct \*\*trace_callback: Callback function for when the dropdown variable has been changed.</span>
+<span class="sd">                                     [default: None]</span>
+<span class="sd">    :param funct \*\*bind_callback: Callback function binded to the key *bind_key*. [default: None]</span>
+<span class="sd">    :param str \*\*bind_key: Key that binds the function *bind_callback*. [default: None]</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">master</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="n">column</span><span class="p">,</span> <span class="o">*</span><span class="n">options</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">val</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">StringVar</span><span class="p">()</span>
+        <span class="c1"># get various named arguments</span>
+        <span class="n">padx</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;padx&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+        <span class="n">pady</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;pady&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+        <span class="n">sticky</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;sticky&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">columnspan</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;columnspan&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">trace_calback</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;trace_callback&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bind_callback</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;bind_callback&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">bind_callback</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">bind_key</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;bind_key&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">bind_key</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">AttributeError</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">row</span> <span class="o">=</span> <span class="n">row</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">column</span> <span class="o">=</span> <span class="n">column</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sticky</span> <span class="o">=</span> <span class="n">sticky</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">padx</span> <span class="o">=</span> <span class="n">padx</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pady</span> <span class="o">=</span> <span class="n">pady</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">options</span> <span class="o">=</span> <span class="n">options</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">options</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">widget</span> <span class="o">=</span> <span class="n">ttk</span><span class="o">.</span><span class="n">OptionMenu</span><span class="p">(</span><span class="n">master</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">val</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">row</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">column</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">sticky</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">padx</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">pady</span><span class="p">,</span>
+                         <span class="n">columnspan</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">columnspan</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">trace_calback</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">val</span><span class="o">.</span><span class="n">trace_variable</span><span class="p">(</span><span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">trace_calback</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">bind_callback</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bind_key</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">bind_callback</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Dropdown.get_val"><a class="viewcode-back" href="../index.html#CustomGUIWrappers.Dropdown.get_val">[docs]</a>    <span class="k">def</span> <span class="nf">get_val</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Returns the current value.&#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">val</span><span class="o">.</span><span class="n">get</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="Dropdown.activate"><a class="viewcode-back" href="../index.html#CustomGUIWrappers.Dropdown.activate">[docs]</a>    <span class="k">def</span> <span class="nf">activate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Activates the box to allow the user to change it&#39;s value.&#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="n">state</span><span class="o">=</span><span class="n">tk</span><span class="o">.</span><span class="n">NORMAL</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Dropdown.deactivate"><a class="viewcode-back" href="../index.html#CustomGUIWrappers.Dropdown.deactivate">[docs]</a>    <span class="k">def</span> <span class="nf">deactivate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Deactivates the box to prevent the user from changing it&#39;s value.&#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="n">state</span><span class="o">=</span><span class="n">tk</span><span class="o">.</span><span class="n">DISABLED</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Dropdown.focus"><a class="viewcode-back" href="../index.html#CustomGUIWrappers.Dropdown.focus">[docs]</a>    <span class="k">def</span> <span class="nf">focus</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Moves the user&#39;s cursor to this box.&#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">focus</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="Dropdown.update_list"><a class="viewcode-back" href="../index.html#CustomGUIWrappers.Dropdown.update_list">[docs]</a>    <span class="k">def</span> <span class="nf">update_list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">options</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;reset the values in the option menu</span>
+
+<span class="sd">        if index is given, set the value of the menu to</span>
+<span class="sd">        the option at the given index</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="c1"># check if there&#39;s no real update to be made</span>
+        <span class="c1"># if options == self.options:</span>
+        <span class="c1">#     return</span>
+        <span class="c1"># if there is, update the current list</span>
+        <span class="n">menu</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">widget</span><span class="p">[</span><span class="s2">&quot;menu&quot;</span><span class="p">]</span>
+        <span class="n">menu</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">options</span> <span class="o">=</span> <span class="n">options</span>
+        <span class="c1"># if there&#39;s no choices, set the current value to nothing.</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">options</span> <span class="o">==</span> <span class="p">[]:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">val</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">val</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">options</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="k">for</span> <span class="n">string</span> <span class="ow">in</span> <span class="n">options</span><span class="p">:</span>
+            <span class="n">menu</span><span class="o">.</span><span class="n">add_command</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="n">string</span><span class="p">,</span>
+                             <span class="n">command</span><span class="o">=</span><span class="k">lambda</span> <span class="n">value</span><span class="o">=</span><span class="n">string</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">val</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">index</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">val</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">options</span><span class="p">[</span><span class="n">index</span><span class="p">])</span></div>
+
+<div class="viewcode-block" id="Dropdown.forget"><a class="viewcode-back" href="../index.html#CustomGUIWrappers.Dropdown.forget">[docs]</a>    <span class="k">def</span> <span class="nf">forget</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Removes the label from the GUI temporarily.&#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">grid_forget</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="Dropdown.remember"><a class="viewcode-back" href="../index.html#CustomGUIWrappers.Dropdown.remember">[docs]</a>    <span class="k">def</span> <span class="nf">remember</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Brings the label back into view.&#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">row</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">column</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">sticky</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">padx</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">pady</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="Labels"><a class="viewcode-back" href="../index.html#CustomGUIWrappers.Labels">[docs]</a><span class="k">class</span> <span class="nc">Labels</span><span class="p">:</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Class for the various labels in the GUI. useful so we can forget &amp; remember them</span>
+<span class="sd">    when we need them to be invisable or visable, respectively.</span>
+
+<span class="sd">    :param master: This is the root variable of the GUI. (*tk.TK()*)</span>
+<span class="sd">    :param int row: what row the label is put into.</span>
+<span class="sd">    :param int column: what column the label is put into.</span>
+<span class="sd">    :param str default_val: String that first populates the box. [default: &quot;&quot;]</span>
+<span class="sd">    :param int \*\*padx: This is how much x axis padding is given to the check box. [default: 3 px]</span>
+<span class="sd">    :param int \*\*pady: This is how much y axis padding is given to the check box. [default: 0 px]</span>
+<span class="sd">    :param int \*\*columnspan: Sets how many columns the label spans. [default: 1]</span>
+<span class="sd">    :param int \*\*sticky: Sets where the dropdown box populates in it&#39;s cell. [default: None]</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">master</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="n">column</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">row</span> <span class="o">=</span> <span class="n">row</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">column</span> <span class="o">=</span> <span class="n">column</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sticky</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;sticky&quot;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">columnspan</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;columnspan&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">padx</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;padx&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pady</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;pady&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">border</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;border&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">widget</span> <span class="o">=</span> <span class="n">ttk</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="n">master</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="n">label</span><span class="p">,</span> <span class="n">border</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">border</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">row</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">column</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">sticky</span><span class="p">,</span>
+                         <span class="n">columnspan</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">columnspan</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">padx</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">pady</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="n">background</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Labels.forget"><a class="viewcode-back" href="../index.html#CustomGUIWrappers.Labels.forget">[docs]</a>    <span class="k">def</span> <span class="nf">forget</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Removes the label from the GUI temporarily.&#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">grid_forget</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="Labels.remember"><a class="viewcode-back" href="../index.html#CustomGUIWrappers.Labels.remember">[docs]</a>    <span class="k">def</span> <span class="nf">remember</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Brings the label back into view.&#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">row</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">column</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">sticky</span><span class="p">,</span>
+                         <span class="n">columnspan</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">columnspan</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">padx</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Labels.config"><a class="viewcode-back" href="../index.html#CustomGUIWrappers.Labels.config">[docs]</a>    <span class="k">def</span> <span class="nf">config</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;configures the label. used for changing between DISABLED and NORMAL states.&#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="n">state</span><span class="o">=</span><span class="n">state</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="ScrollBox"><a class="viewcode-back" href="../index.html#CustomGUIWrappers.ScrollBox">[docs]</a><span class="k">class</span> <span class="nc">ScrollBox</span><span class="p">:</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Class for creating a scroll box. Used when you need an integer input from the user in a certain range.</span>
+
+<span class="sd">    :param master: This is the root variable of the GUI. (*tk.TK()*)</span>
+<span class="sd">    :param int row: what row the check box is put into.</span>
+<span class="sd">    :param int column: what column the check box is put into.</span>
+<span class="sd">    :param int min_val: Minimum value that the Scroll box can be.</span>
+<span class="sd">    :param int max_val: Maximum value that the Scroll box can be.</span>
+<span class="sd">    :param int start_val: Initial value of the box.</span>
+<span class="sd">    :param int \*\*padx: This is how much x axis padding is given to the check box. [default: 3 px]</span>
+<span class="sd">    :param int \*\*pady: This is how much y axis padding is given to the check box. [default: 3 px]</span>
+<span class="sd">    :param int \*\*box_width: Sets how wide the input box is [default: 19 px]</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">master</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="n">column</span><span class="p">,</span> <span class="n">min_val</span><span class="p">,</span> <span class="n">max_val</span><span class="p">,</span> <span class="n">start_val</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">val</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">StringVar</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">val</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">start_val</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">min_val</span> <span class="o">=</span> <span class="n">min_val</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">root</span> <span class="o">=</span> <span class="n">master</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_val</span> <span class="o">=</span> <span class="n">max_val</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">start_val</span> <span class="o">=</span> <span class="n">start_val</span>
+        <span class="n">padx</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;padx&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+        <span class="n">pady</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;pady&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+        <span class="n">box_width</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;box_width&quot;</span><span class="p">,</span> <span class="mi">19</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">widget</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Spinbox</span><span class="p">(</span><span class="n">master</span><span class="p">,</span> <span class="n">from_</span><span class="o">=</span><span class="n">min_val</span><span class="p">,</span> <span class="n">to</span><span class="o">=</span><span class="n">max_val</span><span class="p">,</span> <span class="n">textvariable</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">val</span><span class="p">,</span>
+                                 <span class="n">width</span><span class="o">=</span><span class="n">box_width</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="n">row</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="n">column</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="n">tk</span><span class="o">.</span><span class="n">E</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="n">padx</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="n">pady</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="s1">&#39;&lt;KeyRelease&gt;&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_e_check</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="s1">&#39;&lt;FocusOut&gt;&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_validate</span><span class="p">)</span>
+
+<div class="viewcode-block" id="ScrollBox.get_val"><a class="viewcode-back" href="../index.html#CustomGUIWrappers.ScrollBox.get_val">[docs]</a>    <span class="k">def</span> <span class="nf">get_val</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Returns the current value of the Scroll box.&#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">val</span><span class="o">.</span><span class="n">get</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="ScrollBox.set_val"><a class="viewcode-back" href="../index.html#CustomGUIWrappers.ScrollBox.set_val">[docs]</a>    <span class="k">def</span> <span class="nf">set_val</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Sets the current value of the Scroll box.&#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">val</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">value</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ScrollBox.deactivate"><a class="viewcode-back" href="../index.html#CustomGUIWrappers.ScrollBox.deactivate">[docs]</a>    <span class="k">def</span> <span class="nf">deactivate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Deactivates the Scroll box to prevent the user from changing it&#39;s value.&#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="n">state</span><span class="o">=</span><span class="n">tk</span><span class="o">.</span><span class="n">DISABLED</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ScrollBox.activate"><a class="viewcode-back" href="../index.html#CustomGUIWrappers.ScrollBox.activate">[docs]</a>    <span class="k">def</span> <span class="nf">activate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Activates the Scroll box to allow the user to change it&#39;s value.&#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="n">state</span><span class="o">=</span><span class="s2">&quot;normal&quot;</span><span class="p">)</span>  <span class="c1"># state=&quot;readonly&quot;)</span></div>
+
+<div class="viewcode-block" id="ScrollBox._backspace"><a class="viewcode-back" href="../index.html#CustomGUIWrappers.ScrollBox._backspace">[docs]</a>    <span class="k">def</span> <span class="nf">_backspace</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entry</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Removes the most recently entered character.&#39;&#39;&#39;</span>
+        <span class="n">cont</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_val</span><span class="p">()</span>
+        <span class="n">entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">tk</span><span class="o">.</span><span class="n">END</span><span class="p">)</span>
+        <span class="n">entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">cont</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span></div>
+
+<div class="viewcode-block" id="ScrollBox._e_check"><a class="viewcode-back" href="../index.html#CustomGUIWrappers.ScrollBox._e_check">[docs]</a>    <span class="k">def</span> <span class="nf">_e_check</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">e</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Checks for an erronious input.&#39;&#39;&#39;</span>
+        <span class="n">cont</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_val</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">cont</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">bell</span><span class="p">()</span>
+            <span class="k">return</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">cont</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">isdigit</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">bell</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_backspace</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">widget</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">focus</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="ScrollBox._validate"><a class="viewcode-back" href="../index.html#CustomGUIWrappers.ScrollBox._validate">[docs]</a>    <span class="k">def</span> <span class="nf">_validate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">e</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Checks all of the values for proper ranges.&#39;&#39;&#39;</span>
+        <span class="n">cont</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_val</span><span class="p">()</span>
+        <span class="n">error</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">cont</span><span class="o">.</span><span class="n">isdigit</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">tk</span><span class="o">.</span><span class="n">END</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">start_val</span><span class="p">))</span>
+            <span class="n">error</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">elif</span> <span class="nb">int</span><span class="p">(</span><span class="n">cont</span><span class="p">)</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_val</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">tk</span><span class="o">.</span><span class="n">END</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">max_val</span><span class="p">))</span>
+            <span class="n">error</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">elif</span> <span class="nb">int</span><span class="p">(</span><span class="n">cont</span><span class="p">)</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">min_val</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">tk</span><span class="o">.</span><span class="n">END</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">min_val</span><span class="p">))</span>
+            <span class="n">error</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">if</span> <span class="n">error</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">focus</span><span class="p">()</span>
+            <span class="n">messagebox</span><span class="o">.</span><span class="n">showerror</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Invalid Input&quot;</span><span class="p">,</span>
+                                 <span class="n">message</span><span class="o">=</span><span class="s2">&quot;Must be a number from </span><span class="si">{:}</span><span class="s2"> to </span><span class="si">{:}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">min_val</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_val</span><span class="p">))</span></div></div>
+        <span class="c1"># print &quot;looks good captain.&quot;</span>
+
+
+<div class="viewcode-block" id="Button"><a class="viewcode-back" href="../index.html#CustomGUIWrappers.Button">[docs]</a><span class="k">class</span> <span class="nc">Button</span><span class="p">:</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Class for creating an Entry box. Used when you need a string input from the user.</span>
+
+<span class="sd">    :param master: This is the root variable of the GUI. (*tk.TK()*)</span>
+<span class="sd">    :param int row: what row the check box is put into.</span>
+<span class="sd">    :param int column: what column the check box is put into.</span>
+<span class="sd">    :param int min_val: Minimum value that the Scroll box can be.</span>
+<span class="sd">    :param int max_val: Maximum value that the Scroll box can be.</span>
+<span class="sd">    :param int start_val: Initial value of the box.</span>
+<span class="sd">    :param int \*\*padx: This is how much x axis padding is given to the check box. [default: 3 px]</span>
+<span class="sd">    :param int \*\*pady: This is how much y axis padding is given to the check box. [default: 3 px]</span>
+<span class="sd">    :param int \*\*columnspan: Sets how many columns the label spans. [default: 1]</span>
+<span class="sd">    :param int \*\*sticky: Sets where the dropdown box populates in it&#39;s cell. [default: None]</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">master</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="n">column</span><span class="p">,</span> <span class="n">callback</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">row</span> <span class="o">=</span> <span class="n">row</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">column</span> <span class="o">=</span> <span class="n">column</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">columnspan</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;columnspan&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">padx</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;padx&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pady</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;pady&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+        <span class="n">sticky</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;sticky&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">widget</span> <span class="o">=</span> <span class="n">ttk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">master</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="n">callback</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="n">label</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">row</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">column</span><span class="p">,</span> <span class="n">columnspan</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">columnspan</span><span class="p">,</span>
+                         <span class="n">padx</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">padx</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">pady</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="n">sticky</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Button.deactivate"><a class="viewcode-back" href="../index.html#CustomGUIWrappers.Button.deactivate">[docs]</a>    <span class="k">def</span> <span class="nf">deactivate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Deactivates the button to prevent the user from changing it&#39;s state.&#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="n">state</span><span class="o">=</span><span class="n">tk</span><span class="o">.</span><span class="n">DISABLED</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Button.activate"><a class="viewcode-back" href="../index.html#CustomGUIWrappers.Button.activate">[docs]</a>    <span class="k">def</span> <span class="nf">activate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Activates the button to allow the user to change it&#39;s state.&#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="n">state</span><span class="o">=</span><span class="n">tk</span><span class="o">.</span><span class="n">NORMAL</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">forget</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">grid_forget</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">remember</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">row</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">column</span><span class="p">,</span> <span class="n">columnspan</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">columnspan</span><span class="p">,</span>
+                         <span class="n">padx</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">padx</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">pady</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="TimeEntry"><a class="viewcode-back" href="../index.html#CustomGUIWrappers.TimeEntry">[docs]</a><span class="k">class</span> <span class="nc">TimeEntry</span><span class="p">:</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Class for creating a time enry box. Used when you need a time input from the user.</span>
+
+<span class="sd">    :param master: This is the root variable of the GUI. (*tk.TK()*)</span>
+<span class="sd">    :param int row: what row the check box is put into.</span>
+<span class="sd">    :param int column: what column the check box is put into.</span>
+<span class="sd">    :param dict default_val_dict: Dictionary of values that first populates the boxes.</span>
+<span class="sd">        [default: {&quot;hour&quot;: 12, &quot;minute&quot;: 30, &quot;second&quot;: 42}]</span>
+<span class="sd">    :param int padx: This is how much x axis padding is given to the check box. [default: 3 px]</span>
+<span class="sd">    :param int pady: This is how much y axis padding is given to the check box. [default: 3 px]</span>
+<span class="sd">    :param int box_width: Sets how wide the input box is [default: 20 px]</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">master</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="n">column</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">default_val_dict</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;hour&quot;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span> <span class="s2">&quot;minute&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s2">&quot;second&quot;</span><span class="p">:</span> <span class="mi">42</span><span class="p">}):</span>
+        <span class="n">hour_init_val</span> <span class="o">=</span> <span class="n">default_val_dict</span><span class="p">[</span><span class="s2">&quot;hour&quot;</span><span class="p">]</span>
+        <span class="n">min_init_val</span> <span class="o">=</span> <span class="n">default_val_dict</span><span class="p">[</span><span class="s2">&quot;minute&quot;</span><span class="p">]</span>
+        <span class="n">sec_init_val</span> <span class="o">=</span> <span class="n">default_val_dict</span><span class="p">[</span><span class="s2">&quot;second&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">root</span> <span class="o">=</span> <span class="n">master</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">frame</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Frame</span><span class="p">(</span><span class="n">master</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="n">row</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="n">column</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="n">tk</span><span class="o">.</span><span class="n">E</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">columnconfigure</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">minsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">columnconfigure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">minsize</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">columnconfigure</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">minsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">columnconfigure</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">minsize</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">columnconfigure</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">minsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hour_box</span> <span class="o">=</span> <span class="n">EntryBox</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">frame</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">default_val</span><span class="o">=</span><span class="n">hour_init_val</span><span class="p">,</span> <span class="n">box_width</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">border</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                                 <span class="n">justify</span><span class="o">=</span><span class="n">tk</span><span class="o">.</span><span class="n">CENTER</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="n">tk</span><span class="o">.</span><span class="n">W</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">label1</span> <span class="o">=</span> <span class="n">Labels</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">frame</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">border</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="c1"># ttk.Label(self.frame, text=&quot;:&quot;, border=1).grid(row=0, column=1, padx=0, pady=0)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">min_box</span> <span class="o">=</span> <span class="n">EntryBox</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">frame</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">default_val</span><span class="o">=</span><span class="n">min_init_val</span><span class="p">,</span> <span class="n">box_width</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">border</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                                <span class="n">justify</span><span class="o">=</span><span class="n">tk</span><span class="o">.</span><span class="n">CENTER</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">label2</span> <span class="o">=</span> <span class="n">Labels</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">frame</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">border</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="c1"># ttk.Label(self.frame, text=&quot;:&quot;, border=1).grid(row=0, column=3, padx=0, pady=0)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sec_box</span> <span class="o">=</span> <span class="n">EntryBox</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">frame</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">default_val</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">{:0&gt;2}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sec_init_val</span><span class="p">),</span> <span class="n">box_width</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+                                <span class="n">border</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">justify</span><span class="o">=</span><span class="n">tk</span><span class="o">.</span><span class="n">CENTER</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="n">tk</span><span class="o">.</span><span class="n">E</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">sec_box</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="s1">&#39;&lt;KeyRelease&gt;&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_err_sec_check</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">min_box</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="s1">&#39;&lt;KeyRelease&gt;&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_err_min_check</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hour_box</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="s1">&#39;&lt;KeyRelease&gt;&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_err_hour_check</span><span class="p">)</span>
+
+<div class="viewcode-block" id="TimeEntry._backspace"><a class="viewcode-back" href="../index.html#CustomGUIWrappers.TimeEntry._backspace">[docs]</a>    <span class="k">def</span> <span class="nf">_backspace</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entry</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;called when we need to delete the most recent character.&#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">bell</span><span class="p">()</span>
+        <span class="n">cont</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">get_val</span><span class="p">()</span>
+        <span class="n">entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">tk</span><span class="o">.</span><span class="n">END</span><span class="p">)</span>
+        <span class="n">entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">cont</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span></div>
+
+<div class="viewcode-block" id="TimeEntry._err_sec_check"><a class="viewcode-back" href="../index.html#CustomGUIWrappers.TimeEntry._err_sec_check">[docs]</a>    <span class="k">def</span> <span class="nf">_err_sec_check</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">e</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Error checking function for the first box (the seconds category).&#39;&#39;&#39;</span>
+        <span class="n">cont</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sec_box</span><span class="o">.</span><span class="n">get_val</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">cont</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">cont</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">2</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">cont</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">isdigit</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_backspace</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sec_box</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sec_box</span><span class="o">.</span><span class="n">focus</span><span class="p">()</span>
+            <span class="k">return</span>
+        <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">cont</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">60</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sec_box</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">tk</span><span class="o">.</span><span class="n">END</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sec_box</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;59&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">bell</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="TimeEntry._err_min_check"><a class="viewcode-back" href="../index.html#CustomGUIWrappers.TimeEntry._err_min_check">[docs]</a>    <span class="k">def</span> <span class="nf">_err_min_check</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">e</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Error checking function for the second box (the minutes category).&#39;&#39;&#39;</span>
+        <span class="n">cont</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">min_box</span><span class="o">.</span><span class="n">get_val</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">cont</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">cont</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">2</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">cont</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">isdigit</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_backspace</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">min_box</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">min_box</span><span class="o">.</span><span class="n">focus</span><span class="p">()</span>
+            <span class="k">return</span>
+        <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">cont</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">60</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">min_box</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">tk</span><span class="o">.</span><span class="n">END</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">min_box</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;59&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">bell</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="TimeEntry._err_hour_check"><a class="viewcode-back" href="../index.html#CustomGUIWrappers.TimeEntry._err_hour_check">[docs]</a>    <span class="k">def</span> <span class="nf">_err_hour_check</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">e</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Error checking function for the third box (the hours category).&#39;&#39;&#39;</span>
+        <span class="n">cont</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hour_box</span><span class="o">.</span><span class="n">get_val</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">cont</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">cont</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">3</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">cont</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">isdigit</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_backspace</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hour_box</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">cont</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">24</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">hour_box</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">tk</span><span class="o">.</span><span class="n">END</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">hour_box</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;24&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">bell</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="TimeEntry.get_val"><a class="viewcode-back" href="../index.html#CustomGUIWrappers.TimeEntry.get_val">[docs]</a>    <span class="k">def</span> <span class="nf">get_val</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Gets the value input by the user.</span>
+
+<span class="sd">        :returns dict: Time input by user. Valid keys: hour, minute, second.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">second</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sec_box</span><span class="o">.</span><span class="n">get_val</span><span class="p">())</span>
+        <span class="n">minute</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">min_box</span><span class="o">.</span><span class="n">get_val</span><span class="p">())</span>
+        <span class="n">hour</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hour_box</span><span class="o">.</span><span class="n">get_val</span><span class="p">())</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;hour&quot;</span><span class="p">:</span> <span class="n">hour</span><span class="p">,</span> <span class="s2">&quot;minute&quot;</span><span class="p">:</span> <span class="n">minute</span><span class="p">,</span> <span class="s2">&quot;second&quot;</span><span class="p">:</span> <span class="n">second</span><span class="p">}</span></div>
+
+<div class="viewcode-block" id="TimeEntry.deactivate"><a class="viewcode-back" href="../index.html#CustomGUIWrappers.TimeEntry.deactivate">[docs]</a>    <span class="k">def</span> <span class="nf">deactivate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Deactivates all input boxes.&#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sec_box</span><span class="o">.</span><span class="n">deactivate</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">min_box</span><span class="o">.</span><span class="n">deactivate</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hour_box</span><span class="o">.</span><span class="n">deactivate</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="TimeEntry.activate"><a class="viewcode-back" href="../index.html#CustomGUIWrappers.TimeEntry.activate">[docs]</a>    <span class="k">def</span> <span class="nf">activate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Activates all input boxes.&#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sec_box</span><span class="o">.</span><span class="n">activate</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">min_box</span><span class="o">.</span><span class="n">activate</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hour_box</span><span class="o">.</span><span class="n">activate</span><span class="p">()</span></div>
+
+    <span class="k">def</span> <span class="nf">bind</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">min_box</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">func</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sec_box</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">func</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hour_box</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">func</span><span class="p">)</span></div>
+
+
+<span class="k">class</span> <span class="nc">ProgressBar</span><span class="p">:</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Class for creating a Progress bar.</span>
+
+<span class="sd">    :param master: This is the root variable of the GUI. (*tk.TK()*)</span>
+<span class="sd">    :param int row: what row the check box is put into.</span>
+<span class="sd">    :param int column: what column the check box is put into.</span>
+<span class="sd">    :param int max_val: Maximum value that the progress bar can go to. [default: 100]</span>
+<span class="sd">    :param int columnspan: Determines how many columns this widget spans. [default: 1]</span>
+<span class="sd">    :param str mode: &quot;determinate&quot; means we know the current progress of the process this progress bar is</span>
+<span class="sd">                     tracking. &quot;indeterminate&quot; means we don&#39;t know when the current process will end.</span>
+<span class="sd">                     [default: determinate]</span>
+<span class="sd">    :param int \*\*padx: This is how much x axis padding is given to the check box. [default: 3 px]</span>
+<span class="sd">    :param int \*\*pady: This is how much y axis padding is given to the check box. [default: 3 px]</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">master</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="n">column</span><span class="p">,</span> <span class="n">columnspan</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_val</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;determinate&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">width</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="n">winfo_width</span><span class="p">()</span>
+        <span class="n">col</span><span class="p">,</span> <span class="n">row</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="n">grid_size</span><span class="p">()</span>
+        <span class="n">width</span> <span class="o">=</span> <span class="p">(</span><span class="n">width</span> <span class="o">/</span> <span class="n">col</span><span class="p">)</span>
+        <span class="n">padx</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;padx&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="n">pady</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;pady&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">widget</span> <span class="o">=</span> <span class="n">ttk</span><span class="o">.</span><span class="n">Progressbar</span><span class="p">(</span><span class="n">master</span><span class="p">,</span> <span class="n">maximum</span><span class="o">=</span><span class="n">max_val</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">width</span> <span class="o">*</span> <span class="n">columnspan</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="n">row</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="n">column</span><span class="p">,</span> <span class="n">columnspan</span><span class="o">=</span><span class="n">columnspan</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="n">padx</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="n">pady</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cur_val</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_val</span> <span class="o">=</span> <span class="n">max_val</span>
+
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        updates the progress bar based on the current progress of the process running. (val is usually</span>
+<span class="sd">        a percentage)</span>
+
+<span class="sd">        :param int val: Current progress of the process running.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_val</span> <span class="o">&lt;</span> <span class="n">val</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">max_val</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">cur_val</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cur_val</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_val</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">val</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">cur_val</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cur_val</span> <span class="o">=</span> <span class="n">val</span>
+
+    <span class="k">def</span> <span class="nf">destroy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        destroys the widget and removes it from the GUI.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">destroy</span><span class="p">()</span>
+
+
+<span class="k">class</span> <span class="nc">BusyManager</span><span class="p">:</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Allows us to assign the busy pointer to all widgets when</span>
+<span class="sd">    the program is busy.</span>
+<span class="sd">    from: http://effbot.org/zone/tkinter-busy.htm</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">widget</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">toplevel</span> <span class="o">=</span> <span class="n">widget</span><span class="o">.</span><span class="n">winfo_toplevel</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">widgets</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">def</span> <span class="nf">busy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">widget</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        attach busy cursor to toplevel, plus all windows</span>
+<span class="sd">        that define their own cursor.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="n">widget</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">w</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">toplevel</span>  <span class="c1"># myself</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">w</span> <span class="o">=</span> <span class="n">widget</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">w</span><span class="p">))</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">widgets</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="c1"># attach cursor to this widget</span>
+                <span class="n">cursor</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">cget</span><span class="p">(</span><span class="s2">&quot;cursor&quot;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">cursor</span> <span class="o">!=</span> <span class="s2">&quot;watch&quot;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">widgets</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">w</span><span class="p">)]</span> <span class="o">=</span> <span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">cursor</span><span class="p">)</span>
+                    <span class="n">w</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="n">cursor</span><span class="o">=</span><span class="s2">&quot;watch&quot;</span><span class="p">)</span>
+            <span class="k">except</span> <span class="n">tk</span><span class="o">.</span><span class="n">TclError</span><span class="p">:</span>
+                <span class="k">pass</span>
+
+        <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">w</span><span class="o">.</span><span class="n">children</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">busy</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">notbusy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;restore cursors&#39;&#39;&#39;</span>
+        <span class="k">for</span> <span class="n">w</span><span class="p">,</span> <span class="n">cursor</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">widgets</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">w</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="n">cursor</span><span class="o">=</span><span class="n">cursor</span><span class="p">)</span>
+            <span class="k">except</span> <span class="n">tk</span><span class="o">.</span><span class="n">TclError</span><span class="p">:</span>
+                <span class="k">pass</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">widgets</span> <span class="o">=</span> <span class="p">{}</span>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Tyler Holmes.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

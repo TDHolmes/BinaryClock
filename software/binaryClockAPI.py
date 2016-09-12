@@ -11,7 +11,13 @@ import struct
 import glob
 
 
-class BinaryClock:
+class BinaryClockAPI:
+    """
+    Main class that handles communication and exposes functions to be called.
+
+    :param str serial_port: Serial port to connect to. (e.g. "/dev/tty.usbserial-12345")
+    :param int baud: baudrate to communicate at (default: 250000)
+    """
     def __init__(self, serial_port, baud=250000):
         self.UART_CMD_SET_LED = 0x10
         self.UART_CMD_CLEAR_LED = 0x11
@@ -30,9 +36,19 @@ class BinaryClock:
         self.coms = serial.Serial(port=serial_port, baudrate=baud, timeout=3)
 
     def close(self):
+        """ Closes the com port to the device"""
         self.coms.close()
 
     def set_LED(self, row, column, red, green, blue):
+        """
+        Set an LED to the given color.
+
+        :param int row: Row of the LED to set
+        :param int column: Column of the LED to set
+        :param int red: Red value (0 - 255)
+        :param int green: Green value (0 - 255)
+        :param int blue: Blue value (0 - 255)
+        """
         self.coms.write(struct.pack("B", self.UART_CMD_SET_LED))
         self.coms.write(struct.pack("B", row))
         self.coms.write(struct.pack("B", column))
@@ -43,6 +59,13 @@ class BinaryClock:
         return binascii.hexlify(response)
 
     def update_time(self, time_override_arr=None):
+        """
+        Function for updating the time displayed on the clock. By default, uses
+        time.localtime() function to grab the current time from your computer.
+
+        :param list time_override_arr: List (in the format [hour, min, sec]) if you want to
+            override the local time on your machine.
+        """
         if time_override_arr is None:
             time_vals = time.localtime()
             hour = time_vals[3]
@@ -62,6 +85,11 @@ class BinaryClock:
         return binascii.hexlify(response)
 
     def clear_LED(self, row, column):
+        """Clear an LED at the given co-ordinates.
+
+        :param int row: Row of the LED to clear
+        :param int column: Column of the LED to clear
+        """
         self.coms.write(struct.pack("B", self.UART_CMD_CLEAR_LED))
         self.coms.write(struct.pack("B", row))
         self.coms.write(struct.pack("B", column))
@@ -72,6 +100,7 @@ class BinaryClock:
         return binascii.hexlify(response)
 
     def clear_all_LEDs(self):
+        """Clears all LEDs."""
         self.coms.write(struct.pack("B", self.UART_CMD_CLEAR_ALL_LED))
         self.coms.write(struct.pack("B", 0))
         self.coms.write(struct.pack("B", 0))
@@ -82,6 +111,13 @@ class BinaryClock:
         return binascii.hexlify(response)
 
     def set_all_LEDs(self, red, green, blue):
+        """
+        Sets all LEDs to the given color.
+
+        :param int red: Red value (0 - 255)
+        :param int green: Green value (0 - 255)
+        :param int blue: Blue value (0 - 255)
+        """
         self.coms.write(struct.pack("B", self.UART_CMD_SET_ALL_LED))
         self.coms.write(struct.pack("B", red))
         self.coms.write(struct.pack("B", green))
@@ -92,6 +128,13 @@ class BinaryClock:
         return binascii.hexlify(response)
 
     def set_color(self, red, green, blue):
+        """
+        Sets the active colors when running in time mode.
+
+        :param int red: Red value (0 - 255)
+        :param int green: Green value (0 - 255)
+        :param int blue: Blue value (0 - 255)
+        """
         self.coms.write(struct.pack("B", self.UART_CMD_SET_COLOR))
         self.coms.write(struct.pack("B", red))
         self.coms.write(struct.pack("B", green))
@@ -102,6 +145,13 @@ class BinaryClock:
         return binascii.hexlify(response)
 
     def set_state(self, state):
+        """
+        Sets the current state of the device. (either time control or manual control)
+
+        :param int state: Can either be 0 (RUN TIME) or 1 (RUN MANUAL)
+        """
+        if state != 0 and state != 1:
+            raise ValueError("State must either be a 0 or a 1!")
         self.coms.write(struct.pack("B", self.UART_CMD_CHANGE_STATE))
         self.coms.write(struct.pack("B", state))
         self.coms.write(struct.pack("B", 0))
@@ -113,6 +163,11 @@ class BinaryClock:
 
 
 def run_as_main():
+    """
+    If you wish to use these functions via the command line, this function
+    gives you a bare-bones way to access the functions. It will ask you which function
+    you wish to issue and ask you for the requisite data fields.
+    """
     options = {"Set Led": 0, "Clear Led": 1, "Clear All Led": 2, "Set All Led": 3,
                "Set Time": 4, "Set Color": 5, "Change State": 6}
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -123,7 +178,7 @@ def run_as_main():
         print "  {:}: {:}".format(ind, port)
     port_ind = int(raw_input("Select port: "))
     serialport = available_ports[port_ind]
-    bc_obj = BinaryClock(serial_port=serialport)
+    bc_obj = BinaryClockAPI(serial_port=serialport)
     while True:
         print "0. Set Led"
         print "1. Clear Led"
