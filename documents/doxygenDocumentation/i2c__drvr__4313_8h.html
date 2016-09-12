@@ -69,6 +69,9 @@ $(function() {
 <div class="title">i2c_drvr_4313.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Low level I2C definitions for the ATtiny4313.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="global__defines_8h_source.html">global_defines.h</a>&quot;</code><br />
 <code>#include &lt;stdint.h&gt;</code><br />
 </div>
@@ -76,11 +79,13 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a1b9318e5b12236cf6074035c34109235"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="i2c__drvr__4313_8h.html#a1b9318e5b12236cf6074035c34109235">I2C_START_RETRY</a>&#160;&#160;&#160;5</td></tr>
-<tr class="memdesc:a1b9318e5b12236cf6074035c34109235"><td class="mdescLeft">&#160;</td><td class="mdescRight">defines how many times we should retry to start communication  <a href="#a1b9318e5b12236cf6074035c34109235">More...</a><br /></td></tr>
+<tr class="memitem:a1b9318e5b12236cf6074035c34109235"><td class="memItemLeft" align="right" valign="top"><a id="a1b9318e5b12236cf6074035c34109235"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="i2c__drvr__4313_8h.html#a1b9318e5b12236cf6074035c34109235">I2C_START_RETRY</a>&#160;&#160;&#160;5</td></tr>
+<tr class="memdesc:a1b9318e5b12236cf6074035c34109235"><td class="mdescLeft">&#160;</td><td class="mdescRight">defines how many times we should retry to start communication <br /></td></tr>
 <tr class="separator:a1b9318e5b12236cf6074035c34109235"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa04dbf6dafeebb013d586e0d315c4d66"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="i2c__drvr__4313_8h.html#aa04dbf6dafeebb013d586e0d315c4d66">I2C_BITBANG</a></td></tr>
-<tr class="memdesc:aa04dbf6dafeebb013d586e0d315c4d66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Don't use I2C hardware modules, but rather manual port manipulation.  <a href="#aa04dbf6dafeebb013d586e0d315c4d66">More...</a><br /></td></tr>
+<tr class="memitem:aa04dbf6dafeebb013d586e0d315c4d66"><td class="memItemLeft" align="right" valign="top"><a id="aa04dbf6dafeebb013d586e0d315c4d66"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="i2c__drvr__4313_8h.html#aa04dbf6dafeebb013d586e0d315c4d66">I2C_BITBANG</a></td></tr>
+<tr class="memdesc:aa04dbf6dafeebb013d586e0d315c4d66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Don't use I2C hardware modules, but rather manual port manipulation. <br /></td></tr>
 <tr class="separator:aa04dbf6dafeebb013d586e0d315c4d66"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -95,47 +100,13 @@ Functions</h2></td></tr>
 <tr class="separator:a0e0c3a56da7932139693b97dd5a2d1d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab112d7a8b14604697d8e3549e891476a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="global__defines_8h.html#a7a53c0a65d763442224ca36299adee75">retval_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="i2c__drvr__4313_8h.html#ab112d7a8b14604697d8e3549e891476a">i2c_drvr_read_byte</a> (uint8_t *byte_read_ptr, uint8_t ack)</td></tr>
 <tr class="separator:ab112d7a8b14604697d8e3549e891476a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a893743cc983f49c186937c253b8a50e9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="i2c__drvr__4313_8h.html#a893743cc983f49c186937c253b8a50e9">toggle_scl</a> (void)</td></tr>
+<tr class="memitem:a893743cc983f49c186937c253b8a50e9"><td class="memItemLeft" align="right" valign="top"><a id="a893743cc983f49c186937c253b8a50e9"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>toggle_scl</b> (void)</td></tr>
 <tr class="separator:a893743cc983f49c186937c253b8a50e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="aa04dbf6dafeebb013d586e0d315c4d66"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa04dbf6dafeebb013d586e0d315c4d66">&sect;&nbsp;</a></span>I2C_BITBANG</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define I2C_BITBANG</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Don't use I2C hardware modules, but rather manual port manipulation. </p>
-
-<p>Definition at line <a class="el" href="i2c__drvr__4313_8h_source.html#l00009">9</a> of file <a class="el" href="i2c__drvr__4313_8h_source.html">i2c_drvr_4313.h</a>.</p>
-
-</div>
-</div>
-<a id="a1b9318e5b12236cf6074035c34109235"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1b9318e5b12236cf6074035c34109235">&sect;&nbsp;</a></span>I2C_START_RETRY</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define I2C_START_RETRY&#160;&#160;&#160;5</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>defines how many times we should retry to start communication </p>
-
-<p>Definition at line <a class="el" href="i2c__drvr__4313_8h_source.html#l00007">7</a> of file <a class="el" href="i2c__drvr__4313_8h_source.html">i2c_drvr_4313.h</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Low level I2C definitions for the ATtiny4313. </p>
+</div><h2 class="groupheader">Function Documentation</h2>
 <a id="a6263cbd58a2fb736ab058b532ddd242a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6263cbd58a2fb736ab058b532ddd242a">&sect;&nbsp;</a></span>i2c_drvr_end()</h2>
 
@@ -158,8 +129,6 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-
-<p>Definition at line <a class="el" href="i2c__drvr__4313_8c_source.html#l00108">108</a> of file <a class="el" href="i2c__drvr__4313_8c_source.html">i2c_drvr_4313.c</a>.</p>
 
 </div>
 </div>
@@ -185,8 +154,6 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-
-<p>Definition at line <a class="el" href="i2c__drvr__4313_8c_source.html#l00074">74</a> of file <a class="el" href="i2c__drvr__4313_8c_source.html">i2c_drvr_4313.c</a>.</p>
 
 </div>
 </div>
@@ -225,8 +192,6 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="i2c__drvr__4313_8c_source.html#l00156">156</a> of file <a class="el" href="i2c__drvr__4313_8c_source.html">i2c_drvr_4313.c</a>.</p>
-
 </div>
 </div>
 <a id="a2b3c7d9d1c0c4dfb71106e7fb9869602"></a>
@@ -253,8 +218,6 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="i2c__drvr__4313_8c_source.html#l00088">88</a> of file <a class="el" href="i2c__drvr__4313_8c_source.html">i2c_drvr_4313.c</a>.</p>
-
 </div>
 </div>
 <a id="a0e0c3a56da7932139693b97dd5a2d1d7"></a>
@@ -280,26 +243,6 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-
-<p>Definition at line <a class="el" href="i2c__drvr__4313_8c_source.html#l00125">125</a> of file <a class="el" href="i2c__drvr__4313_8c_source.html">i2c_drvr_4313.c</a>.</p>
-
-</div>
-</div>
-<a id="a893743cc983f49c186937c253b8a50e9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a893743cc983f49c186937c253b8a50e9">&sect;&nbsp;</a></span>toggle_scl()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void toggle_scl </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
 
 </div>
 </div>

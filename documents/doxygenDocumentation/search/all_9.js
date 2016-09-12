@@ -8,7 +8,7 @@ var searchData=
   ['led1_5ftoggle',['LED1_toggle',['../ports_8h.html#ac4cba9b5cb08ca7951445b5cf41b2c03',1,'ports.h']]],
   ['led_5fadmin_5fptr',['LED_admin_ptr',['../_l_e_d_8c.html#a37fdc34f51570c03696676421497a610',1,'LED.c']]],
   ['led_5fadmin_5fstruct',['LED_admin_struct',['../_l_e_d_8c.html#a218cfbe8de66c4226b687a1034b02557',1,'LED.c']]],
-  ['led_5farray',['LED_array',['../struct_l_e_d__drvr__t.html#a7f01ed87a74212d270cae32130977184',1,'LED_drvr_t']]],
+  ['led_5farray',['LED_array',['../struct_l_e_d__drvr__t.html#aff6aed840461f5e82af8be24a360ec74',1,'LED_drvr_t']]],
   ['led_5fclear',['LED_clear',['../_l_e_d_8c.html#a4787cb4562b37ffc2fad08f55da989a1',1,'LED_clear(uint8_t row, uint8_t col):&#160;LED.c'],['../_l_e_d_8h.html#a4787cb4562b37ffc2fad08f55da989a1',1,'LED_clear(uint8_t row, uint8_t col):&#160;LED.c']]],
   ['led_5fclear_5fall',['LED_clear_all',['../_l_e_d_8c.html#a0490a1834f071acbfe64bee0ae584a18',1,'LED_clear_all(void):&#160;LED.c'],['../_l_e_d_8h.html#a0490a1834f071acbfe64bee0ae584a18',1,'LED_clear_all(void):&#160;LED.c']]],
   ['led_5fcolor_5ft',['led_color_t',['../structled__color__t.html',1,'']]],
@@ -24,13 +24,9 @@ var searchData=
   ['led_5fset_5fall',['LED_set_all',['../_l_e_d_8c.html#a40249eaaaf8ca06760fc72d4bb4d1115',1,'LED_set_all(uint8_t red, uint8_t blue, uint8_t green):&#160;LED.c'],['../_l_e_d_8h.html#a40249eaaaf8ca06760fc72d4bb4d1115',1,'LED_set_all(uint8_t red, uint8_t blue, uint8_t green):&#160;LED.c']]],
   ['led_5fset_5fcolor',['LED_set_color',['../_l_e_d_8c.html#a03b912786effb26b1a9ebcfc222c1a12',1,'LED_set_color(uint8_t red, uint8_t blue, uint8_t green):&#160;LED.c'],['../_l_e_d_8h.html#a03b912786effb26b1a9ebcfc222c1a12',1,'LED_set_color(uint8_t red, uint8_t blue, uint8_t green):&#160;LED.c']]],
   ['led_5fupdate_5ftime',['LED_update_time',['../_l_e_d_8c.html#a895aa35945c973a001ae1f69547f7526',1,'LED_update_time(rtc_time_t *t_ptr, uint8_t update_all):&#160;LED.c'],['../_l_e_d_8h.html#a0ec75d05e2bce12b7fa3637c65175fdc',1,'LED_update_time(rtc_time_t *t_ptr, uint8_t update_all_override):&#160;LED.c']]],
-  ['leddrv_5fclk',['LEDDRV_CLK',['../ports_8h.html#a79c0a61c637999cb0a0ab2ae724a4f0b',1,'ports.h']]],
   ['leddrv_5fclk_5fset',['LEDDRV_CLK_SET',['../ports_8h.html#af8dfefe538e7c5bd1269e8c5af3069c6',1,'ports.h']]],
-  ['leddrv_5fle',['LEDDRV_LE',['../ports_8h.html#a7f2eb6c86f2d5a1688b9a0d13f1925e5',1,'ports.h']]],
   ['leddrv_5fle_5fset',['LEDDRV_LE_SET',['../ports_8h.html#afc43ce1e0719cfd0d44059f24eefa515',1,'ports.h']]],
-  ['leddrv_5foe',['LEDDRV_OE',['../ports_8h.html#a7f94a464ebc0f12b8a2a45570bdb0db1',1,'ports.h']]],
   ['leddrv_5foe_5fset',['LEDDRV_OE_SET',['../ports_8h.html#a5adc7031c01c6f7f8cc9a0b0170dfb6a',1,'ports.h']]],
-  ['leddrv_5fsdi',['LEDDRV_SDI',['../ports_8h.html#acbe239292a69760cd63518b8fc896fc5',1,'ports.h']]],
   ['leddrv_5fsdi_5fset',['LEDDRV_SDI_SET',['../ports_8h.html#aae0c40c318531739e4367043ecca5f93',1,'ports.h']]],
   ['lf',['LF',['../_u_a_r_t_8h.html#a350c9d6cb81908d59427ee96844d1a9c',1,'UART.h']]]
 ];

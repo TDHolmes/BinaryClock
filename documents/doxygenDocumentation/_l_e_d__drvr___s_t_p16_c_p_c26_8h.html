@@ -70,6 +70,9 @@ $(function() {
 <div class="title">LED_drvr_STP16CPC26.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Low level LED driver definitions to be used with the STP16CPC26 LED constant current driver.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="ports_8h_source.html">ports.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_l_e_d_8h_source.html">LED.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="color_8h_source.html">color.h</a>&quot;</code><br />
@@ -85,23 +88,29 @@ Data Structures</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:aa4d030604a90c8d019d90fc721900d63"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_l_e_d__drvr___s_t_p16_c_p_c26_8h.html#aa4d030604a90c8d019d90fc721900d63">ROW_SIZE</a>&#160;&#160;&#160;4</td></tr>
-<tr class="memdesc:aa4d030604a90c8d019d90fc721900d63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of rows on the binary clock.  <a href="#aa4d030604a90c8d019d90fc721900d63">More...</a><br /></td></tr>
+<tr class="memitem:aa4d030604a90c8d019d90fc721900d63"><td class="memItemLeft" align="right" valign="top"><a id="aa4d030604a90c8d019d90fc721900d63"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_l_e_d__drvr___s_t_p16_c_p_c26_8h.html#aa4d030604a90c8d019d90fc721900d63">ROW_SIZE</a>&#160;&#160;&#160;4</td></tr>
+<tr class="memdesc:aa4d030604a90c8d019d90fc721900d63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of rows on the binary clock. <br /></td></tr>
 <tr class="separator:aa4d030604a90c8d019d90fc721900d63"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a99468544016f0abb855e6415c629ec29"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_l_e_d__drvr___s_t_p16_c_p_c26_8h.html#a99468544016f0abb855e6415c629ec29">COL_SIZE</a>&#160;&#160;&#160;6</td></tr>
-<tr class="memdesc:a99468544016f0abb855e6415c629ec29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of clumns on the binary clock.  <a href="#a99468544016f0abb855e6415c629ec29">More...</a><br /></td></tr>
+<tr class="memitem:a99468544016f0abb855e6415c629ec29"><td class="memItemLeft" align="right" valign="top"><a id="a99468544016f0abb855e6415c629ec29"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_l_e_d__drvr___s_t_p16_c_p_c26_8h.html#a99468544016f0abb855e6415c629ec29">COL_SIZE</a>&#160;&#160;&#160;6</td></tr>
+<tr class="memdesc:a99468544016f0abb855e6415c629ec29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of clumns on the binary clock. <br /></td></tr>
 <tr class="separator:a99468544016f0abb855e6415c629ec29"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a68a80be4e42506b0127b8559bc6662b0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_l_e_d__drvr___s_t_p16_c_p_c26_8h.html#a68a80be4e42506b0127b8559bc6662b0">COLOR_SIZE</a>&#160;&#160;&#160;3</td></tr>
-<tr class="memdesc:a68a80be4e42506b0127b8559bc6662b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of colors on the binary clock.  <a href="#a68a80be4e42506b0127b8559bc6662b0">More...</a><br /></td></tr>
+<tr class="memitem:a68a80be4e42506b0127b8559bc6662b0"><td class="memItemLeft" align="right" valign="top"><a id="a68a80be4e42506b0127b8559bc6662b0"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_l_e_d__drvr___s_t_p16_c_p_c26_8h.html#a68a80be4e42506b0127b8559bc6662b0">COLOR_SIZE</a>&#160;&#160;&#160;3</td></tr>
+<tr class="memdesc:a68a80be4e42506b0127b8559bc6662b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of colors on the binary clock. <br /></td></tr>
 <tr class="separator:a68a80be4e42506b0127b8559bc6662b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad274d5258f985b33d2e2a4d21e576899"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_l_e_d__drvr___s_t_p16_c_p_c26_8h.html#ad274d5258f985b33d2e2a4d21e576899">RED_IND</a>&#160;&#160;&#160;0</td></tr>
-<tr class="memdesc:ad274d5258f985b33d2e2a4d21e576899"><td class="mdescLeft">&#160;</td><td class="mdescRight">Offset of red LED on the PCB.  <a href="#ad274d5258f985b33d2e2a4d21e576899">More...</a><br /></td></tr>
+<tr class="memitem:ad274d5258f985b33d2e2a4d21e576899"><td class="memItemLeft" align="right" valign="top"><a id="ad274d5258f985b33d2e2a4d21e576899"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_l_e_d__drvr___s_t_p16_c_p_c26_8h.html#ad274d5258f985b33d2e2a4d21e576899">RED_IND</a>&#160;&#160;&#160;0</td></tr>
+<tr class="memdesc:ad274d5258f985b33d2e2a4d21e576899"><td class="mdescLeft">&#160;</td><td class="mdescRight">Offset of red LED on the PCB. <br /></td></tr>
 <tr class="separator:ad274d5258f985b33d2e2a4d21e576899"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae5e8f1b696942dc129814669b33d20ea"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_l_e_d__drvr___s_t_p16_c_p_c26_8h.html#ae5e8f1b696942dc129814669b33d20ea">BLUE_IND</a>&#160;&#160;&#160;1</td></tr>
-<tr class="memdesc:ae5e8f1b696942dc129814669b33d20ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Offset of blue LED on the PCB.  <a href="#ae5e8f1b696942dc129814669b33d20ea">More...</a><br /></td></tr>
+<tr class="memitem:ae5e8f1b696942dc129814669b33d20ea"><td class="memItemLeft" align="right" valign="top"><a id="ae5e8f1b696942dc129814669b33d20ea"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_l_e_d__drvr___s_t_p16_c_p_c26_8h.html#ae5e8f1b696942dc129814669b33d20ea">BLUE_IND</a>&#160;&#160;&#160;1</td></tr>
+<tr class="memdesc:ae5e8f1b696942dc129814669b33d20ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Offset of blue LED on the PCB. <br /></td></tr>
 <tr class="separator:ae5e8f1b696942dc129814669b33d20ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aafc9741cfb4ccfcf4f234f22cde96732"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_l_e_d__drvr___s_t_p16_c_p_c26_8h.html#aafc9741cfb4ccfcf4f234f22cde96732">GREEN_IND</a>&#160;&#160;&#160;2</td></tr>
-<tr class="memdesc:aafc9741cfb4ccfcf4f234f22cde96732"><td class="mdescLeft">&#160;</td><td class="mdescRight">Offset of green LED on the PCB.  <a href="#aafc9741cfb4ccfcf4f234f22cde96732">More...</a><br /></td></tr>
+<tr class="memitem:aafc9741cfb4ccfcf4f234f22cde96732"><td class="memItemLeft" align="right" valign="top"><a id="aafc9741cfb4ccfcf4f234f22cde96732"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_l_e_d__drvr___s_t_p16_c_p_c26_8h.html#aafc9741cfb4ccfcf4f234f22cde96732">GREEN_IND</a>&#160;&#160;&#160;2</td></tr>
+<tr class="memdesc:aafc9741cfb4ccfcf4f234f22cde96732"><td class="mdescLeft">&#160;</td><td class="mdescRight">Offset of green LED on the PCB. <br /></td></tr>
 <tr class="separator:aafc9741cfb4ccfcf4f234f22cde96732"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -111,116 +120,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a649a79cad2b9aae395acbbd8612cc970"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_l_e_d__drvr___s_t_p16_c_p_c26_8h.html#a649a79cad2b9aae395acbbd8612cc970">LED_drvr_run</a> (<a class="el" href="struct_l_e_d__drvr__t.html">LED_drvr_t</a> *LED_ptr)</td></tr>
 <tr class="separator:a649a79cad2b9aae395acbbd8612cc970"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="ae5e8f1b696942dc129814669b33d20ea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae5e8f1b696942dc129814669b33d20ea">&sect;&nbsp;</a></span>BLUE_IND</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define BLUE_IND&#160;&#160;&#160;1</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Offset of blue LED on the PCB. </p>
-
-<p>Definition at line <a class="el" href="_l_e_d__drvr___s_t_p16_c_p_c26_8h_source.html#l00015">15</a> of file <a class="el" href="_l_e_d__drvr___s_t_p16_c_p_c26_8h_source.html">LED_drvr_STP16CPC26.h</a>.</p>
-
-</div>
-</div>
-<a id="a99468544016f0abb855e6415c629ec29"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a99468544016f0abb855e6415c629ec29">&sect;&nbsp;</a></span>COL_SIZE</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define COL_SIZE&#160;&#160;&#160;6</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Number of clumns on the binary clock. </p>
-
-<p>Definition at line <a class="el" href="_l_e_d__drvr___s_t_p16_c_p_c26_8h_source.html#l00011">11</a> of file <a class="el" href="_l_e_d__drvr___s_t_p16_c_p_c26_8h_source.html">LED_drvr_STP16CPC26.h</a>.</p>
-
-</div>
-</div>
-<a id="a68a80be4e42506b0127b8559bc6662b0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a68a80be4e42506b0127b8559bc6662b0">&sect;&nbsp;</a></span>COLOR_SIZE</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define COLOR_SIZE&#160;&#160;&#160;3</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Number of colors on the binary clock. </p>
-
-<p>Definition at line <a class="el" href="_l_e_d__drvr___s_t_p16_c_p_c26_8h_source.html#l00012">12</a> of file <a class="el" href="_l_e_d__drvr___s_t_p16_c_p_c26_8h_source.html">LED_drvr_STP16CPC26.h</a>.</p>
-
-</div>
-</div>
-<a id="aafc9741cfb4ccfcf4f234f22cde96732"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aafc9741cfb4ccfcf4f234f22cde96732">&sect;&nbsp;</a></span>GREEN_IND</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define GREEN_IND&#160;&#160;&#160;2</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Offset of green LED on the PCB. </p>
-
-<p>Definition at line <a class="el" href="_l_e_d__drvr___s_t_p16_c_p_c26_8h_source.html#l00016">16</a> of file <a class="el" href="_l_e_d__drvr___s_t_p16_c_p_c26_8h_source.html">LED_drvr_STP16CPC26.h</a>.</p>
-
-</div>
-</div>
-<a id="ad274d5258f985b33d2e2a4d21e576899"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad274d5258f985b33d2e2a4d21e576899">&sect;&nbsp;</a></span>RED_IND</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define RED_IND&#160;&#160;&#160;0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Offset of red LED on the PCB. </p>
-
-<p>Definition at line <a class="el" href="_l_e_d__drvr___s_t_p16_c_p_c26_8h_source.html#l00014">14</a> of file <a class="el" href="_l_e_d__drvr___s_t_p16_c_p_c26_8h_source.html">LED_drvr_STP16CPC26.h</a>.</p>
-
-</div>
-</div>
-<a id="aa4d030604a90c8d019d90fc721900d63"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa4d030604a90c8d019d90fc721900d63">&sect;&nbsp;</a></span>ROW_SIZE</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define ROW_SIZE&#160;&#160;&#160;4</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Number of rows on the binary clock. </p>
-
-<p>Definition at line <a class="el" href="_l_e_d__drvr___s_t_p16_c_p_c26_8h_source.html#l00010">10</a> of file <a class="el" href="_l_e_d__drvr___s_t_p16_c_p_c26_8h_source.html">LED_drvr_STP16CPC26.h</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Low level LED driver definitions to be used with the STP16CPC26 LED constant current driver. </p>
+</div><h2 class="groupheader">Function Documentation</h2>
 <a id="a114c987dc587d53f9c53173afe4f9a54"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a114c987dc587d53f9c53173afe4f9a54">&sect;&nbsp;</a></span>LED_drvr_init()</h2>
 
@@ -243,8 +145,6 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-
-<p>Definition at line <a class="el" href="_l_e_d__drvr___s_t_p16_c_p_c26_8c_source.html#l00015">15</a> of file <a class="el" href="_l_e_d__drvr___s_t_p16_c_p_c26_8c_source.html">LED_drvr_STP16CPC26.c</a>.</p>
 
 </div>
 </div>
@@ -270,8 +170,6 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-
-<p>Definition at line <a class="el" href="_l_e_d__drvr___s_t_p16_c_p_c26_8c_source.html#l00029">29</a> of file <a class="el" href="_l_e_d__drvr___s_t_p16_c_p_c26_8c_source.html">LED_drvr_STP16CPC26.c</a>.</p>
 
 </div>
 </div>

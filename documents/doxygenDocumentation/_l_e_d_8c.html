@@ -69,15 +69,16 @@ $(function() {
 <div class="title">LED.c File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>High level LED functions to interface with an LED driver of some sort.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="_l_e_d_8h_source.html">LED.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="color_8h_source.html">color.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="ports_8h_source.html">ports.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_r_t_c___d_s3231_8h_source.html">RTC_DS3231.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_l_e_d__drvr___s_t_p16_c_p_c26_8h_source.html">LED_drvr_STP16CPC26.h</a>&quot;</code><br />
 <code>#include &lt;stdint.h&gt;</code><br />
-</div>
-<p><a href="_l_e_d_8c_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
+</div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a50cf228fce8563fc202330b7b4816cb9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_l_e_d_8c.html#a50cf228fce8563fc202330b7b4816cb9">LED_init</a> (void)</td></tr>
@@ -99,14 +100,18 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a218cfbe8de66c4226b687a1034b02557"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_l_e_d__drvr__t.html">LED_drvr_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_l_e_d_8c.html#a218cfbe8de66c4226b687a1034b02557">LED_admin_struct</a></td></tr>
-<tr class="memdesc:a218cfbe8de66c4226b687a1034b02557"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure that keeps track of important LED variables.  <a href="#a218cfbe8de66c4226b687a1034b02557">More...</a><br /></td></tr>
+<tr class="memitem:a218cfbe8de66c4226b687a1034b02557"><td class="memItemLeft" align="right" valign="top"><a id="a218cfbe8de66c4226b687a1034b02557"></a>
+<a class="el" href="struct_l_e_d__drvr__t.html">LED_drvr_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_l_e_d_8c.html#a218cfbe8de66c4226b687a1034b02557">LED_admin_struct</a></td></tr>
+<tr class="memdesc:a218cfbe8de66c4226b687a1034b02557"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure that keeps track of important LED variables. <br /></td></tr>
 <tr class="separator:a218cfbe8de66c4226b687a1034b02557"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a37fdc34f51570c03696676421497a610"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_l_e_d__drvr__t.html">LED_drvr_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_l_e_d_8c.html#a37fdc34f51570c03696676421497a610">LED_admin_ptr</a></td></tr>
-<tr class="memdesc:a37fdc34f51570c03696676421497a610"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to the LED admin structure.  <a href="#a37fdc34f51570c03696676421497a610">More...</a><br /></td></tr>
+<tr class="memitem:a37fdc34f51570c03696676421497a610"><td class="memItemLeft" align="right" valign="top"><a id="a37fdc34f51570c03696676421497a610"></a>
+<a class="el" href="struct_l_e_d__drvr__t.html">LED_drvr_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_l_e_d_8c.html#a37fdc34f51570c03696676421497a610">LED_admin_ptr</a></td></tr>
+<tr class="memdesc:a37fdc34f51570c03696676421497a610"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to the LED admin structure. <br /></td></tr>
 <tr class="separator:a37fdc34f51570c03696676421497a610"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>High level LED functions to interface with an LED driver of some sort. </p>
+</div><h2 class="groupheader">Function Documentation</h2>
 <a id="a4787cb4562b37ffc2fad08f55da989a1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4787cb4562b37ffc2fad08f55da989a1">&sect;&nbsp;</a></span>LED_clear()</h2>
 
@@ -141,8 +146,6 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_l_e_d_8c_source.html#l00129">129</a> of file <a class="el" href="_l_e_d_8c_source.html">LED.c</a>.</p>
-
 </div>
 </div>
 <a id="a0490a1834f071acbfe64bee0ae584a18"></a>
@@ -161,8 +164,6 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Clears all of the LEDs. </p>
-
-<p>Definition at line <a class="el" href="_l_e_d_8c_source.html#l00156">156</a> of file <a class="el" href="_l_e_d_8c_source.html">LED.c</a>.</p>
 
 </div>
 </div>
@@ -183,8 +184,6 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>initializes the LED driver, clears the LEDs, and initializes the LED admin pointer. </p>
 
-<p>Definition at line <a class="el" href="_l_e_d_8c_source.html#l00016">16</a> of file <a class="el" href="_l_e_d_8c_source.html">LED.c</a>.</p>
-
 </div>
 </div>
 <a id="a209d85c0dae3797b5e83c81a23152647"></a>
@@ -203,8 +202,6 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Runs the LED driver run function. Used for multiplexing. </p>
-
-<p>Definition at line <a class="el" href="_l_e_d_8c_source.html#l00117">117</a> of file <a class="el" href="_l_e_d_8c_source.html">LED.c</a>.</p>
 
 </div>
 </div>
@@ -263,8 +260,6 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_l_e_d_8c_source.html#l00146">146</a> of file <a class="el" href="_l_e_d_8c_source.html">LED.c</a>.</p>
-
 </div>
 </div>
 <a id="a40249eaaaf8ca06760fc72d4bb4d1115"></a>
@@ -307,8 +302,6 @@ Variables</h2></td></tr>
   </table>
   </dd>
 </dl>
-
-<p>Definition at line <a class="el" href="_l_e_d_8c_source.html#l00176">176</a> of file <a class="el" href="_l_e_d_8c_source.html">LED.c</a>.</p>
 
 </div>
 </div>
@@ -353,8 +346,6 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_l_e_d_8c_source.html#l00196">196</a> of file <a class="el" href="_l_e_d_8c_source.html">LED.c</a>.</p>
-
 </div>
 </div>
 <a id="a895aa35945c973a001ae1f69547f7526"></a>
@@ -390,45 +381,6 @@ Variables</h2></td></tr>
   </table>
   </dd>
 </dl>
-
-<p>Definition at line <a class="el" href="_l_e_d_8c_source.html#l00032">32</a> of file <a class="el" href="_l_e_d_8c_source.html">LED.c</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a id="a37fdc34f51570c03696676421497a610"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a37fdc34f51570c03696676421497a610">&sect;&nbsp;</a></span>LED_admin_ptr</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="struct_l_e_d__drvr__t.html">LED_drvr_t</a>* LED_admin_ptr</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Pointer to the LED admin structure. </p>
-
-<p>Definition at line <a class="el" href="_l_e_d_8c_source.html#l00009">9</a> of file <a class="el" href="_l_e_d_8c_source.html">LED.c</a>.</p>
-
-</div>
-</div>
-<a id="a218cfbe8de66c4226b687a1034b02557"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a218cfbe8de66c4226b687a1034b02557">&sect;&nbsp;</a></span>LED_admin_struct</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="struct_l_e_d__drvr__t.html">LED_drvr_t</a> LED_admin_struct</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Structure that keeps track of important LED variables. </p>
-
-<p>Definition at line <a class="el" href="_l_e_d_8c_source.html#l00008">8</a> of file <a class="el" href="_l_e_d_8c_source.html">LED.c</a>.</p>
 
 </div>
 </div>

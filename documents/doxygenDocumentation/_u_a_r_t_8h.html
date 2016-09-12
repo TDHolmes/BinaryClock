@@ -69,6 +69,9 @@ $(function() {
 <div class="title">UART.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>High level definitions for UART communications.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="_u_a_r_t__drvr__4313_8h_source.html">UART_drvr_4313.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="global__defines_8h_source.html">global_defines.h</a>&quot;</code><br />
 <code>#include &lt;stdint.h&gt;</code><br />
@@ -77,44 +80,13 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a66a99ddb7c9743c3d787fb42953c1947"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t_8h.html#a66a99ddb7c9743c3d787fb42953c1947">UART_CMD_INVALID</a>&#160;&#160;&#160;0xFF</td></tr>
-<tr class="memdesc:a66a99ddb7c9743c3d787fb42953c1947"><td class="mdescLeft">&#160;</td><td class="mdescRight">code if the UART command received is invalid  <a href="#a66a99ddb7c9743c3d787fb42953c1947">More...</a><br /></td></tr>
-<tr class="separator:a66a99ddb7c9743c3d787fb42953c1947"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9da7d8506e116aa0d4550f48540b2793"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t_8h.html#a9da7d8506e116aa0d4550f48540b2793">UART_CMD_WRONG_STATE</a>&#160;&#160;&#160;0xFE</td></tr>
-<tr class="memdesc:a9da7d8506e116aa0d4550f48540b2793"><td class="mdescLeft">&#160;</td><td class="mdescRight">code to send if the state is incorrect for the given command  <a href="#a9da7d8506e116aa0d4550f48540b2793">More...</a><br /></td></tr>
-<tr class="separator:a9da7d8506e116aa0d4550f48540b2793"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a103dda730c91b3865dc9b21dc7cf50b3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t_8h.html#a103dda730c91b3865dc9b21dc7cf50b3">UART_CMD_VALID</a>&#160;&#160;&#160;0x42</td></tr>
-<tr class="memdesc:a103dda730c91b3865dc9b21dc7cf50b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">valid command &amp; successful  <a href="#a103dda730c91b3865dc9b21dc7cf50b3">More...</a><br /></td></tr>
-<tr class="separator:a103dda730c91b3865dc9b21dc7cf50b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac6bb946b4f7eafdefad8df6850cf4c83"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t_8h.html#ac6bb946b4f7eafdefad8df6850cf4c83">UART_CMD_START_BYTE</a>&#160;&#160;&#160;0xAA</td></tr>
-<tr class="memdesc:ac6bb946b4f7eafdefad8df6850cf4c83"><td class="mdescLeft">&#160;</td><td class="mdescRight">byte that starts each transaction  <a href="#ac6bb946b4f7eafdefad8df6850cf4c83">More...</a><br /></td></tr>
-<tr class="separator:ac6bb946b4f7eafdefad8df6850cf4c83"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a579aaa216295501d2d838a7dca0ac50d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t_8h.html#a579aaa216295501d2d838a7dca0ac50d">UART_CMD_SET_LED</a>&#160;&#160;&#160;0x10</td></tr>
-<tr class="memdesc:a579aaa216295501d2d838a7dca0ac50d"><td class="mdescLeft">&#160;</td><td class="mdescRight">command to set an LED to a certain color (must be in manual control mode)  <a href="#a579aaa216295501d2d838a7dca0ac50d">More...</a><br /></td></tr>
-<tr class="separator:a579aaa216295501d2d838a7dca0ac50d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afb7ed61915098fa2b202b2adfacbeef1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t_8h.html#afb7ed61915098fa2b202b2adfacbeef1">UART_CMD_CLEAR_LED</a>&#160;&#160;&#160;0x11</td></tr>
-<tr class="memdesc:afb7ed61915098fa2b202b2adfacbeef1"><td class="mdescLeft">&#160;</td><td class="mdescRight">command to set an LED to a certain color (must be in manual control mode)  <a href="#afb7ed61915098fa2b202b2adfacbeef1">More...</a><br /></td></tr>
-<tr class="separator:afb7ed61915098fa2b202b2adfacbeef1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9e558713de08fc5a1bb813317ee11dfa"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t_8h.html#a9e558713de08fc5a1bb813317ee11dfa">UART_CMD_CLEAR_ALL_LED</a>&#160;&#160;&#160;0x12</td></tr>
-<tr class="memdesc:a9e558713de08fc5a1bb813317ee11dfa"><td class="mdescLeft">&#160;</td><td class="mdescRight">command to clear an led (must be in manual control mode)  <a href="#a9e558713de08fc5a1bb813317ee11dfa">More...</a><br /></td></tr>
-<tr class="separator:a9e558713de08fc5a1bb813317ee11dfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa2c599c7dd49c232c81c21f6a4ab499d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t_8h.html#aa2c599c7dd49c232c81c21f6a4ab499d">UART_CMD_SET_ALL_LED</a>&#160;&#160;&#160;0x13</td></tr>
-<tr class="memdesc:aa2c599c7dd49c232c81c21f6a4ab499d"><td class="mdescLeft">&#160;</td><td class="mdescRight">command to clear all leds (must be in manual control mode)  <a href="#aa2c599c7dd49c232c81c21f6a4ab499d">More...</a><br /></td></tr>
-<tr class="separator:aa2c599c7dd49c232c81c21f6a4ab499d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad592e3dde157e9c00fd16147b65fbe80"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t_8h.html#ad592e3dde157e9c00fd16147b65fbe80">UART_CMD_SET_TIME</a>&#160;&#160;&#160;0x14</td></tr>
-<tr class="memdesc:ad592e3dde157e9c00fd16147b65fbe80"><td class="mdescLeft">&#160;</td><td class="mdescRight">command to set all leds to a certain color (must be in manual control mode)  <a href="#ad592e3dde157e9c00fd16147b65fbe80">More...</a><br /></td></tr>
-<tr class="separator:ad592e3dde157e9c00fd16147b65fbe80"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af5b62223e4ca028add9471d549eb5d2f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t_8h.html#af5b62223e4ca028add9471d549eb5d2f">UART_CMD_SET_COLOR</a>&#160;&#160;&#160;0x15</td></tr>
-<tr class="memdesc:af5b62223e4ca028add9471d549eb5d2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">command to set the time (must be in time control mode)  <a href="#af5b62223e4ca028add9471d549eb5d2f">More...</a><br /></td></tr>
-<tr class="separator:af5b62223e4ca028add9471d549eb5d2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8725d27d4078f14a086b505ab5637c56"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t_8h.html#a8725d27d4078f14a086b505ab5637c56">UART_CMD_CHANGE_STATE</a>&#160;&#160;&#160;0x16</td></tr>
-<tr class="memdesc:a8725d27d4078f14a086b505ab5637c56"><td class="mdescLeft">&#160;</td><td class="mdescRight">command to set the color during time mode (must be in time control mode)  <a href="#a8725d27d4078f14a086b505ab5637c56">More...</a><br /></td></tr>
-<tr class="separator:a8725d27d4078f14a086b505ab5637c56"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a350c9d6cb81908d59427ee96844d1a9c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t_8h.html#a350c9d6cb81908d59427ee96844d1a9c">LF</a>&#160;&#160;&#160;0x0A</td></tr>
-<tr class="memdesc:a350c9d6cb81908d59427ee96844d1a9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">command to change states  <a href="#a350c9d6cb81908d59427ee96844d1a9c">More...</a><br /></td></tr>
+<tr class="memitem:a350c9d6cb81908d59427ee96844d1a9c"><td class="memItemLeft" align="right" valign="top"><a id="a350c9d6cb81908d59427ee96844d1a9c"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t_8h.html#a350c9d6cb81908d59427ee96844d1a9c">LF</a>&#160;&#160;&#160;0x0A</td></tr>
+<tr class="memdesc:a350c9d6cb81908d59427ee96844d1a9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">ascii value for line feed <br /></td></tr>
 <tr class="separator:a350c9d6cb81908d59427ee96844d1a9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a876ce77f3c672c7162658151e648389e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t_8h.html#a876ce77f3c672c7162658151e648389e">CR</a>&#160;&#160;&#160;0x0D</td></tr>
-<tr class="memdesc:a876ce77f3c672c7162658151e648389e"><td class="mdescLeft">&#160;</td><td class="mdescRight">ascii value for carriage return  <a href="#a876ce77f3c672c7162658151e648389e">More...</a><br /></td></tr>
+<tr class="memitem:a876ce77f3c672c7162658151e648389e"><td class="memItemLeft" align="right" valign="top"><a id="a876ce77f3c672c7162658151e648389e"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t_8h.html#a876ce77f3c672c7162658151e648389e">CR</a>&#160;&#160;&#160;0x0D</td></tr>
+<tr class="memdesc:a876ce77f3c672c7162658151e648389e"><td class="mdescLeft">&#160;</td><td class="mdescRight">ascii value for carriage return <br /></td></tr>
 <tr class="separator:a876ce77f3c672c7162658151e648389e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -138,243 +110,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a36d020619148935e3836fbfe85a5e6fb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t_8h.html#a36d020619148935e3836fbfe85a5e6fb">UART_reset</a> (void)</td></tr>
 <tr class="separator:a36d020619148935e3836fbfe85a5e6fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a876ce77f3c672c7162658151e648389e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a876ce77f3c672c7162658151e648389e">&sect;&nbsp;</a></span>CR</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define CR&#160;&#160;&#160;0x0D</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>ascii value for carriage return </p>
-
-<p>Definition at line <a class="el" href="_u_a_r_t_8h_source.html#l00035">35</a> of file <a class="el" href="_u_a_r_t_8h_source.html">UART.h</a>.</p>
-
-</div>
-</div>
-<a id="a350c9d6cb81908d59427ee96844d1a9c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a350c9d6cb81908d59427ee96844d1a9c">&sect;&nbsp;</a></span>LF</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define LF&#160;&#160;&#160;0x0A</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>command to change states </p>
-<p>ascii value for line feed </p>
-
-<p>Definition at line <a class="el" href="_u_a_r_t_8h_source.html#l00034">34</a> of file <a class="el" href="_u_a_r_t_8h_source.html">UART.h</a>.</p>
-
-</div>
-</div>
-<a id="a8725d27d4078f14a086b505ab5637c56"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8725d27d4078f14a086b505ab5637c56">&sect;&nbsp;</a></span>UART_CMD_CHANGE_STATE</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define UART_CMD_CHANGE_STATE&#160;&#160;&#160;0x16</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>command to set the color during time mode (must be in time control mode) </p>
-
-<p>Definition at line <a class="el" href="_u_a_r_t_8h_source.html#l00031">31</a> of file <a class="el" href="_u_a_r_t_8h_source.html">UART.h</a>.</p>
-
-</div>
-</div>
-<a id="a9e558713de08fc5a1bb813317ee11dfa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9e558713de08fc5a1bb813317ee11dfa">&sect;&nbsp;</a></span>UART_CMD_CLEAR_ALL_LED</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define UART_CMD_CLEAR_ALL_LED&#160;&#160;&#160;0x12</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>command to clear an led (must be in manual control mode) </p>
-
-<p>Definition at line <a class="el" href="_u_a_r_t_8h_source.html#l00023">23</a> of file <a class="el" href="_u_a_r_t_8h_source.html">UART.h</a>.</p>
-
-</div>
-</div>
-<a id="afb7ed61915098fa2b202b2adfacbeef1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afb7ed61915098fa2b202b2adfacbeef1">&sect;&nbsp;</a></span>UART_CMD_CLEAR_LED</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define UART_CMD_CLEAR_LED&#160;&#160;&#160;0x11</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>command to set an LED to a certain color (must be in manual control mode) </p>
-
-<p>Definition at line <a class="el" href="_u_a_r_t_8h_source.html#l00021">21</a> of file <a class="el" href="_u_a_r_t_8h_source.html">UART.h</a>.</p>
-
-</div>
-</div>
-<a id="a66a99ddb7c9743c3d787fb42953c1947"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a66a99ddb7c9743c3d787fb42953c1947">&sect;&nbsp;</a></span>UART_CMD_INVALID</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define UART_CMD_INVALID&#160;&#160;&#160;0xFF</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>code if the UART command received is invalid </p>
-
-<p>Definition at line <a class="el" href="_u_a_r_t_8h_source.html#l00009">9</a> of file <a class="el" href="_u_a_r_t_8h_source.html">UART.h</a>.</p>
-
-</div>
-</div>
-<a id="aa2c599c7dd49c232c81c21f6a4ab499d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa2c599c7dd49c232c81c21f6a4ab499d">&sect;&nbsp;</a></span>UART_CMD_SET_ALL_LED</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define UART_CMD_SET_ALL_LED&#160;&#160;&#160;0x13</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>command to clear all leds (must be in manual control mode) </p>
-
-<p>Definition at line <a class="el" href="_u_a_r_t_8h_source.html#l00025">25</a> of file <a class="el" href="_u_a_r_t_8h_source.html">UART.h</a>.</p>
-
-</div>
-</div>
-<a id="af5b62223e4ca028add9471d549eb5d2f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af5b62223e4ca028add9471d549eb5d2f">&sect;&nbsp;</a></span>UART_CMD_SET_COLOR</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define UART_CMD_SET_COLOR&#160;&#160;&#160;0x15</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>command to set the time (must be in time control mode) </p>
-
-<p>Definition at line <a class="el" href="_u_a_r_t_8h_source.html#l00029">29</a> of file <a class="el" href="_u_a_r_t_8h_source.html">UART.h</a>.</p>
-
-</div>
-</div>
-<a id="a579aaa216295501d2d838a7dca0ac50d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a579aaa216295501d2d838a7dca0ac50d">&sect;&nbsp;</a></span>UART_CMD_SET_LED</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define UART_CMD_SET_LED&#160;&#160;&#160;0x10</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>command to set an LED to a certain color (must be in manual control mode) </p>
-
-<p>Definition at line <a class="el" href="_u_a_r_t_8h_source.html#l00019">19</a> of file <a class="el" href="_u_a_r_t_8h_source.html">UART.h</a>.</p>
-
-</div>
-</div>
-<a id="ad592e3dde157e9c00fd16147b65fbe80"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad592e3dde157e9c00fd16147b65fbe80">&sect;&nbsp;</a></span>UART_CMD_SET_TIME</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define UART_CMD_SET_TIME&#160;&#160;&#160;0x14</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>command to set all leds to a certain color (must be in manual control mode) </p>
-
-<p>Definition at line <a class="el" href="_u_a_r_t_8h_source.html#l00027">27</a> of file <a class="el" href="_u_a_r_t_8h_source.html">UART.h</a>.</p>
-
-</div>
-</div>
-<a id="ac6bb946b4f7eafdefad8df6850cf4c83"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac6bb946b4f7eafdefad8df6850cf4c83">&sect;&nbsp;</a></span>UART_CMD_START_BYTE</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define UART_CMD_START_BYTE&#160;&#160;&#160;0xAA</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>byte that starts each transaction </p>
-
-<p>Definition at line <a class="el" href="_u_a_r_t_8h_source.html#l00016">16</a> of file <a class="el" href="_u_a_r_t_8h_source.html">UART.h</a>.</p>
-
-</div>
-</div>
-<a id="a103dda730c91b3865dc9b21dc7cf50b3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a103dda730c91b3865dc9b21dc7cf50b3">&sect;&nbsp;</a></span>UART_CMD_VALID</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define UART_CMD_VALID&#160;&#160;&#160;0x42</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>valid command &amp; successful </p>
-
-<p>Definition at line <a class="el" href="_u_a_r_t_8h_source.html#l00013">13</a> of file <a class="el" href="_u_a_r_t_8h_source.html">UART.h</a>.</p>
-
-</div>
-</div>
-<a id="a9da7d8506e116aa0d4550f48540b2793"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9da7d8506e116aa0d4550f48540b2793">&sect;&nbsp;</a></span>UART_CMD_WRONG_STATE</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define UART_CMD_WRONG_STATE&#160;&#160;&#160;0xFE</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>code to send if the state is incorrect for the given command </p>
-
-<p>Definition at line <a class="el" href="_u_a_r_t_8h_source.html#l00011">11</a> of file <a class="el" href="_u_a_r_t_8h_source.html">UART.h</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>High level definitions for UART communications. </p>
+</div><h2 class="groupheader">Function Documentation</h2>
 <a id="a821ba6a21f4896a9a815940bfcf5d45c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a821ba6a21f4896a9a815940bfcf5d45c">&sect;&nbsp;</a></span>UART_init()</h2>
 
@@ -397,8 +135,6 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-
-<p>Definition at line <a class="el" href="_u_a_r_t_8c_source.html#l00012">12</a> of file <a class="el" href="_u_a_r_t_8c_source.html">UART.c</a>.</p>
 
 </div>
 </div>
@@ -435,8 +171,6 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-
-<p>Definition at line <a class="el" href="_u_a_r_t_8c_source.html#l00121">121</a> of file <a class="el" href="_u_a_r_t_8c_source.html">UART.c</a>.</p>
 
 </div>
 </div>
@@ -475,8 +209,6 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_u_a_r_t_8c_source.html#l00143">143</a> of file <a class="el" href="_u_a_r_t_8c_source.html">UART.c</a>.</p>
-
 </div>
 </div>
 <a id="a83d6a7e3709e9391c448a48413f4722a"></a>
@@ -501,8 +233,6 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-
-<p>Definition at line <a class="el" href="_u_a_r_t_8c_source.html#l00170">170</a> of file <a class="el" href="_u_a_r_t_8c_source.html">UART.c</a>.</p>
 
 </div>
 </div>
@@ -529,8 +259,6 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_u_a_r_t_8c_source.html#l00159">159</a> of file <a class="el" href="_u_a_r_t_8c_source.html">UART.c</a>.</p>
-
 </div>
 </div>
 <a id="a36d020619148935e3836fbfe85a5e6fb"></a>
@@ -549,8 +277,6 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>clears hardware errors and flushes the UART received buffer. </p>
-
-<p>Definition at line <a class="el" href="_u_a_r_t_8c_source.html#l00179">179</a> of file <a class="el" href="_u_a_r_t_8c_source.html">UART.c</a>.</p>
 
 </div>
 </div>
@@ -595,8 +321,6 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_u_a_r_t_8c_source.html#l00024">24</a> of file <a class="el" href="_u_a_r_t_8c_source.html">UART.c</a>.</p>
-
 </div>
 </div>
 <a id="a24bb26011d768b44f3a13bf603a001dd"></a>
@@ -632,8 +356,6 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-
-<p>Definition at line <a class="el" href="_u_a_r_t_8c_source.html#l00042">42</a> of file <a class="el" href="_u_a_r_t_8c_source.html">UART.c</a>.</p>
 
 </div>
 </div>
@@ -677,8 +399,6 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-
-<p>Definition at line <a class="el" href="_u_a_r_t_8c_source.html#l00056">56</a> of file <a class="el" href="_u_a_r_t_8c_source.html">UART.c</a>.</p>
 
 </div>
 </div>

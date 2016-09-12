@@ -69,6 +69,9 @@ $(function() {
 <div class="title">LED.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>High level LED definitions.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="color_8h_source.html">color.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="hardware_8h_source.html">hardware.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_r_t_c___d_s3231_8h_source.html">RTC_DS3231.h</a>&quot;</code><br />
@@ -79,16 +82,19 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:af089e103fd0f212afa03c03bd09f9b06"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_l_e_d_8h.html#af089e103fd0f212afa03c03bd09f9b06">DISP_UPDATE_FREQ</a>&#160;&#160;&#160;60</td></tr>
-<tr class="memdesc:af089e103fd0f212afa03c03bd09f9b06"><td class="mdescLeft">&#160;</td><td class="mdescRight">update frequency  <a href="#af089e103fd0f212afa03c03bd09f9b06">More...</a><br /></td></tr>
+<tr class="memitem:af089e103fd0f212afa03c03bd09f9b06"><td class="memItemLeft" align="right" valign="top"><a id="af089e103fd0f212afa03c03bd09f9b06"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_l_e_d_8h.html#af089e103fd0f212afa03c03bd09f9b06">DISP_UPDATE_FREQ</a>&#160;&#160;&#160;60</td></tr>
+<tr class="memdesc:af089e103fd0f212afa03c03bd09f9b06"><td class="mdescLeft">&#160;</td><td class="mdescRight">update frequency <br /></td></tr>
 <tr class="separator:af089e103fd0f212afa03c03bd09f9b06"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab59ad2ee1a48b83c2eef1f019ed8cc48"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_l_e_d_8h.html#ab59ad2ee1a48b83c2eef1f019ed8cc48">COLS</a>&#160;&#160;&#160;6</td></tr>
-<tr class="memdesc:ab59ad2ee1a48b83c2eef1f019ed8cc48"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of columns  <a href="#ab59ad2ee1a48b83c2eef1f019ed8cc48">More...</a><br /></td></tr>
+<tr class="memitem:ab59ad2ee1a48b83c2eef1f019ed8cc48"><td class="memItemLeft" align="right" valign="top"><a id="ab59ad2ee1a48b83c2eef1f019ed8cc48"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_l_e_d_8h.html#ab59ad2ee1a48b83c2eef1f019ed8cc48">COLS</a>&#160;&#160;&#160;6</td></tr>
+<tr class="memdesc:ab59ad2ee1a48b83c2eef1f019ed8cc48"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of columns <br /></td></tr>
 <tr class="separator:ab59ad2ee1a48b83c2eef1f019ed8cc48"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3cfd3aa62338d12609f6d65bce97e9cd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_l_e_d_8h.html#a3cfd3aa62338d12609f6d65bce97e9cd">ROWS</a>&#160;&#160;&#160;(<a class="el" href="color_8h.html#a778b652fdb3874d29eb349d9dd89359a">COLOR_BITS</a> * 4)</td></tr>
 <tr class="separator:a3cfd3aa62338d12609f6d65bce97e9cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad6d3ed4d91ddcbee37212cfd92ed6827"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_l_e_d_8h.html#ad6d3ed4d91ddcbee37212cfd92ed6827">MULTIPLEX_TIMER_CLK_CYCLES</a>&#160;&#160;&#160;(<a class="el" href="hardware_8h.html#a3aee3beceffb391d6aa3012c48f0a35b">F_OSC</a> / (<a class="el" href="_l_e_d_8h.html#af089e103fd0f212afa03c03bd09f9b06">DISP_UPDATE_FREQ</a> * <a class="el" href="_l_e_d_8h.html#ab59ad2ee1a48b83c2eef1f019ed8cc48">COLS</a> * <a class="el" href="color_8h.html#a778b652fdb3874d29eb349d9dd89359a">COLOR_BITS</a>))</td></tr>
-<tr class="memdesc:ad6d3ed4d91ddcbee37212cfd92ed6827"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of clock cycles in between multiplexer cycles  <a href="#ad6d3ed4d91ddcbee37212cfd92ed6827">More...</a><br /></td></tr>
+<tr class="memitem:ad6d3ed4d91ddcbee37212cfd92ed6827"><td class="memItemLeft" align="right" valign="top"><a id="ad6d3ed4d91ddcbee37212cfd92ed6827"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_l_e_d_8h.html#ad6d3ed4d91ddcbee37212cfd92ed6827">MULTIPLEX_TIMER_CLK_CYCLES</a>&#160;&#160;&#160;(<a class="el" href="hardware_8h.html#a3aee3beceffb391d6aa3012c48f0a35b">F_OSC</a> / (<a class="el" href="_l_e_d_8h.html#af089e103fd0f212afa03c03bd09f9b06">DISP_UPDATE_FREQ</a> * <a class="el" href="_l_e_d_8h.html#ab59ad2ee1a48b83c2eef1f019ed8cc48">COLS</a> * <a class="el" href="color_8h.html#a778b652fdb3874d29eb349d9dd89359a">COLOR_BITS</a>))</td></tr>
+<tr class="memdesc:ad6d3ed4d91ddcbee37212cfd92ed6827"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of clock cycles in between multiplexer cycles <br /></td></tr>
 <tr class="separator:ad6d3ed4d91ddcbee37212cfd92ed6827"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -110,61 +116,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a03b912786effb26b1a9ebcfc222c1a12"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_l_e_d_8h.html#a03b912786effb26b1a9ebcfc222c1a12">LED_set_color</a> (uint8_t red, uint8_t blue, uint8_t green)</td></tr>
 <tr class="separator:a03b912786effb26b1a9ebcfc222c1a12"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="ab59ad2ee1a48b83c2eef1f019ed8cc48"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab59ad2ee1a48b83c2eef1f019ed8cc48">&sect;&nbsp;</a></span>COLS</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define COLS&#160;&#160;&#160;6</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>number of columns </p>
-
-<p>Definition at line <a class="el" href="_l_e_d_8h_source.html#l00011">11</a> of file <a class="el" href="_l_e_d_8h_source.html">LED.h</a>.</p>
-
-</div>
-</div>
-<a id="af089e103fd0f212afa03c03bd09f9b06"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af089e103fd0f212afa03c03bd09f9b06">&sect;&nbsp;</a></span>DISP_UPDATE_FREQ</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define DISP_UPDATE_FREQ&#160;&#160;&#160;60</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>update frequency </p>
-
-<p>Definition at line <a class="el" href="_l_e_d_8h_source.html#l00010">10</a> of file <a class="el" href="_l_e_d_8h_source.html">LED.h</a>.</p>
-
-</div>
-</div>
-<a id="ad6d3ed4d91ddcbee37212cfd92ed6827"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad6d3ed4d91ddcbee37212cfd92ed6827">&sect;&nbsp;</a></span>MULTIPLEX_TIMER_CLK_CYCLES</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define MULTIPLEX_TIMER_CLK_CYCLES&#160;&#160;&#160;(<a class="el" href="hardware_8h.html#a3aee3beceffb391d6aa3012c48f0a35b">F_OSC</a> / (<a class="el" href="_l_e_d_8h.html#af089e103fd0f212afa03c03bd09f9b06">DISP_UPDATE_FREQ</a> * <a class="el" href="_l_e_d_8h.html#ab59ad2ee1a48b83c2eef1f019ed8cc48">COLS</a> * <a class="el" href="color_8h.html#a778b652fdb3874d29eb349d9dd89359a">COLOR_BITS</a>))</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>number of clock cycles in between multiplexer cycles </p>
-
-<p>Definition at line <a class="el" href="_l_e_d_8h_source.html#l00014">14</a> of file <a class="el" href="_l_e_d_8h_source.html">LED.h</a>.</p>
-
-</div>
-</div>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>High level LED definitions. </p>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="a3cfd3aa62338d12609f6d65bce97e9cd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3cfd3aa62338d12609f6d65bce97e9cd">&sect;&nbsp;</a></span>ROWS</h2>
 
@@ -177,8 +131,6 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>number of rows </p>
-
-<p>Definition at line <a class="el" href="_l_e_d_8h_source.html#l00012">12</a> of file <a class="el" href="_l_e_d_8h_source.html">LED.h</a>.</p>
 
 </div>
 </div>
@@ -217,8 +169,6 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_l_e_d_8c_source.html#l00129">129</a> of file <a class="el" href="_l_e_d_8c_source.html">LED.c</a>.</p>
-
 </div>
 </div>
 <a id="a0490a1834f071acbfe64bee0ae584a18"></a>
@@ -237,8 +187,6 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Clears all of the LEDs. </p>
-
-<p>Definition at line <a class="el" href="_l_e_d_8c_source.html#l00156">156</a> of file <a class="el" href="_l_e_d_8c_source.html">LED.c</a>.</p>
 
 </div>
 </div>
@@ -259,8 +207,6 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>initializes the LED driver, clears the LEDs, and initializes the LED admin pointer. </p>
 
-<p>Definition at line <a class="el" href="_l_e_d_8c_source.html#l00016">16</a> of file <a class="el" href="_l_e_d_8c_source.html">LED.c</a>.</p>
-
 </div>
 </div>
 <a id="a209d85c0dae3797b5e83c81a23152647"></a>
@@ -279,8 +225,6 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Runs the LED driver run function. Used for multiplexing. </p>
-
-<p>Definition at line <a class="el" href="_l_e_d_8c_source.html#l00117">117</a> of file <a class="el" href="_l_e_d_8c_source.html">LED.c</a>.</p>
 
 </div>
 </div>
@@ -339,8 +283,6 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_l_e_d_8c_source.html#l00146">146</a> of file <a class="el" href="_l_e_d_8c_source.html">LED.c</a>.</p>
-
 </div>
 </div>
 <a id="a40249eaaaf8ca06760fc72d4bb4d1115"></a>
@@ -383,8 +325,6 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-
-<p>Definition at line <a class="el" href="_l_e_d_8c_source.html#l00176">176</a> of file <a class="el" href="_l_e_d_8c_source.html">LED.c</a>.</p>
 
 </div>
 </div>
@@ -429,8 +369,6 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_l_e_d_8c_source.html#l00196">196</a> of file <a class="el" href="_l_e_d_8c_source.html">LED.c</a>.</p>
-
 </div>
 </div>
 <a id="a0ec75d05e2bce12b7fa3637c65175fdc"></a>
@@ -466,8 +404,6 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-
-<p>Definition at line <a class="el" href="_l_e_d_8c_source.html#l00032">32</a> of file <a class="el" href="_l_e_d_8c_source.html">LED.c</a>.</p>
 
 </div>
 </div>
