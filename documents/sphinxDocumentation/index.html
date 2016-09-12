@@ -1,0 +1,792 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Welcome to Binary Clock Software’s documentation! &#8212; Binary Clock Software 1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Binary Clock Software 1 documentation" href="#" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="welcome-to-binary-clock-software-s-documentation">
+<h1>Welcome to Binary Clock Software&#8217;s documentation!<a class="headerlink" href="#welcome-to-binary-clock-software-s-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="module-binaryClockAPI">
+<span id="binary-clock-python-api"></span><h2>Binary Clock Python API<a class="headerlink" href="#module-binaryClockAPI" title="Permalink to this headline">¶</a></h2>
+<p>API functions for interfacing with the Binary Clock</p>
+<div class="section" id="binaryclockapi-class">
+<h3>BinaryClockAPI Class<a class="headerlink" href="#binaryclockapi-class" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="binaryClockAPI.BinaryClockAPI">
+<em class="property">class </em><code class="descclassname">binaryClockAPI.</code><code class="descname">BinaryClockAPI</code><span class="sig-paren">(</span><em>serial_port</em>, <em>baud=250000</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/binaryClockAPI.html#BinaryClockAPI"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#binaryClockAPI.BinaryClockAPI" title="Permalink to this definition">¶</a></dt>
+<dd><p>Main class that handles communication and exposes functions to be called.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>serial_port</strong> (<em>str</em>) &#8211; Serial port to connect to. (e.g. &#8220;/dev/tty.usbserial-12345&#8221;)</li>
+<li><strong>baud</strong> (<em>int</em>) &#8211; baudrate to communicate at (default: 250000)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="binaryClockAPI.BinaryClockAPI.clear_LED">
+<code class="descname">clear_LED</code><span class="sig-paren">(</span><em>row</em>, <em>column</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/binaryClockAPI.html#BinaryClockAPI.clear_LED"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#binaryClockAPI.BinaryClockAPI.clear_LED" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clear an LED at the given co-ordinates.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>row</strong> (<em>int</em>) &#8211; Row of the LED to clear</li>
+<li><strong>column</strong> (<em>int</em>) &#8211; Column of the LED to clear</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="binaryClockAPI.BinaryClockAPI.clear_all_LEDs">
+<code class="descname">clear_all_LEDs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/binaryClockAPI.html#BinaryClockAPI.clear_all_LEDs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#binaryClockAPI.BinaryClockAPI.clear_all_LEDs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clears all LEDs.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="binaryClockAPI.BinaryClockAPI.close">
+<code class="descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/binaryClockAPI.html#BinaryClockAPI.close"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#binaryClockAPI.BinaryClockAPI.close" title="Permalink to this definition">¶</a></dt>
+<dd><p>Closes the com port to the device</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="binaryClockAPI.BinaryClockAPI.set_LED">
+<code class="descname">set_LED</code><span class="sig-paren">(</span><em>row</em>, <em>column</em>, <em>red</em>, <em>green</em>, <em>blue</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/binaryClockAPI.html#BinaryClockAPI.set_LED"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#binaryClockAPI.BinaryClockAPI.set_LED" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set an LED to the given color.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>row</strong> (<em>int</em>) &#8211; Row of the LED to set</li>
+<li><strong>column</strong> (<em>int</em>) &#8211; Column of the LED to set</li>
+<li><strong>red</strong> (<em>int</em>) &#8211; Red value (0 - 255)</li>
+<li><strong>green</strong> (<em>int</em>) &#8211; Green value (0 - 255)</li>
+<li><strong>blue</strong> (<em>int</em>) &#8211; Blue value (0 - 255)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="binaryClockAPI.BinaryClockAPI.set_all_LEDs">
+<code class="descname">set_all_LEDs</code><span class="sig-paren">(</span><em>red</em>, <em>green</em>, <em>blue</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/binaryClockAPI.html#BinaryClockAPI.set_all_LEDs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#binaryClockAPI.BinaryClockAPI.set_all_LEDs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets all LEDs to the given color.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>red</strong> (<em>int</em>) &#8211; Red value (0 - 255)</li>
+<li><strong>green</strong> (<em>int</em>) &#8211; Green value (0 - 255)</li>
+<li><strong>blue</strong> (<em>int</em>) &#8211; Blue value (0 - 255)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="binaryClockAPI.BinaryClockAPI.set_color">
+<code class="descname">set_color</code><span class="sig-paren">(</span><em>red</em>, <em>green</em>, <em>blue</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/binaryClockAPI.html#BinaryClockAPI.set_color"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#binaryClockAPI.BinaryClockAPI.set_color" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the active colors when running in time mode.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>red</strong> (<em>int</em>) &#8211; Red value (0 - 255)</li>
+<li><strong>green</strong> (<em>int</em>) &#8211; Green value (0 - 255)</li>
+<li><strong>blue</strong> (<em>int</em>) &#8211; Blue value (0 - 255)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="binaryClockAPI.BinaryClockAPI.set_state">
+<code class="descname">set_state</code><span class="sig-paren">(</span><em>state</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/binaryClockAPI.html#BinaryClockAPI.set_state"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#binaryClockAPI.BinaryClockAPI.set_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the current state of the device. (either time control or manual control)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>state</strong> (<em>int</em>) &#8211; Can either be 0 (RUN TIME) or 1 (RUN MANUAL)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="binaryClockAPI.BinaryClockAPI.update_time">
+<code class="descname">update_time</code><span class="sig-paren">(</span><em>time_override_arr=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/binaryClockAPI.html#BinaryClockAPI.update_time"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#binaryClockAPI.BinaryClockAPI.update_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function for updating the time displayed on the clock. By default, uses
+time.localtime() function to grab the current time from your computer.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>time_override_arr</strong> (<em>list</em>) &#8211; List (in the format [hour, min, sec]) if you want to
+override the local time on your machine.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="module-binaryClockGUI">
+<span id="binary-clock-gui"></span><h2>Binary Clock GUI<a class="headerlink" href="#module-binaryClockGUI" title="Permalink to this headline">¶</a></h2>
+<p>GUI for the Binary Clock API.</p>
+<div class="section" id="binaryclockgui-class">
+<h3>BinaryClockGUI Class<a class="headerlink" href="#binaryclockgui-class" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="binaryClockGUI.BinaryClockGUI">
+<em class="property">class </em><code class="descclassname">binaryClockGUI.</code><code class="descname">BinaryClockGUI</code><a class="reference internal" href="_modules/binaryClockGUI.html#BinaryClockGUI"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#binaryClockGUI.BinaryClockGUI" title="Permalink to this definition">¶</a></dt>
+<dd><p>Binary Clock GUI Object</p>
+<dl class="method">
+<dt id="binaryClockGUI.BinaryClockGUI.clear_LED">
+<code class="descname">clear_LED</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/binaryClockGUI.html#BinaryClockGUI.clear_LED"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#binaryClockGUI.BinaryClockGUI.clear_LED" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clears an individual LED.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="binaryClockGUI.BinaryClockGUI.clear_all_LEDs">
+<code class="descname">clear_all_LEDs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/binaryClockGUI.html#BinaryClockGUI.clear_all_LEDs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#binaryClockGUI.BinaryClockGUI.clear_all_LEDs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clears all LEDs.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="binaryClockGUI.BinaryClockGUI.connect">
+<code class="descname">connect</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/binaryClockGUI.html#BinaryClockGUI.connect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#binaryClockGUI.BinaryClockGUI.connect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Connect with the binary clock. (basically just opens serial communication)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="binaryClockGUI.BinaryClockGUI.disconnect">
+<code class="descname">disconnect</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/binaryClockGUI.html#BinaryClockGUI.disconnect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#binaryClockGUI.BinaryClockGUI.disconnect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Disconnect the binary clock by closing communication, deleting the binaryClock
+object, and resetting the GUI elements to the disconnected state.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="binaryClockGUI.BinaryClockGUI.on_closing">
+<code class="descname">on_closing</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/binaryClockGUI.html#BinaryClockGUI.on_closing"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#binaryClockGUI.BinaryClockGUI.on_closing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Asks user if they really want to close, then destroys the window.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="binaryClockGUI.BinaryClockGUI.run">
+<code class="descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/binaryClockGUI.html#BinaryClockGUI.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#binaryClockGUI.BinaryClockGUI.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Runs the tk loop.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="binaryClockGUI.BinaryClockGUI.set_LED">
+<code class="descname">set_LED</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/binaryClockGUI.html#BinaryClockGUI.set_LED"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#binaryClockGUI.BinaryClockGUI.set_LED" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets an individual LED.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="binaryClockGUI.BinaryClockGUI.set_all_LEDs">
+<code class="descname">set_all_LEDs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/binaryClockGUI.html#BinaryClockGUI.set_all_LEDs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#binaryClockGUI.BinaryClockGUI.set_all_LEDs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets all LEDs to a color.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="binaryClockGUI.BinaryClockGUI.set_time">
+<code class="descname">set_time</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/binaryClockGUI.html#BinaryClockGUI.set_time"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#binaryClockGUI.BinaryClockGUI.set_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the binary clock time.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="binaryClockGUI.BinaryClockGUI.time_override">
+<code class="descname">time_override</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/binaryClockGUI.html#BinaryClockGUI.time_override"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#binaryClockGUI.BinaryClockGUI.time_override" title="Permalink to this definition">¶</a></dt>
+<dd><p>activates and deactivates the time override boxes (hour, minute, and second) when the
+time override checkbox is toggled.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="binaryClockGUI.BinaryClockGUI.update_color">
+<code class="descname">update_color</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/binaryClockGUI.html#BinaryClockGUI.update_color"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#binaryClockGUI.BinaryClockGUI.update_color" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates the color that is displayed when time is running.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="binaryClockGUI.BinaryClockGUI.update_coms_list">
+<code class="descname">update_coms_list</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/binaryClockGUI.html#BinaryClockGUI.update_coms_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#binaryClockGUI.BinaryClockGUI.update_coms_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the list of serial ports when the coms list dropdown is clicked.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="module-CustomGUIWrappers">
+<span id="gui-helper-functions"></span><h2>GUI Helper Functions<a class="headerlink" href="#module-CustomGUIWrappers" title="Permalink to this headline">¶</a></h2>
+<p>Custom wrappers around Tkinter classes &amp; functions</p>
+<div class="section" id="checkbox-class">
+<h3>CheckBox Class<a class="headerlink" href="#checkbox-class" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="CustomGUIWrappers.CheckBox">
+<em class="property">class </em><code class="descclassname">CustomGUIWrappers.</code><code class="descname">CheckBox</code><span class="sig-paren">(</span><em>master</em>, <em>row</em>, <em>column</em>, <em>callback_funct=None</em>, <em>cb_text=''</em>, <em>padx=3</em>, <em>pady=3</em>, <em>columnspan=1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CustomGUIWrappers.html#CheckBox"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#CustomGUIWrappers.CheckBox" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class for creating a checkbox. Used when you need a boolean decision from the user.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>master</strong> &#8211; This is the root variable of the GUI. (<em>tk.TK()</em>)</li>
+<li><strong>row</strong> (<em>int</em>) &#8211; what row the check box is put into.</li>
+<li><strong>column</strong> (<em>int</em>) &#8211; what column the check box is put into.</li>
+<li><strong>true_callback_funct</strong> (<em>funct</em>) &#8211; This function is called when the box is checked by the user.</li>
+<li><strong>false_callback_funct</strong> (<em>funct</em>) &#8211; This function is called when the box is unchecked by the user.</li>
+<li><strong>cb_text</strong> (<em>str</em>) &#8211; this is the label for the check box. [default: &#8220;&#8221;]</li>
+<li><strong>padx</strong> (<em>int</em>) &#8211; This is how much x axis padding is given to the check box. [default: 3 px]</li>
+<li><strong>pady</strong> (<em>int</em>) &#8211; This is how much y axis padding is given to the check box. [default: 3 px]</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="CustomGUIWrappers.CheckBox.activate">
+<code class="descname">activate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CustomGUIWrappers.html#CheckBox.activate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#CustomGUIWrappers.CheckBox.activate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Activates the check box to allow the user to change it&#8217;s value.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CustomGUIWrappers.CheckBox.cb">
+<code class="descname">cb</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CustomGUIWrappers.html#CheckBox.cb"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#CustomGUIWrappers.CheckBox.cb" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is called when the check box changes state. if it is checked, it calls
+<em>self.true_callback_funct()</em>. if it is unchecked, it calls <em>self.false_callback_funct()</em></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CustomGUIWrappers.CheckBox.deactivate">
+<code class="descname">deactivate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CustomGUIWrappers.html#CheckBox.deactivate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#CustomGUIWrappers.CheckBox.deactivate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deactivates the check box to prevent the user from changing it&#8217;s value.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CustomGUIWrappers.CheckBox.get_val">
+<code class="descname">get_val</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CustomGUIWrappers.html#CheckBox.get_val"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#CustomGUIWrappers.CheckBox.get_val" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the current value of the check box.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="entrybox-class">
+<h3>EntryBox Class<a class="headerlink" href="#entrybox-class" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="CustomGUIWrappers.EntryBox">
+<em class="property">class </em><code class="descclassname">CustomGUIWrappers.</code><code class="descname">EntryBox</code><span class="sig-paren">(</span><em>master</em>, <em>row</em>, <em>column</em>, <em>default_val=''</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CustomGUIWrappers.html#EntryBox"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#CustomGUIWrappers.EntryBox" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class for creating an Entry box. Used when you need a string input from the user.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>master</strong> &#8211; This is the root variable of the GUI. (<em>tk.TK()</em>)</li>
+<li><strong>row</strong> (<em>int</em>) &#8211; what row the entry box is put into.</li>
+<li><strong>column</strong> (<em>int</em>) &#8211; what column the entry box is put into.</li>
+<li><strong>default_val</strong> (<em>str</em>) &#8211; String that first populates the box. [default: &#8220;&#8221;]</li>
+<li><strong>**padx</strong> (<em>int</em>) &#8211; This is how much x axis padding is given to the entry box. [default: 3 px]</li>
+<li><strong>**pady</strong> (<em>int</em>) &#8211; This is how much y axis padding is given to the entry box. [default: 3 px]</li>
+<li><strong>**box_width</strong> (<em>int</em>) &#8211; Sets how wide the input box is [default: 20 px]</li>
+<li><strong>**state</strong> (<em>str</em>) &#8211; Sets the state of the entry box (disabled, readonly, etc.) [default: &#8220;active&#8221;]</li>
+<li><strong>**sticky</strong> &#8211; Sets which side of the cell the Entry box sticks to. (e.g. tk.E) [default: &#8220;&#8221;]</li>
+<li><strong>**justify</strong> &#8211; Sets how the text in the Entry box aligns. [default: tk.LEFT]</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="CustomGUIWrappers.EntryBox.activate">
+<code class="descname">activate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CustomGUIWrappers.html#EntryBox.activate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#CustomGUIWrappers.EntryBox.activate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Activates the entry box to allow the user to change it&#8217;s value.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CustomGUIWrappers.EntryBox.deactivate">
+<code class="descname">deactivate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CustomGUIWrappers.html#EntryBox.deactivate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#CustomGUIWrappers.EntryBox.deactivate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deactivates the entry box to prevent the user from changing it&#8217;s value.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CustomGUIWrappers.EntryBox.focus">
+<code class="descname">focus</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CustomGUIWrappers.html#EntryBox.focus"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#CustomGUIWrappers.EntryBox.focus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Moves the user&#8217;s cursor to this box.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CustomGUIWrappers.EntryBox.forget">
+<code class="descname">forget</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CustomGUIWrappers.html#EntryBox.forget"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#CustomGUIWrappers.EntryBox.forget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes the label from the GUI temporarily.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CustomGUIWrappers.EntryBox.get_val">
+<code class="descname">get_val</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CustomGUIWrappers.html#EntryBox.get_val"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#CustomGUIWrappers.EntryBox.get_val" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the current value of the Entry box.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CustomGUIWrappers.EntryBox.remember">
+<code class="descname">remember</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CustomGUIWrappers.html#EntryBox.remember"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#CustomGUIWrappers.EntryBox.remember" title="Permalink to this definition">¶</a></dt>
+<dd><p>Brings the label back into view.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="dropdown-class">
+<h3>Dropdown Class<a class="headerlink" href="#dropdown-class" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="CustomGUIWrappers.Dropdown">
+<em class="property">class </em><code class="descclassname">CustomGUIWrappers.</code><code class="descname">Dropdown</code><span class="sig-paren">(</span><em>master</em>, <em>row</em>, <em>column</em>, <em>*options</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CustomGUIWrappers.html#Dropdown"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#CustomGUIWrappers.Dropdown" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class for creating a Dropdown menu. Used when you need an option from a fixed list the user.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>master</strong> &#8211; This is the root variable of the GUI. (<em>tk.TK()</em>)</li>
+<li><strong>row</strong> (<em>int</em>) &#8211; what row the dropdown is put into.</li>
+<li><strong>column</strong> (<em>int</em>) &#8211; what column the dropdown is put into.</li>
+<li><strong>*values</strong> (<em>list</em>) &#8211; String list that populates the options.</li>
+<li><strong>**padx</strong> (<em>int</em>) &#8211; This is how much x axis padding is given to the dropdown box. [default: 3 px]</li>
+<li><strong>**pady</strong> (<em>int</em>) &#8211; This is how much y axis padding is given to the dropdown box. [default: 3 px]</li>
+<li><strong>**sticky</strong> (<em>int</em>) &#8211; Sets where the dropdown box populates in it&#8217;s cell. [default: None]</li>
+<li><strong>**columnspan</strong> (<em>int</em>) &#8211; Sets how many columns the label spans. [default: 1]</li>
+<li><strong>**trace_callback</strong> (<em>funct</em>) &#8211; Callback function for when the dropdown variable has been changed.
+[default: None]</li>
+<li><strong>**bind_callback</strong> (<em>funct</em>) &#8211; Callback function binded to the key <em>bind_key</em>. [default: None]</li>
+<li><strong>**bind_key</strong> (<em>str</em>) &#8211; Key that binds the function <em>bind_callback</em>. [default: None]</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="CustomGUIWrappers.Dropdown.activate">
+<code class="descname">activate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CustomGUIWrappers.html#Dropdown.activate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#CustomGUIWrappers.Dropdown.activate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Activates the box to allow the user to change it&#8217;s value.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CustomGUIWrappers.Dropdown.deactivate">
+<code class="descname">deactivate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CustomGUIWrappers.html#Dropdown.deactivate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#CustomGUIWrappers.Dropdown.deactivate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deactivates the box to prevent the user from changing it&#8217;s value.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CustomGUIWrappers.Dropdown.focus">
+<code class="descname">focus</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CustomGUIWrappers.html#Dropdown.focus"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#CustomGUIWrappers.Dropdown.focus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Moves the user&#8217;s cursor to this box.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CustomGUIWrappers.Dropdown.forget">
+<code class="descname">forget</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CustomGUIWrappers.html#Dropdown.forget"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#CustomGUIWrappers.Dropdown.forget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes the label from the GUI temporarily.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CustomGUIWrappers.Dropdown.get_val">
+<code class="descname">get_val</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CustomGUIWrappers.html#Dropdown.get_val"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#CustomGUIWrappers.Dropdown.get_val" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the current value.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CustomGUIWrappers.Dropdown.remember">
+<code class="descname">remember</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CustomGUIWrappers.html#Dropdown.remember"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#CustomGUIWrappers.Dropdown.remember" title="Permalink to this definition">¶</a></dt>
+<dd><p>Brings the label back into view.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CustomGUIWrappers.Dropdown.update_list">
+<code class="descname">update_list</code><span class="sig-paren">(</span><em>options</em>, <em>index=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CustomGUIWrappers.html#Dropdown.update_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#CustomGUIWrappers.Dropdown.update_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>reset the values in the option menu</p>
+<p>if index is given, set the value of the menu to
+the option at the given index</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="labels-class">
+<h3>Labels Class<a class="headerlink" href="#labels-class" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="CustomGUIWrappers.Labels">
+<em class="property">class </em><code class="descclassname">CustomGUIWrappers.</code><code class="descname">Labels</code><span class="sig-paren">(</span><em>master</em>, <em>row</em>, <em>column</em>, <em>label</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CustomGUIWrappers.html#Labels"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#CustomGUIWrappers.Labels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class for the various labels in the GUI. useful so we can forget &amp; remember them
+when we need them to be invisable or visable, respectively.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>master</strong> &#8211; This is the root variable of the GUI. (<em>tk.TK()</em>)</li>
+<li><strong>row</strong> (<em>int</em>) &#8211; what row the label is put into.</li>
+<li><strong>column</strong> (<em>int</em>) &#8211; what column the label is put into.</li>
+<li><strong>default_val</strong> (<em>str</em>) &#8211; String that first populates the box. [default: &#8220;&#8221;]</li>
+<li><strong>**padx</strong> (<em>int</em>) &#8211; This is how much x axis padding is given to the check box. [default: 3 px]</li>
+<li><strong>**pady</strong> (<em>int</em>) &#8211; This is how much y axis padding is given to the check box. [default: 0 px]</li>
+<li><strong>**columnspan</strong> (<em>int</em>) &#8211; Sets how many columns the label spans. [default: 1]</li>
+<li><strong>**sticky</strong> (<em>int</em>) &#8211; Sets where the dropdown box populates in it&#8217;s cell. [default: None]</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="CustomGUIWrappers.Labels.config">
+<code class="descname">config</code><span class="sig-paren">(</span><em>state</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CustomGUIWrappers.html#Labels.config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#CustomGUIWrappers.Labels.config" title="Permalink to this definition">¶</a></dt>
+<dd><p>configures the label. used for changing between DISABLED and NORMAL states.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CustomGUIWrappers.Labels.forget">
+<code class="descname">forget</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CustomGUIWrappers.html#Labels.forget"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#CustomGUIWrappers.Labels.forget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes the label from the GUI temporarily.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CustomGUIWrappers.Labels.remember">
+<code class="descname">remember</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CustomGUIWrappers.html#Labels.remember"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#CustomGUIWrappers.Labels.remember" title="Permalink to this definition">¶</a></dt>
+<dd><p>Brings the label back into view.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="scrollbox-class">
+<h3>ScrollBox Class<a class="headerlink" href="#scrollbox-class" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="CustomGUIWrappers.ScrollBox">
+<em class="property">class </em><code class="descclassname">CustomGUIWrappers.</code><code class="descname">ScrollBox</code><span class="sig-paren">(</span><em>master</em>, <em>row</em>, <em>column</em>, <em>min_val</em>, <em>max_val</em>, <em>start_val</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CustomGUIWrappers.html#ScrollBox"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#CustomGUIWrappers.ScrollBox" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class for creating a scroll box. Used when you need an integer input from the user in a certain range.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>master</strong> &#8211; This is the root variable of the GUI. (<em>tk.TK()</em>)</li>
+<li><strong>row</strong> (<em>int</em>) &#8211; what row the check box is put into.</li>
+<li><strong>column</strong> (<em>int</em>) &#8211; what column the check box is put into.</li>
+<li><strong>min_val</strong> (<em>int</em>) &#8211; Minimum value that the Scroll box can be.</li>
+<li><strong>max_val</strong> (<em>int</em>) &#8211; Maximum value that the Scroll box can be.</li>
+<li><strong>start_val</strong> (<em>int</em>) &#8211; Initial value of the box.</li>
+<li><strong>**padx</strong> (<em>int</em>) &#8211; This is how much x axis padding is given to the check box. [default: 3 px]</li>
+<li><strong>**pady</strong> (<em>int</em>) &#8211; This is how much y axis padding is given to the check box. [default: 3 px]</li>
+<li><strong>**box_width</strong> (<em>int</em>) &#8211; Sets how wide the input box is [default: 19 px]</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="CustomGUIWrappers.ScrollBox._backspace">
+<code class="descname">_backspace</code><span class="sig-paren">(</span><em>entry</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CustomGUIWrappers.html#ScrollBox._backspace"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#CustomGUIWrappers.ScrollBox._backspace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes the most recently entered character.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CustomGUIWrappers.ScrollBox._e_check">
+<code class="descname">_e_check</code><span class="sig-paren">(</span><em>e</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CustomGUIWrappers.html#ScrollBox._e_check"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#CustomGUIWrappers.ScrollBox._e_check" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks for an erronious input.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CustomGUIWrappers.ScrollBox._validate">
+<code class="descname">_validate</code><span class="sig-paren">(</span><em>e</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CustomGUIWrappers.html#ScrollBox._validate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#CustomGUIWrappers.ScrollBox._validate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks all of the values for proper ranges.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CustomGUIWrappers.ScrollBox.activate">
+<code class="descname">activate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CustomGUIWrappers.html#ScrollBox.activate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#CustomGUIWrappers.ScrollBox.activate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Activates the Scroll box to allow the user to change it&#8217;s value.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CustomGUIWrappers.ScrollBox.deactivate">
+<code class="descname">deactivate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CustomGUIWrappers.html#ScrollBox.deactivate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#CustomGUIWrappers.ScrollBox.deactivate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deactivates the Scroll box to prevent the user from changing it&#8217;s value.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CustomGUIWrappers.ScrollBox.get_val">
+<code class="descname">get_val</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CustomGUIWrappers.html#ScrollBox.get_val"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#CustomGUIWrappers.ScrollBox.get_val" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the current value of the Scroll box.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CustomGUIWrappers.ScrollBox.set_val">
+<code class="descname">set_val</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CustomGUIWrappers.html#ScrollBox.set_val"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#CustomGUIWrappers.ScrollBox.set_val" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the current value of the Scroll box.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="button-class">
+<h3>Button Class<a class="headerlink" href="#button-class" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="CustomGUIWrappers.Button">
+<em class="property">class </em><code class="descclassname">CustomGUIWrappers.</code><code class="descname">Button</code><span class="sig-paren">(</span><em>master</em>, <em>row</em>, <em>column</em>, <em>callback</em>, <em>label</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CustomGUIWrappers.html#Button"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#CustomGUIWrappers.Button" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class for creating an Entry box. Used when you need a string input from the user.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>master</strong> &#8211; This is the root variable of the GUI. (<em>tk.TK()</em>)</li>
+<li><strong>row</strong> (<em>int</em>) &#8211; what row the check box is put into.</li>
+<li><strong>column</strong> (<em>int</em>) &#8211; what column the check box is put into.</li>
+<li><strong>min_val</strong> (<em>int</em>) &#8211; Minimum value that the Scroll box can be.</li>
+<li><strong>max_val</strong> (<em>int</em>) &#8211; Maximum value that the Scroll box can be.</li>
+<li><strong>start_val</strong> (<em>int</em>) &#8211; Initial value of the box.</li>
+<li><strong>**padx</strong> (<em>int</em>) &#8211; This is how much x axis padding is given to the check box. [default: 3 px]</li>
+<li><strong>**pady</strong> (<em>int</em>) &#8211; This is how much y axis padding is given to the check box. [default: 3 px]</li>
+<li><strong>**columnspan</strong> (<em>int</em>) &#8211; Sets how many columns the label spans. [default: 1]</li>
+<li><strong>**sticky</strong> (<em>int</em>) &#8211; Sets where the dropdown box populates in it&#8217;s cell. [default: None]</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="CustomGUIWrappers.Button.activate">
+<code class="descname">activate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CustomGUIWrappers.html#Button.activate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#CustomGUIWrappers.Button.activate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Activates the button to allow the user to change it&#8217;s state.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CustomGUIWrappers.Button.deactivate">
+<code class="descname">deactivate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CustomGUIWrappers.html#Button.deactivate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#CustomGUIWrappers.Button.deactivate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deactivates the button to prevent the user from changing it&#8217;s state.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="timeentry-class">
+<h3>TimeEntry Class<a class="headerlink" href="#timeentry-class" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="CustomGUIWrappers.TimeEntry">
+<em class="property">class </em><code class="descclassname">CustomGUIWrappers.</code><code class="descname">TimeEntry</code><span class="sig-paren">(</span><em>master</em>, <em>row</em>, <em>column</em>, <em>padx=3</em>, <em>pady=3</em>, <em>default_val_dict={'second': 42</em>, <em>'minute': 30</em>, <em>'hour': 12}</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CustomGUIWrappers.html#TimeEntry"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#CustomGUIWrappers.TimeEntry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class for creating a time enry box. Used when you need a time input from the user.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>master</strong> &#8211; This is the root variable of the GUI. (<em>tk.TK()</em>)</li>
+<li><strong>row</strong> (<em>int</em>) &#8211; what row the check box is put into.</li>
+<li><strong>column</strong> (<em>int</em>) &#8211; what column the check box is put into.</li>
+<li><strong>default_val_dict</strong> (<em>dict</em>) &#8211; Dictionary of values that first populates the boxes.
+[default: {&#8220;hour&#8221;: 12, &#8220;minute&#8221;: 30, &#8220;second&#8221;: 42}]</li>
+<li><strong>padx</strong> (<em>int</em>) &#8211; This is how much x axis padding is given to the check box. [default: 3 px]</li>
+<li><strong>pady</strong> (<em>int</em>) &#8211; This is how much y axis padding is given to the check box. [default: 3 px]</li>
+<li><strong>box_width</strong> (<em>int</em>) &#8211; Sets how wide the input box is [default: 20 px]</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="CustomGUIWrappers.TimeEntry._backspace">
+<code class="descname">_backspace</code><span class="sig-paren">(</span><em>entry</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CustomGUIWrappers.html#TimeEntry._backspace"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#CustomGUIWrappers.TimeEntry._backspace" title="Permalink to this definition">¶</a></dt>
+<dd><p>called when we need to delete the most recent character.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CustomGUIWrappers.TimeEntry._err_hour_check">
+<code class="descname">_err_hour_check</code><span class="sig-paren">(</span><em>e</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CustomGUIWrappers.html#TimeEntry._err_hour_check"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#CustomGUIWrappers.TimeEntry._err_hour_check" title="Permalink to this definition">¶</a></dt>
+<dd><p>Error checking function for the third box (the hours category).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CustomGUIWrappers.TimeEntry._err_min_check">
+<code class="descname">_err_min_check</code><span class="sig-paren">(</span><em>e</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CustomGUIWrappers.html#TimeEntry._err_min_check"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#CustomGUIWrappers.TimeEntry._err_min_check" title="Permalink to this definition">¶</a></dt>
+<dd><p>Error checking function for the second box (the minutes category).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CustomGUIWrappers.TimeEntry._err_sec_check">
+<code class="descname">_err_sec_check</code><span class="sig-paren">(</span><em>e</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CustomGUIWrappers.html#TimeEntry._err_sec_check"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#CustomGUIWrappers.TimeEntry._err_sec_check" title="Permalink to this definition">¶</a></dt>
+<dd><p>Error checking function for the first box (the seconds category).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CustomGUIWrappers.TimeEntry.activate">
+<code class="descname">activate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CustomGUIWrappers.html#TimeEntry.activate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#CustomGUIWrappers.TimeEntry.activate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Activates all input boxes.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CustomGUIWrappers.TimeEntry.deactivate">
+<code class="descname">deactivate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CustomGUIWrappers.html#TimeEntry.deactivate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#CustomGUIWrappers.TimeEntry.deactivate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deactivates all input boxes.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CustomGUIWrappers.TimeEntry.get_val">
+<code class="descname">get_val</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CustomGUIWrappers.html#TimeEntry.get_val"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#CustomGUIWrappers.TimeEntry.get_val" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the value input by the user.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns dict:</th><td class="field-body">Time input by user. Valid keys: hour, minute, second.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
+<li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></li>
+<li><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></li>
+</ul>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Welcome to Binary Clock Software&#8217;s documentation!</a><ul>
+<li><a class="reference internal" href="#module-binaryClockAPI">Binary Clock Python API</a><ul>
+<li><a class="reference internal" href="#binaryclockapi-class">BinaryClockAPI Class</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-binaryClockGUI">Binary Clock GUI</a><ul>
+<li><a class="reference internal" href="#binaryclockgui-class">BinaryClockGUI Class</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-CustomGUIWrappers">GUI Helper Functions</a><ul>
+<li><a class="reference internal" href="#checkbox-class">CheckBox Class</a></li>
+<li><a class="reference internal" href="#entrybox-class">EntryBox Class</a></li>
+<li><a class="reference internal" href="#dropdown-class">Dropdown Class</a></li>
+<li><a class="reference internal" href="#labels-class">Labels Class</a></li>
+<li><a class="reference internal" href="#scrollbox-class">ScrollBox Class</a></li>
+<li><a class="reference internal" href="#button-class">Button Class</a></li>
+<li><a class="reference internal" href="#timeentry-class">TimeEntry Class</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/index.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Tyler Holmes.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="_sources/index.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
