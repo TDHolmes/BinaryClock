@@ -21,6 +21,10 @@ Below is a snapshot in time when the minute ones column is active.
 
 ![alt text][Multiplex - on]
 
+Below is a gif of multiplexing in action.
+
+![alt text][Multiplex - gif]
+
 ## GUI
 The user interface communicates to the PCB via a [UART][UART wiki link] through a USB to serial converter chip. The user interface can do a few things:
 - set the time to the current computer system time
@@ -37,6 +41,7 @@ The user interface communicates to the PCB via a [UART][UART wiki link] through 
 [stp16cpc26 link]: http://www.st.com/content/st_com/en/products/power-management/led-drivers/led-array-drivers/stp16cpc26.html
 [Multiplex - off]: https://raw.githubusercontent.com/TDHolmes/BinaryClock/master/documents/pictures/binaryClock_multiplexLogic_notOn.png "Diagram of the connections if the LEDs"
 [Multiplex - on]: https://raw.githubusercontent.com/TDHolmes/BinaryClock/master/documents/pictures/binaryClock_multiplexLogic_on.png "Diagram of a snapshot when the minute ones column is active."
+[Multiplex - gif]: https://raw.githubusercontent.com/TDHolmes/BinaryClock/master/documents/pictures/binary_clock_demo.gif "Live gif of the multiplexing."
 [PCB picture]: https://raw.githubusercontent.com/TDHolmes/BinaryClock/master/documents/pictures/BinaryClock_rev1.JPG "Binary Clock v1 displaying 20:31:08 (8:31 PM)"
 [RTC wiki link]: https://en.wikipedia.org/wiki/Real-time_clock
 [mosfet wiki link]: https://en.wikipedia.org/wiki/MOSFET#Single-type
