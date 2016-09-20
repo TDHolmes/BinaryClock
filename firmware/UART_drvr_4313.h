@@ -12,7 +12,17 @@
 #define UART_RX_BUFF_SIZE 16 //!< size of the UART receive buffer
 
 
-void UART_drvr_init(uint32_t baudrate);
+typedef enum {
+    BAUD_250000 = 1,
+    BAUD_57600  = 8,
+    BAUD_38400  = 12,
+    BAUD_19200  = 25,
+    BAUD_14400  = 34,
+    BAUD_9600   = 51
+} baudrate_t;
+
+
+void UART_drvr_init(baudrate_t baudrate);
 void UART_drvr_send_byte(uint8_t data, bool_t blocking);
 retval_t UART_drvr_receive_byte(uint8_t *data_rcvd_ptr);
 void UART_drvr_flush_buffer(void);

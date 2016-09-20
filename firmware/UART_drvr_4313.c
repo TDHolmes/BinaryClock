@@ -27,14 +27,14 @@ static inline bool_t UART_drvr_ready(void);
  * 
  * @param[in] baudrate (uint32_t): baudrate to set up the UART driver to.
  */
-void UART_drvr_init(uint32_t baudrate)
+void UART_drvr_init(baudrate_t baudrate)
 {
     uint16_t UART_prescale;
     UART_rx_buff_ptr = &UART_rx_buff;
     // setup UART RX ring buffer
     ring_buff_init(UART_rx_buff_ptr, UART_rx_buff_arr, UART_RX_BUFF_SIZE);
     // Set baud rate
-    UART_prescale = (((F_OSC >> 4UL) / baudrate) - 1UL);
+    UART_prescale = baudrate;
     UBRRH = (uint8_t)(UART_prescale >> 8);
     UBRRL = (uint8_t)UART_prescale;
     // Set frame format: 8data, 1stop bit

@@ -75,7 +75,7 @@ int main(void)
     LED_init();
     LED_set_color(1, 1, 1);
     timer_init(&multiplexer_count);
-    UART_init((uint32_t)250000);
+    UART_init();
     i2c_init();
     RTC_init(t_ptr, &rtc_1hz_int_count);
 

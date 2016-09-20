@@ -38,7 +38,9 @@ CC = avr-gcc
 NO_UNUSED_FUNCTS =  -fdata-sections -ffunction-sections -Wl,--gc-sections
 CFLAGS = -Wall -Wextra -DF_CPU=$(CLOCK) -mmcu=$(DEVICE) $(NO_UNUSED_FUNCTS) -Os
 
-FUSES  = -U hfuse:w:0xd9:m -U lfuse:w:0x24:m
+FUSES  = -U hfuse:w:0xd9:m -U lfuse:w:0xE4:m
+
+# low byte: 0b10100100 = 0xA4
 
 # ATtiny2313a Fuses
 # Extended Byte

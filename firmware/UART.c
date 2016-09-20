@@ -11,11 +11,11 @@
 /*!
  * Initializes the UART module at the given baudrate.
  * 
- * @param[in] baudrate (uint32_t): baudrate to setup the UART module to.
+ * @param[in] baudrate (baudrate_t): baudrate to setup the UART module to.
  */
-void UART_init(uint32_t baudrate)
+void UART_init(void)
 {
-    UART_drvr_init(baudrate);
+    UART_drvr_init(BAUD_250000);
 }
 
 /*!

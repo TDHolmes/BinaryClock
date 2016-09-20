@@ -18,7 +18,7 @@ class BinaryClockAPI:
     :param str serial_port: Serial port to connect to. (e.g. "/dev/tty.usbserial-12345")
     :param int baud: baudrate to communicate at (default: 250000)
     """
-    def __init__(self, serial_port, baud=250000):
+    def __init__(self, serial_port, baud=9600):
         self.UART_CMD_SET_LED = 0x10
         self.UART_CMD_CLEAR_LED = 0x11
         self.UART_CMD_CLEAR_ALL_LED = 0x12

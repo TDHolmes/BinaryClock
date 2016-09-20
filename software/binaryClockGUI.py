@@ -83,8 +83,8 @@ class BinaryClockGUI:
 
     def connect(self):
         '''Connect with the binary clock. (basically just opens serial communication)'''
-        self.binary_clock = BC.BinaryClock(self.serial_port_dropdown.get_val(),
-                                           int(self.serial_baud_dropdown.get_val()))
+        self.binary_clock = BC.BinaryClockAPI(self.serial_port_dropdown.get_val(),
+                                              int(self.serial_baud_dropdown.get_val()))
         # make sure this doesn't get called again
         self.serial_connect_button.deactivate()
         self.serial_disconnect_button.activate()
