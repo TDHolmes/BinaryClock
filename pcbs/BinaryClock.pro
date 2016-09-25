@@ -1,4 +1,4 @@
-update=Monday, May 23, 2016 'PMt' 11:24:32 PM
+update=Saturday, September 24, 2016 'PMt' 04:12:55 PM
 version=1
 last_client=kicad
 [pcbnew]
@@ -60,3 +60,4 @@ LibName28=atmel
 LibName29=contrib
 LibName30=valves
 LibName31=TylerCustom
+LibName32=/Volumes/MacData/KiCadCustomFootprints/TylerCustom
