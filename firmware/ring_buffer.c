@@ -55,6 +55,27 @@ retval_t ring_buff_pop(ring_buffer_t *rb_ptr, uint8_t *return_item_ptr)
 
 
 /*!
+ * Peaks at the current value on the ring buffer.
+ * 
+ * @param[in] rb_ptr (ring_buffer_t *): admin structure for the ring buffer we're using.
+ * @param[in] return_item_ptr (uint8_t *): Location to return the value to
+ * @param[out] retval (retval_t): Returns the error or pass status.
+ */
+retval_t ring_buff_peak(ring_buffer_t *rb_ptr, uint8_t *return_item_ptr)
+{
+    if (rb_ptr->unread_items == 0) {
+        return BUFF_FAIL_UNDERFLOW;
+    } else if(rb_ptr->unread_items > rb_ptr->buff_size) {
+        return BUFF_FAIL_OVERFLOW;
+    } else {
+        // no errors, get the item at the tail of the buffer
+        *return_item_ptr = *(rb_ptr->tail);
+    }
+    return GEN_PASS;
+}
+
+
+/*!
  * Pushes a value onto the ring buffer.
  * 
  * @param[in] rb_ptr (ring_buffer_t *): admin structure for the ring buffer we're using.

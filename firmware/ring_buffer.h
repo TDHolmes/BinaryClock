@@ -23,6 +23,7 @@ typedef struct {
 
 void     ring_buff_init(ring_buffer_t *rb_ptr, uint8_t *buffer_array_ptr, uint8_t buffer_len);
 retval_t ring_buff_pop(ring_buffer_t *rb_ptr, uint8_t *return_item_ptr);
+retval_t ring_buff_peak(ring_buffer_t *rb_ptr, uint8_t *return_item_ptr);
 retval_t ring_buff_push(ring_buffer_t *rb_ptr, uint8_t new_val);
 bool_t   ring_buff_has_data(ring_buffer_t *rb_ptr);
 void     ring_buff_reset(ring_buffer_t *rb_ptr);

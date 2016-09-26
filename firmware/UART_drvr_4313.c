@@ -86,6 +86,27 @@ retval_t UART_drvr_receive_byte(uint8_t *data_rcvd_ptr)
 
 
 /*!
+ * Receives a byte from the ring buffer, but don't pop it off
+ * 
+ * @param[in] data_rcvd_ptr (uint8_t *): location to store the data received.
+ * @param[out] retval (retval_t): returns the success or failure of the action.
+ */
+retval_t UART_drvr_peak_byte(uint8_t *data_rcvd_ptr)
+{
+    retval_t retval;
+    if(ring_buff_has_data(UART_rx_buff_ptr) > 0) {
+        cli();
+        retval = ring_buff_peak(UART_rx_buff_ptr, data_rcvd_ptr);
+        sei();
+        return retval;
+    }
+    else {
+        return UART_RX_EMPTY;
+    }
+}
+
+
+/*!
  * Flushes the current data from the ring buffer and from the hardware UART module
  */
 void UART_drvr_flush_buffer(void)
