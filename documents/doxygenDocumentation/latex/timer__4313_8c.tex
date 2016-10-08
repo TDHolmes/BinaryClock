@@ -1,0 +1,104 @@
+\hypertarget{timer__4313_8c}{}\section{firmware/timer\+\_\+4313.c File Reference}
+\label{timer__4313_8c}\index{firmware/timer\+\_\+4313.\+c@{firmware/timer\+\_\+4313.\+c}}
+
+
+Functions and data structures for interfacing with the A\+Ttiny4313 timers.  
+
+
+{\ttfamily \#include \char`\"{}timer\+\_\+4313.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$avr/interrupt.\+h$>$}\newline
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structtimer__status__t}{timer\+\_\+status\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Structure for all important timer variables. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{timer__4313_8c_ad38c4c39274e489ea9695f322a15f931}{timer\+\_\+counter\+\_\+init} (volatile uint8\+\_\+t $\ast$counter\+\_\+var\+\_\+ptr)
+\item 
+void \hyperlink{timer__4313_8c_a23f1f165abacfb6fea8832262a59d52a}{timer\+\_\+millis\+\_\+init} (void)
+\item 
+void \hyperlink{timer__4313_8c_a1e462ddd3000b56cfe8e0864a0bd23c6}{timer\+\_\+init} (volatile uint8\+\_\+t $\ast$counter\+\_\+var\+\_\+ptr)
+\item 
+uint32\+\_\+t \hyperlink{timer__4313_8c_ace085dcdf0d5df73d35e30c04f2b6805}{timer\+\_\+millis\+\_\+get} (void)
+\item 
+\hyperlink{timer__4313_8c_ad39420cdd896dd12c68e36313139d0a5}{I\+SR} (T\+I\+M\+E\+R1\+\_\+\+C\+O\+M\+P\+A\+\_\+vect)
+\item 
+\hyperlink{timer__4313_8c_aec43762dc86e029b395d4e5819192c2d}{I\+SR} (T\+I\+M\+E\+R0\+\_\+\+C\+O\+M\+P\+A\+\_\+vect)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{timer__4313_8c_ab56e4d89af7a99ae7cfb04df0eb5abe8}{}\label{timer__4313_8c_ab56e4d89af7a99ae7cfb04df0eb5abe8} 
+\hyperlink{structtimer__status__t}{timer\+\_\+status\+\_\+t} \hyperlink{timer__4313_8c_ab56e4d89af7a99ae7cfb04df0eb5abe8}{timer\+\_\+status}
+\begin{DoxyCompactList}\small\item\em timer status structure instance \end{DoxyCompactList}\item 
+\hypertarget{timer__4313_8c_acaa47b00034319b29e6cc37eb5b27167}{}\label{timer__4313_8c_acaa47b00034319b29e6cc37eb5b27167} 
+\hyperlink{structtimer__status__t}{timer\+\_\+status\+\_\+t} $\ast$ \hyperlink{timer__4313_8c_acaa47b00034319b29e6cc37eb5b27167}{t\+\_\+status\+\_\+ptr}
+\begin{DoxyCompactList}\small\item\em pointer to the timer status structure \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Functions and data structures for interfacing with the A\+Ttiny4313 timers. 
+
+
+
+\subsection{Function Documentation}
+\hypertarget{timer__4313_8c_ad39420cdd896dd12c68e36313139d0a5}{}\label{timer__4313_8c_ad39420cdd896dd12c68e36313139d0a5} 
+\index{timer\+\_\+4313.\+c@{timer\+\_\+4313.\+c}!I\+SR@{I\+SR}}
+\index{I\+SR@{I\+SR}!timer\+\_\+4313.\+c@{timer\+\_\+4313.\+c}}
+\subsubsection{\texorpdfstring{I\+S\+R()}{ISR()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily I\+SR (\begin{DoxyParamCaption}\item[{T\+I\+M\+E\+R1\+\_\+\+C\+O\+M\+P\+A\+\_\+vect}]{ }\end{DoxyParamCaption})}
+
+Interrupt service routine for the millisecond counter. \hypertarget{timer__4313_8c_aec43762dc86e029b395d4e5819192c2d}{}\label{timer__4313_8c_aec43762dc86e029b395d4e5819192c2d} 
+\index{timer\+\_\+4313.\+c@{timer\+\_\+4313.\+c}!I\+SR@{I\+SR}}
+\index{I\+SR@{I\+SR}!timer\+\_\+4313.\+c@{timer\+\_\+4313.\+c}}
+\subsubsection{\texorpdfstring{I\+S\+R()}{ISR()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily I\+SR (\begin{DoxyParamCaption}\item[{T\+I\+M\+E\+R0\+\_\+\+C\+O\+M\+P\+A\+\_\+vect}]{ }\end{DoxyParamCaption})}
+
+Interrupt service routine for the multiplexer counter. \hypertarget{timer__4313_8c_ad38c4c39274e489ea9695f322a15f931}{}\label{timer__4313_8c_ad38c4c39274e489ea9695f322a15f931} 
+\index{timer\+\_\+4313.\+c@{timer\+\_\+4313.\+c}!timer\+\_\+counter\+\_\+init@{timer\+\_\+counter\+\_\+init}}
+\index{timer\+\_\+counter\+\_\+init@{timer\+\_\+counter\+\_\+init}!timer\+\_\+4313.\+c@{timer\+\_\+4313.\+c}}
+\subsubsection{\texorpdfstring{timer\+\_\+counter\+\_\+init()}{timer\_counter\_init()}}
+{\footnotesize\ttfamily void timer\+\_\+counter\+\_\+init (\begin{DoxyParamCaption}\item[{volatile uint8\+\_\+t $\ast$}]{counter\+\_\+var\+\_\+ptr }\end{DoxyParamCaption})}
+
+Initializes the multiplexer timer and requisite interrupts.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em counter\+\_\+var\+\_\+ptr} & (volatile uint8\+\_\+t $\ast$)\+: pointer to the counter\textquotesingle{}s count variable. \\
+\hline
+\end{DoxyParams}
+\hypertarget{timer__4313_8c_a1e462ddd3000b56cfe8e0864a0bd23c6}{}\label{timer__4313_8c_a1e462ddd3000b56cfe8e0864a0bd23c6} 
+\index{timer\+\_\+4313.\+c@{timer\+\_\+4313.\+c}!timer\+\_\+init@{timer\+\_\+init}}
+\index{timer\+\_\+init@{timer\+\_\+init}!timer\+\_\+4313.\+c@{timer\+\_\+4313.\+c}}
+\subsubsection{\texorpdfstring{timer\+\_\+init()}{timer\_init()}}
+{\footnotesize\ttfamily void timer\+\_\+init (\begin{DoxyParamCaption}\item[{volatile uint8\+\_\+t $\ast$}]{counter\+\_\+var\+\_\+ptr }\end{DoxyParamCaption})}
+
+Initializes the timer structure variables and individual timers.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em counter\+\_\+var\+\_\+ptr} & (volatile uint8\+\_\+t $\ast$)\+: pointer to the counter\textquotesingle{}s count variable. \\
+\hline
+\end{DoxyParams}
+\hypertarget{timer__4313_8c_ace085dcdf0d5df73d35e30c04f2b6805}{}\label{timer__4313_8c_ace085dcdf0d5df73d35e30c04f2b6805} 
+\index{timer\+\_\+4313.\+c@{timer\+\_\+4313.\+c}!timer\+\_\+millis\+\_\+get@{timer\+\_\+millis\+\_\+get}}
+\index{timer\+\_\+millis\+\_\+get@{timer\+\_\+millis\+\_\+get}!timer\+\_\+4313.\+c@{timer\+\_\+4313.\+c}}
+\subsubsection{\texorpdfstring{timer\+\_\+millis\+\_\+get()}{timer\_millis\_get()}}
+{\footnotesize\ttfamily uint32\+\_\+t timer\+\_\+millis\+\_\+get (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Returns the current value of the millisecond counter.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em millis\+\_\+count} & (uint32\+\_\+t)\+: current value of the millis counter. \\
+\hline
+\end{DoxyParams}
+\hypertarget{timer__4313_8c_a23f1f165abacfb6fea8832262a59d52a}{}\label{timer__4313_8c_a23f1f165abacfb6fea8832262a59d52a} 
+\index{timer\+\_\+4313.\+c@{timer\+\_\+4313.\+c}!timer\+\_\+millis\+\_\+init@{timer\+\_\+millis\+\_\+init}}
+\index{timer\+\_\+millis\+\_\+init@{timer\+\_\+millis\+\_\+init}!timer\+\_\+4313.\+c@{timer\+\_\+4313.\+c}}
+\subsubsection{\texorpdfstring{timer\+\_\+millis\+\_\+init()}{timer\_millis\_init()}}
+{\footnotesize\ttfamily void timer\+\_\+millis\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Initializes the millisecond timer and requisite interrupts. 

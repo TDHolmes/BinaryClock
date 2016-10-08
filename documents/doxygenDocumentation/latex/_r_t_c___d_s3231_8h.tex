@@ -1,0 +1,207 @@
+\hypertarget{_r_t_c___d_s3231_8h}{}\section{firmware/\+R\+T\+C\+\_\+\+D\+S3231.h File Reference}
+\label{_r_t_c___d_s3231_8h}\index{firmware/\+R\+T\+C\+\_\+\+D\+S3231.\+h@{firmware/\+R\+T\+C\+\_\+\+D\+S3231.\+h}}
+
+
+Data structures and address definitions for the D\+S3231 R\+TC.  
+
+
+{\ttfamily \#include \char`\"{}global\+\_\+defines.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structrtc__time__t}{rtc\+\_\+time\+\_\+t}
+\begin{DoxyCompactList}\small\item\em data structure to keep track of the time \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{_r_t_c___d_s3231_8h_a6ee8e8390002b24c20c7a1c64bc2c7ac}{}\label{_r_t_c___d_s3231_8h_a6ee8e8390002b24c20c7a1c64bc2c7ac} 
+\#define \hyperlink{_r_t_c___d_s3231_8h_a6ee8e8390002b24c20c7a1c64bc2c7ac}{R\+T\+C\+\_\+\+A\+D\+DR}~0x68
+\begin{DoxyCompactList}\small\item\em I2C address of the R\+TC chip. \end{DoxyCompactList}\item 
+\hypertarget{_r_t_c___d_s3231_8h_a0be2fdeec5509971dfb173bacf675c63}{}\label{_r_t_c___d_s3231_8h_a0be2fdeec5509971dfb173bacf675c63} 
+\#define \hyperlink{_r_t_c___d_s3231_8h_a0be2fdeec5509971dfb173bacf675c63}{R\+T\+C\+\_\+\+A\+D\+D\+R\+\_\+\+S\+E\+C\+O\+N\+DS}~0x00
+\begin{DoxyCompactList}\small\item\em address definitions for the R\+TC chip \end{DoxyCompactList}\item 
+\hypertarget{_r_t_c___d_s3231_8h_acce201fe6cb0ebd6c977603e295719f7}{}\label{_r_t_c___d_s3231_8h_acce201fe6cb0ebd6c977603e295719f7} 
+\#define {\bfseries R\+T\+C\+\_\+\+A\+D\+D\+R\+\_\+\+M\+I\+N\+U\+T\+ES}~0x01
+\item 
+\hypertarget{_r_t_c___d_s3231_8h_a0d2635a33f7d78717f145d15ba8a8c0b}{}\label{_r_t_c___d_s3231_8h_a0d2635a33f7d78717f145d15ba8a8c0b} 
+\#define {\bfseries R\+T\+C\+\_\+\+A\+D\+D\+R\+\_\+\+H\+O\+U\+RS}~0x02
+\item 
+\hypertarget{_r_t_c___d_s3231_8h_a2ac69f8b49fe29fa9f1cbff4569bba60}{}\label{_r_t_c___d_s3231_8h_a2ac69f8b49fe29fa9f1cbff4569bba60} 
+\#define {\bfseries R\+T\+C\+\_\+\+A\+D\+D\+R\+\_\+\+D\+AY}~0x03
+\item 
+\hypertarget{_r_t_c___d_s3231_8h_a5834fefce3367e8e6db6f382588a7e4b}{}\label{_r_t_c___d_s3231_8h_a5834fefce3367e8e6db6f382588a7e4b} 
+\#define {\bfseries R\+T\+C\+\_\+\+A\+D\+D\+R\+\_\+\+D\+A\+TE}~0x04
+\item 
+\hypertarget{_r_t_c___d_s3231_8h_a5ecae3080d10f4c25124a21039a58aa4}{}\label{_r_t_c___d_s3231_8h_a5ecae3080d10f4c25124a21039a58aa4} 
+\#define {\bfseries R\+T\+C\+\_\+\+A\+D\+D\+R\+\_\+\+M\+O\+N\+T\+H\+\_\+\+C\+E\+N\+T\+U\+RY}~0x05
+\item 
+\hypertarget{_r_t_c___d_s3231_8h_a9844f26d42d0414051718fd515624492}{}\label{_r_t_c___d_s3231_8h_a9844f26d42d0414051718fd515624492} 
+\#define {\bfseries R\+T\+C\+\_\+\+A\+D\+D\+R\+\_\+\+Y\+E\+AR}~0x06
+\item 
+\hypertarget{_r_t_c___d_s3231_8h_a3b3d149ccb4d4bac9543e9511f48ddcd}{}\label{_r_t_c___d_s3231_8h_a3b3d149ccb4d4bac9543e9511f48ddcd} 
+\#define {\bfseries R\+T\+C\+\_\+\+A\+D\+D\+R\+\_\+\+A\+L\+A\+R\+M\+\_\+1\+\_\+\+S\+E\+C\+O\+N\+DS}~0x07
+\item 
+\hypertarget{_r_t_c___d_s3231_8h_a1741f287b3480346a082b4f38e8e0095}{}\label{_r_t_c___d_s3231_8h_a1741f287b3480346a082b4f38e8e0095} 
+\#define {\bfseries R\+T\+C\+\_\+\+A\+D\+D\+R\+\_\+\+A\+L\+A\+R\+M\+\_\+1\+\_\+\+M\+I\+N\+U\+T\+ES}~0x08
+\item 
+\hypertarget{_r_t_c___d_s3231_8h_a12aa5c4c3756f73090051ab1e5bd4f10}{}\label{_r_t_c___d_s3231_8h_a12aa5c4c3756f73090051ab1e5bd4f10} 
+\#define {\bfseries R\+T\+C\+\_\+\+A\+D\+D\+R\+\_\+\+A\+L\+A\+R\+M\+\_\+1\+\_\+\+H\+O\+U\+RS}~0x09
+\item 
+\hypertarget{_r_t_c___d_s3231_8h_aec4f6ece1d701daeca4826fbc921a455}{}\label{_r_t_c___d_s3231_8h_aec4f6ece1d701daeca4826fbc921a455} 
+\#define {\bfseries R\+T\+C\+\_\+\+A\+D\+D\+R\+\_\+\+A\+L\+A\+R\+M\+\_\+1\+\_\+\+D\+A\+Y\+\_\+\+D\+A\+TE}~0x0A
+\item 
+\hypertarget{_r_t_c___d_s3231_8h_a275abc03d89744d9d43d8c5635f9d7a1}{}\label{_r_t_c___d_s3231_8h_a275abc03d89744d9d43d8c5635f9d7a1} 
+\#define {\bfseries R\+T\+C\+\_\+\+A\+D\+D\+R\+\_\+\+A\+L\+A\+R\+M\+\_\+2\+\_\+\+M\+I\+N\+U\+T\+ES}~0x0B
+\item 
+\hypertarget{_r_t_c___d_s3231_8h_a2f6247bca8a61336218d9136b1f7433e}{}\label{_r_t_c___d_s3231_8h_a2f6247bca8a61336218d9136b1f7433e} 
+\#define {\bfseries R\+T\+C\+\_\+\+A\+D\+D\+R\+\_\+\+A\+L\+A\+R\+M\+\_\+2\+\_\+\+H\+O\+U\+RS}~0x0C
+\item 
+\hypertarget{_r_t_c___d_s3231_8h_af3b25ace0fac59e18a2394c1ad5a8d06}{}\label{_r_t_c___d_s3231_8h_af3b25ace0fac59e18a2394c1ad5a8d06} 
+\#define {\bfseries R\+T\+C\+\_\+\+A\+D\+D\+R\+\_\+\+A\+L\+A\+R\+M\+\_\+2\+\_\+\+D\+A\+Y\+\_\+\+D\+A\+TE}~0x0D
+\item 
+\hypertarget{_r_t_c___d_s3231_8h_ace15f6d8c342e746a19bdd2e6865bd4f}{}\label{_r_t_c___d_s3231_8h_ace15f6d8c342e746a19bdd2e6865bd4f} 
+\#define {\bfseries R\+T\+C\+\_\+\+A\+D\+D\+R\+\_\+\+C\+O\+N\+T\+R\+OL}~0x0E
+\item 
+\hypertarget{_r_t_c___d_s3231_8h_a20d431b113a009a4255a1c290d6f38be}{}\label{_r_t_c___d_s3231_8h_a20d431b113a009a4255a1c290d6f38be} 
+\#define {\bfseries R\+T\+C\+\_\+\+A\+D\+D\+R\+\_\+\+S\+T\+A\+T\+US}~0x0F
+\item 
+\hypertarget{_r_t_c___d_s3231_8h_a8947471f9e86ddee35b83d694b0c257b}{}\label{_r_t_c___d_s3231_8h_a8947471f9e86ddee35b83d694b0c257b} 
+\#define {\bfseries R\+T\+C\+\_\+\+A\+D\+D\+R\+\_\+\+A\+G\+I\+N\+G\+\_\+\+O\+F\+F\+S\+ET}~0x10
+\item 
+\hypertarget{_r_t_c___d_s3231_8h_aa3000a08df27dd6c4e1e8ed3868110b1}{}\label{_r_t_c___d_s3231_8h_aa3000a08df27dd6c4e1e8ed3868110b1} 
+\#define {\bfseries R\+T\+C\+\_\+\+A\+D\+D\+R\+\_\+\+T\+E\+M\+P\+\_\+\+M\+SB}~0x11
+\item 
+\hypertarget{_r_t_c___d_s3231_8h_a84f9a4c2c731c70b6d5a6a863316d80f}{}\label{_r_t_c___d_s3231_8h_a84f9a4c2c731c70b6d5a6a863316d80f} 
+\#define {\bfseries R\+T\+C\+\_\+\+A\+D\+D\+R\+\_\+\+T\+E\+M\+P\+\_\+\+L\+SB}~0x12
+\item 
+\hypertarget{_r_t_c___d_s3231_8h_adfa9adaef37a2fbb9373c194de1f7a62}{}\label{_r_t_c___d_s3231_8h_adfa9adaef37a2fbb9373c194de1f7a62} 
+\#define \hyperlink{_r_t_c___d_s3231_8h_adfa9adaef37a2fbb9373c194de1f7a62}{E\+O\+S\+C\+\_\+N}~7
+\begin{DoxyCompactList}\small\item\em control register bit definitions \end{DoxyCompactList}\item 
+\hypertarget{_r_t_c___d_s3231_8h_aab025dda5b1b276b234f3ef492cfb12e}{}\label{_r_t_c___d_s3231_8h_aab025dda5b1b276b234f3ef492cfb12e} 
+\#define {\bfseries B\+B\+S\+QW}~6
+\item 
+\hypertarget{_r_t_c___d_s3231_8h_a0538377e68aa283fbad42f747bb6dd82}{}\label{_r_t_c___d_s3231_8h_a0538377e68aa283fbad42f747bb6dd82} 
+\#define {\bfseries C\+O\+NV}~5
+\item 
+\hypertarget{_r_t_c___d_s3231_8h_ac01835a9a207f965ff114db1a29e6345}{}\label{_r_t_c___d_s3231_8h_ac01835a9a207f965ff114db1a29e6345} 
+\#define {\bfseries I\+N\+T\+CN}~2
+\item 
+\hypertarget{_r_t_c___d_s3231_8h_a08f14c40b934cac720d61d1c5a8be3ab}{}\label{_r_t_c___d_s3231_8h_a08f14c40b934cac720d61d1c5a8be3ab} 
+\#define {\bfseries A2\+IE}~1
+\item 
+\hypertarget{_r_t_c___d_s3231_8h_ae7fabfe7248c1a3b9888a7deaa8b7227}{}\label{_r_t_c___d_s3231_8h_ae7fabfe7248c1a3b9888a7deaa8b7227} 
+\#define {\bfseries A1\+IE}~0
+\item 
+\hypertarget{_r_t_c___d_s3231_8h_ae4ba9acd2c0000b0623755f40ebc401b}{}\label{_r_t_c___d_s3231_8h_ae4ba9acd2c0000b0623755f40ebc401b} 
+\#define \hyperlink{_r_t_c___d_s3231_8h_ae4ba9acd2c0000b0623755f40ebc401b}{O\+SF}~7
+\begin{DoxyCompactList}\small\item\em status register bit definitions \end{DoxyCompactList}\item 
+\hypertarget{_r_t_c___d_s3231_8h_a31eca5a1d45c3e27d6e0d09453d0001a}{}\label{_r_t_c___d_s3231_8h_a31eca5a1d45c3e27d6e0d09453d0001a} 
+\#define {\bfseries E\+N32\+K\+HZ}~3
+\item 
+\hypertarget{_r_t_c___d_s3231_8h_af9a90580df99520af90316de6949f41f}{}\label{_r_t_c___d_s3231_8h_af9a90580df99520af90316de6949f41f} 
+\#define {\bfseries B\+SY}~2
+\item 
+\hypertarget{_r_t_c___d_s3231_8h_a13dc09635c83392da3adfab1988f19aa}{}\label{_r_t_c___d_s3231_8h_a13dc09635c83392da3adfab1988f19aa} 
+\#define {\bfseries A2F}~1
+\item 
+\hypertarget{_r_t_c___d_s3231_8h_a8ea91945a13708a9e9ebf30cda4cacad}{}\label{_r_t_c___d_s3231_8h_a8ea91945a13708a9e9ebf30cda4cacad} 
+\#define {\bfseries A1F}~0
+\item 
+\hypertarget{_r_t_c___d_s3231_8h_aa970dc739d8b8a7795571004c70c6d8a}{}\label{_r_t_c___d_s3231_8h_aa970dc739d8b8a7795571004c70c6d8a} 
+\#define \hyperlink{_r_t_c___d_s3231_8h_aa970dc739d8b8a7795571004c70c6d8a}{R\+T\+C\+\_\+\+S\+E\+C\+\_\+\+O\+N\+E\+\_\+\+M\+A\+SK}~0b00001111
+\begin{DoxyCompactList}\small\item\em Masks for the binary encoded decimal values in the R\+TC chip. \end{DoxyCompactList}\item 
+\hypertarget{_r_t_c___d_s3231_8h_af5e2e9a644b59e386a137bc347e32741}{}\label{_r_t_c___d_s3231_8h_af5e2e9a644b59e386a137bc347e32741} 
+\#define {\bfseries R\+T\+C\+\_\+\+S\+E\+C\+\_\+\+T\+E\+N\+\_\+\+M\+A\+SK}~0b01110000
+\item 
+\hypertarget{_r_t_c___d_s3231_8h_ad2ce427c548e488e331837a1a39218d6}{}\label{_r_t_c___d_s3231_8h_ad2ce427c548e488e331837a1a39218d6} 
+\#define {\bfseries R\+T\+C\+\_\+\+M\+I\+N\+\_\+\+O\+N\+E\+\_\+\+M\+A\+SK}~0b00001111
+\item 
+\hypertarget{_r_t_c___d_s3231_8h_a0a26279eb2e30e6bc0e3ace0c872756f}{}\label{_r_t_c___d_s3231_8h_a0a26279eb2e30e6bc0e3ace0c872756f} 
+\#define {\bfseries R\+T\+C\+\_\+\+M\+I\+N\+\_\+\+T\+E\+N\+\_\+\+M\+A\+SK}~0b01110000
+\item 
+\hypertarget{_r_t_c___d_s3231_8h_a485d653dc210f5e998934f49749cee42}{}\label{_r_t_c___d_s3231_8h_a485d653dc210f5e998934f49749cee42} 
+\#define {\bfseries R\+T\+C\+\_\+\+H\+O\+U\+R\+\_\+\+O\+N\+E\+\_\+\+M\+A\+SK}~0b00001111
+\item 
+\hypertarget{_r_t_c___d_s3231_8h_adf62b455e41e63cc1b7791a175d92b10}{}\label{_r_t_c___d_s3231_8h_adf62b455e41e63cc1b7791a175d92b10} 
+\#define {\bfseries R\+T\+C\+\_\+\+H\+O\+U\+R\+\_\+\+T\+E\+N\+\_\+\+M\+A\+SK}~0b00110000
+\item 
+\hypertarget{_r_t_c___d_s3231_8h_a13392f39bd593ae0a96f636dac316792}{}\label{_r_t_c___d_s3231_8h_a13392f39bd593ae0a96f636dac316792} 
+\#define \hyperlink{_r_t_c___d_s3231_8h_a13392f39bd593ae0a96f636dac316792}{R\+T\+C\+\_\+\+S\+E\+C\+\_\+\+T\+E\+N\+\_\+\+O\+F\+F\+S\+ET}~4
+\begin{DoxyCompactList}\small\item\em offsets into the registers \end{DoxyCompactList}\item 
+\hypertarget{_r_t_c___d_s3231_8h_ab7553fff0d2c5a3bf2e2700a9caafac0}{}\label{_r_t_c___d_s3231_8h_ab7553fff0d2c5a3bf2e2700a9caafac0} 
+\#define {\bfseries R\+T\+C\+\_\+\+M\+I\+N\+\_\+\+T\+E\+N\+\_\+\+O\+F\+F\+S\+ET}~4
+\item 
+\hypertarget{_r_t_c___d_s3231_8h_a558fbb90f68f4020edebcbedd3cc0ef6}{}\label{_r_t_c___d_s3231_8h_a558fbb90f68f4020edebcbedd3cc0ef6} 
+\#define {\bfseries R\+T\+C\+\_\+\+H\+O\+U\+R\+\_\+\+T\+E\+N\+\_\+\+O\+F\+F\+S\+ET}~4
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{global__defines_8h_a7a53c0a65d763442224ca36299adee75}{retval\+\_\+t} \hyperlink{_r_t_c___d_s3231_8h_aaed995c1250012c7062cc1bfa6c54a0a}{R\+T\+C\+\_\+init} (\hyperlink{structrtc__time__t}{rtc\+\_\+time\+\_\+t} $\ast$t\+\_\+ptr, volatile uint8\+\_\+t $\ast$R\+T\+C\+\_\+1\+Hz\+\_\+int\+\_\+count\+\_\+ptr)
+\item 
+\hyperlink{global__defines_8h_a7a53c0a65d763442224ca36299adee75}{retval\+\_\+t} \hyperlink{_r_t_c___d_s3231_8h_a33efe978755de7c3bea5ec1f68c3c0ee}{R\+T\+C\+\_\+set\+\_\+time} (\hyperlink{structrtc__time__t}{rtc\+\_\+time\+\_\+t} $\ast$t\+\_\+ptr, uint8\+\_\+t hour, uint8\+\_\+t minute, uint8\+\_\+t second)
+\item 
+\hyperlink{global__defines_8h_a7a53c0a65d763442224ca36299adee75}{retval\+\_\+t} \hyperlink{_r_t_c___d_s3231_8h_a2bff9ac64b6abc57feab2a567e4942f1}{R\+T\+C\+\_\+read\+\_\+time} (\hyperlink{structrtc__time__t}{rtc\+\_\+time\+\_\+t} $\ast$t\+\_\+ptr)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Data structures and address definitions for the D\+S3231 R\+TC. 
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_r_t_c___d_s3231_8h_aaed995c1250012c7062cc1bfa6c54a0a}{}\label{_r_t_c___d_s3231_8h_aaed995c1250012c7062cc1bfa6c54a0a} 
+\index{R\+T\+C\+\_\+\+D\+S3231.\+h@{R\+T\+C\+\_\+\+D\+S3231.\+h}!R\+T\+C\+\_\+init@{R\+T\+C\+\_\+init}}
+\index{R\+T\+C\+\_\+init@{R\+T\+C\+\_\+init}!R\+T\+C\+\_\+\+D\+S3231.\+h@{R\+T\+C\+\_\+\+D\+S3231.\+h}}
+\subsubsection{\texorpdfstring{R\+T\+C\+\_\+init()}{RTC\_init()}}
+{\footnotesize\ttfamily \hyperlink{global__defines_8h_a7a53c0a65d763442224ca36299adee75}{retval\+\_\+t} R\+T\+C\+\_\+init (\begin{DoxyParamCaption}\item[{\hyperlink{structrtc__time__t}{rtc\+\_\+time\+\_\+t} $\ast$}]{t\+\_\+ptr,  }\item[{volatile uint8\+\_\+t $\ast$}]{R\+T\+C\+\_\+int\+\_\+cnt\+\_\+ptr }\end{DoxyParamCaption})}
+
+Real time clock (R\+TC) initialization function that sets up the 1 Hz pin change interrupt and the I2C communication to the chip to configure it and read the time it has internally.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em time\+\_\+ptr} & (\hyperlink{structrtc__time__t}{rtc\+\_\+time\+\_\+t} $\ast$)\+: Pointer that is used to keep track of the time. \\
+\hline
+\mbox{\tt in}  & {\em R\+T\+C\+\_\+int\+\_\+cnt\+\_\+ptr} & (volatile uint8\+\_\+t $\ast$)\+: R\+TC interrupt count pointer so we can keep track of the interrupt count from outside of this file. \\
+\hline
+\mbox{\tt out}  & {\em retval} & (retval\+\_\+t)\+: Returns the initialization status of the R\+TC chip. \\
+\hline
+\end{DoxyParams}
+\hypertarget{_r_t_c___d_s3231_8h_a2bff9ac64b6abc57feab2a567e4942f1}{}\label{_r_t_c___d_s3231_8h_a2bff9ac64b6abc57feab2a567e4942f1} 
+\index{R\+T\+C\+\_\+\+D\+S3231.\+h@{R\+T\+C\+\_\+\+D\+S3231.\+h}!R\+T\+C\+\_\+read\+\_\+time@{R\+T\+C\+\_\+read\+\_\+time}}
+\index{R\+T\+C\+\_\+read\+\_\+time@{R\+T\+C\+\_\+read\+\_\+time}!R\+T\+C\+\_\+\+D\+S3231.\+h@{R\+T\+C\+\_\+\+D\+S3231.\+h}}
+\subsubsection{\texorpdfstring{R\+T\+C\+\_\+read\+\_\+time()}{RTC\_read\_time()}}
+{\footnotesize\ttfamily \hyperlink{global__defines_8h_a7a53c0a65d763442224ca36299adee75}{retval\+\_\+t} R\+T\+C\+\_\+read\+\_\+time (\begin{DoxyParamCaption}\item[{\hyperlink{structrtc__time__t}{rtc\+\_\+time\+\_\+t} $\ast$}]{t\+\_\+ptr }\end{DoxyParamCaption})}
+
+Reads the time on the R\+TC chip as well as updating the time keeping data structure t\+\_\+ptr.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em t\+\_\+ptr} & (\hyperlink{structrtc__time__t}{rtc\+\_\+time\+\_\+t} $\ast$)\+: Pointer that is used to keep track of the time. \\
+\hline
+\mbox{\tt out}  & {\em retval} & (retval\+\_\+t)\+: Returns the success or failure of reading the time from the R\+TC chip. \\
+\hline
+\end{DoxyParams}
+\hypertarget{_r_t_c___d_s3231_8h_a33efe978755de7c3bea5ec1f68c3c0ee}{}\label{_r_t_c___d_s3231_8h_a33efe978755de7c3bea5ec1f68c3c0ee} 
+\index{R\+T\+C\+\_\+\+D\+S3231.\+h@{R\+T\+C\+\_\+\+D\+S3231.\+h}!R\+T\+C\+\_\+set\+\_\+time@{R\+T\+C\+\_\+set\+\_\+time}}
+\index{R\+T\+C\+\_\+set\+\_\+time@{R\+T\+C\+\_\+set\+\_\+time}!R\+T\+C\+\_\+\+D\+S3231.\+h@{R\+T\+C\+\_\+\+D\+S3231.\+h}}
+\subsubsection{\texorpdfstring{R\+T\+C\+\_\+set\+\_\+time()}{RTC\_set\_time()}}
+{\footnotesize\ttfamily \hyperlink{global__defines_8h_a7a53c0a65d763442224ca36299adee75}{retval\+\_\+t} R\+T\+C\+\_\+set\+\_\+time (\begin{DoxyParamCaption}\item[{\hyperlink{structrtc__time__t}{rtc\+\_\+time\+\_\+t} $\ast$}]{t\+\_\+ptr,  }\item[{uint8\+\_\+t}]{hour,  }\item[{uint8\+\_\+t}]{minute,  }\item[{uint8\+\_\+t}]{second }\end{DoxyParamCaption})}
+
+Updates the time on the R\+TC chip as well as in the time keeping data structure t\+\_\+ptr.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em t\+\_\+ptr} & (\hyperlink{structrtc__time__t}{rtc\+\_\+time\+\_\+t} $\ast$)\+: Pointer that is used to keep track of the time. \\
+\hline
+\mbox{\tt in}  & {\em hour} & (uint8\+\_\+t)\+: hour to change the time to on the R\+TC chip as wel as in the time pointer. \\
+\hline
+\mbox{\tt in}  & {\em minute} & (uint8\+\_\+t)\+: minute to change the time to on the R\+TC chip as wel as in the time pointer. \\
+\hline
+\mbox{\tt in}  & {\em second} & (uint8\+\_\+t)\+: second to change the time to on the R\+TC chip as wel as in the time pointer. \\
+\hline
+\mbox{\tt out}  & {\em retval} & (retval\+\_\+t)\+: Returns the success or failure of updating the time on the R\+TC chip. \\
+\hline
+\end{DoxyParams}

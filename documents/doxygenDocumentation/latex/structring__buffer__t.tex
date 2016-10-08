@@ -1,0 +1,43 @@
+\hypertarget{structring__buffer__t}{}\section{ring\+\_\+buffer\+\_\+t Struct Reference}
+\label{structring__buffer__t}\index{ring\+\_\+buffer\+\_\+t@{ring\+\_\+buffer\+\_\+t}}
+
+
+data structure to keep track of important ring buffer variables  
+
+
+
+
+{\ttfamily \#include $<$ring\+\_\+buffer.\+h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{structring__buffer__t_ad378c88649184097a59ce43dad14dc5d}{}\label{structring__buffer__t_ad378c88649184097a59ce43dad14dc5d} 
+uint8\+\_\+t $\ast$ \hyperlink{structring__buffer__t_ad378c88649184097a59ce43dad14dc5d}{head}
+\begin{DoxyCompactList}\small\item\em pointer to the head of the buffer \end{DoxyCompactList}\item 
+\hypertarget{structring__buffer__t_a5224aa2e8568c39b4eddac36cac4d2fe}{}\label{structring__buffer__t_a5224aa2e8568c39b4eddac36cac4d2fe} 
+uint8\+\_\+t $\ast$ \hyperlink{structring__buffer__t_a5224aa2e8568c39b4eddac36cac4d2fe}{tail}
+\begin{DoxyCompactList}\small\item\em pointer to the tail of the buffer \end{DoxyCompactList}\item 
+\hypertarget{structring__buffer__t_af1c321b3dd7fb5f88bbe75f1aff43d97}{}\label{structring__buffer__t_af1c321b3dd7fb5f88bbe75f1aff43d97} 
+uint8\+\_\+t $\ast$ \hyperlink{structring__buffer__t_af1c321b3dd7fb5f88bbe75f1aff43d97}{start}
+\begin{DoxyCompactList}\small\item\em pointer to the start address of the buffer space \end{DoxyCompactList}\item 
+\hypertarget{structring__buffer__t_a02274fe55b5bc829813a11b3450f3b14}{}\label{structring__buffer__t_a02274fe55b5bc829813a11b3450f3b14} 
+uint8\+\_\+t $\ast$ \hyperlink{structring__buffer__t_a02274fe55b5bc829813a11b3450f3b14}{end}
+\begin{DoxyCompactList}\small\item\em pointer to the end address of the buffer space \end{DoxyCompactList}\item 
+\hypertarget{structring__buffer__t_a1c49e6fd87f7189eca59069e8ccad511}{}\label{structring__buffer__t_a1c49e6fd87f7189eca59069e8ccad511} 
+uint8\+\_\+t \hyperlink{structring__buffer__t_a1c49e6fd87f7189eca59069e8ccad511}{buff\+\_\+size}
+\begin{DoxyCompactList}\small\item\em size of the buffer space \end{DoxyCompactList}\item 
+\hypertarget{structring__buffer__t_a81fff9486477aa8dc8d8e586ab55f479}{}\label{structring__buffer__t_a81fff9486477aa8dc8d8e586ab55f479} 
+uint8\+\_\+t \hyperlink{structring__buffer__t_a81fff9486477aa8dc8d8e586ab55f479}{error}
+\begin{DoxyCompactList}\small\item\em error flag (not currently used) \end{DoxyCompactList}\item 
+\hypertarget{structring__buffer__t_a6cad7a628d441b7e64587e6d3807ce9e}{}\label{structring__buffer__t_a6cad7a628d441b7e64587e6d3807ce9e} 
+uint8\+\_\+t \hyperlink{structring__buffer__t_a6cad7a628d441b7e64587e6d3807ce9e}{unread\+\_\+items}
+\begin{DoxyCompactList}\small\item\em number of unread items in the ring buffer \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+data structure to keep track of important ring buffer variables 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+firmware/\hyperlink{ring__buffer_8h}{ring\+\_\+buffer.\+h}\end{DoxyCompactItemize}

@@ -1,0 +1,183 @@
+\hypertarget{i2c__drvr__4313_8c}{}\section{firmware/i2c\+\_\+drvr\+\_\+4313.c File Reference}
+\label{i2c__drvr__4313_8c}\index{firmware/i2c\+\_\+drvr\+\_\+4313.\+c@{firmware/i2c\+\_\+drvr\+\_\+4313.\+c}}
+
+
+Low level I2C driver functions for the A\+Ttiny4313.  
+
+
+{\ttfamily \#include \char`\"{}i2c\+\_\+drvr\+\_\+4313.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}i2c.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$avr/io.\+h$>$}\newline
+{\ttfamily \#include $<$avr/cpufunc.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{global__defines_8h_a7a53c0a65d763442224ca36299adee75}{retval\+\_\+t} \hyperlink{i2c__drvr__4313_8c_ad6cd2aed6afe455856c6aaf29488753e}{check\+\_\+ack} (void)
+\item 
+void \hyperlink{i2c__drvr__4313_8c_a5f9de88238d0a4dbae2bb820bd3af2c3}{set\+\_\+\+S\+DA} (uint8\+\_\+t val)
+\item 
+void \hyperlink{i2c__drvr__4313_8c_a460f98541cea4aae9f8d10c4065f9d88}{set\+\_\+\+S\+CL} (uint8\+\_\+t val)
+\item 
+uint8\+\_\+t \hyperlink{i2c__drvr__4313_8c_a9b2d1357894b1a55590180ed1432ff61}{read\+\_\+\+S\+DA} (void)
+\item 
+void \hyperlink{i2c__drvr__4313_8c_afa644b62f20ea76e852eff610075618e}{write\+\_\+ack} (uint8\+\_\+t val)
+\item 
+\hyperlink{global__defines_8h_a7a53c0a65d763442224ca36299adee75}{retval\+\_\+t} \hyperlink{i2c__drvr__4313_8c_a101a68aabf28d38af890de93f1d2be11}{i2c\+\_\+drvr\+\_\+init} (void)
+\item 
+\hyperlink{global__defines_8h_a7a53c0a65d763442224ca36299adee75}{retval\+\_\+t} \hyperlink{i2c__drvr__4313_8c_a6d8960dfd0178bf971e481a58af14bfa}{i2c\+\_\+drvr\+\_\+start} (uint8\+\_\+t addr\+\_\+with\+\_\+mode)
+\item 
+\hyperlink{global__defines_8h_a7a53c0a65d763442224ca36299adee75}{retval\+\_\+t} \hyperlink{i2c__drvr__4313_8c_a6263cbd58a2fb736ab058b532ddd242a}{i2c\+\_\+drvr\+\_\+end} (void)
+\item 
+\hyperlink{global__defines_8h_a7a53c0a65d763442224ca36299adee75}{retval\+\_\+t} \hyperlink{i2c__drvr__4313_8c_a0e0c3a56da7932139693b97dd5a2d1d7}{i2c\+\_\+drvr\+\_\+write\+\_\+byte} (uint8\+\_\+t byte\+\_\+to\+\_\+tx)
+\item 
+\hyperlink{global__defines_8h_a7a53c0a65d763442224ca36299adee75}{retval\+\_\+t} \hyperlink{i2c__drvr__4313_8c_ab112d7a8b14604697d8e3549e891476a}{i2c\+\_\+drvr\+\_\+read\+\_\+byte} (uint8\+\_\+t $\ast$byte\+\_\+read\+\_\+ptr, uint8\+\_\+t ack)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Low level I2C driver functions for the A\+Ttiny4313. 
+
+
+
+\subsection{Function Documentation}
+\hypertarget{i2c__drvr__4313_8c_ad6cd2aed6afe455856c6aaf29488753e}{}\label{i2c__drvr__4313_8c_ad6cd2aed6afe455856c6aaf29488753e} 
+\index{i2c\+\_\+drvr\+\_\+4313.\+c@{i2c\+\_\+drvr\+\_\+4313.\+c}!check\+\_\+ack@{check\+\_\+ack}}
+\index{check\+\_\+ack@{check\+\_\+ack}!i2c\+\_\+drvr\+\_\+4313.\+c@{i2c\+\_\+drvr\+\_\+4313.\+c}}
+\subsubsection{\texorpdfstring{check\+\_\+ack()}{check\_ack()}}
+{\footnotesize\ttfamily \hyperlink{global__defines_8h_a7a53c0a65d763442224ca36299adee75}{retval\+\_\+t} check\+\_\+ack (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Checks is the slave asserts an acknowledge condition on the I2C bus.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em retval} & (retval\+\_\+t)\+: Returns if the slave acknowledged. \\
+\hline
+\end{DoxyParams}
+\hypertarget{i2c__drvr__4313_8c_a6263cbd58a2fb736ab058b532ddd242a}{}\label{i2c__drvr__4313_8c_a6263cbd58a2fb736ab058b532ddd242a} 
+\index{i2c\+\_\+drvr\+\_\+4313.\+c@{i2c\+\_\+drvr\+\_\+4313.\+c}!i2c\+\_\+drvr\+\_\+end@{i2c\+\_\+drvr\+\_\+end}}
+\index{i2c\+\_\+drvr\+\_\+end@{i2c\+\_\+drvr\+\_\+end}!i2c\+\_\+drvr\+\_\+4313.\+c@{i2c\+\_\+drvr\+\_\+4313.\+c}}
+\subsubsection{\texorpdfstring{i2c\+\_\+drvr\+\_\+end()}{i2c\_drvr\_end()}}
+{\footnotesize\ttfamily \hyperlink{global__defines_8h_a7a53c0a65d763442224ca36299adee75}{retval\+\_\+t} i2c\+\_\+drvr\+\_\+end (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Creates an end condition and returns if it was successful.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em retval} & (retval\+\_\+t)\+: Returns if the end condition worked. \\
+\hline
+\end{DoxyParams}
+\hypertarget{i2c__drvr__4313_8c_a101a68aabf28d38af890de93f1d2be11}{}\label{i2c__drvr__4313_8c_a101a68aabf28d38af890de93f1d2be11} 
+\index{i2c\+\_\+drvr\+\_\+4313.\+c@{i2c\+\_\+drvr\+\_\+4313.\+c}!i2c\+\_\+drvr\+\_\+init@{i2c\+\_\+drvr\+\_\+init}}
+\index{i2c\+\_\+drvr\+\_\+init@{i2c\+\_\+drvr\+\_\+init}!i2c\+\_\+drvr\+\_\+4313.\+c@{i2c\+\_\+drvr\+\_\+4313.\+c}}
+\subsubsection{\texorpdfstring{i2c\+\_\+drvr\+\_\+init()}{i2c\_drvr\_init()}}
+{\footnotesize\ttfamily \hyperlink{global__defines_8h_a7a53c0a65d763442224ca36299adee75}{retval\+\_\+t} i2c\+\_\+drvr\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Initializes the I2C lines.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em retval} & (retval\+\_\+t)\+: Returns if the initialization worked. \\
+\hline
+\end{DoxyParams}
+\hypertarget{i2c__drvr__4313_8c_ab112d7a8b14604697d8e3549e891476a}{}\label{i2c__drvr__4313_8c_ab112d7a8b14604697d8e3549e891476a} 
+\index{i2c\+\_\+drvr\+\_\+4313.\+c@{i2c\+\_\+drvr\+\_\+4313.\+c}!i2c\+\_\+drvr\+\_\+read\+\_\+byte@{i2c\+\_\+drvr\+\_\+read\+\_\+byte}}
+\index{i2c\+\_\+drvr\+\_\+read\+\_\+byte@{i2c\+\_\+drvr\+\_\+read\+\_\+byte}!i2c\+\_\+drvr\+\_\+4313.\+c@{i2c\+\_\+drvr\+\_\+4313.\+c}}
+\subsubsection{\texorpdfstring{i2c\+\_\+drvr\+\_\+read\+\_\+byte()}{i2c\_drvr\_read\_byte()}}
+{\footnotesize\ttfamily \hyperlink{global__defines_8h_a7a53c0a65d763442224ca36299adee75}{retval\+\_\+t} i2c\+\_\+drvr\+\_\+read\+\_\+byte (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{byte\+\_\+read\+\_\+ptr,  }\item[{uint8\+\_\+t}]{ack }\end{DoxyParamCaption})}
+
+Reads a byte of information to from the I2C line.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em byte\+\_\+read\+\_\+ptr} & (uint8\+\_\+t $\ast$)\+: Location to return the read back value. \\
+\hline
+\mbox{\tt in}  & {\em ack} & (uint8\+\_\+t)\+: Whether or not to acknowledge the byte. \\
+\hline
+\mbox{\tt out}  & {\em retval} & (retval\+\_\+t)\+: Returns if the read was successful. \\
+\hline
+\end{DoxyParams}
+\hypertarget{i2c__drvr__4313_8c_a6d8960dfd0178bf971e481a58af14bfa}{}\label{i2c__drvr__4313_8c_a6d8960dfd0178bf971e481a58af14bfa} 
+\index{i2c\+\_\+drvr\+\_\+4313.\+c@{i2c\+\_\+drvr\+\_\+4313.\+c}!i2c\+\_\+drvr\+\_\+start@{i2c\+\_\+drvr\+\_\+start}}
+\index{i2c\+\_\+drvr\+\_\+start@{i2c\+\_\+drvr\+\_\+start}!i2c\+\_\+drvr\+\_\+4313.\+c@{i2c\+\_\+drvr\+\_\+4313.\+c}}
+\subsubsection{\texorpdfstring{i2c\+\_\+drvr\+\_\+start()}{i2c\_drvr\_start()}}
+{\footnotesize\ttfamily \hyperlink{global__defines_8h_a7a53c0a65d763442224ca36299adee75}{retval\+\_\+t} i2c\+\_\+drvr\+\_\+start (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{addr\+\_\+with\+\_\+mode }\end{DoxyParamCaption})}
+
+Creates a start condition, addresses the chip and returns if it was successful.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em addr\+\_\+with\+\_\+mode} & (uint8\+\_\+t)\+: Address of the chip with mode set. \\
+\hline
+\mbox{\tt out}  & {\em retval} & (retval\+\_\+t)\+: Returns if the start condition worked. \\
+\hline
+\end{DoxyParams}
+\hypertarget{i2c__drvr__4313_8c_a0e0c3a56da7932139693b97dd5a2d1d7}{}\label{i2c__drvr__4313_8c_a0e0c3a56da7932139693b97dd5a2d1d7} 
+\index{i2c\+\_\+drvr\+\_\+4313.\+c@{i2c\+\_\+drvr\+\_\+4313.\+c}!i2c\+\_\+drvr\+\_\+write\+\_\+byte@{i2c\+\_\+drvr\+\_\+write\+\_\+byte}}
+\index{i2c\+\_\+drvr\+\_\+write\+\_\+byte@{i2c\+\_\+drvr\+\_\+write\+\_\+byte}!i2c\+\_\+drvr\+\_\+4313.\+c@{i2c\+\_\+drvr\+\_\+4313.\+c}}
+\subsubsection{\texorpdfstring{i2c\+\_\+drvr\+\_\+write\+\_\+byte()}{i2c\_drvr\_write\_byte()}}
+{\footnotesize\ttfamily \hyperlink{global__defines_8h_a7a53c0a65d763442224ca36299adee75}{retval\+\_\+t} i2c\+\_\+drvr\+\_\+write\+\_\+byte (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{byte\+\_\+to\+\_\+tx }\end{DoxyParamCaption})}
+
+Writes a byte of information to the I2C line.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em byte\+\_\+to\+\_\+tx} & (uint8\+\_\+t)\+: Byte to transmit. \\
+\hline
+\mbox{\tt out}  & {\em retval} & (retval\+\_\+t)\+: Returns if the byte write was acknowledged. \\
+\hline
+\end{DoxyParams}
+\hypertarget{i2c__drvr__4313_8c_a9b2d1357894b1a55590180ed1432ff61}{}\label{i2c__drvr__4313_8c_a9b2d1357894b1a55590180ed1432ff61} 
+\index{i2c\+\_\+drvr\+\_\+4313.\+c@{i2c\+\_\+drvr\+\_\+4313.\+c}!read\+\_\+\+S\+DA@{read\+\_\+\+S\+DA}}
+\index{read\+\_\+\+S\+DA@{read\+\_\+\+S\+DA}!i2c\+\_\+drvr\+\_\+4313.\+c@{i2c\+\_\+drvr\+\_\+4313.\+c}}
+\subsubsection{\texorpdfstring{read\+\_\+\+S\+D\+A()}{read\_SDA()}}
+{\footnotesize\ttfamily uint8\+\_\+t read\+\_\+\+S\+DA (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Reads the state of the S\+DA line.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em S\+D\+A\+\_\+state} & (uint8\+\_\+t)\+: State of the S\+DA line. \\
+\hline
+\end{DoxyParams}
+\hypertarget{i2c__drvr__4313_8c_a460f98541cea4aae9f8d10c4065f9d88}{}\label{i2c__drvr__4313_8c_a460f98541cea4aae9f8d10c4065f9d88} 
+\index{i2c\+\_\+drvr\+\_\+4313.\+c@{i2c\+\_\+drvr\+\_\+4313.\+c}!set\+\_\+\+S\+CL@{set\+\_\+\+S\+CL}}
+\index{set\+\_\+\+S\+CL@{set\+\_\+\+S\+CL}!i2c\+\_\+drvr\+\_\+4313.\+c@{i2c\+\_\+drvr\+\_\+4313.\+c}}
+\subsubsection{\texorpdfstring{set\+\_\+\+S\+C\+L()}{set\_SCL()}}
+{\footnotesize\ttfamily void set\+\_\+\+S\+CL (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{val }\end{DoxyParamCaption})}
+
+Drives the S\+CL line low or lets it go high.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em val} & (uint8\+\_\+t)\+: Value to set the S\+CL line to. (high or low) \\
+\hline
+\end{DoxyParams}
+\hypertarget{i2c__drvr__4313_8c_a5f9de88238d0a4dbae2bb820bd3af2c3}{}\label{i2c__drvr__4313_8c_a5f9de88238d0a4dbae2bb820bd3af2c3} 
+\index{i2c\+\_\+drvr\+\_\+4313.\+c@{i2c\+\_\+drvr\+\_\+4313.\+c}!set\+\_\+\+S\+DA@{set\+\_\+\+S\+DA}}
+\index{set\+\_\+\+S\+DA@{set\+\_\+\+S\+DA}!i2c\+\_\+drvr\+\_\+4313.\+c@{i2c\+\_\+drvr\+\_\+4313.\+c}}
+\subsubsection{\texorpdfstring{set\+\_\+\+S\+D\+A()}{set\_SDA()}}
+{\footnotesize\ttfamily void set\+\_\+\+S\+DA (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{val }\end{DoxyParamCaption})}
+
+Drives the S\+DA line low or lets it go high.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em val} & (uint8\+\_\+t)\+: Value to set the S\+DA line to. (high or low) \\
+\hline
+\end{DoxyParams}
+\hypertarget{i2c__drvr__4313_8c_afa644b62f20ea76e852eff610075618e}{}\label{i2c__drvr__4313_8c_afa644b62f20ea76e852eff610075618e} 
+\index{i2c\+\_\+drvr\+\_\+4313.\+c@{i2c\+\_\+drvr\+\_\+4313.\+c}!write\+\_\+ack@{write\+\_\+ack}}
+\index{write\+\_\+ack@{write\+\_\+ack}!i2c\+\_\+drvr\+\_\+4313.\+c@{i2c\+\_\+drvr\+\_\+4313.\+c}}
+\subsubsection{\texorpdfstring{write\+\_\+ack()}{write\_ack()}}
+{\footnotesize\ttfamily void write\+\_\+ack (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{val }\end{DoxyParamCaption})}
+
+Writes an acknowledge or neg-\/ack to the I2C bus.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em ack} & (uint8\+\_\+t)\+: Whether or not to acknowledge \\
+\hline
+\mbox{\tt out}  & {\em retval} & (retval\+\_\+t)\+: Returns if the read was successful. \\
+\hline
+\end{DoxyParams}

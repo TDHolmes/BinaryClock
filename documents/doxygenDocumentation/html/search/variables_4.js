@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['green',['green',['../structled__color__t.html#a6de2ea48f79a402a8ca9539aef558446',1,'LED_color_t']]]
+  ['green',['green',['../struct_l_e_d__color__t.html#a48151ec2a427af0f3343e7eb10fb929a',1,'LED_color_t']]]
 ];

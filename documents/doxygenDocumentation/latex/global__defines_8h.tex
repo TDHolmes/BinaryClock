@@ -1,0 +1,176 @@
+\hypertarget{global__defines_8h}{}\section{firmware/global\+\_\+defines.h File Reference}
+\label{global__defines_8h}\index{firmware/global\+\_\+defines.\+h@{firmware/global\+\_\+defines.\+h}}
+
+
+Definitions and types used in all files. Should be included in all project files.  
+
+
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{global__defines_8h_a66a99ddb7c9743c3d787fb42953c1947}{}\label{global__defines_8h_a66a99ddb7c9743c3d787fb42953c1947} 
+\#define \hyperlink{global__defines_8h_a66a99ddb7c9743c3d787fb42953c1947}{U\+A\+R\+T\+\_\+\+C\+M\+D\+\_\+\+I\+N\+V\+A\+L\+ID}~0x\+FF
+\begin{DoxyCompactList}\small\item\em code if the U\+A\+RT command received is invalid \end{DoxyCompactList}\item 
+\hypertarget{global__defines_8h_a9da7d8506e116aa0d4550f48540b2793}{}\label{global__defines_8h_a9da7d8506e116aa0d4550f48540b2793} 
+\#define \hyperlink{global__defines_8h_a9da7d8506e116aa0d4550f48540b2793}{U\+A\+R\+T\+\_\+\+C\+M\+D\+\_\+\+W\+R\+O\+N\+G\+\_\+\+S\+T\+A\+TE}~0x\+FE
+\begin{DoxyCompactList}\small\item\em code to send if the state is incorrect for the given command \end{DoxyCompactList}\item 
+\hypertarget{global__defines_8h_a103dda730c91b3865dc9b21dc7cf50b3}{}\label{global__defines_8h_a103dda730c91b3865dc9b21dc7cf50b3} 
+\#define \hyperlink{global__defines_8h_a103dda730c91b3865dc9b21dc7cf50b3}{U\+A\+R\+T\+\_\+\+C\+M\+D\+\_\+\+V\+A\+L\+ID}~0x42
+\begin{DoxyCompactList}\small\item\em valid command \& successful \end{DoxyCompactList}\item 
+\hypertarget{global__defines_8h_ac6bb946b4f7eafdefad8df6850cf4c83}{}\label{global__defines_8h_ac6bb946b4f7eafdefad8df6850cf4c83} 
+\#define \hyperlink{global__defines_8h_ac6bb946b4f7eafdefad8df6850cf4c83}{U\+A\+R\+T\+\_\+\+C\+M\+D\+\_\+\+S\+T\+A\+R\+T\+\_\+\+B\+Y\+TE}~0x\+AA
+\begin{DoxyCompactList}\small\item\em byte that starts each transaction \end{DoxyCompactList}\item 
+\hypertarget{global__defines_8h_a579aaa216295501d2d838a7dca0ac50d}{}\label{global__defines_8h_a579aaa216295501d2d838a7dca0ac50d} 
+\#define \hyperlink{global__defines_8h_a579aaa216295501d2d838a7dca0ac50d}{U\+A\+R\+T\+\_\+\+C\+M\+D\+\_\+\+S\+E\+T\+\_\+\+L\+ED}~0x10
+\begin{DoxyCompactList}\small\item\em command to set an L\+ED to a certain color (must be in manual control mode) \end{DoxyCompactList}\item 
+\hypertarget{global__defines_8h_afb7ed61915098fa2b202b2adfacbeef1}{}\label{global__defines_8h_afb7ed61915098fa2b202b2adfacbeef1} 
+\#define \hyperlink{global__defines_8h_afb7ed61915098fa2b202b2adfacbeef1}{U\+A\+R\+T\+\_\+\+C\+M\+D\+\_\+\+C\+L\+E\+A\+R\+\_\+\+L\+ED}~0x11
+\begin{DoxyCompactList}\small\item\em command to set an L\+ED to a certain color (must be in manual control mode) \end{DoxyCompactList}\item 
+\hypertarget{global__defines_8h_a9e558713de08fc5a1bb813317ee11dfa}{}\label{global__defines_8h_a9e558713de08fc5a1bb813317ee11dfa} 
+\#define \hyperlink{global__defines_8h_a9e558713de08fc5a1bb813317ee11dfa}{U\+A\+R\+T\+\_\+\+C\+M\+D\+\_\+\+C\+L\+E\+A\+R\+\_\+\+A\+L\+L\+\_\+\+L\+ED}~0x12
+\begin{DoxyCompactList}\small\item\em command to clear an led (must be in manual control mode) \end{DoxyCompactList}\item 
+\hypertarget{global__defines_8h_aa2c599c7dd49c232c81c21f6a4ab499d}{}\label{global__defines_8h_aa2c599c7dd49c232c81c21f6a4ab499d} 
+\#define \hyperlink{global__defines_8h_aa2c599c7dd49c232c81c21f6a4ab499d}{U\+A\+R\+T\+\_\+\+C\+M\+D\+\_\+\+S\+E\+T\+\_\+\+A\+L\+L\+\_\+\+L\+ED}~0x13
+\begin{DoxyCompactList}\small\item\em command to clear all leds (must be in manual control mode) \end{DoxyCompactList}\item 
+\hypertarget{global__defines_8h_ad592e3dde157e9c00fd16147b65fbe80}{}\label{global__defines_8h_ad592e3dde157e9c00fd16147b65fbe80} 
+\#define \hyperlink{global__defines_8h_ad592e3dde157e9c00fd16147b65fbe80}{U\+A\+R\+T\+\_\+\+C\+M\+D\+\_\+\+S\+E\+T\+\_\+\+T\+I\+ME}~0x14
+\begin{DoxyCompactList}\small\item\em command to set all leds to a certain color (must be in manual control mode) \end{DoxyCompactList}\item 
+\hypertarget{global__defines_8h_af5b62223e4ca028add9471d549eb5d2f}{}\label{global__defines_8h_af5b62223e4ca028add9471d549eb5d2f} 
+\#define \hyperlink{global__defines_8h_af5b62223e4ca028add9471d549eb5d2f}{U\+A\+R\+T\+\_\+\+C\+M\+D\+\_\+\+S\+E\+T\+\_\+\+C\+O\+L\+OR}~0x15
+\begin{DoxyCompactList}\small\item\em command to set the time (must be in time control mode) \end{DoxyCompactList}\item 
+\hypertarget{global__defines_8h_a8725d27d4078f14a086b505ab5637c56}{}\label{global__defines_8h_a8725d27d4078f14a086b505ab5637c56} 
+\#define \hyperlink{global__defines_8h_a8725d27d4078f14a086b505ab5637c56}{U\+A\+R\+T\+\_\+\+C\+M\+D\+\_\+\+C\+H\+A\+N\+G\+E\+\_\+\+S\+T\+A\+TE}~0x16
+\begin{DoxyCompactList}\small\item\em command to set the color during time mode (must be in time control mode) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{global__defines_8h_a7a53c0a65d763442224ca36299adee75}{retval\+\_\+t} \{ \newline
+\hyperlink{global__defines_8h_a7a53c0a65d763442224ca36299adee75a1da64dacf0ce85988ba671248f9e42eb}{G\+E\+N\+\_\+\+P\+A\+SS} = 0, 
+\hyperlink{global__defines_8h_a7a53c0a65d763442224ca36299adee75a1003a34258c2440cdff61baf04b12b94}{G\+E\+N\+\_\+\+F\+A\+IL}, 
+\hyperlink{global__defines_8h_a7a53c0a65d763442224ca36299adee75a617822f573f5e3d7b5ae885a5dbe3aee}{B\+U\+F\+F\+\_\+\+F\+A\+I\+L\+\_\+\+O\+V\+E\+R\+F\+L\+OW} = 0x11, 
+\hyperlink{global__defines_8h_a7a53c0a65d763442224ca36299adee75a684b991d435f6b5daa8d272c9b117ff7}{B\+U\+F\+F\+\_\+\+F\+A\+I\+L\+\_\+\+U\+N\+D\+E\+R\+F\+L\+OW}, 
+\newline
+\hyperlink{global__defines_8h_a7a53c0a65d763442224ca36299adee75a71a3e4960615d5d1fe1bbfaf6baa23bf}{B\+U\+F\+F\+\_\+\+F\+A\+I\+L\+\_\+\+F\+U\+LL}, 
+\hyperlink{global__defines_8h_a7a53c0a65d763442224ca36299adee75a2f6279cade85db932b10f03c24ef7007}{U\+A\+R\+T\+\_\+\+R\+X\+\_\+\+E\+M\+P\+TY} = 0x21, 
+\hyperlink{global__defines_8h_a7a53c0a65d763442224ca36299adee75ad2495ab06a2299ade077da2aa1eec735}{U\+A\+R\+T\+\_\+\+F\+R\+A\+M\+E\+\_\+\+E\+R\+R\+OR}, 
+\hyperlink{global__defines_8h_a7a53c0a65d763442224ca36299adee75a5987670c77ecf272905952b914af423d}{U\+A\+R\+T\+\_\+\+D\+A\+T\+A\+\_\+\+O\+V\+E\+R\+R\+U\+N\+\_\+\+E\+R\+R\+OR}, 
+\newline
+\hyperlink{global__defines_8h_a7a53c0a65d763442224ca36299adee75a505840052f6bf71374b427575c23e929}{U\+A\+R\+T\+\_\+\+P\+A\+R\+I\+T\+Y\+\_\+\+E\+R\+R\+OR}, 
+\hyperlink{global__defines_8h_a7a53c0a65d763442224ca36299adee75af32bfe72dd3fb393fa0882f03a192e96}{I2\+C\+\_\+\+A\+CK} = 0x30, 
+\hyperlink{global__defines_8h_a7a53c0a65d763442224ca36299adee75ae869b289c6b9b73b95dd1b40cbc9d651}{I2\+C\+\_\+\+N\+A\+CK}, 
+\hyperlink{global__defines_8h_a7a53c0a65d763442224ca36299adee75a2e4932a1868432bff23103fac0127fdc}{I2\+C\+\_\+\+E\+R\+R\+OR}, 
+\newline
+\hyperlink{global__defines_8h_a7a53c0a65d763442224ca36299adee75ac3133ce1182b354f5f7d271c9e0082fb}{I2\+C\+\_\+\+S\+T\+A\+R\+T\+\_\+\+T\+I\+M\+E\+O\+UT}, 
+\hyperlink{global__defines_8h_a7a53c0a65d763442224ca36299adee75a890a4aff43fc4cc8f29c92942221a92b}{I2\+C\+\_\+\+I\+N\+I\+T\+\_\+\+T\+I\+M\+E\+O\+UT}, 
+\hyperlink{global__defines_8h_a7a53c0a65d763442224ca36299adee75abdd01b6e3bc09096e9d568172dec5ea4}{I2\+C\+\_\+\+C\+L\+K\+\_\+\+L\+O\+W\+\_\+\+B\+E\+F\+O\+R\+E\+\_\+\+S\+T\+A\+RT}, 
+\hyperlink{global__defines_8h_a7a53c0a65d763442224ca36299adee75a9019a68d807f0569187a5300677dd64a}{I2\+C\+\_\+\+S\+T\+A\+R\+T\+\_\+\+C\+O\+N\+D\+\_\+\+N\+O\+T\+\_\+\+D\+E\+T\+E\+C\+T\+ED}
+ \}\begin{DoxyCompactList}\small\item\em definition of the types of return values possible \end{DoxyCompactList}
+\item 
+enum \hyperlink{global__defines_8h_a04dd5074964518403bf944f2b240a5f8}{bool\+\_\+t} \{ \hyperlink{global__defines_8h_a04dd5074964518403bf944f2b240a5f8aa1e095cc966dbecf6a0d8aad75348d1a}{F\+A\+L\+SE} = 0, 
+\hyperlink{global__defines_8h_a04dd5074964518403bf944f2b240a5f8aa82764c3079aea4e60c80e45befbb839}{T\+R\+UE}
+ \}\begin{DoxyCompactList}\small\item\em command to change states \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Definitions and types used in all files. Should be included in all project files. 
+
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{global__defines_8h_a04dd5074964518403bf944f2b240a5f8}{}\label{global__defines_8h_a04dd5074964518403bf944f2b240a5f8} 
+\index{global\+\_\+defines.\+h@{global\+\_\+defines.\+h}!bool\+\_\+t@{bool\+\_\+t}}
+\index{bool\+\_\+t@{bool\+\_\+t}!global\+\_\+defines.\+h@{global\+\_\+defines.\+h}}
+\subsubsection{\texorpdfstring{bool\+\_\+t}{bool\_t}}
+{\footnotesize\ttfamily enum \hyperlink{global__defines_8h_a04dd5074964518403bf944f2b240a5f8}{bool\+\_\+t}}
+
+
+
+command to change states 
+
+definition of a custom boolean type \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{F\+A\+L\+SE@{F\+A\+L\+SE}!global\+\_\+defines.\+h@{global\+\_\+defines.\+h}}\index{global\+\_\+defines.\+h@{global\+\_\+defines.\+h}!F\+A\+L\+SE@{F\+A\+L\+SE}}}\hypertarget{global__defines_8h_a04dd5074964518403bf944f2b240a5f8aa1e095cc966dbecf6a0d8aad75348d1a}{}\label{global__defines_8h_a04dd5074964518403bf944f2b240a5f8aa1e095cc966dbecf6a0d8aad75348d1a} 
+F\+A\+L\+SE&False boolian value. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{T\+R\+UE@{T\+R\+UE}!global\+\_\+defines.\+h@{global\+\_\+defines.\+h}}\index{global\+\_\+defines.\+h@{global\+\_\+defines.\+h}!T\+R\+UE@{T\+R\+UE}}}\hypertarget{global__defines_8h_a04dd5074964518403bf944f2b240a5f8aa82764c3079aea4e60c80e45befbb839}{}\label{global__defines_8h_a04dd5074964518403bf944f2b240a5f8aa82764c3079aea4e60c80e45befbb839} 
+T\+R\+UE&True boolian value. \\
+\hline
+
+\end{DoxyEnumFields}
+\hypertarget{global__defines_8h_a7a53c0a65d763442224ca36299adee75}{}\label{global__defines_8h_a7a53c0a65d763442224ca36299adee75} 
+\index{global\+\_\+defines.\+h@{global\+\_\+defines.\+h}!retval\+\_\+t@{retval\+\_\+t}}
+\index{retval\+\_\+t@{retval\+\_\+t}!global\+\_\+defines.\+h@{global\+\_\+defines.\+h}}
+\subsubsection{\texorpdfstring{retval\+\_\+t}{retval\_t}}
+{\footnotesize\ttfamily enum \hyperlink{global__defines_8h_a7a53c0a65d763442224ca36299adee75}{retval\+\_\+t}}
+
+
+
+definition of the types of return values possible 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{G\+E\+N\+\_\+\+P\+A\+SS@{G\+E\+N\+\_\+\+P\+A\+SS}!global\+\_\+defines.\+h@{global\+\_\+defines.\+h}}\index{global\+\_\+defines.\+h@{global\+\_\+defines.\+h}!G\+E\+N\+\_\+\+P\+A\+SS@{G\+E\+N\+\_\+\+P\+A\+SS}}}\hypertarget{global__defines_8h_a7a53c0a65d763442224ca36299adee75a1da64dacf0ce85988ba671248f9e42eb}{}\label{global__defines_8h_a7a53c0a65d763442224ca36299adee75a1da64dacf0ce85988ba671248f9e42eb} 
+G\+E\+N\+\_\+\+P\+A\+SS&Value to return if everything went well. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{G\+E\+N\+\_\+\+F\+A\+IL@{G\+E\+N\+\_\+\+F\+A\+IL}!global\+\_\+defines.\+h@{global\+\_\+defines.\+h}}\index{global\+\_\+defines.\+h@{global\+\_\+defines.\+h}!G\+E\+N\+\_\+\+F\+A\+IL@{G\+E\+N\+\_\+\+F\+A\+IL}}}\hypertarget{global__defines_8h_a7a53c0a65d763442224ca36299adee75a1003a34258c2440cdff61baf04b12b94}{}\label{global__defines_8h_a7a53c0a65d763442224ca36299adee75a1003a34258c2440cdff61baf04b12b94} 
+G\+E\+N\+\_\+\+F\+A\+IL&General failure message. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{B\+U\+F\+F\+\_\+\+F\+A\+I\+L\+\_\+\+O\+V\+E\+R\+F\+L\+OW@{B\+U\+F\+F\+\_\+\+F\+A\+I\+L\+\_\+\+O\+V\+E\+R\+F\+L\+OW}!global\+\_\+defines.\+h@{global\+\_\+defines.\+h}}\index{global\+\_\+defines.\+h@{global\+\_\+defines.\+h}!B\+U\+F\+F\+\_\+\+F\+A\+I\+L\+\_\+\+O\+V\+E\+R\+F\+L\+OW@{B\+U\+F\+F\+\_\+\+F\+A\+I\+L\+\_\+\+O\+V\+E\+R\+F\+L\+OW}}}\hypertarget{global__defines_8h_a7a53c0a65d763442224ca36299adee75a617822f573f5e3d7b5ae885a5dbe3aee}{}\label{global__defines_8h_a7a53c0a65d763442224ca36299adee75a617822f573f5e3d7b5ae885a5dbe3aee} 
+B\+U\+F\+F\+\_\+\+F\+A\+I\+L\+\_\+\+O\+V\+E\+R\+F\+L\+OW&return if buffer overflow \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{B\+U\+F\+F\+\_\+\+F\+A\+I\+L\+\_\+\+U\+N\+D\+E\+R\+F\+L\+OW@{B\+U\+F\+F\+\_\+\+F\+A\+I\+L\+\_\+\+U\+N\+D\+E\+R\+F\+L\+OW}!global\+\_\+defines.\+h@{global\+\_\+defines.\+h}}\index{global\+\_\+defines.\+h@{global\+\_\+defines.\+h}!B\+U\+F\+F\+\_\+\+F\+A\+I\+L\+\_\+\+U\+N\+D\+E\+R\+F\+L\+OW@{B\+U\+F\+F\+\_\+\+F\+A\+I\+L\+\_\+\+U\+N\+D\+E\+R\+F\+L\+OW}}}\hypertarget{global__defines_8h_a7a53c0a65d763442224ca36299adee75a684b991d435f6b5daa8d272c9b117ff7}{}\label{global__defines_8h_a7a53c0a65d763442224ca36299adee75a684b991d435f6b5daa8d272c9b117ff7} 
+B\+U\+F\+F\+\_\+\+F\+A\+I\+L\+\_\+\+U\+N\+D\+E\+R\+F\+L\+OW&return if buffer underflow \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{B\+U\+F\+F\+\_\+\+F\+A\+I\+L\+\_\+\+F\+U\+LL@{B\+U\+F\+F\+\_\+\+F\+A\+I\+L\+\_\+\+F\+U\+LL}!global\+\_\+defines.\+h@{global\+\_\+defines.\+h}}\index{global\+\_\+defines.\+h@{global\+\_\+defines.\+h}!B\+U\+F\+F\+\_\+\+F\+A\+I\+L\+\_\+\+F\+U\+LL@{B\+U\+F\+F\+\_\+\+F\+A\+I\+L\+\_\+\+F\+U\+LL}}}\hypertarget{global__defines_8h_a7a53c0a65d763442224ca36299adee75a71a3e4960615d5d1fe1bbfaf6baa23bf}{}\label{global__defines_8h_a7a53c0a65d763442224ca36299adee75a71a3e4960615d5d1fe1bbfaf6baa23bf} 
+B\+U\+F\+F\+\_\+\+F\+A\+I\+L\+\_\+\+F\+U\+LL&return if buffer is already full \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+A\+R\+T\+\_\+\+R\+X\+\_\+\+E\+M\+P\+TY@{U\+A\+R\+T\+\_\+\+R\+X\+\_\+\+E\+M\+P\+TY}!global\+\_\+defines.\+h@{global\+\_\+defines.\+h}}\index{global\+\_\+defines.\+h@{global\+\_\+defines.\+h}!U\+A\+R\+T\+\_\+\+R\+X\+\_\+\+E\+M\+P\+TY@{U\+A\+R\+T\+\_\+\+R\+X\+\_\+\+E\+M\+P\+TY}}}\hypertarget{global__defines_8h_a7a53c0a65d763442224ca36299adee75a2f6279cade85db932b10f03c24ef7007}{}\label{global__defines_8h_a7a53c0a65d763442224ca36299adee75a2f6279cade85db932b10f03c24ef7007} 
+U\+A\+R\+T\+\_\+\+R\+X\+\_\+\+E\+M\+P\+TY&return if there is nothing to receive \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+A\+R\+T\+\_\+\+F\+R\+A\+M\+E\+\_\+\+E\+R\+R\+OR@{U\+A\+R\+T\+\_\+\+F\+R\+A\+M\+E\+\_\+\+E\+R\+R\+OR}!global\+\_\+defines.\+h@{global\+\_\+defines.\+h}}\index{global\+\_\+defines.\+h@{global\+\_\+defines.\+h}!U\+A\+R\+T\+\_\+\+F\+R\+A\+M\+E\+\_\+\+E\+R\+R\+OR@{U\+A\+R\+T\+\_\+\+F\+R\+A\+M\+E\+\_\+\+E\+R\+R\+OR}}}\hypertarget{global__defines_8h_a7a53c0a65d763442224ca36299adee75ad2495ab06a2299ade077da2aa1eec735}{}\label{global__defines_8h_a7a53c0a65d763442224ca36299adee75ad2495ab06a2299ade077da2aa1eec735} 
+U\+A\+R\+T\+\_\+\+F\+R\+A\+M\+E\+\_\+\+E\+R\+R\+OR&return if U\+A\+RT framing error \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+A\+R\+T\+\_\+\+D\+A\+T\+A\+\_\+\+O\+V\+E\+R\+R\+U\+N\+\_\+\+E\+R\+R\+OR@{U\+A\+R\+T\+\_\+\+D\+A\+T\+A\+\_\+\+O\+V\+E\+R\+R\+U\+N\+\_\+\+E\+R\+R\+OR}!global\+\_\+defines.\+h@{global\+\_\+defines.\+h}}\index{global\+\_\+defines.\+h@{global\+\_\+defines.\+h}!U\+A\+R\+T\+\_\+\+D\+A\+T\+A\+\_\+\+O\+V\+E\+R\+R\+U\+N\+\_\+\+E\+R\+R\+OR@{U\+A\+R\+T\+\_\+\+D\+A\+T\+A\+\_\+\+O\+V\+E\+R\+R\+U\+N\+\_\+\+E\+R\+R\+OR}}}\hypertarget{global__defines_8h_a7a53c0a65d763442224ca36299adee75a5987670c77ecf272905952b914af423d}{}\label{global__defines_8h_a7a53c0a65d763442224ca36299adee75a5987670c77ecf272905952b914af423d} 
+U\+A\+R\+T\+\_\+\+D\+A\+T\+A\+\_\+\+O\+V\+E\+R\+R\+U\+N\+\_\+\+E\+R\+R\+OR&return if U\+A\+RT overrun error \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+A\+R\+T\+\_\+\+P\+A\+R\+I\+T\+Y\+\_\+\+E\+R\+R\+OR@{U\+A\+R\+T\+\_\+\+P\+A\+R\+I\+T\+Y\+\_\+\+E\+R\+R\+OR}!global\+\_\+defines.\+h@{global\+\_\+defines.\+h}}\index{global\+\_\+defines.\+h@{global\+\_\+defines.\+h}!U\+A\+R\+T\+\_\+\+P\+A\+R\+I\+T\+Y\+\_\+\+E\+R\+R\+OR@{U\+A\+R\+T\+\_\+\+P\+A\+R\+I\+T\+Y\+\_\+\+E\+R\+R\+OR}}}\hypertarget{global__defines_8h_a7a53c0a65d763442224ca36299adee75a505840052f6bf71374b427575c23e929}{}\label{global__defines_8h_a7a53c0a65d763442224ca36299adee75a505840052f6bf71374b427575c23e929} 
+U\+A\+R\+T\+\_\+\+P\+A\+R\+I\+T\+Y\+\_\+\+E\+R\+R\+OR&return if U\+A\+RT parity error \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{I2\+C\+\_\+\+A\+CK@{I2\+C\+\_\+\+A\+CK}!global\+\_\+defines.\+h@{global\+\_\+defines.\+h}}\index{global\+\_\+defines.\+h@{global\+\_\+defines.\+h}!I2\+C\+\_\+\+A\+CK@{I2\+C\+\_\+\+A\+CK}}}\hypertarget{global__defines_8h_a7a53c0a65d763442224ca36299adee75af32bfe72dd3fb393fa0882f03a192e96}{}\label{global__defines_8h_a7a53c0a65d763442224ca36299adee75af32bfe72dd3fb393fa0882f03a192e96} 
+I2\+C\+\_\+\+A\+CK&return if the device acknowledges the message \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{I2\+C\+\_\+\+N\+A\+CK@{I2\+C\+\_\+\+N\+A\+CK}!global\+\_\+defines.\+h@{global\+\_\+defines.\+h}}\index{global\+\_\+defines.\+h@{global\+\_\+defines.\+h}!I2\+C\+\_\+\+N\+A\+CK@{I2\+C\+\_\+\+N\+A\+CK}}}\hypertarget{global__defines_8h_a7a53c0a65d763442224ca36299adee75ae869b289c6b9b73b95dd1b40cbc9d651}{}\label{global__defines_8h_a7a53c0a65d763442224ca36299adee75ae869b289c6b9b73b95dd1b40cbc9d651} 
+I2\+C\+\_\+\+N\+A\+CK&return is the device does not acknowledge the message \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{I2\+C\+\_\+\+E\+R\+R\+OR@{I2\+C\+\_\+\+E\+R\+R\+OR}!global\+\_\+defines.\+h@{global\+\_\+defines.\+h}}\index{global\+\_\+defines.\+h@{global\+\_\+defines.\+h}!I2\+C\+\_\+\+E\+R\+R\+OR@{I2\+C\+\_\+\+E\+R\+R\+OR}}}\hypertarget{global__defines_8h_a7a53c0a65d763442224ca36299adee75a2e4932a1868432bff23103fac0127fdc}{}\label{global__defines_8h_a7a53c0a65d763442224ca36299adee75a2e4932a1868432bff23103fac0127fdc} 
+I2\+C\+\_\+\+E\+R\+R\+OR&return if there is a general I2C error \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{I2\+C\+\_\+\+S\+T\+A\+R\+T\+\_\+\+T\+I\+M\+E\+O\+UT@{I2\+C\+\_\+\+S\+T\+A\+R\+T\+\_\+\+T\+I\+M\+E\+O\+UT}!global\+\_\+defines.\+h@{global\+\_\+defines.\+h}}\index{global\+\_\+defines.\+h@{global\+\_\+defines.\+h}!I2\+C\+\_\+\+S\+T\+A\+R\+T\+\_\+\+T\+I\+M\+E\+O\+UT@{I2\+C\+\_\+\+S\+T\+A\+R\+T\+\_\+\+T\+I\+M\+E\+O\+UT}}}\hypertarget{global__defines_8h_a7a53c0a65d763442224ca36299adee75ac3133ce1182b354f5f7d271c9e0082fb}{}\label{global__defines_8h_a7a53c0a65d763442224ca36299adee75ac3133ce1182b354f5f7d271c9e0082fb} 
+I2\+C\+\_\+\+S\+T\+A\+R\+T\+\_\+\+T\+I\+M\+E\+O\+UT&return if the device does not respond in time \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{I2\+C\+\_\+\+I\+N\+I\+T\+\_\+\+T\+I\+M\+E\+O\+UT@{I2\+C\+\_\+\+I\+N\+I\+T\+\_\+\+T\+I\+M\+E\+O\+UT}!global\+\_\+defines.\+h@{global\+\_\+defines.\+h}}\index{global\+\_\+defines.\+h@{global\+\_\+defines.\+h}!I2\+C\+\_\+\+I\+N\+I\+T\+\_\+\+T\+I\+M\+E\+O\+UT@{I2\+C\+\_\+\+I\+N\+I\+T\+\_\+\+T\+I\+M\+E\+O\+UT}}}\hypertarget{global__defines_8h_a7a53c0a65d763442224ca36299adee75a890a4aff43fc4cc8f29c92942221a92b}{}\label{global__defines_8h_a7a53c0a65d763442224ca36299adee75a890a4aff43fc4cc8f29c92942221a92b} 
+I2\+C\+\_\+\+I\+N\+I\+T\+\_\+\+T\+I\+M\+E\+O\+UT&return if the I2C module does not initialize in time \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{I2\+C\+\_\+\+C\+L\+K\+\_\+\+L\+O\+W\+\_\+\+B\+E\+F\+O\+R\+E\+\_\+\+S\+T\+A\+RT@{I2\+C\+\_\+\+C\+L\+K\+\_\+\+L\+O\+W\+\_\+\+B\+E\+F\+O\+R\+E\+\_\+\+S\+T\+A\+RT}!global\+\_\+defines.\+h@{global\+\_\+defines.\+h}}\index{global\+\_\+defines.\+h@{global\+\_\+defines.\+h}!I2\+C\+\_\+\+C\+L\+K\+\_\+\+L\+O\+W\+\_\+\+B\+E\+F\+O\+R\+E\+\_\+\+S\+T\+A\+RT@{I2\+C\+\_\+\+C\+L\+K\+\_\+\+L\+O\+W\+\_\+\+B\+E\+F\+O\+R\+E\+\_\+\+S\+T\+A\+RT}}}\hypertarget{global__defines_8h_a7a53c0a65d763442224ca36299adee75abdd01b6e3bc09096e9d568172dec5ea4}{}\label{global__defines_8h_a7a53c0a65d763442224ca36299adee75abdd01b6e3bc09096e9d568172dec5ea4} 
+I2\+C\+\_\+\+C\+L\+K\+\_\+\+L\+O\+W\+\_\+\+B\+E\+F\+O\+R\+E\+\_\+\+S\+T\+A\+RT&return if the S\+CL line is low when it shouldn\textquotesingle{}t be \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{I2\+C\+\_\+\+S\+T\+A\+R\+T\+\_\+\+C\+O\+N\+D\+\_\+\+N\+O\+T\+\_\+\+D\+E\+T\+E\+C\+T\+ED@{I2\+C\+\_\+\+S\+T\+A\+R\+T\+\_\+\+C\+O\+N\+D\+\_\+\+N\+O\+T\+\_\+\+D\+E\+T\+E\+C\+T\+ED}!global\+\_\+defines.\+h@{global\+\_\+defines.\+h}}\index{global\+\_\+defines.\+h@{global\+\_\+defines.\+h}!I2\+C\+\_\+\+S\+T\+A\+R\+T\+\_\+\+C\+O\+N\+D\+\_\+\+N\+O\+T\+\_\+\+D\+E\+T\+E\+C\+T\+ED@{I2\+C\+\_\+\+S\+T\+A\+R\+T\+\_\+\+C\+O\+N\+D\+\_\+\+N\+O\+T\+\_\+\+D\+E\+T\+E\+C\+T\+ED}}}\hypertarget{global__defines_8h_a7a53c0a65d763442224ca36299adee75a9019a68d807f0569187a5300677dd64a}{}\label{global__defines_8h_a7a53c0a65d763442224ca36299adee75a9019a68d807f0569187a5300677dd64a} 
+I2\+C\+\_\+\+S\+T\+A\+R\+T\+\_\+\+C\+O\+N\+D\+\_\+\+N\+O\+T\+\_\+\+D\+E\+T\+E\+C\+T\+ED&return if the start condition was not detected \\
+\hline
+
+\end{DoxyEnumFields}

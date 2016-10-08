@@ -81,6 +81,8 @@ Functions</h2></td></tr>
 <tr class="separator:a8591627100b1c46afe9d5761a435e75c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0b7a7b735a6a14f71ebe81c04b494b3a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="global__defines_8h.html#a7a53c0a65d763442224ca36299adee75">retval_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ring__buffer_8c.html#a0b7a7b735a6a14f71ebe81c04b494b3a">ring_buff_pop</a> (<a class="el" href="structring__buffer__t.html">ring_buffer_t</a> *rb_ptr, uint8_t *return_item_ptr)</td></tr>
 <tr class="separator:a0b7a7b735a6a14f71ebe81c04b494b3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4dffbe51e19068d865f16167e3d0a654"><td class="memItemLeft" align="right" valign="top"><a class="el" href="global__defines_8h.html#a7a53c0a65d763442224ca36299adee75">retval_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ring__buffer_8c.html#a4dffbe51e19068d865f16167e3d0a654">ring_buff_peak</a> (<a class="el" href="structring__buffer__t.html">ring_buffer_t</a> *rb_ptr, uint8_t *return_item_ptr)</td></tr>
+<tr class="separator:a4dffbe51e19068d865f16167e3d0a654"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a35ee9bc993c6d22a0b8af0bef7ac746f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="global__defines_8h.html#a7a53c0a65d763442224ca36299adee75">retval_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ring__buffer_8c.html#a35ee9bc993c6d22a0b8af0bef7ac746f">ring_buff_push</a> (<a class="el" href="structring__buffer__t.html">ring_buffer_t</a> *rb_ptr, uint8_t new_val)</td></tr>
 <tr class="separator:a35ee9bc993c6d22a0b8af0bef7ac746f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab7f6f411c8e446db08c1096ffab542bb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="global__defines_8h.html#a04dd5074964518403bf944f2b240a5f8">bool_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ring__buffer_8c.html#ab7f6f411c8e446db08c1096ffab542bb">ring_buff_has_data</a> (<a class="el" href="structring__buffer__t.html">ring_buffer_t</a> *rb_ptr)</td></tr>
@@ -156,6 +158,43 @@ Functions</h2></td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">rb_ptr</td><td>(<a class="el" href="structring__buffer__t.html" title="data structure to keep track of important ring buffer variables ">ring_buffer_t</a> *): ring buffer admin structure to initialize. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">buffer_array_ptr</td><td>(uint8_t *): pointer to the buffer array. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">buffer_len</td><td>(uint8_t): length of the buffer to be initialized. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a4dffbe51e19068d865f16167e3d0a654"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4dffbe51e19068d865f16167e3d0a654">&sect;&nbsp;</a></span>ring_buff_peak()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="global__defines_8h.html#a7a53c0a65d763442224ca36299adee75">retval_t</a> ring_buff_peak </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structring__buffer__t.html">ring_buffer_t</a> *&#160;</td>
+          <td class="paramname"><em>rb_ptr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>return_item_ptr</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Peaks at the current value on the ring buffer.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">rb_ptr</td><td>(<a class="el" href="structring__buffer__t.html" title="data structure to keep track of important ring buffer variables ">ring_buffer_t</a> *): admin structure for the ring buffer we're using. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">return_item_ptr</td><td>(uint8_t *): Location to return the value to </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">retval</td><td>(retval_t): Returns the error or pass status. </td></tr>
   </table>
   </dd>
 </dl>

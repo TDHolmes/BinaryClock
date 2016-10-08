@@ -1,0 +1,173 @@
+\hypertarget{_u_a_r_t__drvr__4313_8h}{}\section{firmware/\+U\+A\+R\+T\+\_\+drvr\+\_\+4313.h File Reference}
+\label{_u_a_r_t__drvr__4313_8h}\index{firmware/\+U\+A\+R\+T\+\_\+drvr\+\_\+4313.\+h@{firmware/\+U\+A\+R\+T\+\_\+drvr\+\_\+4313.\+h}}
+
+
+Low level driver definitions for U\+A\+RT communications on the A\+Ttiny4313.  
+
+
+{\ttfamily \#include \char`\"{}hardware.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}global\+\_\+defines.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{_u_a_r_t__drvr__4313_8h_ab3ae05ec3fd66fa81e9a53fb9f495c9b}{}\label{_u_a_r_t__drvr__4313_8h_ab3ae05ec3fd66fa81e9a53fb9f495c9b} 
+\#define \hyperlink{_u_a_r_t__drvr__4313_8h_ab3ae05ec3fd66fa81e9a53fb9f495c9b}{U\+A\+R\+T\+\_\+\+R\+X\+\_\+\+B\+U\+F\+F\+\_\+\+S\+I\+ZE}~16
+\begin{DoxyCompactList}\small\item\em size of the U\+A\+RT receive buffer \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{_u_a_r_t__drvr__4313_8h_ae0de07002619be72c9164235b5675692}{}\label{_u_a_r_t__drvr__4313_8h_ae0de07002619be72c9164235b5675692} 
+enum {\bfseries baudrate\+\_\+t} \{ \newline
+{\bfseries B\+A\+U\+D\+\_\+250000} = 1, 
+{\bfseries B\+A\+U\+D\+\_\+57600} = 8, 
+{\bfseries B\+A\+U\+D\+\_\+38400} = 12, 
+{\bfseries B\+A\+U\+D\+\_\+19200} = 25, 
+\newline
+{\bfseries B\+A\+U\+D\+\_\+14400} = 34, 
+{\bfseries B\+A\+U\+D\+\_\+9600} = 51
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{_u_a_r_t__drvr__4313_8h_a343e0143442b25155510106cc422d607}{U\+A\+R\+T\+\_\+drvr\+\_\+init} (baudrate\+\_\+t baudrate)
+\item 
+void \hyperlink{_u_a_r_t__drvr__4313_8h_a88e383078bd5a212fa390ee382c3f0c2}{U\+A\+R\+T\+\_\+drvr\+\_\+send\+\_\+byte} (uint8\+\_\+t data, \hyperlink{global__defines_8h_a04dd5074964518403bf944f2b240a5f8}{bool\+\_\+t} blocking)
+\item 
+\hyperlink{global__defines_8h_a7a53c0a65d763442224ca36299adee75}{retval\+\_\+t} \hyperlink{_u_a_r_t__drvr__4313_8h_a429821bcd0ce5caa92a92df50a716cee}{U\+A\+R\+T\+\_\+drvr\+\_\+receive\+\_\+byte} (uint8\+\_\+t $\ast$data\+\_\+rcvd\+\_\+ptr)
+\item 
+\hyperlink{global__defines_8h_a7a53c0a65d763442224ca36299adee75}{retval\+\_\+t} \hyperlink{_u_a_r_t__drvr__4313_8h_a1dfce43a285bd40fa46b5085a538da77}{U\+A\+R\+T\+\_\+drvr\+\_\+peak\+\_\+byte} (uint8\+\_\+t $\ast$data\+\_\+rcvd\+\_\+ptr)
+\item 
+void \hyperlink{_u_a_r_t__drvr__4313_8h_a7ace95bcdfa45917b43f28eec72a48a6}{U\+A\+R\+T\+\_\+drvr\+\_\+flush\+\_\+buffer} (void)
+\item 
+\hyperlink{global__defines_8h_a7a53c0a65d763442224ca36299adee75}{retval\+\_\+t} \hyperlink{_u_a_r_t__drvr__4313_8h_a66d34ad60e1f81f5f7587499a0182dd9}{U\+A\+R\+T\+\_\+drvr\+\_\+check\+\_\+errors} (void)
+\item 
+void \hyperlink{_u_a_r_t__drvr__4313_8h_a9ed2e4f525b7f682012dbfcfce4af4aa}{U\+A\+R\+T\+\_\+drvr\+\_\+clear\+\_\+errors} (void)
+\item 
+\hyperlink{global__defines_8h_a04dd5074964518403bf944f2b240a5f8}{bool\+\_\+t} \hyperlink{_u_a_r_t__drvr__4313_8h_af9775814977e07f9e2fd66e1d50d3ee4}{U\+A\+R\+T\+\_\+drvr\+\_\+receive\+\_\+has\+\_\+data} (void)
+\item 
+uint8\+\_\+t \hyperlink{_u_a_r_t__drvr__4313_8h_a649535ec29ed3ef0ff89da0d3de24462}{U\+A\+R\+T\+\_\+drvr\+\_\+unread\+\_\+items} (void)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Low level driver definitions for U\+A\+RT communications on the A\+Ttiny4313. 
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_u_a_r_t__drvr__4313_8h_a66d34ad60e1f81f5f7587499a0182dd9}{}\label{_u_a_r_t__drvr__4313_8h_a66d34ad60e1f81f5f7587499a0182dd9} 
+\index{U\+A\+R\+T\+\_\+drvr\+\_\+4313.\+h@{U\+A\+R\+T\+\_\+drvr\+\_\+4313.\+h}!U\+A\+R\+T\+\_\+drvr\+\_\+check\+\_\+errors@{U\+A\+R\+T\+\_\+drvr\+\_\+check\+\_\+errors}}
+\index{U\+A\+R\+T\+\_\+drvr\+\_\+check\+\_\+errors@{U\+A\+R\+T\+\_\+drvr\+\_\+check\+\_\+errors}!U\+A\+R\+T\+\_\+drvr\+\_\+4313.\+h@{U\+A\+R\+T\+\_\+drvr\+\_\+4313.\+h}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T\+\_\+drvr\+\_\+check\+\_\+errors()}{UART\_drvr\_check\_errors()}}
+{\footnotesize\ttfamily \hyperlink{global__defines_8h_a7a53c0a65d763442224ca36299adee75}{retval\+\_\+t} U\+A\+R\+T\+\_\+drvr\+\_\+check\+\_\+errors (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Checks for U\+A\+RT hardware errors\+:
+\begin{DoxyItemize}
+\item Framing errors
+\item overrun errors
+\item parity errors
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em retval} & (retval\+\_\+t)\+: returns the success or failure of the action. \\
+\hline
+\end{DoxyParams}
+\hypertarget{_u_a_r_t__drvr__4313_8h_a9ed2e4f525b7f682012dbfcfce4af4aa}{}\label{_u_a_r_t__drvr__4313_8h_a9ed2e4f525b7f682012dbfcfce4af4aa} 
+\index{U\+A\+R\+T\+\_\+drvr\+\_\+4313.\+h@{U\+A\+R\+T\+\_\+drvr\+\_\+4313.\+h}!U\+A\+R\+T\+\_\+drvr\+\_\+clear\+\_\+errors@{U\+A\+R\+T\+\_\+drvr\+\_\+clear\+\_\+errors}}
+\index{U\+A\+R\+T\+\_\+drvr\+\_\+clear\+\_\+errors@{U\+A\+R\+T\+\_\+drvr\+\_\+clear\+\_\+errors}!U\+A\+R\+T\+\_\+drvr\+\_\+4313.\+h@{U\+A\+R\+T\+\_\+drvr\+\_\+4313.\+h}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T\+\_\+drvr\+\_\+clear\+\_\+errors()}{UART\_drvr\_clear\_errors()}}
+{\footnotesize\ttfamily void U\+A\+R\+T\+\_\+drvr\+\_\+clear\+\_\+errors (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Clears U\+A\+RT hardware errors. \hypertarget{_u_a_r_t__drvr__4313_8h_a7ace95bcdfa45917b43f28eec72a48a6}{}\label{_u_a_r_t__drvr__4313_8h_a7ace95bcdfa45917b43f28eec72a48a6} 
+\index{U\+A\+R\+T\+\_\+drvr\+\_\+4313.\+h@{U\+A\+R\+T\+\_\+drvr\+\_\+4313.\+h}!U\+A\+R\+T\+\_\+drvr\+\_\+flush\+\_\+buffer@{U\+A\+R\+T\+\_\+drvr\+\_\+flush\+\_\+buffer}}
+\index{U\+A\+R\+T\+\_\+drvr\+\_\+flush\+\_\+buffer@{U\+A\+R\+T\+\_\+drvr\+\_\+flush\+\_\+buffer}!U\+A\+R\+T\+\_\+drvr\+\_\+4313.\+h@{U\+A\+R\+T\+\_\+drvr\+\_\+4313.\+h}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T\+\_\+drvr\+\_\+flush\+\_\+buffer()}{UART\_drvr\_flush\_buffer()}}
+{\footnotesize\ttfamily void U\+A\+R\+T\+\_\+drvr\+\_\+flush\+\_\+buffer (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Flushes the current data from the ring buffer and from the hardware U\+A\+RT module \hypertarget{_u_a_r_t__drvr__4313_8h_a343e0143442b25155510106cc422d607}{}\label{_u_a_r_t__drvr__4313_8h_a343e0143442b25155510106cc422d607} 
+\index{U\+A\+R\+T\+\_\+drvr\+\_\+4313.\+h@{U\+A\+R\+T\+\_\+drvr\+\_\+4313.\+h}!U\+A\+R\+T\+\_\+drvr\+\_\+init@{U\+A\+R\+T\+\_\+drvr\+\_\+init}}
+\index{U\+A\+R\+T\+\_\+drvr\+\_\+init@{U\+A\+R\+T\+\_\+drvr\+\_\+init}!U\+A\+R\+T\+\_\+drvr\+\_\+4313.\+h@{U\+A\+R\+T\+\_\+drvr\+\_\+4313.\+h}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T\+\_\+drvr\+\_\+init()}{UART\_drvr\_init()}}
+{\footnotesize\ttfamily void U\+A\+R\+T\+\_\+drvr\+\_\+init (\begin{DoxyParamCaption}\item[{baudrate\+\_\+t}]{baudrate }\end{DoxyParamCaption})}
+
+Initializes the U\+A\+RT hardware to the given baudrate.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em baudrate} & (uint32\+\_\+t)\+: baudrate to set up the U\+A\+RT driver to. \\
+\hline
+\end{DoxyParams}
+\hypertarget{_u_a_r_t__drvr__4313_8h_a1dfce43a285bd40fa46b5085a538da77}{}\label{_u_a_r_t__drvr__4313_8h_a1dfce43a285bd40fa46b5085a538da77} 
+\index{U\+A\+R\+T\+\_\+drvr\+\_\+4313.\+h@{U\+A\+R\+T\+\_\+drvr\+\_\+4313.\+h}!U\+A\+R\+T\+\_\+drvr\+\_\+peak\+\_\+byte@{U\+A\+R\+T\+\_\+drvr\+\_\+peak\+\_\+byte}}
+\index{U\+A\+R\+T\+\_\+drvr\+\_\+peak\+\_\+byte@{U\+A\+R\+T\+\_\+drvr\+\_\+peak\+\_\+byte}!U\+A\+R\+T\+\_\+drvr\+\_\+4313.\+h@{U\+A\+R\+T\+\_\+drvr\+\_\+4313.\+h}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T\+\_\+drvr\+\_\+peak\+\_\+byte()}{UART\_drvr\_peak\_byte()}}
+{\footnotesize\ttfamily \hyperlink{global__defines_8h_a7a53c0a65d763442224ca36299adee75}{retval\+\_\+t} U\+A\+R\+T\+\_\+drvr\+\_\+peak\+\_\+byte (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{data\+\_\+rcvd\+\_\+ptr }\end{DoxyParamCaption})}
+
+Receives a byte from the ring buffer, but don\textquotesingle{}t pop it off
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em data\+\_\+rcvd\+\_\+ptr} & (uint8\+\_\+t $\ast$)\+: location to store the data received. \\
+\hline
+\mbox{\tt out}  & {\em retval} & (retval\+\_\+t)\+: returns the success or failure of the action. \\
+\hline
+\end{DoxyParams}
+\hypertarget{_u_a_r_t__drvr__4313_8h_a429821bcd0ce5caa92a92df50a716cee}{}\label{_u_a_r_t__drvr__4313_8h_a429821bcd0ce5caa92a92df50a716cee} 
+\index{U\+A\+R\+T\+\_\+drvr\+\_\+4313.\+h@{U\+A\+R\+T\+\_\+drvr\+\_\+4313.\+h}!U\+A\+R\+T\+\_\+drvr\+\_\+receive\+\_\+byte@{U\+A\+R\+T\+\_\+drvr\+\_\+receive\+\_\+byte}}
+\index{U\+A\+R\+T\+\_\+drvr\+\_\+receive\+\_\+byte@{U\+A\+R\+T\+\_\+drvr\+\_\+receive\+\_\+byte}!U\+A\+R\+T\+\_\+drvr\+\_\+4313.\+h@{U\+A\+R\+T\+\_\+drvr\+\_\+4313.\+h}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T\+\_\+drvr\+\_\+receive\+\_\+byte()}{UART\_drvr\_receive\_byte()}}
+{\footnotesize\ttfamily \hyperlink{global__defines_8h_a7a53c0a65d763442224ca36299adee75}{retval\+\_\+t} U\+A\+R\+T\+\_\+drvr\+\_\+receive\+\_\+byte (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{data\+\_\+rcvd\+\_\+ptr }\end{DoxyParamCaption})}
+
+Receives a byte from the ring buffer.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em data\+\_\+rcvd\+\_\+ptr} & (uint8\+\_\+t $\ast$)\+: location to store the data received. \\
+\hline
+\mbox{\tt out}  & {\em retval} & (retval\+\_\+t)\+: returns the success or failure of the action. \\
+\hline
+\end{DoxyParams}
+\hypertarget{_u_a_r_t__drvr__4313_8h_af9775814977e07f9e2fd66e1d50d3ee4}{}\label{_u_a_r_t__drvr__4313_8h_af9775814977e07f9e2fd66e1d50d3ee4} 
+\index{U\+A\+R\+T\+\_\+drvr\+\_\+4313.\+h@{U\+A\+R\+T\+\_\+drvr\+\_\+4313.\+h}!U\+A\+R\+T\+\_\+drvr\+\_\+receive\+\_\+has\+\_\+data@{U\+A\+R\+T\+\_\+drvr\+\_\+receive\+\_\+has\+\_\+data}}
+\index{U\+A\+R\+T\+\_\+drvr\+\_\+receive\+\_\+has\+\_\+data@{U\+A\+R\+T\+\_\+drvr\+\_\+receive\+\_\+has\+\_\+data}!U\+A\+R\+T\+\_\+drvr\+\_\+4313.\+h@{U\+A\+R\+T\+\_\+drvr\+\_\+4313.\+h}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T\+\_\+drvr\+\_\+receive\+\_\+has\+\_\+data()}{UART\_drvr\_receive\_has\_data()}}
+{\footnotesize\ttfamily \hyperlink{global__defines_8h_a04dd5074964518403bf944f2b240a5f8}{bool\+\_\+t} U\+A\+R\+T\+\_\+drvr\+\_\+receive\+\_\+has\+\_\+data (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Returns true if there is data received currently.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em has\+\_\+data} & (bool\+\_\+t)\+: returns true if the U\+A\+RT driver has data. \\
+\hline
+\end{DoxyParams}
+\hypertarget{_u_a_r_t__drvr__4313_8h_a88e383078bd5a212fa390ee382c3f0c2}{}\label{_u_a_r_t__drvr__4313_8h_a88e383078bd5a212fa390ee382c3f0c2} 
+\index{U\+A\+R\+T\+\_\+drvr\+\_\+4313.\+h@{U\+A\+R\+T\+\_\+drvr\+\_\+4313.\+h}!U\+A\+R\+T\+\_\+drvr\+\_\+send\+\_\+byte@{U\+A\+R\+T\+\_\+drvr\+\_\+send\+\_\+byte}}
+\index{U\+A\+R\+T\+\_\+drvr\+\_\+send\+\_\+byte@{U\+A\+R\+T\+\_\+drvr\+\_\+send\+\_\+byte}!U\+A\+R\+T\+\_\+drvr\+\_\+4313.\+h@{U\+A\+R\+T\+\_\+drvr\+\_\+4313.\+h}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T\+\_\+drvr\+\_\+send\+\_\+byte()}{UART\_drvr\_send\_byte()}}
+{\footnotesize\ttfamily void U\+A\+R\+T\+\_\+drvr\+\_\+send\+\_\+byte (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{data,  }\item[{\hyperlink{global__defines_8h_a04dd5074964518403bf944f2b240a5f8}{bool\+\_\+t}}]{blocking }\end{DoxyParamCaption})}
+
+Sends a byte via U\+A\+RT.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em data} & (uint8\+\_\+t)\+: data to send \\
+\hline
+\mbox{\tt in}  & {\em blocking} & (bool\+\_\+t)\+: whether or not to wait for the transmission to end \\
+\hline
+\end{DoxyParams}
+\hypertarget{_u_a_r_t__drvr__4313_8h_a649535ec29ed3ef0ff89da0d3de24462}{}\label{_u_a_r_t__drvr__4313_8h_a649535ec29ed3ef0ff89da0d3de24462} 
+\index{U\+A\+R\+T\+\_\+drvr\+\_\+4313.\+h@{U\+A\+R\+T\+\_\+drvr\+\_\+4313.\+h}!U\+A\+R\+T\+\_\+drvr\+\_\+unread\+\_\+items@{U\+A\+R\+T\+\_\+drvr\+\_\+unread\+\_\+items}}
+\index{U\+A\+R\+T\+\_\+drvr\+\_\+unread\+\_\+items@{U\+A\+R\+T\+\_\+drvr\+\_\+unread\+\_\+items}!U\+A\+R\+T\+\_\+drvr\+\_\+4313.\+h@{U\+A\+R\+T\+\_\+drvr\+\_\+4313.\+h}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T\+\_\+drvr\+\_\+unread\+\_\+items()}{UART\_drvr\_unread\_items()}}
+{\footnotesize\ttfamily uint8\+\_\+t U\+A\+R\+T\+\_\+drvr\+\_\+unread\+\_\+items (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Returns the number of bytes currently received by the U\+A\+RT module.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em unread\+\_\+items} & (uint8\+\_\+t)\+: the number of bytes received currently. \\
+\hline
+\end{DoxyParams}
