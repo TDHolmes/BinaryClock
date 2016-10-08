@@ -9,7 +9,7 @@ var searchData=
   ['col_5fs_5ftens',['COL_S_TENS',['../_l_e_d_8h.html#ab445f7323777c40ea0f5e2ddad77398e',1,'LED.h']]],
   ['col_5fsize',['COL_SIZE',['../_l_e_d__drvr___s_t_p16_c_p_c26_8h.html#a99468544016f0abb855e6415c629ec29',1,'LED_drvr_STP16CPC26.h']]],
   ['color_2eh',['color.h',['../color_8h.html',1,'']]],
-  ['color_5fbit',['color_bit',['../structled__color__t.html#a20303e3baf7a44885164f4a273c8b23d',1,'led_color_t']]],
+  ['color_5fbit',['color_bit',['../structled__color__t.html#a20303e3baf7a44885164f4a273c8b23d',1,'LED_color_t']]],
   ['color_5fbits',['COLOR_BITS',['../color_8h.html#a778b652fdb3874d29eb349d9dd89359a',1,'color.h']]],
   ['color_5fdepth',['COLOR_DEPTH',['../_l_e_d__drvr___s_t_p16_c_p_c26_8c.html#a70d330906276a996f7dab090a03ce2a5',1,'LED_drvr_STP16CPC26.c']]],
   ['color_5fsize',['COLOR_SIZE',['../_l_e_d__drvr___s_t_p16_c_p_c26_8h.html#a68a80be4e42506b0127b8559bc6662b0',1,'LED_drvr_STP16CPC26.h']]],

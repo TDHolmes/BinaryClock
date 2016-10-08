@@ -11,7 +11,7 @@ var searchData=
   ['led_5farray',['LED_array',['../struct_l_e_d__drvr__t.html#a7f01ed87a74212d270cae32130977184',1,'LED_drvr_t']]],
   ['led_5fclear',['LED_clear',['../_l_e_d_8c.html#a4787cb4562b37ffc2fad08f55da989a1',1,'LED_clear(uint8_t row, uint8_t col):&#160;LED.c'],['../_l_e_d_8h.html#a4787cb4562b37ffc2fad08f55da989a1',1,'LED_clear(uint8_t row, uint8_t col):&#160;LED.c']]],
   ['led_5fclear_5fall',['LED_clear_all',['../_l_e_d_8c.html#a0490a1834f071acbfe64bee0ae584a18',1,'LED_clear_all(void):&#160;LED.c'],['../_l_e_d_8h.html#a0490a1834f071acbfe64bee0ae584a18',1,'LED_clear_all(void):&#160;LED.c']]],
-  ['led_5fcolor_5ft',['led_color_t',['../structled__color__t.html',1,'']]],
+  ['led_5fcolor_5ft',['LED_color_t',['../structled__color__t.html',1,'']]],
   ['led_5fdrvr_5finit',['LED_drvr_init',['../_l_e_d__drvr___s_t_p16_c_p_c26_8c.html#a114c987dc587d53f9c53173afe4f9a54',1,'LED_drvr_init(LED_drvr_t *LED_ptr):&#160;LED_drvr_STP16CPC26.c'],['../_l_e_d__drvr___s_t_p16_c_p_c26_8h.html#a114c987dc587d53f9c53173afe4f9a54',1,'LED_drvr_init(LED_drvr_t *LED_ptr):&#160;LED_drvr_STP16CPC26.c']]],
   ['led_5fdrvr_5frun',['LED_drvr_run',['../_l_e_d__drvr___s_t_p16_c_p_c26_8c.html#a649a79cad2b9aae395acbbd8612cc970',1,'LED_drvr_run(LED_drvr_t *LED_ptr):&#160;LED_drvr_STP16CPC26.c'],['../_l_e_d__drvr___s_t_p16_c_p_c26_8h.html#a649a79cad2b9aae395acbbd8612cc970',1,'LED_drvr_run(LED_drvr_t *LED_ptr):&#160;LED_drvr_STP16CPC26.c']]],
   ['led_5fdrvr_5fstp16cpc26_2ec',['LED_drvr_STP16CPC26.c',['../_l_e_d__drvr___s_t_p16_c_p_c26_8c.html',1,'']]],

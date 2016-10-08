@@ -24,7 +24,7 @@
 //! LED driver structure to keep track of pertinant LED variables.
 typedef struct {
     uint8_t LED_array[ROW_SIZE][COL_SIZE][COLOR_SIZE];  //!< Array of the individual LEDs colors
-    led_color_t colors;        //!< structure to keep track of the color to display
+    LED_color_t colors;        //!< structure to keep track of the color to display
     uint8_t active_column;     //!< keeps track of column being displayed for multiplexing
     uint8_t active_color_bit;  //!< keeps track of the current color bit being displayed
 } LED_drvr_t;

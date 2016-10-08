@@ -2,7 +2,7 @@ var searchData=
 [
   ['read_5fmask',['READ_MASK',['../i2c_8c.html#af8fe54f90634a968e3d728abf1ac87a1',1,'i2c.c']]],
   ['read_5fsda',['read_SDA',['../i2c__drvr__4313_8c.html#a9b2d1357894b1a55590180ed1432ff61',1,'i2c_drvr_4313.c']]],
-  ['red',['red',['../structled__color__t.html#ad47d918910aaa51c73160ac85999d09c',1,'led_color_t']]],
+  ['red',['red',['../structled__color__t.html#ad47d918910aaa51c73160ac85999d09c',1,'LED_color_t']]],
   ['red_5find',['RED_IND',['../_l_e_d__drvr___s_t_p16_c_p_c26_8h.html#ad274d5258f985b33d2e2a4d21e576899',1,'LED_drvr_STP16CPC26.h']]],
   ['retval_5ft',['retval_t',['../global__defines_8h.html#a7a53c0a65d763442224ca36299adee75',1,'global_defines.h']]],
   ['ring_5fbuff_5fhas_5fdata',['ring_buff_has_data',['../ring__buffer_8c.html#ab7f6f411c8e446db08c1096ffab542bb',1,'ring_buff_has_data(ring_buffer_t *rb_ptr):&#160;ring_buffer.c'],['../ring__buffer_8h.html#ab7f6f411c8e446db08c1096ffab542bb',1,'ring_buff_has_data(ring_buffer_t *rb_ptr):&#160;ring_buffer.c']]],

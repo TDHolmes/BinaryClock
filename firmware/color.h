@@ -15,6 +15,6 @@ typedef struct {
     uint8_t green;  /*! amount of green in the color.*/
     uint8_t blue;   /*! amount of blue in the color.*/
     uint8_t color_bit;  /*! keeps track of what bit we're displaying.*/
-} led_color_t;
+} LED_color_t;
 
 #endif /* COLOR_H__ */

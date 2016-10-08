@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['blue',['blue',['../structled__color__t.html#a983cc1c27beb103d247f3271bc27bea4',1,'led_color_t']]],
+  ['blue',['blue',['../structled__color__t.html#a983cc1c27beb103d247f3271bc27bea4',1,'LED_color_t']]],
   ['blue_5find',['BLUE_IND',['../_l_e_d__drvr___s_t_p16_c_p_c26_8h.html#ae5e8f1b696942dc129814669b33d20ea',1,'LED_drvr_STP16CPC26.h']]],
   ['bool_5ft',['bool_t',['../global__defines_8h.html#a04dd5074964518403bf944f2b240a5f8',1,'global_defines.h']]],
   ['buff_5ffail_5ffull',['BUFF_FAIL_FULL',['../global__defines_8h.html#a7a53c0a65d763442224ca36299adee75a71a3e4960615d5d1fe1bbfaf6baa23bf',1,'global_defines.h']]],
