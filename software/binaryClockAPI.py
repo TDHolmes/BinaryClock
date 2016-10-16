@@ -18,7 +18,10 @@ class BinaryClockAPI:
     :param str serial_port: Serial port to connect to. (e.g. "/dev/tty.usbserial-12345")
     :param int baud: baudrate to communicate at (default: 250000)
     """
-    def __init__(self, serial_port, baud=9600):
+    def __init__(self, serial_port, baud=250000):
+        # Start byte
+        self.UART_START_BYTE = 0xAA
+        # Command bytes
         self.UART_CMD_SET_LED = 0x10
         self.UART_CMD_CLEAR_LED = 0x11
         self.UART_CMD_CLEAR_ALL_LED = 0x12
@@ -49,13 +52,14 @@ class BinaryClockAPI:
         :param int green: Green value (0 - 255)
         :param int blue: Blue value (0 - 255)
         """
+        self.coms.write(struct.pack("B", self.UART_START_BYTE))
         self.coms.write(struct.pack("B", self.UART_CMD_SET_LED))
         self.coms.write(struct.pack("B", row))
         self.coms.write(struct.pack("B", column))
         self.coms.write(struct.pack("B", red))
         self.coms.write(struct.pack("B", green))
         self.coms.write(struct.pack("B", blue))
-        response = self.coms.read(size=2)
+        response = self.coms.read(size=1)
         return binascii.hexlify(response)
 
     def update_time(self, time_override_arr=None):
@@ -75,13 +79,14 @@ class BinaryClockAPI:
             hour = time_override_arr[0]
             minute = time_override_arr[1]
             second = time_override_arr[2]
+        self.coms.write(struct.pack("B", self.UART_START_BYTE))
         self.coms.write(struct.pack("B", self.UART_CMD_SET_TIME))
         self.coms.write(struct.pack("B", hour))
         self.coms.write(struct.pack("B", minute))
         self.coms.write(struct.pack("B", second))
         self.coms.write(struct.pack("B", 0))
         self.coms.write(struct.pack("B", 0))
-        response = self.coms.read(size=2)
+        response = self.coms.read(size=1)
         return binascii.hexlify(response)
 
     def clear_LED(self, row, column):
@@ -90,24 +95,26 @@ class BinaryClockAPI:
         :param int row: Row of the LED to clear
         :param int column: Column of the LED to clear
         """
+        self.coms.write(struct.pack("B", self.UART_START_BYTE))
         self.coms.write(struct.pack("B", self.UART_CMD_CLEAR_LED))
         self.coms.write(struct.pack("B", row))
         self.coms.write(struct.pack("B", column))
         self.coms.write(struct.pack("B", 0))
         self.coms.write(struct.pack("B", 0))
         self.coms.write(struct.pack("B", 0))
-        response = self.coms.read(size=2)
+        response = self.coms.read(size=1)
         return binascii.hexlify(response)
 
     def clear_all_LEDs(self):
         """Clears all LEDs."""
+        self.coms.write(struct.pack("B", self.UART_START_BYTE))
         self.coms.write(struct.pack("B", self.UART_CMD_CLEAR_ALL_LED))
         self.coms.write(struct.pack("B", 0))
         self.coms.write(struct.pack("B", 0))
         self.coms.write(struct.pack("B", 0))
         self.coms.write(struct.pack("B", 0))
         self.coms.write(struct.pack("B", 0))
-        response = self.coms.read(size=2)
+        response = self.coms.read(size=1)
         return binascii.hexlify(response)
 
     def set_all_LEDs(self, red, green, blue):
@@ -118,13 +125,14 @@ class BinaryClockAPI:
         :param int green: Green value (0 - 255)
         :param int blue: Blue value (0 - 255)
         """
+        self.coms.write(struct.pack("B", self.UART_START_BYTE))
         self.coms.write(struct.pack("B", self.UART_CMD_SET_ALL_LED))
         self.coms.write(struct.pack("B", red))
         self.coms.write(struct.pack("B", green))
         self.coms.write(struct.pack("B", blue))
         self.coms.write(struct.pack("B", 0))
         self.coms.write(struct.pack("B", 0))
-        response = self.coms.read(size=2)
+        response = self.coms.read(size=1)
         return binascii.hexlify(response)
 
     def set_color(self, red, green, blue):
@@ -135,13 +143,14 @@ class BinaryClockAPI:
         :param int green: Green value (0 - 255)
         :param int blue: Blue value (0 - 255)
         """
+        self.coms.write(struct.pack("B", self.UART_START_BYTE))
         self.coms.write(struct.pack("B", self.UART_CMD_SET_COLOR))
         self.coms.write(struct.pack("B", red))
         self.coms.write(struct.pack("B", green))
         self.coms.write(struct.pack("B", blue))
         self.coms.write(struct.pack("B", 0))
         self.coms.write(struct.pack("B", 0))
-        response = self.coms.read(size=2)
+        response = self.coms.read(size=1)
         return binascii.hexlify(response)
 
     def set_state(self, state):
@@ -152,13 +161,14 @@ class BinaryClockAPI:
         """
         if state != 0 and state != 1:
             raise ValueError("State must either be a 0 or a 1!")
+        self.coms.write(struct.pack("B", self.UART_START_BYTE))
         self.coms.write(struct.pack("B", self.UART_CMD_CHANGE_STATE))
         self.coms.write(struct.pack("B", state))
         self.coms.write(struct.pack("B", 0))
         self.coms.write(struct.pack("B", 0))
         self.coms.write(struct.pack("B", 0))
         self.coms.write(struct.pack("B", 0))
-        response = self.coms.read(size=2)
+        response = self.coms.read(size=1)
         return binascii.hexlify(response)
 
 
