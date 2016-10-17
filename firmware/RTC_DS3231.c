@@ -12,7 +12,7 @@
 
 /*! pointer to the variable in main that keeps track of the RTC interrupt
  *  count for accurate time keeping.  */
-volatile uint8_t *RTC_local_1Hz_int_count_ptr;
+volatile uint8_t *RTC_local_1Hz_count_ptr;
 
 
 /*!
@@ -26,19 +26,30 @@ volatile uint8_t *RTC_local_1Hz_int_count_ptr;
  */
 retval_t RTC_init(rtc_time_t *t_ptr, volatile uint8_t *RTC_int_cnt_ptr)
 {
-    uint8_t byte_to_write = 0;
+    uint8_t temp_byte = 0;
     retval_t retval = 0;
-    RTC_local_1Hz_int_count_ptr = RTC_int_cnt_ptr;
+    RTC_local_1Hz_count_ptr = RTC_int_cnt_ptr;
     // enable a pin change interrupt on the 1 Hz RTC pin 
     GIMSK |= (1 << PCIE1);
     PCMSK1 = (1 << PCINT9);
     // start communication with the chip & setup the chip (enable 1 Hz output, )
-    byte_to_write = (1 << BBSQW);
-    retval = i2c_write_byte(RTC_ADDR, RTC_ADDR_CONTROL, byte_to_write);
+    retval = i2c_write_byte(RTC_ADDR, RTC_ADDR_CONTROL, (1 << BBSQW));
     if (retval != GEN_PASS) {
         return retval;
     }
-    retval = RTC_read_time(t_ptr);
+    retval = i2c_read_byte(RTC_ADDR, RTC_ADDR_STATUS, &temp_byte);
+    // Check if the oscillator stopped. If so, we can't trust the data in the 
+    // chip and should choose a sane default
+    if(temp_byte & (1 << OSF)) {
+        // osccilator has stopped. We should use Apple default and clear the 
+        // flag for the next time we read it.
+        RTC_set_time(t_ptr, 9, 42, 42);
+        i2c_write_byte(RTC_ADDR, RTC_ADDR_STATUS, 0x08);
+        retval = RTC_OSCILLATOR_STOPPED;
+    } else {
+        // Oscillator hasn't stopped. Read the current time
+        retval = RTC_read_time(t_ptr);
+    }
     return retval;
 }
 
@@ -111,6 +122,6 @@ retval_t RTC_read_time(rtc_time_t *t_ptr)
 ISR(PCINT_A_vect)
 {
     if (PINA & (1 << PA1)) {
-        *RTC_local_1Hz_int_count_ptr += 1;
+        *RTC_local_1Hz_count_ptr += 1;
     }
 }

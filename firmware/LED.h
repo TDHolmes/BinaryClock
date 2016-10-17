@@ -19,7 +19,7 @@
 
 
 void LED_init(void);
-void LED_update_time(rtc_time_t *t_ptr, uint8_t update_all_override);
+void LED_update_time(rtc_time_t *t_ptr);
 void LED_run(void);
 void LED_clear(uint8_t row, uint8_t col);
 void LED_set(uint8_t row, uint8_t col, uint8_t red, uint8_t green, uint8_t blue);

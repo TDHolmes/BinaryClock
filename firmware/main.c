@@ -20,10 +20,6 @@
     other than interrupt driven ISRs.
 */
 
-
-#define NO_FORCE_UPDATE 0  //!< Only update the LED array columns that have changed.
-#define FORCE_UPDATE    1  //!< Update all LED array columns.
-
 #define COMMAND_LENGTH 6   //!< number of bytes in a valid UART command.
 
 //! Current state of the clock.
@@ -34,7 +30,7 @@ typedef enum {
 
 state_t system_state = RUN_TIME;   //!< keeps track of the system state.
 uint8_t uart_command_received = 0; //!< valid command received flag.
-uint8_t timer_expired = 0;         //!< 15-20ish ms timer timeout flag.
+// uint8_t timer_expired = 0;         //!< 15-20ish ms timer timeout flag.
 uint8_t LED_multiplex_timer_count = 0;   //!< count of mutiplex handler timer events.
 uint8_t command_buffer[COMMAND_LENGTH];  //!< where UART commands are buffered.
 
@@ -63,21 +59,23 @@ int main(void)
     volatile uint8_t multiplexer_count;
     volatile uint8_t rtc_1hz_int_count;
     uint8_t time_diff;
-    uint8_t time_updated = FALSE;
+    // uint8_t time_updated = FALSE;
     uint8_t start_byte_received = FALSE;
     retval_t retval = GEN_FAIL;
     rtc_time_t time;
     rtc_time_t *t_ptr = &time;
-    t_ptr->second = 0;
-    t_ptr->minute = 1;
-    t_ptr->hour = 2;
     hardware_init();
     LED_init();
-    LED_set_color(1, 1, 1);
     timer_init(&multiplexer_count);
     UART_init();
     i2c_init();
-    RTC_init(t_ptr, &rtc_1hz_int_count);
+    retval = RTC_init(t_ptr, &rtc_1hz_int_count);
+    if(retval != GEN_PASS) {
+        LED_set_color(1, 0, 0);
+    } else {
+        LED_set_color(1, 1, 1);
+    }
+    LED_update_time(t_ptr);
 
     ///// main while loop /////
     while(1) {
@@ -92,7 +90,7 @@ int main(void)
                         start_byte_received = TRUE;
                         break;
                     }
-                } while(UART_receive_unread_items() >= 1);
+                } while(UART_receive_unread_items() != 0);
             } else {
                 // We've received the start byte. Handle the command (if enough data)
                 if (UART_receive_unread_items() >= COMMAND_LENGTH) {
@@ -106,51 +104,31 @@ int main(void)
         }
 
         // run the system
-        switch(system_state) {
-            case RUN_TIME: {
-                if (rtc_1hz_int_count != 0) {
-                    time_diff = rtc_1hz_int_count;
-                    rtc_1hz_int_count = 0;
-                    increment_time(t_ptr, time_diff);
-                    LED_update_time(t_ptr, TRUE);
-                }
-                if (multiplexer_count != 0) {
-                    multiplexer_count = 0;
-                    LED_run();
-                }
-                // every day, re-check with RTC to update time. Will try for a minute if unsuccessful
-                if (t_ptr->hour == 3 && t_ptr->minute == 0 && time_updated == FALSE) {
-                    retval = RTC_read_time(t_ptr);
-                    if (retval == GEN_PASS) {
-                        time_updated = TRUE;
-                    }
-                } else if (t_ptr->hour == 3 && t_ptr->minute == 1) {
-                    // reset it for tomorrow
-                    time_updated = FALSE;
-                }
-                break;
-            }
-
-            case RUN_MANUAL: {
-                // let UART commands update the LEDs, but continue to refresh them
-                if (multiplexer_count >= 1) {
-                    multiplexer_count = 0;
-                    LED_run();
-                }
-                // but keep track of the time still
-                if (rtc_1hz_int_count >= 1) {
-                    time_diff = rtc_1hz_int_count;
-                    rtc_1hz_int_count = 0;
-                    increment_time(t_ptr, time_diff);
-                }
-                break;
-            }
-
-            default: {
-
-                break;
+        if (rtc_1hz_int_count != 0) {
+            time_diff = rtc_1hz_int_count;
+            // could lose a tick here if our timing really sucks
+            rtc_1hz_int_count = 0;
+            increment_time(t_ptr, time_diff);
+            // update the LED setting if we're in RUN_TIME mode
+            if (system_state == RUN_TIME) {
+                LED_update_time(t_ptr);
             }
         }
+        if (multiplexer_count != 0) {
+            multiplexer_count = 0;
+            LED_run();
+        }
+        // // every day, re-check with RTC to update time. Will try for a minute if unsuccessful
+        // if (t_ptr->hour == 3 && t_ptr->minute == 0 && time_updated == FALSE) {
+        //     retval = RTC_read_time(t_ptr);
+        //     if (retval == GEN_PASS) {
+        //         time_updated = TRUE;
+        //     }
+        // } else if (t_ptr->hour == 3 && t_ptr->minute == 1) {
+        //     // reset it for tomorrow
+        //     time_updated = FALSE;
+        // }
+        // let UART commands update the LEDs, but continue to refresh them
     }
 }
 
@@ -249,7 +227,7 @@ void process_UART_command(rtc_time_t *time_ptr, uint8_t *cmd_buffer)
         case UART_CMD_CHANGE_STATE: {
             if (cmd_buffer[1] == 0) {
                 system_state = RUN_TIME;
-                LED_update_time(time_ptr, FORCE_UPDATE);
+                LED_update_time(time_ptr);
             } else if (cmd_buffer[1] == 1) {
                 system_state = RUN_MANUAL;
             }

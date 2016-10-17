@@ -30,10 +30,8 @@ void LED_init(void)
  * Updates the time on the RTC chip as well as in the time keeping data structure t_ptr.
  * 
  * @param[in] t_ptr (rtc_time_t *): Pointer that is used to keep track of the time.
- * @param[in] update_all (uint8_t): Determines if we should update all LEDs or only
- *      the ones that should have changed second to second.
  */
-void LED_update_time(rtc_time_t *t_ptr, uint8_t update_all)
+void LED_update_time(rtc_time_t *t_ptr)
 {
     // check if we should only update the changed values
     uint8_t i;
@@ -44,51 +42,45 @@ void LED_update_time(rtc_time_t *t_ptr, uint8_t update_all)
     uint8_t sec_ten = t_ptr->second / 10;
     uint8_t sec_one = t_ptr->second % 10;
     for (i = 0; i < 4; i++) {
-        // if the hour is changed...
-        if ((t_ptr->minute == 0) | (update_all != 0)) {
-            // update the i'th bit of hour tens place
-            if (hour_ten & (1 << i)) {
-                LED_admin_ptr->LED_array[i][0][RED_IND] = LED_admin_ptr->colors.red;
-                LED_admin_ptr->LED_array[i][0][GREEN_IND] = LED_admin_ptr->colors.green;
-                LED_admin_ptr->LED_array[i][0][BLUE_IND] = LED_admin_ptr->colors.blue;
-            } else {
-                LED_admin_ptr->LED_array[i][0][RED_IND] = 0;
-                LED_admin_ptr->LED_array[i][0][GREEN_IND] = 0;
-                LED_admin_ptr->LED_array[i][0][BLUE_IND] = 0;
-            }
-            // update the i'th bit of hour ones place
-            if (hour_one & (1 << i)) {
-                LED_admin_ptr->LED_array[i][1][RED_IND] = LED_admin_ptr->colors.red;
-                LED_admin_ptr->LED_array[i][1][GREEN_IND] = LED_admin_ptr->colors.green;
-                LED_admin_ptr->LED_array[i][1][BLUE_IND] = LED_admin_ptr->colors.blue;
-            } else {
-                LED_admin_ptr->LED_array[i][1][RED_IND] = 0;
-                LED_admin_ptr->LED_array[i][1][GREEN_IND] = 0;
-                LED_admin_ptr->LED_array[i][1][BLUE_IND] = 0;
-            }
+        // update the i'th bit of hour tens place
+        if (hour_ten & (1 << i)) {
+            LED_admin_ptr->LED_array[i][0][RED_IND] = LED_admin_ptr->colors.red;
+            LED_admin_ptr->LED_array[i][0][GREEN_IND] = LED_admin_ptr->colors.green;
+            LED_admin_ptr->LED_array[i][0][BLUE_IND] = LED_admin_ptr->colors.blue;
+        } else {
+            LED_admin_ptr->LED_array[i][0][RED_IND] = 0;
+            LED_admin_ptr->LED_array[i][0][GREEN_IND] = 0;
+            LED_admin_ptr->LED_array[i][0][BLUE_IND] = 0;
         }
-        // if minutes have changed...
-        if ((t_ptr->second == 0) | (update_all != 0)) {
-            // update the i'th bit of min tens place
-            if (min_ten & (1 << i)) {
-                LED_admin_ptr->LED_array[i][2][RED_IND] = LED_admin_ptr->colors.red;
-                LED_admin_ptr->LED_array[i][2][GREEN_IND] = LED_admin_ptr->colors.green;
-                LED_admin_ptr->LED_array[i][2][BLUE_IND] = LED_admin_ptr->colors.blue;
-            } else {
-                LED_admin_ptr->LED_array[i][2][RED_IND] = 0;
-                LED_admin_ptr->LED_array[i][2][GREEN_IND] = 0;
-                LED_admin_ptr->LED_array[i][2][BLUE_IND] = 0;
-            }
-            // update the i'th bit of min ones place
-            if (min_one & (1 << i)) {
-                LED_admin_ptr->LED_array[i][3][RED_IND] = LED_admin_ptr->colors.red;
-                LED_admin_ptr->LED_array[i][3][GREEN_IND] = LED_admin_ptr->colors.green;
-                LED_admin_ptr->LED_array[i][3][BLUE_IND] = LED_admin_ptr->colors.blue;
-            } else {
-                LED_admin_ptr->LED_array[i][3][RED_IND] = 0;
-                LED_admin_ptr->LED_array[i][3][GREEN_IND] = 0;
-                LED_admin_ptr->LED_array[i][3][BLUE_IND] = 0;
-            }
+        // update the i'th bit of hour ones place
+        if (hour_one & (1 << i)) {
+            LED_admin_ptr->LED_array[i][1][RED_IND] = LED_admin_ptr->colors.red;
+            LED_admin_ptr->LED_array[i][1][GREEN_IND] = LED_admin_ptr->colors.green;
+            LED_admin_ptr->LED_array[i][1][BLUE_IND] = LED_admin_ptr->colors.blue;
+        } else {
+            LED_admin_ptr->LED_array[i][1][RED_IND] = 0;
+            LED_admin_ptr->LED_array[i][1][GREEN_IND] = 0;
+            LED_admin_ptr->LED_array[i][1][BLUE_IND] = 0;
+        }
+        // update the i'th bit of min tens place
+        if (min_ten & (1 << i)) {
+            LED_admin_ptr->LED_array[i][2][RED_IND] = LED_admin_ptr->colors.red;
+            LED_admin_ptr->LED_array[i][2][GREEN_IND] = LED_admin_ptr->colors.green;
+            LED_admin_ptr->LED_array[i][2][BLUE_IND] = LED_admin_ptr->colors.blue;
+        } else {
+            LED_admin_ptr->LED_array[i][2][RED_IND] = 0;
+            LED_admin_ptr->LED_array[i][2][GREEN_IND] = 0;
+            LED_admin_ptr->LED_array[i][2][BLUE_IND] = 0;
+        }
+        // update the i'th bit of min ones place
+        if (min_one & (1 << i)) {
+            LED_admin_ptr->LED_array[i][3][RED_IND] = LED_admin_ptr->colors.red;
+            LED_admin_ptr->LED_array[i][3][GREEN_IND] = LED_admin_ptr->colors.green;
+            LED_admin_ptr->LED_array[i][3][BLUE_IND] = LED_admin_ptr->colors.blue;
+        } else {
+            LED_admin_ptr->LED_array[i][3][RED_IND] = 0;
+            LED_admin_ptr->LED_array[i][3][GREEN_IND] = 0;
+            LED_admin_ptr->LED_array[i][3][BLUE_IND] = 0;
         }
         // just always update the seconds
         // update the i'th bit of sec tens place

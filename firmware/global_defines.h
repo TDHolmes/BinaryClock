@@ -22,8 +22,9 @@ typedef enum {
     I2C_ERROR,         //!< return if there is a general I2C error
     I2C_START_TIMEOUT, //!< return if the device does not respond in time
     I2C_INIT_TIMEOUT,  //!< return if the I2C module does not initialize in time
-    I2C_CLK_LOW_BEFORE_START,   //!< return if the SCL line is low when it shouldn't be
-    I2C_START_COND_NOT_DETECTED //!< return if the start condition was not detected
+    I2C_CLK_LOW_BEFORE_START,      //!< return if the SCL line is low when it shouldn't be
+    I2C_START_COND_NOT_DETECTED,   //!< return if the start condition was not detected
+    RTC_OSCILLATOR_STOPPED = 0x41, //!< return if the oscillator stopped while on battery backup
 } retval_t;
 
 
