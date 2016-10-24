@@ -6,6 +6,7 @@ import CustomGUIWrappers as Gui
 import Tkinter as tk
 import ttk
 import tkMessageBox as messagebox
+import serial.serialutil
 
 
 class BinaryClockGUI:
@@ -62,14 +63,7 @@ class BinaryClockGUI:
         self.column_entry = Gui.ScrollBox(self.root, 3, 3, min_val=0, max_val=5, start_val=0,
                                           box_width=10, sticky="w")
         # deactivate buttons that shouldn't be accessable yet
-        self.serial_disconnect_button.deactivate()
-        self.time_update_button.deactivate()
-        self.color_update_button.deactivate()
-        self.set_all_button.deactivate()
-        self.clear_all_button.deactivate()
-        self.set_led_button.deactivate()
-        self.clear_led_button.deactivate()
-        self.time_entry.deactivate()
+        self.disconnect(raise_error_dialog=False)
 
     def time_override(self, *args):
         '''
@@ -83,8 +77,12 @@ class BinaryClockGUI:
 
     def connect(self):
         '''Connect with the binary clock. (basically just opens serial communication)'''
-        self.binary_clock = BC.BinaryClockAPI(self.serial_port_dropdown.get_val(),
-                                              int(self.serial_baud_dropdown.get_val()))
+        try:
+            self.binary_clock = BC.BinaryClockAPI(self.serial_port_dropdown.get_val(),
+                                                  int(self.serial_baud_dropdown.get_val()))
+        except OSError:
+            messagebox.showerror(title="Invalid Port", message="The com port selected does not seem to exist.")
+            return
         # make sure this doesn't get called again
         self.serial_connect_button.deactivate()
         self.serial_disconnect_button.activate()
@@ -95,6 +93,13 @@ class BinaryClockGUI:
         self.set_led_button.activate()
         self.clear_led_button.activate()
         self.color_update_button.activate()
+        self.row_entry.activate()
+        self.column_entry.activate()
+        self.red_entry.activate()
+        self.green_entry.activate()
+        self.blue_entry.activate()
+        self.time_entry.activate()
+        self.time_override_cb.activate()
 
     def update_coms_list(self, *args):
         '''Update the list of serial ports when the coms list dropdown is clicked.'''
@@ -103,7 +108,7 @@ class BinaryClockGUI:
             ports = [""]
         self.serial_port_dropdown.update_list(ports)
 
-    def disconnect(self):
+    def disconnect(self, raise_error_dialog=True):
         '''
         Disconnect the binary clock by closing communication, deleting the binaryClock
         object, and resetting the GUI elements to the disconnected state.
@@ -112,7 +117,10 @@ class BinaryClockGUI:
             self.binary_clock.close()
         except:
             pass
-        del self.binary_clock
+        try:
+            del self.binary_clock
+        except AttributeError:
+            pass
         # make sure this doesn't get called again
         self.serial_connect_button.activate()
         self.serial_disconnect_button.deactivate()
@@ -123,6 +131,16 @@ class BinaryClockGUI:
         self.set_led_button.deactivate()
         self.clear_led_button.deactivate()
         self.color_update_button.deactivate()
+        self.row_entry.deactivate()
+        self.column_entry.deactivate()
+        self.red_entry.deactivate()
+        self.green_entry.deactivate()
+        self.blue_entry.deactivate()
+        self.time_entry.deactivate()
+        self.time_override_cb.deactivate()
+        if raise_error_dialog:
+            messagebox.showerror(title="Connection Lost",
+                                 message="It appears you have disconnected your clock. Please reconnect the device.")
 
     def set_LED(self):
         '''Sets an individual LED.'''
@@ -132,16 +150,32 @@ class BinaryClockGUI:
         red = 2 ** int(self.red_entry.get_val()) - 1
         green = 2 ** int(self.green_entry.get_val()) - 1
         blue = 2 ** int(self.blue_entry.get_val()) - 1
-        print self.binary_clock.set_state(self.binary_clock.STATE_RUN_MANUAL)
-        print self.binary_clock.set_LED(row, column, red, green, blue)
+        try:
+            retvals = []
+            retvals.append(self.binary_clock.set_state(self.binary_clock.STATE_RUN_MANUAL))
+            retvals.append(self.binary_clock.set_LED(row, column, red, green, blue))
+            if len(retvals) != 2:
+                messagebox.showerror(title="Clock Unresponsive",
+                                     message="Clock did not respond. Reset your clock and try again.")
+        except serial.serialutil.SerialException:
+            # disconnect here.
+            self.disconnect()
 
     def clear_LED(self):
         '''Clears an individual LED.'''
         # get row, col, and color information from UI elements
         row = int(self.row_entry.get_val())
         column = int(self.column_entry.get_val())
-        print self.binary_clock.set_state(self.binary_clock.STATE_RUN_MANUAL)
-        print self.binary_clock.clear_LED(row, column)
+        try:
+            retvals = []
+            retvals.append(self.binary_clock.set_state(self.binary_clock.STATE_RUN_MANUAL))
+            retvals.append(self.binary_clock.clear_LED(row, column))
+            if len(retvals) != 2:
+                messagebox.showerror(title="Clock Unresponsive",
+                                     message="Clock did not respond. Reset your clock and try again.")
+        except serial.serialutil.SerialException:
+            # disconnect here.
+            self.disconnect()
 
     def set_all_LEDs(self):
         '''Sets all LEDs to a color.'''
@@ -149,8 +183,16 @@ class BinaryClockGUI:
         red = 2 ** int(self.red_entry.get_val()) - 1
         green = 2 ** int(self.green_entry.get_val()) - 1
         blue = 2 ** int(self.blue_entry.get_val()) - 1
-        print self.binary_clock.set_state(self.binary_clock.STATE_RUN_MANUAL)
-        print self.binary_clock.set_all_LEDs(red, green, blue)
+        try:
+            retvals = []
+            retvals.append(self.binary_clock.set_state(self.binary_clock.STATE_RUN_MANUAL))
+            retvals.append(self.binary_clock.set_all_LEDs(red, green, blue))
+            if len(retvals) != 2:
+                messagebox.showerror(title="Clock Unresponsive",
+                                     message="Clock did not respond. Reset your clock and try again.")
+        except serial.serialutil.SerialException:
+            # disconnect here.
+            self.disconnect()
 
     def update_color(self):
         '''Updates the color that is displayed when time is running.'''
@@ -158,24 +200,56 @@ class BinaryClockGUI:
         red = 2 ** int(self.red_entry.get_val()) - 1
         green = 2 ** int(self.green_entry.get_val()) - 1
         blue = 2 ** int(self.blue_entry.get_val()) - 1
-        print self.binary_clock.set_state(self.binary_clock.STATE_RUN_TIME)
-        print self.binary_clock.set_color(red, green, blue)
+        try:
+            retvals = []
+            retvals.append(self.binary_clock.set_state(self.binary_clock.STATE_RUN_TIME))
+            retvals.append(self.binary_clock.set_color(red, green, blue))
+            if len(retvals) != 2:
+                messagebox.showerror(title="Clock Unresponsive",
+                                     message="Clock did not respond. Reset your clock and try again.")
+        except serial.serialutil.SerialException:
+            # disconnect here.
+            self.disconnect()
 
     def clear_all_LEDs(self):
         '''Clears all LEDs.'''
-        print self.binary_clock.set_state(self.binary_clock.STATE_RUN_MANUAL)
-        print self.binary_clock.clear_all_LEDs()
+        try:
+            retvals = []
+            retvals.append(self.binary_clock.set_state(self.binary_clock.STATE_RUN_MANUAL))
+            retvals.append(self.binary_clock.clear_all_LEDs())
+            if len(retvals) != 2:
+                messagebox.showerror(title="Clock Unresponsive",
+                                     message="Clock did not respond. Reset your clock and try again.")
+        except serial.serialutil.SerialException:
+            # disconnect here.
+            self.disconnect()
 
     def set_time(self):
         '''Sets the binary clock time.'''
-        print self.binary_clock.set_state(self.binary_clock.STATE_RUN_TIME)
+        retvals = []
+        try:
+            retvals.append(self.binary_clock.set_state(self.binary_clock.STATE_RUN_TIME))
+        except serial.serialutil.SerialException:
+            # disconnect here.
+            self.disconnect()
         # check if time override is selected
         if self.time_override_cb.get_val():
             time_dict = self.time_entry.get_val()
             time_override_array = [time_dict["hour"], time_dict["minute"], time_dict["second"]]
-            print self.binary_clock.update_time(time_override_array)
+            try:
+                retvals.append(self.binary_clock.update_time(time_override_array))
+            except serial.serialutil.SerialException:
+                # disconnect here.
+                self.disconnect()
         else:
-            print self.binary_clock.update_time()
+            try:
+                retvals.append(self.binary_clock.update_time())
+            except serial.serialutil.SerialException:
+                # disconnect here.
+                self.disconnect()
+        if len(retvals) != 2:
+            messagebox.showerror(title="Clock Unresponsive",
+                                 message="Clock did not respond. Reset your clock and try again.")
 
     def run(self):
         '''Runs the tk loop.'''

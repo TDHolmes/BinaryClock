@@ -69,14 +69,18 @@ retval_t RTC_init(rtc_time_t *t_ptr, volatile uint8_t *RTC_int_cnt_ptr)
  */
 retval_t RTC_set_time(rtc_time_t *t_ptr, uint8_t hour, uint8_t minute, uint8_t second)
 {
-    uint8_t data_arr[3];
+    uint8_t data_to_write;
     retval_t retval;
     // set the time
-    data_arr[0] = (second % 10) | ((second / 10) << RTC_SEC_TEN_OFFSET);
-    data_arr[1] = (minute % 10) | ((minute / 10) << RTC_MIN_TEN_OFFSET);
-    data_arr[2] = (hour   % 10) | ((hour / 10) << RTC_HOUR_TEN_OFFSET);
+    data_to_write = (second % 10) | ((second / 10) << RTC_SEC_TEN_OFFSET);
     // send the data to the RTC
-    retval = i2c_write(RTC_ADDR, (uint8_t)RTC_ADDR_SECONDS, data_arr, 3);
+    retval = i2c_write_byte(RTC_ADDR, (uint8_t)RTC_ADDR_SECONDS, data_to_write);
+    data_to_write = (minute % 10) | ((minute / 10) << RTC_MIN_TEN_OFFSET);
+    // send the data to the RTC
+    retval |= i2c_write_byte(RTC_ADDR, (uint8_t)RTC_ADDR_MINUTES, data_to_write);
+    data_to_write = (hour % 10) | ((hour / 10) << RTC_HOUR_TEN_OFFSET);
+    // send the data to the RTC
+    retval |= i2c_write_byte(RTC_ADDR, (uint8_t)RTC_ADDR_HOURS, data_to_write);
     if (retval == GEN_PASS) {
         t_ptr->hour = hour;
         t_ptr->minute = minute;

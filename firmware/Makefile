@@ -30,7 +30,6 @@ SOURCES   := $(notdir $(shell find $(SOURCEDIR) -name "*.c"))
 OBJECTS := $(addprefix $(BUILDDIR),$(SOURCES:%.c=%.o))
 # OBJECTS := $(SOURCES:%.c=%.o)
 INCLUDE_PATH := /usr/local/CrossPack-AVR-20131216/avr/include/*
-PRINT_INC = avr-gcc -print-file-name=include
 
 
 # compiler flags and such
@@ -73,7 +72,6 @@ AVRDUDE = avrdude -B 20 -c $(PROGRAMMER) -p $(DEVICE)
 
 # symbolic targets:
 all: $(BUILDDIR)main.hex
-	$(PRINT_INC)
 
 # .c.o:
 $(BUILDDIR)%.o: %.c

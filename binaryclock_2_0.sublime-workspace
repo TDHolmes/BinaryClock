@@ -4,6 +4,78 @@
 		"selected_items":
 		[
 			[
+				"me",
+				"message\tparam"
+			],
+			[
+				"mes",
+				"messagebox\tmodule"
+			],
+			[
+				"sho",
+				"showerror\tfunction"
+			],
+			[
+				"EXCE",
+				"except"
+			],
+			[
+				"de",
+				"deactivate"
+			],
+			[
+				"SerialEx",
+				"SerialException\timport"
+			],
+			[
+				"seri",
+				"serialutil\tmodule"
+			],
+			[
+				"i2c_write_",
+				"i2c_write_byte"
+			],
+			[
+				"hour_ten",
+				"hour_tens\t(RTC_DS3231.h)"
+			],
+			[
+				"color",
+				"color_ptr"
+			],
+			[
+				"LED_set",
+				"LED_set_color"
+			],
+			[
+				"colo",
+				"colors"
+			],
+			[
+				"save",
+				"save_colors\t(color.c)"
+			],
+			[
+				"LED_",
+				"LED_color_t"
+			],
+			[
+				"syst",
+				"system_state"
+			],
+			[
+				"byt",
+				"byte_read"
+			],
+			[
+				"GEN",
+				"GEN_PASS"
+			],
+			[
+				"ret",
+				"retval_t"
+			],
+			[
 				"ne",
 				"neighbour_array\tstatement"
 			],
@@ -124,10 +196,6 @@
 				"uint8_t"
 			],
 			[
-				"byt",
-				"byte_read_ptr"
-			],
-			[
 				"UART_tra",
 				"UART_transmit_value\t(main.c)"
 			],
@@ -244,16 +312,8 @@
 				"timer_millis_get\t(timer_4313.c)"
 			],
 			[
-				"LED_",
-				"LED_update_time"
-			],
-			[
 				"LED_cl",
 				"LED_clear_all"
-			],
-			[
-				"LED_set",
-				"LED_set_all"
 			],
 			[
 				"RTC_in",
@@ -376,10 +436,6 @@
 				"i2c_admin_ptr"
 			],
 			[
-				"ret",
-				"retval"
-			],
-			[
 				"star",
 				"start_adr"
 			],
@@ -452,73 +508,69 @@
 				"IND_LED0\t(ports.h)"
 			],
 			[
-				"color",
-				"color_mask"
-			],
-			[
-				"colo",
-				"color_mask"
-			],
-			[
 				"RTC",
 				"RTC_interrupt"
 			],
 			[
 				"rese",
 				"reset_timer"
-			],
-			[
-				"col",
-				"column"
-			],
-			[
-				"REC",
-				"RECEIEVE_DELTASIGMA_1"
-			],
-			[
-				"ignor",
-				"ignore_vals"
-			],
-			[
-				"rx_",
-				"rx_data"
-			],
-			[
-				"RECEIVE_",
-				"RECEIEVE_DELTASIGMA"
-			],
-			[
-				"max_",
-				"max_val\tstatement"
-			],
-			[
-				"fft_1_ne",
-				"fft_1_nextout_posedge"
-			],
-			[
-				"fft_2_x1",
-				"fft_2_x1_Im"
-			],
-			[
-				"fft_2_nex",
-				"fft_2_next"
-			],
-			[
-				"ram_3_wr",
-				"ram_3_write_enable"
-			],
-			[
-				"ram_3_",
-				"ram_3_write_enable"
-			],
-			[
-				"ram_3_write",
-				"ram_3_write_address"
 			]
 		]
 	},
 	"buffers":
 	[
+		{
+			"file": "firmware/LED.c",
+			"settings":
+			{
+				"buffer_size": 7106,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "firmware/LED.h",
+			"settings":
+			{
+				"buffer_size": 869,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "firmware/RTC_DS3231.c",
+			"settings":
+			{
+				"buffer_size": 4836,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "software/binaryClockGUI.py",
+			"settings":
+			{
+				"buffer_size": 12300,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "firmware/RTC_DS3231.h",
+			"settings":
+			{
+				"buffer_size": 2132,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "firmware/main.c",
+			"settings":
+			{
+				"buffer_size": 9175,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -585,10 +637,35 @@
 	"expanded_folders":
 	[
 		"/Volumes/MacData/BinaryClock2_0/Project",
-		"/Volumes/MacData/BinaryClock2_0/Project/firmware"
+		"/Volumes/MacData/BinaryClock2_0/Project/software"
 	],
 	"file_history":
 	[
+		"/Volumes/MacData/BinaryClock2_0/Project/firmware/LED.h",
+		"/Volumes/MacData/BinaryClock2_0/Project/firmware/LED.c",
+		"/Volumes/MacData/BinaryClock2_0/Project/firmware/RTC_DS3231.c",
+		"/Volumes/MacData/BinaryClock2_0/Project/firmware/RTC_DS3231.h",
+		"/Volumes/MacData/BinaryClock2_0/Project/firmware/hardware.h",
+		"/Volumes/MacData/BinaryClock2_0/Project/firmware/i2c.c",
+		"/Volumes/MacData/BinaryClock2_0/Project/firmware/UART.c",
+		"/Volumes/MacData/BinaryClock2_0/Project/firmware/main.c",
+		"/Volumes/MacData/BinaryClock2_0/Project/firmware/color.h",
+		"/Volumes/MacData/BinaryClock2_0/Project/firmware/hardware.c",
+		"/Volumes/MacData/BinaryClock2_0/Project/firmware/Makefile",
+		"/usr/local/CrossPack-AVR-20131216/avr/include/avr/interrupt.h",
+		"/Volumes/MacData/BinaryClock2_0/Project/firmware/color.c",
+		"/Volumes/MacData/BinaryClock2_0/Project/firmware/global_defines.h",
+		"/Volumes/MacData/BinaryClock2_0/Project/firmware/i2c_drvr_4313.c",
+		"/Volumes/MacData/BinaryClock2_0/Project/firmware/ring_buffer.c",
+		"/Volumes/MacData/BinaryClock2_0/Project/software/binaryClockGUI.py",
+		"/Volumes/MacData/BinaryClock2_0/Project/software/binaryClockAPI.py",
+		"/Volumes/MacData/BinaryClock2_0/Project/firmware/UART_drvr_4313.h",
+		"/Volumes/MacData/BinaryClock2_0/Project/firmware/UART.h",
+		"/Volumes/MacData/embeddedProgramming/kexx_drv_lib/src/drivers/uart/uart.h",
+		"/Volumes/MacData/embeddedProgramming/kexx_drv_lib/src/drivers/uart/uart.c",
+		"/Volumes/MacData/BinaryClock2_0/Project/firmware/UART_drvr_4313.c",
+		"/Volumes/MacData/BinaryClock2_0/Project/firmware/timer_4313.c",
+		"/Volumes/MacData/BinaryClock2_0/Project/firmware/LED_drvr_STP16CPC26.c",
 		"/Volumes/MacData/BinaryClock2_0/Project/documents/CodeDocumentation/html/Package Control Messages",
 		"/Volumes/MacData/BinaryClock2_0/Project/documents/CodeDocumentation/html/_l_e_d__drvr___s_t_p16_c_p_c26_8h_source.html",
 		"/Volumes/MacData/BinaryClock2_0/Project/documents/CodeDocumentation/html/annotated.html",
@@ -630,7 +707,6 @@
 		"/Volumes/MacData/BinaryClock2_0/Project/documents/doxygenDocumentation/html/search/variables_1.js",
 		"/Volumes/MacData/BinaryClock2_0/Project/documents/doxygenDocumentation/html/search/variables_2.js",
 		"/Volumes/MacData/BinaryClock2_0/Project/documents/doxygenDocumentation/html/search/variables_4.js",
-		"/Volumes/MacData/BinaryClock2_0/Project/firmware/color.h",
 		"/Volumes/MacData/BinaryClock2_0/Project/firmware/LED_drvr_STP16CPC26.h",
 		"/Users/tylerholmes/dev/blinky.life",
 		"/Users/tylerholmes/dev/gameoflife.py",
@@ -638,16 +714,7 @@
 		"/Volumes/pihome/dev/gameoflife.py",
 		"/Users/tylerholmes/dev/mail_automation.py",
 		"/Users/tylerholmes/STM32Cube_FW_F4_V1.13.0/Utilities/CPU/cpu_utils.c",
-		"/Volumes/MacData/BinaryClock2_0/Project/firmware/Makefile",
-		"/Volumes/MacData/BinaryClock2_0/Project/firmware/UART_drvr_4313.c",
-		"/Volumes/MacData/BinaryClock2_0/Project/firmware/ring_buffer.c",
 		"/Volumes/MacData/BinaryClock2_0/Project/firmware/ring_buffer.h",
-		"/Volumes/MacData/BinaryClock2_0/Project/firmware/UART_drvr_4313.h",
-		"/Volumes/MacData/BinaryClock2_0/Project/firmware/UART.h",
-		"/Volumes/MacData/BinaryClock2_0/Project/firmware/UART.c",
-		"/Volumes/MacData/BinaryClock2_0/Project/firmware/main.c",
-		"/Volumes/MacData/BinaryClock2_0/Project/software/binaryClockGUI.py",
-		"/Volumes/MacData/BinaryClock2_0/Project/software/binaryClockAPI.py",
 		"/Volumes/MacData/BinaryClock2_0/Source/firmware/LED.c",
 		"/Volumes/MacData/BinaryClock2_0/Source/firmware/UART_drvr_4313.c",
 		"/Volumes/MacData/BinaryClock2_0/Source/software/binaryClockAPI.py",
@@ -675,7 +742,6 @@
 		"/Volumes/MacData/BinaryClock2_0/Source/firmware/Makefile",
 		"/Volumes/MacData/BinaryClock2_0/Source/firmware/hardware.h",
 		"/Users/tylerholmes/Desktop/example.txt",
-		"/usr/local/CrossPack-AVR-20131216/avr/include/avr/interrupt.h",
 		"/Volumes/MacData/BinaryClock2_0/Source/firmware/ports.h",
 		"/Volumes/MacData/BinaryClock2_0/Source/firmware/LED.h",
 		"/Volumes/MacData/BinaryClock2_0/Source/firmware/color.h",
@@ -702,21 +768,7 @@
 		"/usr/local/CrossPack-AVR-20131216/avr/include/util/delay.h",
 		"/Volumes/MacData/BinaryClock2_0/Source/firmware/testProjects/LED_test/hardware.h",
 		"/usr/local/CrossPack-AVR-20131216/avr/include/avr/cpufunc.h",
-		"/usr/local/CrossPack-AVR-20131216/avr/include/ctype.h",
-		"/usr/local/CrossPack-AVR-20131216/avr/include/avr/delay.h",
-		"/usr/local/CrossPack-AVR-20131216/avr/include/avr/common.h",
-		"/usr/local/CrossPack-AVR-20131216/avr/include/stdio.h",
-		"/usr/local/CrossPack-AVR-20131216/avr/include/util/delay_basic.h",
-		"/usr/local/CrossPack-AVR-20131216/avr/include/util/twi.h",
-		"/Volumes/MacData/BinaryClock2_0/Source/firmware/i2c_drvr_4313-temp.c",
-		"/Volumes/MacData/BinaryClock2_0/Source/firmware/LED_drvr_STP16CPC26-temp.c",
-		"/Volumes/MacData/BinaryClock2_0/Source/firmware/main-temp.c",
-		"/Volumes/MacData/BinaryClock2_0/Source/firmware/ring_buffer-temp.c",
-		"/Volumes/MacData/BinaryClock2_0/Source/firmware/i2c-temp.c",
-		"/Volumes/MacData/BinaryClock2_0/Source/firmware/hardware-temp.c",
-		"/Volumes/MacData/BinaryClock2_0/Source/firmware/LED-temp.c",
-		"/Volumes/MacData/BinaryClock2_0/Source/firmware/build/timer_drvr_4313.h",
-		"/Volumes/MacData/BinaryClock2_0/Source/firmware/UART_drvr_2313a.c"
+		"/usr/local/CrossPack-AVR-20131216/avr/include/ctype.h"
 	],
 	"find":
 	{
@@ -727,6 +779,7 @@
 		"height": 93.0,
 		"where_history":
 		[
+			"/Volumes/MacData/BinaryClock2_0/Project/firmware",
 			""
 		]
 	},
@@ -735,6 +788,55 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"\n                if len(retval) == 0:\n                    error_msg = \"Your clock did not respond. Check if it's powered and press the reset button.\"\n                    messagebox.showerror(title=\"Unresponsive Clock\",\n                                         message=error_msg)",
+			"retval = ",
+			"\n            if len(retval) == 0:\n                error_msg = \"Your clock did not respond. Check if it's powered and press the reset button.\"\n                messagebox.showerror(title=\"Unresponsive Clock\",\n                                     message=error_msg)",
+			"Please double check if ",
+			"print self.binary_clock.",
+			"except SerialException:",
+			"except serial.serialutil.SerialException:",
+			"print self.binary_clock.",
+			"data = ",
+			"data",
+			"data_arr",
+			"arr[",
+			"_ones",
+			"t_ptr",
+			"sec_",
+			"tr->min_",
+			"min_",
+			"hour_ten",
+			"rtc_time_ptr",
+			"time_ptr",
+			"rtc_time_t",
+			"];\n    t_ptr->",
+			";\n    t_ptr->",
+			"t_ptr",
+			"rtc_time_t",
+			"\n    SREG = cSREG; // restore SREG value (I-bit)",
+			"\n    uint8_t cSREG;",
+			"\n    cSREG = SREG;  // store SREG value",
+			"__disable_interrupt();",
+			"interr",
+			"EEPROM_read(",
+			"EEPROM_write(",
+			"(uint8_t)",
+			"color_ptr",
+			"uint8_t data_to_write",
+			"COLOR_ADDR",
+			"uint8_t address",
+			"ucAddress",
+			"ucData",
+			"ucAddress",
+			"retval = ",
+			"timer_expired",
+			"LED_update_time",
+			" | (update_all != 0)",
+			"LED_update_time",
+			"byte_read",
+			"byte_to_write",
+			"RTC_local_1Hz_int_count_ptr",
+			"self.coms.read(size=2)",
 			"led_color_t",
 			"+",
 			"1",
@@ -813,56 +915,7 @@
 			"rtc_int",
 			" + 16",
 			"I2C_ACK",
-			"retval =",
-			"\n    i2c_end();\n    return retval;\n}",
-			"GEN_PASS",
-			"\n    for (i = 0; i < 200; i++);",
-			"GEN_PASS",
-			"2000",
-			"toggle_scl",
-			"val",
-			"retval (uint8_t)",
-			"temp_val",
-			"ime(50)",
-			"FALSE",
-			"time(100);",
-			"500)",
-			"wait_time(",
-			"wait_time(10);",
-			"TRUE, TRUE",
-			"UART_transmit_byte",
-			"UART_drvr_send_byte",
-			"i < 16",
-			"i < 5",
-			");\n        for (i = 0; i < 5",
-			"5",
-			"I2C_NO_ERRORS",
-			"uint8_t UART_drvr",
-			"I2C_ACK",
-			"uint8_t retval",
-			"uint8_t UART_drvr",
-			"uint8_t UART",
-			"uint8_t retval",
-			"uint8_t RTC",
-			"uint8_t retval",
-			"uint8_t RTC",
-			"#",
-			"uint8_t ring_",
-			"uint8_t ring",
-			"retval i2c",
-			"uint8_t i2c_",
-			"uint8_t ",
-			"uint8_t i2c_",
-			"uint8_t retval",
-			"uint8_t i2c_",
-			"uint8_t",
-			"wait_time",
-			"wait_ms",
-			"timer_micros_get",
-			"wait_us",
-			"wait_ms",
-			"lis_get();\n    while (timer_millis_get() - start_time < 10);",
-			"time"
+			"retval ="
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -884,8 +937,693 @@
 	"groups":
 	[
 		{
+			"selected": 3,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "firmware/LED.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7106,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content"
+							],
+							"syntax": "Packages/C++/C.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "firmware/LED.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 869,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										849,
+										855
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/hash.png",
+										"brackethighlighter.default"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										0,
+										7
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content"
+							],
+							"syntax": "Packages/C++/C++.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "firmware/RTC_DS3231.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4836,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2707,
+								2707
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content"
+							],
+							"syntax": "Packages/C++/C.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 354.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "software/binaryClockGUI.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 12300,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								11853,
+								11853
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content"
+							],
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3909.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "firmware/RTC_DS3231.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2132,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								274,
+								274
+							],
+							[
+								294,
+								294
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										314,
+										315
+									],
+									"2":
+									[
+										314,
+										315
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/curly_bracket.png",
+										"brackethighlighter.default"
+									],
+									"2":
+									[
+										"Packages/BracketHighlighter/icons/curly_bracket.png",
+										"brackethighlighter.default"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										254,
+										255
+									],
+									"2":
+									[
+										254,
+										255
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content"
+							],
+							"syntax": "Packages/C++/C++.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "firmware/main.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9175,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								8812,
+								8812
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										9173,
+										9174
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/curly_bracket.png",
+										"brackethighlighter.default"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										8786,
+										8787
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content"
+							],
+							"syntax": "Packages/C++/C.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3688.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -970,7 +1708,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 210.0,
+	"side_bar_width": 253.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

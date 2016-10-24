@@ -194,4 +194,5 @@ void LED_set_color(uint8_t red, uint8_t blue, uint8_t green)
     LED_admin_ptr->colors.red = red;
     LED_admin_ptr->colors.green = green;
     LED_admin_ptr->colors.blue = blue;
+    save_colors(&LED_admin_ptr->colors);
 }

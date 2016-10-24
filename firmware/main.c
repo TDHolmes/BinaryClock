@@ -58,6 +58,8 @@ int main(void)
 {
     volatile uint8_t multiplexer_count;
     volatile uint8_t rtc_1hz_int_count;
+    LED_color_t color;
+    LED_color_t* color_ptr = &color;
     uint8_t time_diff;
     // uint8_t time_updated = FALSE;
     uint8_t start_byte_received = FALSE;
@@ -70,11 +72,8 @@ int main(void)
     UART_init();
     i2c_init();
     retval = RTC_init(t_ptr, &rtc_1hz_int_count);
-    if(retval != GEN_PASS) {
-        LED_set_color(1, 0, 0);
-    } else {
-        LED_set_color(1, 1, 1);
-    }
+    load_colors(color_ptr);
+    LED_set_color(color_ptr->red, color_ptr->blue, color_ptr->green);
     LED_update_time(t_ptr);
 
     ///// main while loop /////
