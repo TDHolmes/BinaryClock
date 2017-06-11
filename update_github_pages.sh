@@ -18,7 +18,8 @@ printf "\n\n"
 echo "switch branches..."
 git checkout gh-pages
 
-printf "\n\n"
+printf "\n\nwaiting..."
+read
 echo "copy the built documentation into the gh-pages branch..."
 cd ..
 cp -r sphinxDocumentation BinaryClock/documents
