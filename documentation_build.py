@@ -132,6 +132,6 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
     # make sure we're _here_
-    os.chdir(os.path.dirname(__file__))
+    os.chdir(os.path.dirname(os.path.realpath((__file__))))
 
     build_documentation(args.verbose)
