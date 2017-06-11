@@ -14,7 +14,8 @@ cd documents/doxygenDocumentation/html
 cp -r ./ ../../../../doxygenDocumentation
 cd ../../..
 
-printf "\n\n"
+printf "\n\nwaiting..."
+read
 echo "switch branches..."
 git checkout gh-pages
 
