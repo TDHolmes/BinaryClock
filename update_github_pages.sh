@@ -17,38 +17,38 @@ check_retcode
 printf "\n\n"
 echo "copy documentation assets out of the repo..."
 cd software/build/html
-cp -r ./ ../../../../sphinxDocumentation > /dev/null
+cp -r ./ ../../../../sphinxDocumentation
 check_retcode
 cd ../../..
 cd documents/doxygenDocumentation/html
-cp -r ./ ../../../../doxygenDocumentation > /dev/null
+cp -r ./ ../../../../doxygenDocumentation
 check_retcode
 cd ../../..
 
 printf "\n\n"
 echo "switch branches..."
-git checkout gh-pages > /dev/null
+git checkout gh-pages
 check_retcode
 
 printf "\n\n"
 echo "copy the built documentation into the gh-pages branch..."
 cd ..
-cp -r sphinxDocumentation BinaryClock/documents > /dev/null
+cp -r sphinxDocumentation BinaryClock/documents
 check_retcode
-cp -r doxygenDocumentation BinaryClock/documents > /dev/null
+cp -r doxygenDocumentation BinaryClock/documents
 check_retcode
 cd BinaryClock
 
 printf "\n\n"
 echo "Adding the changes to git..."
-git add . > /dev/null
+git add .
 check_retcode
-git commit -m "[automated script] Updating documentation..." > /dev/null
+git commit -m "[automated script] Updating documentation..."
 check_retcode
 
 printf "\n\n"
 echo "Jumping back to master..."
-git checkout master > /dev/null
+git checkout master
 check_retcode
 
 echo "Done!"
