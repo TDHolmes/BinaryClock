@@ -1,6 +1,6 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
@@ -17,13 +17,15 @@
         VERSION:     '1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Binary Clock Software 1 documentation" href="#" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -31,7 +33,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head>
-  <body role="document">
+  <body>
   
 
     <div class="document">
@@ -40,7 +42,7 @@
           <div class="body" role="main">
             
   <div class="section" id="welcome-to-binary-clock-software-s-documentation">
-<h1>Welcome to Binary Clock Software&#8217;s documentation!<a class="headerlink" href="#welcome-to-binary-clock-software-s-documentation" title="Permalink to this headline">¶</a></h1>
+<h1>Welcome to Binary Clock Software’s documentation!<a class="headerlink" href="#welcome-to-binary-clock-software-s-documentation" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
 <div class="section" id="module-binaryClockAPI">
@@ -57,8 +59,8 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>serial_port</strong> (<em>str</em>) &#8211; Serial port to connect to. (e.g. &#8220;/dev/tty.usbserial-12345&#8221;)</li>
-<li><strong>baud</strong> (<em>int</em>) &#8211; baudrate to communicate at (default: 250000)</li>
+<li><strong>serial_port</strong> (<em>str</em>) – Serial port to connect to. (e.g. “/dev/tty.usbserial-12345”)</li>
+<li><strong>baud</strong> (<em>int</em>) – baudrate to communicate at (default: 250000)</li>
 </ul>
 </td>
 </tr>
@@ -73,8 +75,8 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>row</strong> (<em>int</em>) &#8211; Row of the LED to clear</li>
-<li><strong>column</strong> (<em>int</em>) &#8211; Column of the LED to clear</li>
+<li><strong>row</strong> (<em>int</em>) – Row of the LED to clear</li>
+<li><strong>column</strong> (<em>int</em>) – Column of the LED to clear</li>
 </ul>
 </td>
 </tr>
@@ -103,11 +105,11 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>row</strong> (<em>int</em>) &#8211; Row of the LED to set</li>
-<li><strong>column</strong> (<em>int</em>) &#8211; Column of the LED to set</li>
-<li><strong>red</strong> (<em>int</em>) &#8211; Red value (0 - 255)</li>
-<li><strong>green</strong> (<em>int</em>) &#8211; Green value (0 - 255)</li>
-<li><strong>blue</strong> (<em>int</em>) &#8211; Blue value (0 - 255)</li>
+<li><strong>row</strong> (<em>int</em>) – Row of the LED to set</li>
+<li><strong>column</strong> (<em>int</em>) – Column of the LED to set</li>
+<li><strong>red</strong> (<em>int</em>) – Red value (0 - 255)</li>
+<li><strong>green</strong> (<em>int</em>) – Green value (0 - 255)</li>
+<li><strong>blue</strong> (<em>int</em>) – Blue value (0 - 255)</li>
 </ul>
 </td>
 </tr>
@@ -124,9 +126,9 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>red</strong> (<em>int</em>) &#8211; Red value (0 - 255)</li>
-<li><strong>green</strong> (<em>int</em>) &#8211; Green value (0 - 255)</li>
-<li><strong>blue</strong> (<em>int</em>) &#8211; Blue value (0 - 255)</li>
+<li><strong>red</strong> (<em>int</em>) – Red value (0 - 255)</li>
+<li><strong>green</strong> (<em>int</em>) – Green value (0 - 255)</li>
+<li><strong>blue</strong> (<em>int</em>) – Blue value (0 - 255)</li>
 </ul>
 </td>
 </tr>
@@ -143,9 +145,9 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>red</strong> (<em>int</em>) &#8211; Red value (0 - 255)</li>
-<li><strong>green</strong> (<em>int</em>) &#8211; Green value (0 - 255)</li>
-<li><strong>blue</strong> (<em>int</em>) &#8211; Blue value (0 - 255)</li>
+<li><strong>red</strong> (<em>int</em>) – Red value (0 - 255)</li>
+<li><strong>green</strong> (<em>int</em>) – Green value (0 - 255)</li>
+<li><strong>blue</strong> (<em>int</em>) – Blue value (0 - 255)</li>
 </ul>
 </td>
 </tr>
@@ -161,7 +163,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>state</strong> (<em>int</em>) &#8211; Can either be 0 (RUN TIME) or 1 (RUN MANUAL)</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>state</strong> (<em>int</em>) – Can either be 0 (RUN TIME) or 1 (RUN MANUAL)</td>
 </tr>
 </tbody>
 </table>
@@ -176,7 +178,7 @@ time.localtime() function to grab the current time from your computer.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>time_override_arr</strong> (<em>list</em>) &#8211; List (in the format [hour, min, sec]) if you want to
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>time_override_arr</strong> (<em>list</em>) – List (in the format [hour, min, sec]) if you want to
 override the local time on your machine.</td>
 </tr>
 </tbody>
@@ -216,7 +218,7 @@ override the local time on your machine.</td>
 
 <dl class="method">
 <dt id="binaryClockGUI.BinaryClockGUI.disconnect">
-<code class="descname">disconnect</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/binaryClockGUI.html#BinaryClockGUI.disconnect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#binaryClockGUI.BinaryClockGUI.disconnect" title="Permalink to this definition">¶</a></dt>
+<code class="descname">disconnect</code><span class="sig-paren">(</span><em>raise_error_dialog=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/binaryClockGUI.html#BinaryClockGUI.disconnect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#binaryClockGUI.BinaryClockGUI.disconnect" title="Permalink to this definition">¶</a></dt>
 <dd><p>Disconnect the binary clock by closing communication, deleting the binaryClock
 object, and resetting the GUI elements to the disconnected state.</p>
 </dd></dl>
@@ -276,26 +278,26 @@ time override checkbox is toggled.</p>
 </div>
 <div class="section" id="module-CustomGUIWrappers">
 <span id="gui-helper-functions"></span><h2>GUI Helper Functions<a class="headerlink" href="#module-CustomGUIWrappers" title="Permalink to this headline">¶</a></h2>
-<p>Custom wrappers around Tkinter classes &amp; functions</p>
+<p>Custom wrappers around Tkinter classes &amp; functions.</p>
 <div class="section" id="checkbox-class">
 <h3>CheckBox Class<a class="headerlink" href="#checkbox-class" title="Permalink to this headline">¶</a></h3>
 <dl class="class">
 <dt id="CustomGUIWrappers.CheckBox">
-<em class="property">class </em><code class="descclassname">CustomGUIWrappers.</code><code class="descname">CheckBox</code><span class="sig-paren">(</span><em>master</em>, <em>row</em>, <em>column</em>, <em>callback_funct=None</em>, <em>cb_text=''</em>, <em>padx=3</em>, <em>pady=3</em>, <em>columnspan=1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CustomGUIWrappers.html#CheckBox"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#CustomGUIWrappers.CheckBox" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">CustomGUIWrappers.</code><code class="descname">CheckBox</code><span class="sig-paren">(</span><em>master</em>, <em>row</em>, <em>column</em>, <em>callback_funct=None</em>, <em>cb_text=”</em>, <em>padx=3</em>, <em>pady=3</em>, <em>columnspan=1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CustomGUIWrappers.html#CheckBox"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#CustomGUIWrappers.CheckBox" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class for creating a checkbox. Used when you need a boolean decision from the user.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>master</strong> &#8211; This is the root variable of the GUI. (<em>tk.TK()</em>)</li>
-<li><strong>row</strong> (<em>int</em>) &#8211; what row the check box is put into.</li>
-<li><strong>column</strong> (<em>int</em>) &#8211; what column the check box is put into.</li>
-<li><strong>true_callback_funct</strong> (<em>funct</em>) &#8211; This function is called when the box is checked by the user.</li>
-<li><strong>false_callback_funct</strong> (<em>funct</em>) &#8211; This function is called when the box is unchecked by the user.</li>
-<li><strong>cb_text</strong> (<em>str</em>) &#8211; this is the label for the check box. [default: &#8220;&#8221;]</li>
-<li><strong>padx</strong> (<em>int</em>) &#8211; This is how much x axis padding is given to the check box. [default: 3 px]</li>
-<li><strong>pady</strong> (<em>int</em>) &#8211; This is how much y axis padding is given to the check box. [default: 3 px]</li>
+<li><strong>master</strong> – This is the root variable of the GUI. (<em>tk.TK()</em>)</li>
+<li><strong>row</strong> (<em>int</em>) – what row the check box is put into.</li>
+<li><strong>column</strong> (<em>int</em>) – what column the check box is put into.</li>
+<li><strong>true_callback_funct</strong> (<em>funct</em>) – This function is called when the box is checked by the user.</li>
+<li><strong>false_callback_funct</strong> (<em>funct</em>) – This function is called when the box is unchecked by the user.</li>
+<li><strong>cb_text</strong> (<em>str</em>) – this is the label for the check box. [default: “”]</li>
+<li><strong>padx</strong> (<em>int</em>) – This is how much x axis padding is given to the check box. [default: 3 px]</li>
+<li><strong>pady</strong> (<em>int</em>) – This is how much y axis padding is given to the check box. [default: 3 px]</li>
 </ul>
 </td>
 </tr>
@@ -304,7 +306,7 @@ time override checkbox is toggled.</p>
 <dl class="method">
 <dt id="CustomGUIWrappers.CheckBox.activate">
 <code class="descname">activate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CustomGUIWrappers.html#CheckBox.activate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#CustomGUIWrappers.CheckBox.activate" title="Permalink to this definition">¶</a></dt>
-<dd><p>Activates the check box to allow the user to change it&#8217;s value.</p>
+<dd><p>Activates the check box to allow the user to change it’s value.</p>
 </dd></dl>
 
 <dl class="method">
@@ -317,7 +319,7 @@ time override checkbox is toggled.</p>
 <dl class="method">
 <dt id="CustomGUIWrappers.CheckBox.deactivate">
 <code class="descname">deactivate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CustomGUIWrappers.html#CheckBox.deactivate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#CustomGUIWrappers.CheckBox.deactivate" title="Permalink to this definition">¶</a></dt>
-<dd><p>Deactivates the check box to prevent the user from changing it&#8217;s value.</p>
+<dd><p>Deactivates the check box to prevent the user from changing it’s value.</p>
 </dd></dl>
 
 <dl class="method">
@@ -333,23 +335,23 @@ time override checkbox is toggled.</p>
 <h3>EntryBox Class<a class="headerlink" href="#entrybox-class" title="Permalink to this headline">¶</a></h3>
 <dl class="class">
 <dt id="CustomGUIWrappers.EntryBox">
-<em class="property">class </em><code class="descclassname">CustomGUIWrappers.</code><code class="descname">EntryBox</code><span class="sig-paren">(</span><em>master</em>, <em>row</em>, <em>column</em>, <em>default_val=''</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CustomGUIWrappers.html#EntryBox"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#CustomGUIWrappers.EntryBox" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">CustomGUIWrappers.</code><code class="descname">EntryBox</code><span class="sig-paren">(</span><em>master</em>, <em>row</em>, <em>column</em>, <em>default_val=”</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CustomGUIWrappers.html#EntryBox"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#CustomGUIWrappers.EntryBox" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class for creating an Entry box. Used when you need a string input from the user.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>master</strong> &#8211; This is the root variable of the GUI. (<em>tk.TK()</em>)</li>
-<li><strong>row</strong> (<em>int</em>) &#8211; what row the entry box is put into.</li>
-<li><strong>column</strong> (<em>int</em>) &#8211; what column the entry box is put into.</li>
-<li><strong>default_val</strong> (<em>str</em>) &#8211; String that first populates the box. [default: &#8220;&#8221;]</li>
-<li><strong>**padx</strong> (<em>int</em>) &#8211; This is how much x axis padding is given to the entry box. [default: 3 px]</li>
-<li><strong>**pady</strong> (<em>int</em>) &#8211; This is how much y axis padding is given to the entry box. [default: 3 px]</li>
-<li><strong>**box_width</strong> (<em>int</em>) &#8211; Sets how wide the input box is [default: 20 px]</li>
-<li><strong>**state</strong> (<em>str</em>) &#8211; Sets the state of the entry box (disabled, readonly, etc.) [default: &#8220;active&#8221;]</li>
-<li><strong>**sticky</strong> &#8211; Sets which side of the cell the Entry box sticks to. (e.g. tk.E) [default: &#8220;&#8221;]</li>
-<li><strong>**justify</strong> &#8211; Sets how the text in the Entry box aligns. [default: tk.LEFT]</li>
+<li><strong>master</strong> – This is the root variable of the GUI. (<em>tk.TK()</em>)</li>
+<li><strong>row</strong> (<em>int</em>) – what row the entry box is put into.</li>
+<li><strong>column</strong> (<em>int</em>) – what column the entry box is put into.</li>
+<li><strong>default_val</strong> (<em>str</em>) – String that first populates the box. [default: “”]</li>
+<li><strong>**padx</strong> (<em>int</em>) – This is how much x axis padding is given to the entry box. [default: 3 px]</li>
+<li><strong>**pady</strong> (<em>int</em>) – This is how much y axis padding is given to the entry box. [default: 3 px]</li>
+<li><strong>**box_width</strong> (<em>int</em>) – Sets how wide the input box is [default: 20 px]</li>
+<li><strong>**state</strong> (<em>str</em>) – Sets the state of the entry box (disabled, readonly, etc.) [default: “active”]</li>
+<li><strong>**sticky</strong> – Sets which side of the cell the Entry box sticks to. (e.g. tk.E) [default: “”]</li>
+<li><strong>**justify</strong> – Sets how the text in the Entry box aligns. [default: tk.LEFT]</li>
 </ul>
 </td>
 </tr>
@@ -358,19 +360,19 @@ time override checkbox is toggled.</p>
 <dl class="method">
 <dt id="CustomGUIWrappers.EntryBox.activate">
 <code class="descname">activate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CustomGUIWrappers.html#EntryBox.activate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#CustomGUIWrappers.EntryBox.activate" title="Permalink to this definition">¶</a></dt>
-<dd><p>Activates the entry box to allow the user to change it&#8217;s value.</p>
+<dd><p>Activates the entry box to allow the user to change it’s value.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="CustomGUIWrappers.EntryBox.deactivate">
 <code class="descname">deactivate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CustomGUIWrappers.html#EntryBox.deactivate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#CustomGUIWrappers.EntryBox.deactivate" title="Permalink to this definition">¶</a></dt>
-<dd><p>Deactivates the entry box to prevent the user from changing it&#8217;s value.</p>
+<dd><p>Deactivates the entry box to prevent the user from changing it’s value.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="CustomGUIWrappers.EntryBox.focus">
 <code class="descname">focus</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CustomGUIWrappers.html#EntryBox.focus"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#CustomGUIWrappers.EntryBox.focus" title="Permalink to this definition">¶</a></dt>
-<dd><p>Moves the user&#8217;s cursor to this box.</p>
+<dd><p>Moves the user’s cursor to this box.</p>
 </dd></dl>
 
 <dl class="method">
@@ -405,18 +407,18 @@ time override checkbox is toggled.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>master</strong> &#8211; This is the root variable of the GUI. (<em>tk.TK()</em>)</li>
-<li><strong>row</strong> (<em>int</em>) &#8211; what row the dropdown is put into.</li>
-<li><strong>column</strong> (<em>int</em>) &#8211; what column the dropdown is put into.</li>
-<li><strong>*values</strong> (<em>list</em>) &#8211; String list that populates the options.</li>
-<li><strong>**padx</strong> (<em>int</em>) &#8211; This is how much x axis padding is given to the dropdown box. [default: 3 px]</li>
-<li><strong>**pady</strong> (<em>int</em>) &#8211; This is how much y axis padding is given to the dropdown box. [default: 3 px]</li>
-<li><strong>**sticky</strong> (<em>int</em>) &#8211; Sets where the dropdown box populates in it&#8217;s cell. [default: None]</li>
-<li><strong>**columnspan</strong> (<em>int</em>) &#8211; Sets how many columns the label spans. [default: 1]</li>
-<li><strong>**trace_callback</strong> (<em>funct</em>) &#8211; Callback function for when the dropdown variable has been changed.
+<li><strong>master</strong> – This is the root variable of the GUI. (<em>tk.TK()</em>)</li>
+<li><strong>row</strong> (<em>int</em>) – what row the dropdown is put into.</li>
+<li><strong>column</strong> (<em>int</em>) – what column the dropdown is put into.</li>
+<li><strong>*values</strong> (<em>list</em>) – String list that populates the options.</li>
+<li><strong>**padx</strong> (<em>int</em>) – This is how much x axis padding is given to the dropdown box. [default: 3 px]</li>
+<li><strong>**pady</strong> (<em>int</em>) – This is how much y axis padding is given to the dropdown box. [default: 3 px]</li>
+<li><strong>**sticky</strong> (<em>int</em>) – Sets where the dropdown box populates in it’s cell. [default: None]</li>
+<li><strong>**columnspan</strong> (<em>int</em>) – Sets how many columns the label spans. [default: 1]</li>
+<li><strong>**trace_callback</strong> (<em>funct</em>) – Callback function for when the dropdown variable has been changed.
 [default: None]</li>
-<li><strong>**bind_callback</strong> (<em>funct</em>) &#8211; Callback function binded to the key <em>bind_key</em>. [default: None]</li>
-<li><strong>**bind_key</strong> (<em>str</em>) &#8211; Key that binds the function <em>bind_callback</em>. [default: None]</li>
+<li><strong>**bind_callback</strong> (<em>funct</em>) – Callback function binded to the key <em>bind_key</em>. [default: None]</li>
+<li><strong>**bind_key</strong> (<em>str</em>) – Key that binds the function <em>bind_callback</em>. [default: None]</li>
 </ul>
 </td>
 </tr>
@@ -425,19 +427,19 @@ time override checkbox is toggled.</p>
 <dl class="method">
 <dt id="CustomGUIWrappers.Dropdown.activate">
 <code class="descname">activate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CustomGUIWrappers.html#Dropdown.activate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#CustomGUIWrappers.Dropdown.activate" title="Permalink to this definition">¶</a></dt>
-<dd><p>Activates the box to allow the user to change it&#8217;s value.</p>
+<dd><p>Activates the box to allow the user to change it’s value.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="CustomGUIWrappers.Dropdown.deactivate">
 <code class="descname">deactivate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CustomGUIWrappers.html#Dropdown.deactivate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#CustomGUIWrappers.Dropdown.deactivate" title="Permalink to this definition">¶</a></dt>
-<dd><p>Deactivates the box to prevent the user from changing it&#8217;s value.</p>
+<dd><p>Deactivates the box to prevent the user from changing it’s value.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="CustomGUIWrappers.Dropdown.focus">
 <code class="descname">focus</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CustomGUIWrappers.html#Dropdown.focus"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#CustomGUIWrappers.Dropdown.focus" title="Permalink to this definition">¶</a></dt>
-<dd><p>Moves the user&#8217;s cursor to this box.</p>
+<dd><p>Moves the user’s cursor to this box.</p>
 </dd></dl>
 
 <dl class="method">
@@ -481,14 +483,14 @@ when we need them to be invisable or visable, respectively.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>master</strong> &#8211; This is the root variable of the GUI. (<em>tk.TK()</em>)</li>
-<li><strong>row</strong> (<em>int</em>) &#8211; what row the label is put into.</li>
-<li><strong>column</strong> (<em>int</em>) &#8211; what column the label is put into.</li>
-<li><strong>default_val</strong> (<em>str</em>) &#8211; String that first populates the box. [default: &#8220;&#8221;]</li>
-<li><strong>**padx</strong> (<em>int</em>) &#8211; This is how much x axis padding is given to the check box. [default: 3 px]</li>
-<li><strong>**pady</strong> (<em>int</em>) &#8211; This is how much y axis padding is given to the check box. [default: 0 px]</li>
-<li><strong>**columnspan</strong> (<em>int</em>) &#8211; Sets how many columns the label spans. [default: 1]</li>
-<li><strong>**sticky</strong> (<em>int</em>) &#8211; Sets where the dropdown box populates in it&#8217;s cell. [default: None]</li>
+<li><strong>master</strong> – This is the root variable of the GUI. (<em>tk.TK()</em>)</li>
+<li><strong>row</strong> (<em>int</em>) – what row the label is put into.</li>
+<li><strong>column</strong> (<em>int</em>) – what column the label is put into.</li>
+<li><strong>default_val</strong> (<em>str</em>) – String that first populates the box. [default: “”]</li>
+<li><strong>**padx</strong> (<em>int</em>) – This is how much x axis padding is given to the check box. [default: 3 px]</li>
+<li><strong>**pady</strong> (<em>int</em>) – This is how much y axis padding is given to the check box. [default: 0 px]</li>
+<li><strong>**columnspan</strong> (<em>int</em>) – Sets how many columns the label spans. [default: 1]</li>
+<li><strong>**sticky</strong> (<em>int</em>) – Sets where the dropdown box populates in it’s cell. [default: None]</li>
 </ul>
 </td>
 </tr>
@@ -526,15 +528,15 @@ when we need them to be invisable or visable, respectively.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>master</strong> &#8211; This is the root variable of the GUI. (<em>tk.TK()</em>)</li>
-<li><strong>row</strong> (<em>int</em>) &#8211; what row the check box is put into.</li>
-<li><strong>column</strong> (<em>int</em>) &#8211; what column the check box is put into.</li>
-<li><strong>min_val</strong> (<em>int</em>) &#8211; Minimum value that the Scroll box can be.</li>
-<li><strong>max_val</strong> (<em>int</em>) &#8211; Maximum value that the Scroll box can be.</li>
-<li><strong>start_val</strong> (<em>int</em>) &#8211; Initial value of the box.</li>
-<li><strong>**padx</strong> (<em>int</em>) &#8211; This is how much x axis padding is given to the check box. [default: 3 px]</li>
-<li><strong>**pady</strong> (<em>int</em>) &#8211; This is how much y axis padding is given to the check box. [default: 3 px]</li>
-<li><strong>**box_width</strong> (<em>int</em>) &#8211; Sets how wide the input box is [default: 19 px]</li>
+<li><strong>master</strong> – This is the root variable of the GUI. (<em>tk.TK()</em>)</li>
+<li><strong>row</strong> (<em>int</em>) – what row the check box is put into.</li>
+<li><strong>column</strong> (<em>int</em>) – what column the check box is put into.</li>
+<li><strong>min_val</strong> (<em>int</em>) – Minimum value that the Scroll box can be.</li>
+<li><strong>max_val</strong> (<em>int</em>) – Maximum value that the Scroll box can be.</li>
+<li><strong>start_val</strong> (<em>int</em>) – Initial value of the box.</li>
+<li><strong>**padx</strong> (<em>int</em>) – This is how much x axis padding is given to the check box. [default: 3 px]</li>
+<li><strong>**pady</strong> (<em>int</em>) – This is how much y axis padding is given to the check box. [default: 3 px]</li>
+<li><strong>**box_width</strong> (<em>int</em>) – Sets how wide the input box is [default: 19 px]</li>
 </ul>
 </td>
 </tr>
@@ -561,13 +563,13 @@ when we need them to be invisable or visable, respectively.</p>
 <dl class="method">
 <dt id="CustomGUIWrappers.ScrollBox.activate">
 <code class="descname">activate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CustomGUIWrappers.html#ScrollBox.activate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#CustomGUIWrappers.ScrollBox.activate" title="Permalink to this definition">¶</a></dt>
-<dd><p>Activates the Scroll box to allow the user to change it&#8217;s value.</p>
+<dd><p>Activates the Scroll box to allow the user to change it’s value.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="CustomGUIWrappers.ScrollBox.deactivate">
 <code class="descname">deactivate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CustomGUIWrappers.html#ScrollBox.deactivate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#CustomGUIWrappers.ScrollBox.deactivate" title="Permalink to this definition">¶</a></dt>
-<dd><p>Deactivates the Scroll box to prevent the user from changing it&#8217;s value.</p>
+<dd><p>Deactivates the Scroll box to prevent the user from changing it’s value.</p>
 </dd></dl>
 
 <dl class="method">
@@ -596,16 +598,16 @@ when we need them to be invisable or visable, respectively.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>master</strong> &#8211; This is the root variable of the GUI. (<em>tk.TK()</em>)</li>
-<li><strong>row</strong> (<em>int</em>) &#8211; what row the check box is put into.</li>
-<li><strong>column</strong> (<em>int</em>) &#8211; what column the check box is put into.</li>
-<li><strong>min_val</strong> (<em>int</em>) &#8211; Minimum value that the Scroll box can be.</li>
-<li><strong>max_val</strong> (<em>int</em>) &#8211; Maximum value that the Scroll box can be.</li>
-<li><strong>start_val</strong> (<em>int</em>) &#8211; Initial value of the box.</li>
-<li><strong>**padx</strong> (<em>int</em>) &#8211; This is how much x axis padding is given to the check box. [default: 3 px]</li>
-<li><strong>**pady</strong> (<em>int</em>) &#8211; This is how much y axis padding is given to the check box. [default: 3 px]</li>
-<li><strong>**columnspan</strong> (<em>int</em>) &#8211; Sets how many columns the label spans. [default: 1]</li>
-<li><strong>**sticky</strong> (<em>int</em>) &#8211; Sets where the dropdown box populates in it&#8217;s cell. [default: None]</li>
+<li><strong>master</strong> – This is the root variable of the GUI. (<em>tk.TK()</em>)</li>
+<li><strong>row</strong> (<em>int</em>) – what row the check box is put into.</li>
+<li><strong>column</strong> (<em>int</em>) – what column the check box is put into.</li>
+<li><strong>min_val</strong> (<em>int</em>) – Minimum value that the Scroll box can be.</li>
+<li><strong>max_val</strong> (<em>int</em>) – Maximum value that the Scroll box can be.</li>
+<li><strong>start_val</strong> (<em>int</em>) – Initial value of the box.</li>
+<li><strong>**padx</strong> (<em>int</em>) – This is how much x axis padding is given to the check box. [default: 3 px]</li>
+<li><strong>**pady</strong> (<em>int</em>) – This is how much y axis padding is given to the check box. [default: 3 px]</li>
+<li><strong>**columnspan</strong> (<em>int</em>) – Sets how many columns the label spans. [default: 1]</li>
+<li><strong>**sticky</strong> (<em>int</em>) – Sets where the dropdown box populates in it’s cell. [default: None]</li>
 </ul>
 </td>
 </tr>
@@ -614,13 +616,13 @@ when we need them to be invisable or visable, respectively.</p>
 <dl class="method">
 <dt id="CustomGUIWrappers.Button.activate">
 <code class="descname">activate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CustomGUIWrappers.html#Button.activate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#CustomGUIWrappers.Button.activate" title="Permalink to this definition">¶</a></dt>
-<dd><p>Activates the button to allow the user to change it&#8217;s state.</p>
+<dd><p>Activates the button to allow the user to change it’s state.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="CustomGUIWrappers.Button.deactivate">
 <code class="descname">deactivate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CustomGUIWrappers.html#Button.deactivate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#CustomGUIWrappers.Button.deactivate" title="Permalink to this definition">¶</a></dt>
-<dd><p>Deactivates the button to prevent the user from changing it&#8217;s state.</p>
+<dd><p>Deactivates the button to prevent the user from changing it’s state.</p>
 </dd></dl>
 
 </dd></dl>
@@ -630,21 +632,21 @@ when we need them to be invisable or visable, respectively.</p>
 <h3>TimeEntry Class<a class="headerlink" href="#timeentry-class" title="Permalink to this headline">¶</a></h3>
 <dl class="class">
 <dt id="CustomGUIWrappers.TimeEntry">
-<em class="property">class </em><code class="descclassname">CustomGUIWrappers.</code><code class="descname">TimeEntry</code><span class="sig-paren">(</span><em>master</em>, <em>row</em>, <em>column</em>, <em>padx=3</em>, <em>pady=3</em>, <em>default_val_dict={'second': 42</em>, <em>'minute': 30</em>, <em>'hour': 12}</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CustomGUIWrappers.html#TimeEntry"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#CustomGUIWrappers.TimeEntry" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">CustomGUIWrappers.</code><code class="descname">TimeEntry</code><span class="sig-paren">(</span><em>master</em>, <em>row</em>, <em>column</em>, <em>padx=3</em>, <em>pady=3</em>, <em>default_val_dict={‘second’: 42</em>, <em>’minute’: 30</em>, <em>’hour’: 12}</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CustomGUIWrappers.html#TimeEntry"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#CustomGUIWrappers.TimeEntry" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class for creating a time enry box. Used when you need a time input from the user.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>master</strong> &#8211; This is the root variable of the GUI. (<em>tk.TK()</em>)</li>
-<li><strong>row</strong> (<em>int</em>) &#8211; what row the check box is put into.</li>
-<li><strong>column</strong> (<em>int</em>) &#8211; what column the check box is put into.</li>
-<li><strong>default_val_dict</strong> (<em>dict</em>) &#8211; Dictionary of values that first populates the boxes.
-[default: {&#8220;hour&#8221;: 12, &#8220;minute&#8221;: 30, &#8220;second&#8221;: 42}]</li>
-<li><strong>padx</strong> (<em>int</em>) &#8211; This is how much x axis padding is given to the check box. [default: 3 px]</li>
-<li><strong>pady</strong> (<em>int</em>) &#8211; This is how much y axis padding is given to the check box. [default: 3 px]</li>
-<li><strong>box_width</strong> (<em>int</em>) &#8211; Sets how wide the input box is [default: 20 px]</li>
+<li><strong>master</strong> – This is the root variable of the GUI. (<em>tk.TK()</em>)</li>
+<li><strong>row</strong> (<em>int</em>) – what row the check box is put into.</li>
+<li><strong>column</strong> (<em>int</em>) – what column the check box is put into.</li>
+<li><strong>default_val_dict</strong> (<em>dict</em>) – Dictionary of values that first populates the boxes.
+[default: {“hour”: 12, “minute”: 30, “second”: 42}]</li>
+<li><strong>padx</strong> (<em>int</em>) – This is how much x axis padding is given to the check box. [default: 3 px]</li>
+<li><strong>pady</strong> (<em>int</em>) – This is how much y axis padding is given to the check box. [default: 3 px]</li>
+<li><strong>box_width</strong> (<em>int</em>) – Sets how wide the input box is [default: 20 px]</li>
 </ul>
 </td>
 </tr>
@@ -722,7 +724,7 @@ when we need them to be invisable or visable, respectively.</p>
         <div class="sphinxsidebarwrapper">
   <h3><a href="#">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Welcome to Binary Clock Software&#8217;s documentation!</a><ul>
+<li><a class="reference internal" href="#">Welcome to Binary Clock Software’s documentation!</a><ul>
 <li><a class="reference internal" href="#module-binaryClockAPI">Binary Clock Python API</a><ul>
 <li><a class="reference internal" href="#binaryclockapi-class">BinaryClockAPI Class</a></li>
 </ul>
@@ -755,7 +757,7 @@ when we need them to be invisable or visable, respectively.</p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/index.txt"
+      <li><a href="_sources/index.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -777,11 +779,11 @@ when we need them to be invisable or visable, respectively.</p>
       &copy;2016, Tyler Holmes.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.6</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |
-      <a href="_sources/index.txt"
+      <a href="_sources/index.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

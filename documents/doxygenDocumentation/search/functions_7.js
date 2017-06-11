@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['timer_5fcounter_5finit',['timer_counter_init',['../timer__4313_8c.html#ad38c4c39274e489ea9695f322a15f931',1,'timer_4313.c']]],
-  ['timer_5finit',['timer_init',['../timer__4313_8c.html#a1e462ddd3000b56cfe8e0864a0bd23c6',1,'timer_init(volatile uint8_t *counter_var_ptr):&#160;timer_4313.c'],['../timer__4313_8h.html#a1e462ddd3000b56cfe8e0864a0bd23c6',1,'timer_init(volatile uint8_t *counter_var_ptr):&#160;timer_4313.c']]],
-  ['timer_5fmillis_5fget',['timer_millis_get',['../timer__4313_8c.html#ace085dcdf0d5df73d35e30c04f2b6805',1,'timer_millis_get(void):&#160;timer_4313.c'],['../timer__4313_8h.html#ace085dcdf0d5df73d35e30c04f2b6805',1,'timer_millis_get(void):&#160;timer_4313.c']]],
-  ['timer_5fmillis_5finit',['timer_millis_init',['../timer__4313_8c.html#a23f1f165abacfb6fea8832262a59d52a',1,'timer_4313.c']]]
+  ['save_5fcolors',['save_colors',['../color_8c.html#a29f1336fd73ff22439cc7b756e34d939',1,'save_colors(LED_color_t *color_ptr):&#160;color.c'],['../color_8h.html#a29f1336fd73ff22439cc7b756e34d939',1,'save_colors(LED_color_t *color_ptr):&#160;color.c']]],
+  ['set_5fscl',['set_SCL',['../i2c__drvr__4313_8c.html#a460f98541cea4aae9f8d10c4065f9d88',1,'i2c_drvr_4313.c']]],
+  ['set_5fsda',['set_SDA',['../i2c__drvr__4313_8c.html#a5f9de88238d0a4dbae2bb820bd3af2c3',1,'i2c_drvr_4313.c']]]
 ];

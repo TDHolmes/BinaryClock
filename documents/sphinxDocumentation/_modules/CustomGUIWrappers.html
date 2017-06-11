@@ -1,6 +1,6 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
@@ -17,14 +17,15 @@
         VERSION:     '1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="Binary Clock Software 1 documentation" href="../index.html" />
-    <link rel="up" title="Module code" href="index.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -32,7 +33,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head>
-  <body role="document">
+  <body>
   
 
     <div class="document">
@@ -42,30 +43,13 @@
             
   <h1>Source code for CustomGUIWrappers</h1><div class="highlight"><pre>
 <span></span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">Custom wrappers around Tkinter classes &amp; functions</span>
+<span class="sd">Custom wrappers around Tkinter classes &amp; functions.</span>
 <span class="sd">&#39;&#39;&#39;</span>
 
 <span class="c1"># tk stuff</span>
 <span class="kn">import</span> <span class="nn">Tkinter</span> <span class="k">as</span> <span class="nn">tk</span>
 <span class="kn">import</span> <span class="nn">tkMessageBox</span> <span class="k">as</span> <span class="nn">messagebox</span>
 <span class="kn">import</span> <span class="nn">ttk</span>
-
-
-<span class="c1"># working on being more object oriented about these things...</span>
-<span class="c1"># class BaseWidget:</span>
-<span class="c1">#     def __init__(self, master, row, column, style, **kwargs):</span>
-<span class="c1">#         self.row = row</span>
-<span class="c1">#         self.column = column</span>
-<span class="c1">#         self.style = style</span>
-<span class="c1">#         self.root = master</span>
-<span class="c1">#         self.padx = kwargs.get(&quot;padx&quot;, 3)</span>
-<span class="c1">#         self.pady = kwargs.get(&quot;pady&quot;, 3)</span>
-<span class="c1">#         self.box_width = kwargs.get(&quot;box_width&quot;, 20)</span>
-<span class="c1">#         self.state = kwargs.get(&quot;state&quot;, &quot;active&quot;)</span>
-<span class="c1">#         self.sticky = kwargs.get(&quot;sticky&quot;, &quot;&quot;)</span>
-<span class="c1">#         self.justify = kwargs.get(&quot;justify&quot;, tk.LEFT)</span>
-
-<span class="c1">#     def</span>
 
 
 <div class="viewcode-block" id="CheckBox"><a class="viewcode-back" href="../index.html#CustomGUIWrappers.CheckBox">[docs]</a><span class="k">class</span> <span class="nc">CheckBox</span><span class="p">:</span>
@@ -686,8 +670,8 @@
       &copy;2016, Tyler Holmes.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.6</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
     </div>
 
