@@ -40,11 +40,10 @@ check_retcode
 cd BinaryClock
 
 printf "\n\n"
-echo "Adding the changes to git..."
+echo "Adding the changes to git (if any)..."
 git add .
 check_retcode
 git commit -m "[automated script] Updating documentation..."
-check_retcode
 
 printf "\n\n"
 echo "Jumping back to master..."
