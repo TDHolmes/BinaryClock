@@ -1,5 +1,5 @@
 # Binary Clock
-A simple but well designed clock that displays the time in [binary coded decimal][BCD wiki link]
+A simple clock that displays the time in [binary coded decimal][BCD wiki link].
 
 ## PCB
 
