@@ -1,3 +1,8 @@
 *.o
 *.pyc
 */.DS_Store
+
+# ignore documentation output
+documents/doxygenDocumentation/html/*
+documents/doxygenDocumentation/latex/*
+software/build/*
