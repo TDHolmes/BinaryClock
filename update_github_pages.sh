@@ -7,8 +7,12 @@ python documentation_build.py
 
 printf "\n\n"
 echo "copy documentation assets out of the repo..."
-cp -r software/build/html ../sphinxDocumentation
-cp -r documents/doxygenDocumentation/html ../doxygenDocumentation
+cd software/build/html
+cp -r ./ ../../../../sphinxDocumentation
+cd ../../..
+cd documents/doxygenDocumentation/html
+cp -r ./ ../../../../doxygenDocumentation
+cd ../../..
 
 printf "\n\n"
 echo "switch branches..."
