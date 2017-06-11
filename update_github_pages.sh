@@ -20,5 +20,7 @@ git checkout gh-pages
 
 printf "\n\n"
 echo "copy the built documentation into the gh-pages branch..."
-cp -r ../sphinxDocumentation documents
-cp -r ../doxygenDocumentation documents
+cd ..
+cp -r sphinxDocumentation BinaryClock/documents
+cp -r doxygenDocumentation BinaryClock/documents
+cd BinaryClock
