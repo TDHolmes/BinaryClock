@@ -117,9 +117,7 @@ def build_documentation(verbose=False):
 
     os.chdir("documents/doxygenDocumentation")
     stdout, stderr, retcode = run_command("doxygen", verbose)
-    # os.chdir("output/html/")  # Need to double check this
     print("Building software documentation...")
-    # os.chdir("../../")
     os.chdir("../../software/")
     stdout, stderr, retcode = run_command("make html", verbose)
     print("Done!")
