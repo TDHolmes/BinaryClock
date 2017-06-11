@@ -12,9 +12,9 @@ cp -r documents/doxygenDocumentation/html ../doxygenDocumentation
 
 printf "\n\n"
 echo "switch branches..."
-git checkout gh-pages
+# git checkout gh-pages
 
 printf "\n\n"
 echo "copy the built documentation into the gh-pages branch..."
-cp -r ../sphinxDocumentation documents
-cp -r ../doxygenDocumentation documents
+# cp -r ../sphinxDocumentation documents
+# cp -r ../doxygenDocumentation documents
