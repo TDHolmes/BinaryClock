@@ -12,5 +12,5 @@ cp -r documents/doxygenDocumentation/html ../doxygenDocumentation
 git checkout gh-pages
 
 # copy the built documentation into the gh-pages branch
-cp -r ../sphinxDocumentation documents/sphinxDocumentation
-cp -r ../doxygenDocumentation documents/doxygenDocumentation
+cp -r ../sphinxDocumentation documents
+cp -r ../doxygenDocumentation documents
