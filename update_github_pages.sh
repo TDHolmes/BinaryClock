@@ -12,5 +12,5 @@ cp -r documents/doxygenDocumentation/html ../fw_docs
 git checkout gh-pages
 
 # copy the built documentation into the gh-pages branch
-cp -r ../sw_docs software_documentation
-cp -r ../fw_docs firmware_documentation
+cp -r ../sw_docs documents/sphinxDocumentation
+cp -r ../fw_docs documents/doxygenDocumentation
