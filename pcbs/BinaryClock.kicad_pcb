@@ -2,7 +2,7 @@
 
   (general
     (links 274)
-    (no_connects 7)
+    (no_connects 6)
     (area 100.715781 100.6745 180.562086 152.638181)
     (thickness 1.6)
     (drawings 34)
@@ -14,21 +14,21 @@
 
   (page A4)
   (layers
-    (0 F.Cu signal)
-    (31 B.Cu signal)
+    (0 F.Cu signal hide)
+    (31 B.Cu signal hide)
     (32 B.Adhes user hide)
     (33 F.Adhes user hide)
     (34 B.Paste user hide)
-    (35 F.Paste user)
-    (36 B.SilkS user hide)
-    (37 F.SilkS user)
+    (35 F.Paste user hide)
+    (36 B.SilkS user)
+    (37 F.SilkS user hide)
     (38 B.Mask user hide)
     (39 F.Mask user hide)
     (40 Dwgs.User user hide)
     (41 Cmts.User user hide)
     (42 Eco1.User user hide)
     (43 Eco2.User user hide)
-    (44 Edge.Cuts user)
+    (44 Edge.Cuts user hide)
     (45 Margin user hide)
     (46 B.CrtYd user hide)
     (47 F.CrtYd user hide)
@@ -64,7 +64,7 @@
     (aux_axis_origin 97.536 151.257)
     (visible_elements FFFFEF7F)
     (pcbplotparams
-      (layerselection 0x010ef_ffffffff)
+      (layerselection 0x010ff_ffffffff)
       (usegerberextensions false)
       (excludeedgelayer true)
       (linewidth 0.100000)
@@ -1302,10 +1302,10 @@
     )
   )
 
-  (module TylerCustom:CREELED_6 locked (layer B.Cu) (tedit 5743E0C5) (tstamp 574D6788)
+  (module TylerCustom:CREELED_6 locked (layer B.Cu) (tedit 5A3D8932) (tstamp 574D6788)
     (at 135.89 116.84)
     (path /57443821/57444D19)
-    (fp_text reference D_M_8 (at 0 3.81) (layer B.SilkS)
+    (fp_text reference D_M_8 (at 0 3.81) (layer B.SilkS) hide
       (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
     )
     (fp_text value CLY6D-FKC (at 0 5.08) (layer B.Fab)
@@ -1557,10 +1557,10 @@
     )
   )
 
-  (module TylerCustom:CREELED_6 locked (layer B.Cu) (tedit 5743E0C5) (tstamp 5744EAA6)
+  (module TylerCustom:CREELED_6 locked (layer B.Cu) (tedit 5A3D8936) (tstamp 5744EAA6)
     (at 123.19 124.46)
     (path /57443821/57444D2E)
-    (fp_text reference D_S_40 (at 0 3.81) (layer B.SilkS)
+    (fp_text reference D_S_40 (at 0 3.81) (layer B.SilkS) hide
       (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
     )
     (fp_text value CLY6D-FKC (at 0 5.08) (layer B.Fab)
@@ -1585,10 +1585,10 @@
       (net 21 /LED_Sheet/RED_FOU_CAT))
   )
 
-  (module TylerCustom:CREELED_6 locked (layer B.Cu) (tedit 5743E0C5) (tstamp 5744EA7B)
+  (module TylerCustom:CREELED_6 locked (layer B.Cu) (tedit 5A3D893D) (tstamp 5744EA7B)
     (at 123.19 132.08)
     (path /57443821/57444D27)
-    (fp_text reference D_S_20 (at 0 3.81) (layer B.SilkS)
+    (fp_text reference D_S_20 (at 0 3.81) (layer B.SilkS) hide
       (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
     )
     (fp_text value CLY6D-FKC (at 0 5.08) (layer B.Fab)
@@ -1613,10 +1613,10 @@
       (net 18 /LED_Sheet/RED_TWO_CAT))
   )
 
-  (module TylerCustom:CREELED_6 locked (layer B.Cu) (tedit 5743E0C5) (tstamp 5744EA50)
+  (module TylerCustom:CREELED_6 locked (layer B.Cu) (tedit 5A3D8939) (tstamp 5744EA50)
     (at 123.19 139.7)
     (path /57443821/57453629)
-    (fp_text reference D_S_10 (at 0 3.81) (layer B.SilkS)
+    (fp_text reference D_S_10 (at 0 3.81) (layer B.SilkS) hide
       (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
     )
     (fp_text value CLY6D-FKC (at 0 5.08) (layer B.Fab)
@@ -1641,10 +1641,10 @@
       (net 15 /LED_Sheet/RED_ONE_CAT))
   )
 
-  (module TylerCustom:CREELED_6 locked (layer B.Cu) (tedit 5743E0C5) (tstamp 5744EA25)
+  (module TylerCustom:CREELED_6 locked (layer B.Cu) (tedit 5A3D894F) (tstamp 5744EA25)
     (at 114.3 116.84)
     (path /57443821/57444D4A)
-    (fp_text reference D_S_8 (at 0 3.81) (layer B.SilkS)
+    (fp_text reference D_S_8 (at 0 3.81) (layer B.SilkS) hide
       (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
     )
     (fp_text value CLY6D-FKC (at 0 5.08) (layer B.Fab)
@@ -1669,10 +1669,10 @@
       (net 24 /LED_Sheet/RED_EIG_CAT))
   )
 
-  (module TylerCustom:CREELED_6 locked (layer B.Cu) (tedit 5743E0C5) (tstamp 5744E9FA)
+  (module TylerCustom:CREELED_6 locked (layer B.Cu) (tedit 5A3D8948) (tstamp 5744E9FA)
     (at 114.3 124.46)
     (path /57443821/57444D43)
-    (fp_text reference D_S_4 (at 0 3.81) (layer B.SilkS)
+    (fp_text reference D_S_4 (at 0 3.81) (layer B.SilkS) hide
       (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
     )
     (fp_text value CLY6D-FKC (at 0 5.08) (layer B.Fab)
@@ -1697,10 +1697,10 @@
       (net 21 /LED_Sheet/RED_FOU_CAT))
   )
 
-  (module TylerCustom:CREELED_6 locked (layer B.Cu) (tedit 5743E0C5) (tstamp 5744E9CF)
+  (module TylerCustom:CREELED_6 locked (layer B.Cu) (tedit 5A3D8943) (tstamp 5744E9CF)
     (at 114.3 132.08)
     (path /57443821/57444D3C)
-    (fp_text reference D_S_2 (at 0 3.81) (layer B.SilkS)
+    (fp_text reference D_S_2 (at 0 3.81) (layer B.SilkS) hide
       (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
     )
     (fp_text value CLY6D-FKC (at 0 5.08) (layer B.Fab)
@@ -1725,10 +1725,10 @@
       (net 18 /LED_Sheet/RED_TWO_CAT))
   )
 
-  (module TylerCustom:CREELED_6 locked (layer B.Cu) (tedit 5743E0C5) (tstamp 5744E9A4)
+  (module TylerCustom:CREELED_6 locked (layer B.Cu) (tedit 5A3D8953) (tstamp 5744E9A4)
     (at 114.3 139.7)
     (path /57443821/5745362F)
-    (fp_text reference D_S_1 (at 0 3.81) (layer B.SilkS)
+    (fp_text reference D_S_1 (at 0 3.81) (layer B.SilkS) hide
       (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
     )
     (fp_text value CLY6D-FKC (at 0 5.08) (layer B.Fab)
@@ -1753,10 +1753,10 @@
       (net 15 /LED_Sheet/RED_ONE_CAT))
   )
 
-  (module TylerCustom:CREELED_6 locked (layer B.Cu) (tedit 5743E0C5) (tstamp 5744E979)
+  (module TylerCustom:CREELED_6 locked (layer B.Cu) (tedit 5A3D891A) (tstamp 5744E979)
     (at 144.78 124.46)
     (path /57443821/57444CFD)
-    (fp_text reference D_M_40 (at 0 3.81) (layer B.SilkS)
+    (fp_text reference D_M_40 (at 0 3.81) (layer B.SilkS) hide
       (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
     )
     (fp_text value CLY6D-FKC (at 0 5.08) (layer B.Fab)
@@ -1781,10 +1781,10 @@
       (net 21 /LED_Sheet/RED_FOU_CAT))
   )
 
-  (module TylerCustom:CREELED_6 locked (layer B.Cu) (tedit 5743E0C5) (tstamp 5744E94E)
+  (module TylerCustom:CREELED_6 locked (layer B.Cu) (tedit 5A3D8925) (tstamp 5744E94E)
     (at 144.78 132.08)
     (path /57443821/57444CF6)
-    (fp_text reference D_M_20 (at 0 3.81) (layer B.SilkS)
+    (fp_text reference D_M_20 (at 0 3.81) (layer B.SilkS) hide
       (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
     )
     (fp_text value CLY6D-FKC (at 0 5.08) (layer B.Fab)
@@ -1809,10 +1809,10 @@
       (net 18 /LED_Sheet/RED_TWO_CAT))
   )
 
-  (module TylerCustom:CREELED_6 locked (layer B.Cu) (tedit 5743E0C5) (tstamp 5744E923)
+  (module TylerCustom:CREELED_6 locked (layer B.Cu) (tedit 5A3D88FF) (tstamp 5744E923)
     (at 144.78 139.7)
     (path /57443821/5745361D)
-    (fp_text reference D_M_10 (at 0 3.81) (layer B.SilkS)
+    (fp_text reference D_M_10 (at 0 3.81) (layer B.SilkS) hide
       (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
     )
     (fp_text value CLY6D-FKC (at 0 5.08) (layer B.Fab)
@@ -1837,10 +1837,10 @@
       (net 15 /LED_Sheet/RED_ONE_CAT))
   )
 
-  (module TylerCustom:CREELED_6 locked (layer B.Cu) (tedit 5743E0C5) (tstamp 5744E8CD)
+  (module TylerCustom:CREELED_6 locked (layer B.Cu) (tedit 5A3D892A) (tstamp 5744E8CD)
     (at 135.89 124.46)
     (path /57443821/57444D12)
-    (fp_text reference D_M_4 (at 0 3.81) (layer B.SilkS)
+    (fp_text reference D_M_4 (at 0 3.81) (layer B.SilkS) hide
       (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
     )
     (fp_text value CLY6D-FKC (at 0 5.08) (layer B.Fab)
@@ -1865,10 +1865,10 @@
       (net 21 /LED_Sheet/RED_FOU_CAT))
   )
 
-  (module TylerCustom:CREELED_6 locked (layer B.Cu) (tedit 5743E0C5) (tstamp 5744E8A2)
+  (module TylerCustom:CREELED_6 locked (layer B.Cu) (tedit 5A3D892E) (tstamp 5744E8A2)
     (at 135.89 132.08)
     (path /57443821/57444D0B)
-    (fp_text reference D_M_2 (at 0 3.81) (layer B.SilkS)
+    (fp_text reference D_M_2 (at 0 3.81) (layer B.SilkS) hide
       (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
     )
     (fp_text value CLY6D-FKC (at 0 5.08) (layer B.Fab)
@@ -1893,10 +1893,10 @@
       (net 18 /LED_Sheet/RED_TWO_CAT))
   )
 
-  (module TylerCustom:CREELED_6 locked (layer B.Cu) (tedit 5743E0C5) (tstamp 5744E877)
+  (module TylerCustom:CREELED_6 locked (layer B.Cu) (tedit 5A3D891F) (tstamp 5744E877)
     (at 135.89 139.7)
     (path /57443821/57453623)
-    (fp_text reference D_M_1 (at 0 3.81) (layer B.SilkS)
+    (fp_text reference D_M_1 (at 0 3.81) (layer B.SilkS) hide
       (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
     )
     (fp_text value CLY6D-FKC (at 0 5.08) (layer B.Fab)
@@ -1921,10 +1921,10 @@
       (net 15 /LED_Sheet/RED_ONE_CAT))
   )
 
-  (module TylerCustom:CREELED_6 locked (layer B.Cu) (tedit 5743E0C5) (tstamp 5744E84C)
+  (module TylerCustom:CREELED_6 locked (layer B.Cu) (tedit 5A3D88DA) (tstamp 5744E84C)
     (at 165.1 132.08)
     (path /57443821/57444CCC)
-    (fp_text reference D_H_20 (at 0 3.81) (layer B.SilkS)
+    (fp_text reference D_H_20 (at 0 3.81) (layer B.SilkS) hide
       (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
     )
     (fp_text value CLY6D-FKC (at 0 5.08) (layer B.Fab)
@@ -1949,10 +1949,10 @@
       (net 18 /LED_Sheet/RED_TWO_CAT))
   )
 
-  (module TylerCustom:CREELED_6 locked (layer B.Cu) (tedit 5743E0C5) (tstamp 5744E821)
+  (module TylerCustom:CREELED_6 locked (layer B.Cu) (tedit 5A3D88E0) (tstamp 5744E821)
     (at 165.1 139.7)
     (path /57443821/57453611)
-    (fp_text reference D_H_10 (at 0 3.81) (layer B.SilkS)
+    (fp_text reference D_H_10 (at 0 3.81) (layer B.SilkS) hide
       (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
     )
     (fp_text value CLY6D-FKC (at 0 5.08) (layer B.Fab)
@@ -1977,10 +1977,10 @@
       (net 15 /LED_Sheet/RED_ONE_CAT))
   )
 
-  (module TylerCustom:CREELED_6 locked (layer B.Cu) (tedit 5743E0C5) (tstamp 5744E7F6)
+  (module TylerCustom:CREELED_6 locked (layer B.Cu) (tedit 5A3D8903) (tstamp 5744E7F6)
     (at 156.21 116.84)
     (path /57443821/57444CE8)
-    (fp_text reference D_H_8 (at 0 3.81) (layer B.SilkS)
+    (fp_text reference D_H_8 (at 0 3.81) (layer B.SilkS) hide
       (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
     )
     (fp_text value CLY6D-FKC (at 0 5.08) (layer B.Fab)
@@ -2005,10 +2005,10 @@
       (net 24 /LED_Sheet/RED_EIG_CAT))
   )
 
-  (module TylerCustom:CREELED_6 locked (layer B.Cu) (tedit 5743E0C5) (tstamp 5744E7CB)
+  (module TylerCustom:CREELED_6 locked (layer B.Cu) (tedit 5A3D88F4) (tstamp 5744E7CB)
     (at 156.21 124.46)
     (path /57443821/57444CE1)
-    (fp_text reference D_H_4 (at 0 3.81) (layer B.SilkS)
+    (fp_text reference D_H_4 (at 0 3.81) (layer B.SilkS) hide
       (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
     )
     (fp_text value CLY6D-FKC (at 0 5.08) (layer B.Fab)
@@ -2033,10 +2033,10 @@
       (net 21 /LED_Sheet/RED_FOU_CAT))
   )
 
-  (module TylerCustom:CREELED_6 locked (layer B.Cu) (tedit 5743E0C5) (tstamp 5744E7A0)
+  (module TylerCustom:CREELED_6 locked (layer B.Cu) (tedit 5A3D88EC) (tstamp 5744E7A0)
     (at 156.21 132.08)
     (path /57443821/57444CDA)
-    (fp_text reference D_H_2 (at 0 3.81) (layer B.SilkS)
+    (fp_text reference D_H_2 (at 0 3.81) (layer B.SilkS) hide
       (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
     )
     (fp_text value CLY6D-FKC (at 0 5.08) (layer B.Fab)
@@ -2061,10 +2061,10 @@
       (net 18 /LED_Sheet/RED_TWO_CAT))
   )
 
-  (module TylerCustom:CREELED_6 locked (layer B.Cu) (tedit 5743E0C5) (tstamp 5744E775)
+  (module TylerCustom:CREELED_6 locked (layer B.Cu) (tedit 5A3D88E6) (tstamp 5744E775)
     (at 156.21 139.7)
     (path /57443821/57453617)
-    (fp_text reference D_H_1 (at 0 3.81) (layer B.SilkS)
+    (fp_text reference D_H_1 (at 0 3.81) (layer B.SilkS) hide
       (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
     )
     (fp_text value CLY6D-FKC (at 0 5.08) (layer B.Fab)

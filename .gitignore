@@ -7,4 +7,6 @@ documents/doxygenDocumentation/html/*
 documents/doxygenDocumentation/latex/*
 software/build/*
 
+# KiCad / Gerber outputs
 *.kicad_pcb-bak
+pcbs/gerbs/*
