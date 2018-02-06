@@ -1,7 +1,7 @@
+#!/usr/bin/env python
 '''
 API functions for interfacing with the Binary Clock
 '''
-
 import serial
 import time
 import os
@@ -9,6 +9,10 @@ import sys
 import binascii
 import struct
 import glob
+
+# just for my python3 linter to shut up...
+if sys.version_info.major == 3:
+    raw_input = input
 
 
 class BinaryClockAPI:
@@ -181,23 +185,23 @@ def run_as_main():
     options = {"Set Led": 0, "Clear Led": 1, "Clear All Led": 2, "Set All Led": 3,
                "Set Time": 4, "Set Color": 5, "Change State": 6}
     os.system('cls' if os.name == 'nt' else 'clear')
-    print "finding ports"
+    print("finding ports")
     available_ports = get_available_serial_ports()
-    print "Available ports:"
+    print("Available ports:")
     for ind, port in enumerate(available_ports):
-        print "  {:}: {:}".format(ind, port)
+        print("  {:}: {:}".format(ind, port))
     port_ind = int(raw_input("Select port: "))
     serialport = available_ports[port_ind]
     bc_obj = BinaryClockAPI(serial_port=serialport)
     while True:
-        print "0. Set Led"
-        print "1. Clear Led"
-        print "2. Clear All Led"
-        print "3. Set All Led"
-        print "4. Set Time"
-        print "5. Set Color"
-        print "6. Change State"
-        print ""
+        print("0. Set Led")
+        print("1. Clear Led")
+        print("2. Clear All Led")
+        print("3. Set All Led")
+        print("4. Set Time")
+        print("5. Set Color")
+        print("6. Change State")
+        print("")
         command_number = raw_input("Command Number: ")
         cmd_num = int(command_number)
         if cmd_num == options["Set Led"]:
@@ -208,24 +212,24 @@ def run_as_main():
             green_val = int(raw_input("   green val [0-255]: "))
             blue_val = int(raw_input("   blue val [0-255]: "))
             retval = bc_obj.set_LED(row, column, red_val, green_val, blue_val)
-            print "retval = 0x{:} (len = {:})".format(binascii.hexlify(retval), len(retval))
+            print("retval = 0x{:} (len = {:})".format(binascii.hexlify(retval), len(retval)))
         elif cmd_num == options["Clear Led"]:
             # Clear an LED to 0
             row = int(raw_input("   row: "))
             column = int(raw_input("   column: "))
             retval = bc_obj.clear_LED(row, column)
-            print "retval = 0x{:} (len = {:})".format(binascii.hexlify(retval), len(retval))
+            print("retval = 0x{:} (len = {:})".format(binascii.hexlify(retval), len(retval)))
         elif cmd_num == options["Clear All Led"]:
             # Clear ALL LEDs
             retval = bc_obj.clear_all_LEDs()
-            print "retval = 0x{:} (len = {:})".format(binascii.hexlify(retval), len(retval))
+            print("retval = 0x{:} (len = {:})".format(binascii.hexlify(retval), len(retval)))
         elif cmd_num == options["Set All Led"]:
             # Set ALL LEDs to a color
             red_val = int(raw_input("   red val [0-255]: "))
             green_val = int(raw_input("   green val [0-255]: "))
             blue_val = int(raw_input("   blue val [0-255]: "))
             retval = bc_obj.set_all_LEDs(red_val, green_val, blue_val)
-            print "retval = 0x{:} (len = {:})".format(binascii.hexlify(retval), len(retval))
+            print("retval = 0x{:} (len = {:})".format(binascii.hexlify(retval), len(retval)))
         elif cmd_num == options["Set Time"]:
             # Set the time to the current
             override = raw_input("   Manual time? (Y/n): ").lower()
@@ -237,21 +241,21 @@ def run_as_main():
                 retval = bc_obj.update_time(time_override_arr=override_arr)
             else:
                 retval = bc_obj.update_time()
-            print "retval = 0x{:} (len = {:})".format(binascii.hexlify(retval), len(retval))
+            print("retval = 0x{:} (len = {:})".format(binascii.hexlify(retval), len(retval)))
         elif cmd_num == options["Set Color"]:
             # Set the color if the mode is time
             red_val = int(raw_input("   red val [0-255]: "))
             green_val = int(raw_input("   green val [0-255]: "))
             blue_val = int(raw_input("   blue val [0-255]: "))
             retval = bc_obj.set_color(red_val, green_val, blue_val)
-            print "retval = 0x{:} (len = {:})".format(binascii.hexlify(retval), len(retval))
+            print("retval = 0x{:} (len = {:})".format(binascii.hexlify(retval), len(retval)))
         elif cmd_num == options["Change State"]:
             # change the state
-            print "  run by time state: enter 0"
-            print "  run by manual state: enter 1"
+            print("  run by time state: enter 0")
+            print("  run by manual state: enter 1")
             state = int(raw_input("   State: "))
             retval = bc_obj.set_state(state)
-            print "retval = 0x{:} (len = {:})".format(binascii.hexlify(retval), len(retval))
+            print("retval = 0x{:} (len = {:})".format(binascii.hexlify(retval), len(retval)))
 
 
 # adapted from http://stackoverflow.com/questions/12090503/listing-available-com-ports-with-python
@@ -269,7 +273,7 @@ def get_available_serial_ports():
         # this excludes your current terminal "/dev/tty"
         ports = glob.glob('/dev/tty[A-Za-z]*')
     elif sys.platform.startswith('darwin'):
-        ports = glob.glob('/dev/tty.usbserial*')
+        ports = glob.glob('/dev/cu.usbserial*')
         return ports
 
     result = []

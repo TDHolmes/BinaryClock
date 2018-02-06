@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import binaryClockAPI
 import time
 
@@ -5,7 +6,7 @@ import time
 def main(port, mode, baudrate=250000, time_delay=0.25):
     modes = ["rainbow all", "rainbow each", "test all", "test each", "set time"]
     DELAY = time_delay
-    BC = binaryClockAPI.BinaryClock(serial_port=port, baud=baudrate)
+    BC = binaryClockAPI.BinaryClockAPI(serial_port=port, baud=baudrate)
     if mode == modes[0]:
         # rainbow all of the LEDs
         BC.set_state(BC.STATE_RUN_MANUAL)
@@ -106,4 +107,4 @@ mode to use the BC tester in. Valid modes are:
 
     args = parser.parse_args()
 
-    main(port="/dev/tty.usbserial-A5047KDG", mode=args.mode)
+    main(port="/dev/cu.usbserial-DN03PHFU", mode=args.mode)

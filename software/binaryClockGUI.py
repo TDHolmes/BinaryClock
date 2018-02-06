@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 '''
 GUI for the Binary Clock API.
 '''
@@ -31,7 +32,7 @@ class BinaryClockGUI:
         self.serial_port_dropdown = Gui.Dropdown(self.root, 0, 1, *ports, columnspan=3, sticky="we",
                                                  bind_callback=self.update_coms_list,
                                                  bind_key="<Button-1>")
-        bauds = [250000, 9600]
+        bauds = [250000, 9600, 9600 / 2, 9600 / 4, 9600 / 8, 9600 / 16]
         Gui.Labels(self.root, 1, 0, "Baudrate:")
         self.serial_baud_dropdown = Gui.Dropdown(self.root, 1, 1, *bauds, sticky="we")
         self.serial_connect_button = Gui.Button(self.root, 1, 2, self.connect, "Connect", columnspan=1)
