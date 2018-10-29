@@ -26,7 +26,7 @@ void timer_millis_init(void);
 
 /*!
  * Initializes the timer structure variables and individual timers.
- * 
+ *
  * @param[in] counter_var_ptr (volatile uint8_t *): pointer to the counter's count variable.
  */
 void timer_init(volatile uint8_t *counter_var_ptr)
@@ -44,7 +44,7 @@ void timer_init(volatile uint8_t *counter_var_ptr)
 
 /*!
  * Initializes the multiplexer timer and requisite interrupts.
- * 
+ *
  * @param[in] counter_var_ptr (volatile uint8_t *): pointer to the counter's count variable.
  */
 void timer_counter_init(volatile uint8_t *counter_var_ptr)
@@ -52,7 +52,7 @@ void timer_counter_init(volatile uint8_t *counter_var_ptr)
     // this timer will use the 8 bit timer
     t_status_ptr->counter_count_ptr = counter_var_ptr;
     // for a multiplexer updating for 4 bit color,
-    // f_osc_timer = (8 MHz)/(2 * 8 * (1 + 173)) = 2.874 kHz 
+    // f_osc_timer = (8 MHz)/(2 * 8 * (1 + 173)) = 2.874 kHz
     //    where 8 is the multiplier, 173 is the target number
     TCCR0A = (1 << WGM01);   // CTC mode (clear timer on compare match)
     TCCR0B = (1 << CS01);    // set CS01 for fosc / 8 prescale
@@ -71,7 +71,7 @@ void timer_millis_init(void)
     // update at 1kHz
     TCCR1B = 0b00001010;  // CTC mode, clock div 8 mode
     // TCCR1B = (1 << X | 1 << Y);
-    OCR1A = 999;          // (8 MHz) / (8 * (1 + 999)) = 1kHz
+    OCR1A = 999;           // (8 MHz) / (8 * (1 + 999)) = 1kHz
     TCNT1 = 0;            // reset the timer
     TIMSK |= (1 << OCIE1A);        // enable an interrupt on OCR1A compare match
     t_status_ptr->millis_count = 0;
@@ -81,7 +81,7 @@ void timer_millis_init(void)
 
 /*!
  * Returns the current value of the millisecond counter.
- * 
+ *
  * @param[out] millis_count (uint32_t): current value of the millis counter.
  */
 uint32_t timer_millis_get(void)
@@ -95,10 +95,10 @@ uint32_t timer_millis_get(void)
  */
 ISR(TIMER1_COMPA_vect)
 {
-    cli();
-    TCNT1 = 0;  // reset the timer
-    OCR1A = 999;  // (8 MHz) / (8 * (1 + 9)) = 1 kHz
     t_status_ptr->millis_count += 1;
+    cli();
+    TCNT1 = 0;                  // reset the timer
+    OCR1A = 999;  // (8 MHz) / (8 * (1 + 999)) = 1 kHz
     sei();
 }
 
@@ -108,9 +108,9 @@ ISR(TIMER1_COMPA_vect)
  */
 ISR(TIMER0_COMPA_vect)
 {
+    *(t_status_ptr->counter_count_ptr) += 1;
     cli();
     TCNT0 = 0;        // reset the timer
     OCR0A = 173;      // output compare to 173 to generate interrupts at 2.874 kHz
-    *(t_status_ptr->counter_count_ptr) += 1;
     sei();
 }

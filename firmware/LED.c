@@ -28,7 +28,7 @@ void LED_init(void)
 
 /*!
  * Updates the time on the RTC chip as well as in the time keeping data structure t_ptr.
- * 
+ *
  * @param[in] t_ptr (rtc_time_t *): Pointer that is used to keep track of the time.
  */
 void LED_update_time(rtc_time_t *t_ptr)
@@ -118,7 +118,7 @@ void LED_run(void)
 
 /*!
  * Clears an LED at the given row & column.
- * 
+ *
  * @param[in] row (uint8_t): row of the LED to clear.
  * @param[in] col (uint8_t): column of the LED to clear.
  */
@@ -132,7 +132,7 @@ void LED_clear(uint8_t row, uint8_t col)
 
 /*!
  * sets the LED at the given index to the given color struct
- * 
+ *
  * @param[in] row  (uint8_t): row of the LED to set.
  * @param[in] col  (uint8_t): column of the LED to set.
  * @param[in] red  (uint8_t): amount of red color to set the LED to.
@@ -145,6 +145,7 @@ void LED_set(uint8_t row, uint8_t col, uint8_t red, uint8_t green, uint8_t blue)
     LED_admin_ptr->LED_array[row][col][GREEN_IND] = green;
     LED_admin_ptr->LED_array[row][col][BLUE_IND] = blue;
 }
+
 
 /*!
  * Clears all of the LEDs.
@@ -164,7 +165,7 @@ void LED_clear_all(void)
 
 /*!
  * sets all of the LEDs to the given color.
- * 
+ *
  * @param[in] red  (uint8_t): amount of red color to set all the LEDs to.
  * @param[in] green (uint8_t): amount of green color to set all the LEDs to.
  * @param[in] blue  (uint8_t): amount of blue color to set all the LEDs to.
@@ -184,7 +185,7 @@ void LED_set_all(uint8_t red, uint8_t blue, uint8_t green)
 
 /*!
  * sets all of the active time LEDs to the given color.
- * 
+ *
  * @param[in] red  (uint8_t): amount of red color to set all the active time LEDs to.
  * @param[in] green (uint8_t): amount of green color to set all the active time LEDs to.
  * @param[in] blue  (uint8_t): amount of blue color to set all the active time LEDs to.

@@ -7,6 +7,7 @@
 #include "timer_4313.h"
 #include "RTC_DS3231.h"
 #include "LED.h"
+// #include "LED_drvr_STP16CPC26.h"
 #include "UART.h"
 #include "i2c.h"
 #include "hardware.h"
@@ -66,6 +67,7 @@ int main(void)
     retval_t retval = GEN_FAIL;
     rtc_time_t time;
     rtc_time_t *t_ptr = &time;
+
     hardware_init();
     LED_init();
     timer_init(&multiplexer_count);
@@ -113,10 +115,13 @@ int main(void)
                 LED_update_time(t_ptr);
             }
         }
+
+        // Run multiplexer of time at 2.874 kHz (what we need for 4 bit color per color)
         if (multiplexer_count != 0) {
             multiplexer_count = 0;
             LED_run();
         }
+
         // // every day, re-check with RTC to update time. Will try for a minute if unsuccessful
         // if (t_ptr->hour == 3 && t_ptr->minute == 0 && time_updated == FALSE) {
         //     retval = RTC_read_time(t_ptr);
@@ -150,7 +155,7 @@ int main(void)
  *       - Sets the color of the LEDs when running in time control mode.
  *   1. UART_CMD_CHANGE_STATE:
  *       - Changes the state the board is running in.
- * 
+ *
  * @param[in] time_ptr (rtc_time_t *): Pointer that is used to keep track of the time.
  * @param[in] cmd_buffer (uint8_t *): Buffer that holds the bytes in the command.
  */
@@ -244,7 +249,7 @@ void process_UART_command(rtc_time_t *time_ptr, uint8_t *cmd_buffer)
 
 /*!
  * Increments the time admin pointer to keep track of the time.
- * 
+ *
  * @param[in] time_ptr (rtc_time_t *): Pointer that is used to keep track of the time.
  * @param[in] inc_ammount (uint8_t): Ammount to increment by.
  */

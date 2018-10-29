@@ -14,7 +14,7 @@
 /*!
  * Initializes the LED driver structure and drives the anode port high to
  * avoid LEDs turning on.
- * 
+ *
  * @param[in] LED_ptr (LED_drvr_t *): pointer to the LED driver structure.
  */
 void LED_drvr_init(LED_drvr_t * LED_ptr)
@@ -28,7 +28,7 @@ void LED_drvr_init(LED_drvr_t * LED_ptr)
 /*!
  * Runs the LED multiplexing code. Generates a bitstream to send to the LED
  * driver, then activates the corresponding column.
- * 
+ *
  * @param[in] LED_ptr (LED_drvr_t *): pointer to the LED driver structure.
  */
 void LED_drvr_run(LED_drvr_t *LED_ptr)
@@ -53,18 +53,20 @@ void LED_drvr_run(LED_drvr_t *LED_ptr)
         bit = (LED_ptr->LED_array[row][LED_ptr->active_column][BLUE_IND] & color_mask) >> LED_ptr->active_color_bit;
         bitstream |= (bit << ((3 - row) * 3 + BLUE_IND));
     }
+
     // clock out the LED bits
     for(i = 0; i < 12; i++) {
         LEDDRV_CLK_SET(0);
         LEDDRV_SDI_SET((bitstream >> i) & 0x0001);
         LEDDRV_CLK_SET(1);
     }
+
     // Turn off LED until everything is set (OE is active low)
     LEDDRV_OE_SET(1);
     // Latch the LED driver data
     LEDDRV_LE_SET(1);
     LEDDRV_LE_SET(0);
-    // disable the previous anode 
+    // disable the previous anode
     if (LED_ptr->active_column == 0) {
         ANO_PORT |= (1 << 6);
     } else {
@@ -79,6 +81,7 @@ void LED_drvr_run(LED_drvr_t *LED_ptr)
     }
     // output the LED driver data
     LEDDRV_OE_SET(0);
+
     // increment the variables in the LED_ptr struct
     if (LED_ptr->active_column < 5) {
         LED_ptr->active_column += 1;
