@@ -7,6 +7,8 @@ A simple but well designed clock that displays the time in [binary coded decimal
 
 The current design uses an Atmel [ATtiny4313][attiny link] microcontroller in conjunction with a Maxim [DS3231M][ds3231m link] [RTC][RTC wiki link] for accurate time keeping. The LEDs are driven with a [STP16CPC26][stp16cpc26 link] constant current LED driver along with [high-side MOSFETs][mosfet wiki link] for [multiplexing][multiplexing wiki link].
 
+![alt text][PCB picture back]
+
 ## LED Driving Scheme
 
 The LEDs are driven by multiplexing the rows and columns. The columns are dirven individually via PMOS transistors. The rows are daisy chained and driven by the [STP16CPC26][stp16cpc26 link]. The columns are refreshed at an effective rate of 360 Hz to be equivallent to 60 Hz refresh rate.
@@ -42,7 +44,8 @@ The user interface communicates to the PCB via a [UART][UART wiki link] through 
 [Multiplex - off]: https://raw.githubusercontent.com/TDHolmes/BinaryClock/master/documents/pictures/binaryClock_multiplexLogic_notOn.png "Diagram of the connections if the LEDs"
 [Multiplex - on]: https://raw.githubusercontent.com/TDHolmes/BinaryClock/master/documents/pictures/binaryClock_multiplexLogic_on.png "Diagram of a snapshot when the minute ones column is active."
 [GIF]: https://raw.githubusercontent.com/TDHolmes/BinaryClock/master/documents/pictures/binary_clock_demo.gif "GIF of the multiplexing"
-[PCB picture]: https://raw.githubusercontent.com/TDHolmes/BinaryClock/master/documents/pictures/BinaryClock_rev1.JPG "Binary Clock v1 displaying 20:31:08 (8:31 PM)"
+[PCB picture]: https://raw.githubusercontent.com/TDHolmes/BinaryClock/master/documents/pictures/BinaryClock_front_final.jpeg "final Binary Clock displaying 12:35:47"
+[PCB picture back]: https://raw.githubusercontent.com/TDHolmes/BinaryClock/master/documents/pictures/BinaryClock_back_final.jpeg "Back of the Binary Clock"
 [RTC wiki link]: https://en.wikipedia.org/wiki/Real-time_clock
 [mosfet wiki link]: https://en.wikipedia.org/wiki/MOSFET#Single-type
 [multiplexing wiki link]: https://en.wikipedia.org/wiki/Multiplexing
