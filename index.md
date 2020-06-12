@@ -38,9 +38,9 @@ The user interface communicates to the PCB via a [UART][UART wiki link] through 
 
 
 [BCD wiki link]: https://en.wikipedia.org/wiki/Binary-coded_decimal
-[attiny link]: http://www.atmel.com/devices/ATTINY4313.aspx
+[attiny link]: https://www.atmel.com/devices/ATTINY4313.aspx
 [ds3231m link]: https://www.maximintegrated.com/en/products/digital/real-time-clocks/DS3231M.html
-[stp16cpc26 link]: http://www.st.com/content/st_com/en/products/power-management/led-drivers/led-array-drivers/stp16cpc26.html
+[stp16cpc26 link]: https://www.st.com/content/st_com/en/products/power-management/led-drivers/led-array-drivers/stp16cpc26.html
 [Multiplex - off]: https://raw.githubusercontent.com/TDHolmes/BinaryClock/master/documents/pictures/binaryClock_multiplexLogic_notOn.png "Diagram of the connections if the LEDs"
 [Multiplex - on]: https://raw.githubusercontent.com/TDHolmes/BinaryClock/master/documents/pictures/binaryClock_multiplexLogic_on.png "Diagram of a snapshot when the minute ones column is active."
 [GIF]: https://raw.githubusercontent.com/TDHolmes/BinaryClock/master/documents/pictures/binary_clock_demo.gif "GIF of the multiplexing"
