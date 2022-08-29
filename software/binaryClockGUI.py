@@ -4,9 +4,14 @@ GUI for the Binary Clock API.
 '''
 import binaryClockAPI as BC
 import CustomGUIWrappers as Gui
-import Tkinter as tk
-import ttk
-import tkMessageBox as messagebox
+try:
+    import Tkinter as tk
+    import tkMessageBox as messagebox
+    import ttk
+except:
+    import tkinter as tk
+    from tkinter import messagebox, ttk
+
 import serial.serialutil
 
 

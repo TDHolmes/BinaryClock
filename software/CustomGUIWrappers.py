@@ -3,9 +3,13 @@ Custom wrappers around Tkinter classes & functions.
 '''
 
 # tk stuff
-import Tkinter as tk
-import tkMessageBox as messagebox
-import ttk
+try:
+    import ttk
+    import Tkinter as tk
+    import tkMessageBox as messagebox
+except:
+    import tkinter as tk
+    from tkinter import messagebox, ttk
 
 
 class CheckBox:
